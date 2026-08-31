@@ -7,83 +7,98 @@
 <meta name="description" content="Damumed Band — аналитический отчёт по запуску браслета для контроля здоровья">
 <title>Damumed Band</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&family=Spline+Sans+Mono:wght@400;500&display=swap">
 <style>
 :root{
-  --ground:#EEF1F2; --surface:#FFFFFF; --surface-2:#F7F9F9;
-  --ink:#121D24; --ink-2:#47585F; --muted:#78888F;
-  --line:#DBE2E5; --line-strong:#C3CDD2;
-  --accent:#008C74; --warn:#B4762A; --alert:#BE3B3B; --info:#3A6BA5;
-  --accent-wash:#E4F0ED; --warn-wash:#F6EDDF; --alert-wash:#F8E7E7;
-  --seq1:#004C40; --seq2:#00705E; --seq3:#3E9E8B; --seq4:#8FC4B8;
-  --shadow:0 1px 2px rgba(18,29,36,.06), 0 8px 24px rgba(18,29,36,.06);
+  --ground:#FBF9F4; --surface:#FFFFFF; --surface-2:#F5F2EA;
+  --ink:#16232B; --ink-2:#3C4A53; --muted:#6A7883;
+  --line:#E6E0D4; --line-strong:#D4CBB9;
+  --accent:#00849B; --warn:#C58A2E; --alert:#C0453C; --info:#2F6D9E;
+  --accent-wash:#E3F1F4; --warn-wash:#FDF4E3; --alert-wash:#F9E9E7;
+  --head:#0E7C8C; --head-ink:#FBF9F4;
+  --seq1:#054C58; --seq2:#00707F; --seq3:#3AA0B0; --seq4:#96CBD5;
+  --shadow:0 1px 2px rgba(22,35,43,.05), 0 10px 28px rgba(22,35,43,.06);
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --ground:#0E1418; --surface:#161F24; --surface-2:#1B262C;
-    --ink:#E6ECEF; --ink-2:#A7B6BD; --muted:#7E9099;
-    --line:#263239; --line-strong:#35454E;
-    --accent:#22A189; --warn:#BD8336; --alert:#D45C5C; --info:#5B95CE;
-    --accent-wash:#132A28; --warn-wash:#2A2318; --alert-wash:#2C1B1B;
-    --seq1:#0C5F52; --seq2:#16826F; --seq3:#22A189; --seq4:#59BFAA;
-    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+    --ground:#0E1719; --surface:#16242A; --surface-2:#1C2E34;
+    --ink:#E9EFEE; --ink-2:#A9BCC0; --muted:#7D9298;
+    --line:#243940; --line-strong:#334C54;
+    --accent:#2FA3B4; --warn:#B4862A; --alert:#D45566; --info:#4E8CC4;
+    --accent-wash:#0F2C31; --warn-wash:#2A2317; --alert-wash:#2E1B1C;
+    --head:#0B4A55; --head-ink:#EAF4F5;
+    --seq1:#0A4E58; --seq2:#12707F; --seq3:#2FA3B4; --seq4:#63C4D1;
+    --shadow:0 1px 2px rgba(0,0,0,.45), 0 10px 28px rgba(0,0,0,.32);
   }
 }
 :root[data-theme="dark"]{
-  --ground:#0E1418; --surface:#161F24; --surface-2:#1B262C;
-  --ink:#E6ECEF; --ink-2:#A7B6BD; --muted:#7E9099;
-  --line:#263239; --line-strong:#35454E;
-  --accent:#22A189; --warn:#BD8336; --alert:#D45C5C; --info:#5B95CE;
-  --accent-wash:#132A28; --warn-wash:#2A2318; --alert-wash:#2C1B1B;
-  --seq1:#0C5F52; --seq2:#16826F; --seq3:#22A189; --seq4:#59BFAA;
-  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+  --ground:#0E1719; --surface:#16242A; --surface-2:#1C2E34;
+  --ink:#E9EFEE; --ink-2:#A9BCC0; --muted:#7D9298;
+  --line:#243940; --line-strong:#334C54;
+  --accent:#2FA3B4; --warn:#B4862A; --alert:#D45566; --info:#4E8CC4;
+  --accent-wash:#0F2C31; --warn-wash:#2A2317; --alert-wash:#2E1B1C;
+  --head:#0B4A55; --head-ink:#EAF4F5;
+  --seq1:#0A4E58; --seq2:#12707F; --seq3:#2FA3B4; --seq4:#63C4D1;
+  --shadow:0 1px 2px rgba(0,0,0,.45), 0 10px 28px rgba(0,0,0,.32);
 }
 *{box-sizing:border-box}
 body{
   background:var(--ground); color:var(--ink);
-  font-family:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-family:Manrope,-apple-system,"Segoe UI",Roboto,sans-serif;
   font-size:15.5px; line-height:1.6; margin:0;
   -webkit-font-smoothing:antialiased;
 }
 .wrap{max-width:1080px; margin:0 auto; padding:0 24px 80px}
-h1,h2,h3{font-family:Bitter,Georgia,serif; text-wrap:balance; margin:0}
-.num{font-family:"IBM Plex Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
+h1,h2,h3{font-family:Manrope,system-ui,sans-serif; text-wrap:balance; margin:0}
+.num{font-family:"Spline Sans Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
 
 /* шапка */
-header{padding:56px 0 34px; border-bottom:2px solid var(--ink); margin-bottom:34px}
-.eyebrow{font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--accent); margin-bottom:14px}
-h1{font-size:clamp(30px,4.4vw,46px); font-weight:700; line-height:1.12; letter-spacing:-.015em}
+.hero{background:var(--head); color:var(--head-ink); margin:0 0 38px; padding:0;
+  position:relative; overflow:hidden}
+.hero-in{max-width:1080px; margin:0 auto; padding:44px 24px 38px; position:relative; z-index:1}
+.hero-orn{position:absolute; right:-70px; top:-80px; opacity:.15; pointer-events:none}
+header{padding:0}
+.eyebrow{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.18em;
+  text-transform:uppercase; opacity:.8; margin-bottom:16px}
+.hero .lede{color:var(--head-ink); opacity:.92}
+.hero .meta{color:var(--head-ink); opacity:.82; border-top:1px solid rgba(255,255,255,.24);
+  padding-top:22px}
+.hero .meta b{color:var(--head-ink)}
+@media(max-width:700px){.hero-orn{display:none}}
+h1{font-size:clamp(32px,4.6vw,52px); font-weight:800; line-height:1.12; letter-spacing:-.015em}
 .lede{color:var(--ink-2); font-size:17px; max-width:62ch; margin:14px 0 0}
 .meta{display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:22px;
-  font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--muted)}
+  font-family:"Spline Sans Mono",monospace; font-size:12px; color:var(--muted)}
 .meta b{color:var(--ink-2); font-weight:500}
 
 /* плитки */
 .tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(178px,1fr)); gap:14px; margin-bottom:44px}
-.tile{background:var(--surface); border:1px solid var(--line); border-radius:3px;
+.tile{background:var(--surface); border:1px solid var(--line); border-radius:2px;
   padding:16px 18px 15px; box-shadow:var(--shadow)}
-.tile .k{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.1em;
+.tile .k{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.1em;
   text-transform:uppercase; color:var(--muted); display:block; margin-bottom:9px}
-.tile .v{font-family:Bitter,serif; font-size:27px; font-weight:600; line-height:1;
+.tile .v{font-family:'Spline Sans Mono',monospace; font-size:30px; font-weight:500; line-height:1;
   font-variant-numeric:tabular-nums; letter-spacing:-.01em}
-.tile .u{font-size:13px; color:var(--ink-2); font-family:"IBM Plex Sans",sans-serif; font-weight:400}
+.tile .u{font-size:13px; color:var(--ink-2); font-family:Manrope,sans-serif; font-weight:400}
 .tile .d{font-size:12.5px; color:var(--muted); margin-top:7px; line-height:1.4}
 .tile.hot{border-color:var(--accent); background:var(--accent-wash)}
 .tile.hot .v{color:var(--accent)}
 
 /* секции */
 section{margin-bottom:52px; scroll-margin-top:20px}
-.shead{display:flex; align-items:baseline; gap:14px; margin-bottom:6px;
-  padding-bottom:11px; border-bottom:1px solid var(--line-strong)}
-.snum{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--accent); font-weight:500}
-h2{font-size:23px; font-weight:600; letter-spacing:-.01em}
+.shead{display:flex; align-items:center; gap:13px; margin-bottom:6px;
+  padding-bottom:13px; border-bottom:1px solid var(--line-strong)}
+.shead::before{content:""; width:19px; height:19px; flex:none; transform:rotate(45deg);
+  border:1.8px solid var(--warn)}
+.snum{font-family:"Spline Sans Mono",monospace; font-size:11.5px; color:var(--warn);
+  font-weight:500; letter-spacing:.16em; text-transform:uppercase}
+h2{font-size:26px; font-weight:800; letter-spacing:-.01em}
 .sdek{color:var(--ink-2); margin:14px 0 22px; max-width:66ch}
 p{margin:0 0 15px} p:last-child{margin-bottom:0}
 strong{font-weight:600}
 
 /* карточка графика */
-.fig{background:var(--surface); border:1px solid var(--line); border-radius:3px;
+.fig{background:var(--surface); border:1px solid var(--line); border-radius:2px;
   padding:20px 22px 16px; margin:22px 0; box-shadow:var(--shadow)}
 .fig h3{font-size:16px; font-weight:600; margin-bottom:3px}
 .fig .sub{color:var(--muted); font-size:13px; margin-bottom:18px}
@@ -92,10 +107,10 @@ strong{font-weight:600}
 .chart{width:100%; overflow-x:auto}
 svg{display:block; max-width:100%; height:auto}
 .grid-line{stroke:var(--line); stroke-width:1}
-.axis-text{font-family:"IBM Plex Mono",monospace; font-size:11px; fill:var(--muted)}
-.lbl{font-family:"IBM Plex Mono",monospace; font-size:11.5px; fill:var(--ink-2)}
-.lbl-strong{font-family:"IBM Plex Mono",monospace; font-size:12px; fill:var(--ink); font-weight:500}
-.name{font-family:"IBM Plex Sans",sans-serif; font-size:12.5px; fill:var(--ink-2)}
+.axis-text{font-family:"Spline Sans Mono",monospace; font-size:11px; fill:var(--muted)}
+.lbl{font-family:"Spline Sans Mono",monospace; font-size:11.5px; fill:var(--ink-2)}
+.lbl-strong{font-family:"Spline Sans Mono",monospace; font-size:12px; fill:var(--ink); font-weight:500}
+.name{font-family:Manrope,sans-serif; font-size:12.5px; fill:var(--ink-2)}
 .mark{transition:opacity .12s} .mark:hover{opacity:.78; cursor:default}
 
 /* легенда */
@@ -107,22 +122,22 @@ svg{display:block; max-width:100%; height:auto}
 /* таблицы */
 .tw{overflow-x:auto; margin:20px 0}
 table{border-collapse:collapse; width:100%; font-size:14px; min-width:520px}
-th{text-align:left; font-family:"IBM Plex Mono",monospace; font-size:10.5px;
+th{text-align:left; font-family:"Spline Sans Mono",monospace; font-size:10.5px;
   letter-spacing:.09em; text-transform:uppercase; color:var(--muted); font-weight:500;
   padding:0 14px 9px 0; border-bottom:1px solid var(--line-strong); white-space:nowrap}
 td{padding:11px 14px 11px 0; border-bottom:1px solid var(--line); vertical-align:top}
-td.n{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; white-space:nowrap}
+td.n{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums; white-space:nowrap}
 tr:last-child td{border-bottom:0}
 .pick td{background:var(--accent-wash)}
 .pick td:first-child{box-shadow:inset 3px 0 0 var(--accent)}
 
 /* врезки */
-.note{border-left:3px solid var(--accent); background:var(--surface);
+.note{border-left:3px solid var(--warn); background:var(--surface);
   padding:15px 18px; margin:22px 0; border-radius:0 3px 3px 0; box-shadow:var(--shadow)}
-.note.warn{border-left-color:var(--warn)}
-.note.alert{border-left-color:var(--alert)}
-.note .t{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.1em;
-  text-transform:uppercase; color:var(--accent); margin-bottom:7px}
+.note.warn{border-left-color:var(--warn); background:var(--warn-wash)}
+.note.alert{border-left-color:var(--alert); background:var(--alert-wash)}
+.note .t{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--warn); margin-bottom:7px}
 .note.warn .t{color:var(--warn)} .note.alert .t{color:var(--alert)}
 
 /* списки */
@@ -130,7 +145,7 @@ ol,ul{margin:0 0 15px; padding-left:22px} li{margin-bottom:7px}
 ol{counter-reset:i; list-style:none; padding-left:0}
 ol li{counter-increment:i; padding-left:30px; position:relative}
 ol li::before{content:counter(i); position:absolute; left:0; top:1px;
-  font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--accent);
+  font-family:"Spline Sans Mono",monospace; font-size:11.5px; color:var(--accent);
   border:1px solid var(--line-strong); border-radius:2px; width:19px; height:19px;
   display:flex; align-items:center; justify-content:center}
 
@@ -139,7 +154,7 @@ ol li::before{content:counter(i); position:absolute; left:0; top:1px;
   border-radius:3px; overflow:hidden; margin:22px 0}
 .step{background:var(--surface); padding:14px 18px; display:grid;
   grid-template-columns:86px 1fr; gap:16px; align-items:start}
-.step .w{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--accent)}
+.step .w{font-family:"Spline Sans Mono",monospace; font-size:12px; color:var(--accent)}
 .step .b{font-weight:600; font-size:14.5px; margin-bottom:3px}
 .step .c{color:var(--ink-2); font-size:13.5px}
 
@@ -148,22 +163,22 @@ ol li::before{content:counter(i); position:absolute; left:0; top:1px;
   gap:20px; margin:24px 0}
 .ph{background:var(--surface); border:1px solid var(--line-strong); border-radius:22px;
   padding:9px; box-shadow:var(--shadow)}
-.ph-cap{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.08em;
+.ph-cap{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.08em;
   text-transform:uppercase; color:var(--muted); text-align:center; padding:5px 0 9px}
 .scr{background:var(--surface-2); border-radius:15px; padding:14px 13px 16px;
   min-height:472px; display:flex; flex-direction:column; gap:10px}
 .st-top{display:flex; justify-content:space-between; align-items:center;
-  font-size:11px; color:var(--muted); font-family:"IBM Plex Mono",monospace}
-.st-h{font-family:Bitter,serif; font-size:17px; font-weight:600}
+  font-size:11px; color:var(--muted); font-family:"Spline Sans Mono",monospace}
+.st-h{font-family:Manrope,system-ui,sans-serif; font-size:17px; font-weight:600}
 .card2{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:11px 12px}
-.card2 h4{font-family:"IBM Plex Sans",sans-serif; font-size:11px; font-weight:600;
+.card2 h4{font-family:Manrope,sans-serif; font-size:11px; font-weight:600;
   color:var(--muted); text-transform:uppercase; letter-spacing:.06em; margin:0 0 8px}
 .row2{display:flex; justify-content:space-between; align-items:baseline; padding:4px 0;
   font-size:13px}
-.row2 b{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; font-size:14px}
+.row2 b{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums; font-size:14px}
 .hint{font-size:11.5px; color:var(--muted); line-height:1.4}
 .pill2{display:inline-block; font-size:11px; padding:2px 8px; border-radius:99px;
-  font-family:"IBM Plex Mono",monospace}
+  font-family:"Spline Sans Mono",monospace}
 .p-ok{background:var(--accent-wash); color:var(--accent)}
 .p-warn{background:var(--warn-wash); color:var(--warn)}
 .p-alert{background:var(--alert-wash); color:var(--alert)}
@@ -175,13 +190,13 @@ ol li::before{content:counter(i); position:absolute; left:0; top:1px;
 .btn2.ghost{background:transparent; color:var(--accent); border:1px solid var(--accent)}
 .tabs{display:flex; gap:3px; margin-top:auto; padding-top:9px; border-top:1px solid var(--line)}
 .tabs span{flex:1; text-align:center; font-size:9.5px; color:var(--muted); padding:5px 0;
-  font-family:"IBM Plex Mono",monospace}
+  font-family:"Spline Sans Mono",monospace}
 .tabs span.on{color:var(--accent); font-weight:600}
 .bars{display:flex; flex-direction:column; gap:7px}
 .bar-r{display:grid; grid-template-columns:74px 1fr 40px; gap:8px; align-items:center; font-size:11.5px}
 .bar-t{height:7px; background:var(--line); border-radius:4px; overflow:hidden}
 .bar-t i{display:block; height:100%; border-radius:4px}
-.bar-r b{font-family:"IBM Plex Mono",monospace; font-size:11.5px; text-align:right}
+.bar-r b{font-family:"Spline Sans Mono",monospace; font-size:11.5px; text-align:right}
 
 /* файлы */
 .files{display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:12px; margin-top:20px}
@@ -191,7 +206,7 @@ ol li::before{content:counter(i); position:absolute; left:0; top:1px;
   font:inherit; text-align:left; cursor:pointer; width:100%}
 .file:hover{border-color:var(--accent); transform:translateY(-1px)}
 .file:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
-.fi{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.06em;
+.fi{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.06em;
   color:var(--accent); border:1px solid var(--accent); border-radius:2px;
   padding:5px 7px; flex:none}
 .fb{display:flex; flex-direction:column; gap:3px; min-width:0}
@@ -203,7 +218,7 @@ ol li::before{content:counter(i); position:absolute; left:0; top:1px;
 .det summary{cursor:pointer; padding:14px 17px; font-weight:600; font-size:14.5px;
   list-style:none; display:flex; align-items:center; gap:9px}
 .det summary::-webkit-details-marker{display:none}
-.det summary::before{content:"+"; font-family:"IBM Plex Mono",monospace; color:var(--accent);
+.det summary::before{content:"+"; font-family:"Spline Sans Mono",monospace; color:var(--accent);
   border:1px solid var(--line-strong); border-radius:2px; width:19px; height:19px;
   display:flex; align-items:center; justify-content:center; font-size:13px; flex:none}
 .det[open] summary::before{content:"–"}
@@ -211,7 +226,7 @@ ol li::before{content:counter(i); position:absolute; left:0; top:1px;
 .det-b{padding:0 17px 17px; color:var(--ink-2); font-size:14px; line-height:1.62;
   border-top:1px solid var(--line); padding-top:15px; white-space:normal}
 .det-b p{margin:0 0 11px}
-.det-b h4{font-family:Bitter,serif; font-size:15px; color:var(--ink); margin:20px 0 9px}
+.det-b h4{font-family:Manrope,system-ui,sans-serif; font-size:15px; color:var(--ink); margin:20px 0 9px}
 .det-b table{font-size:13.5px}
 
 /* калькулятор */
@@ -219,7 +234,7 @@ ol li::before{content:counter(i); position:absolute; left:0; top:1px;
 @media(max-width:640px){.calc{grid-template-columns:1fr}}
 .calc-in{display:flex; flex-direction:column; gap:13px}
 .calc-in label{display:block; font-size:12.5px; color:var(--muted)}
-.calc-in label b{float:right; font-family:"IBM Plex Mono",monospace; color:var(--ink);
+.calc-in label b{float:right; font-family:"Spline Sans Mono",monospace; color:var(--ink);
   font-variant-numeric:tabular-nums; font-size:13px}
 .calc-in input[type=range]{width:100%; accent-color:var(--accent); margin-top:5px}
 .calc-out{background:var(--surface-2); border:1px solid var(--line); border-radius:3px;
@@ -227,9 +242,9 @@ ol li::before{content:counter(i); position:absolute; left:0; top:1px;
 .co{display:flex; justify-content:space-between; align-items:baseline; gap:12px;
   padding:7px 0; border-bottom:1px dashed var(--line); font-size:13px}
 .co:last-of-type{border-bottom:0}
-.co b{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums;
+.co b{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums;
   font-size:14.5px; color:var(--ink); white-space:nowrap}
-.co.big b{font-family:Bitter,serif; font-size:20px; color:var(--accent)}
+.co.big b{font-family:Manrope,system-ui,sans-serif; font-size:20px; color:var(--accent)}
 .co.big b.neg{color:var(--alert)}
 
 footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56px;
@@ -243,20 +258,31 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
 </head>
 <body>
 
-<div class="wrap">
-<header>
-  <div class="eyebrow">Аналитический отчёт · 31 августа 2026</div>
-  <h1>Damumed Band</h1>
-  <p class="lede">Браслет для контроля здоровья под собственным брендом: медицинское
-  изделие дешевле массового фитнес-трекера. Расчёт производства, клинической базы,
-  регистрации и экономики первой партии.</p>
-  <div class="meta">
-    <span>Держатель РУ · <b>Damumed</b></span>
-    <span>Партия · <b>10 000 шт</b></span>
-    <span>Курс · <b>465 ₸/$</b> (НБ РК)</span>
-    <span>Горизонт расчёта · <b>24 месяца</b></span>
+<div class="hero">
+  <svg class="hero-orn" width="380" height="380" viewBox="0 0 360 360" fill="none" aria-hidden="true">
+    <path d="M180 20 L250 90 L180 160 L110 90 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+    <path d="M180 100 L250 170 L180 240 L110 170 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+    <path d="M180 180 L250 250 L180 320 L110 250 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+    <circle cx="180" cy="170" r="118" stroke="currentColor" stroke-width="2" fill="none"/>
+  </svg>
+  <div class="hero-in">
+    <header>
+      <div class="eyebrow">Аналитический отчёт · 31 августа 2026</div>
+      <h1>Damumed Band</h1>
+      <p class="lede">Браслет для контроля здоровья под собственным брендом: медицинское
+      изделие дешевле массового фитнес-трекера. Расчёт производства, клинической базы,
+      регистрации и экономики первой партии.</p>
+      <div class="meta">
+        <span>Держатель РУ · <b>Damumed</b></span>
+        <span>Партия · <b>10 000 шт</b></span>
+        <span>Курс · <b>465 ₸/$</b> (НБ РК)</span>
+        <span>Горизонт расчёта · <b>24 месяца</b></span>
+      </div>
+    </header>
   </div>
-</header>
+</div>
+
+<div class="wrap">
 
 <div class="tiles">
   <div class="tile hot"><span class="k">Розничная цена</span>
@@ -277,7 +303,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
 </div>
 
 <section>
-  <div class="shead"><span class="snum">01</span><h2>Замысел</h2></div>
+  <div class="shead"><span class="snum">Раздел 01</span><h2>Замысел</h2></div>
   <p class="sdek">Продаём не браслет, а медицинский надзор. Устройство идёт с
   минимальной наценкой, деньги приходят от мониторинга и подписок.</p>
 
@@ -302,15 +328,6 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
     используем.</div>
   </div>
 
-  <div class="fig">
-    <h3>Три возможных форм-фактора</h3>
-    <div class="sub">Что выбрано и почему</div>
-    <div class="chart" id="c-forms"></div>
-    <div class="cap">Кольцо точнее браслета по пульсу, но требует размерного ряда
-    (18 размеров) и не подходит для пожилых с отёками пальцев. Браслет с экраном
-    дороже и не даёт клинического выигрыша. Выбран браслет без экрана.</div>
-  </div>
-
   <div class="note">
     <div class="t">Почему сейчас</div>
     <p>С 1 сентября 2026 года новая редакция приказа № ҚР ДСМ-39 обязывает медицинские
@@ -324,7 +341,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">02</span><h2>Цена</h2></div>
+  <div class="shead"><span class="snum">Раздел 02</span><h2>Цена</h2></div>
   <p class="sdek">Решение — опустить цену настолько, насколько позволяет экономика.
   Рекламное утверждение, которое конкурентам нечем перебить: медицинское изделие
   стоит дешевле обычного фитнес-браслета.</p>
@@ -367,7 +384,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">03</span><h2>Три ценовых уровня</h2></div>
+  <div class="shead"><span class="snum">Раздел 03</span><h2>Три ценовых уровня</h2></div>
   <p class="sdek">Насколько глубоко имеет смысл опускать цену. Каждый следующий шаг вниз
   оплачивается размером партии: снижать цену, не увеличивая заказ, — это менять прибыль
   на убыток.</p>
@@ -440,7 +457,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">04</span><h2>Экономика</h2></div>
+  <div class="shead"><span class="snum">Раздел 04</span><h2>Экономика</h2></div>
   <p class="sdek">Низкая цена возможна потому, что программную часть делает команда
   Damumed. Вложения помимо партии — только регистрация и образцы.</p>
 
@@ -491,7 +508,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">05</span><h2>Кому продаём</h2></div>
+  <div class="shead"><span class="snum">Раздел 05</span><h2>Кому продаём</h2></div>
   <p class="sdek">Четыре группы пациентов, отобранные по двум признакам: браслет даёт
   по ним осмысленный сигнал, и группа достаточно велика.</p>
 
@@ -536,7 +553,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">06</span><h2>Приложение</h2></div>
+  <div class="shead"><span class="snum">Раздел 06</span><h2>Приложение</h2></div>
   <p class="sdek">Браслет без экрана — значит продукт целиком живёт в приложении.
   Разобрали, как устроены Whoop, Oura, Ultrahuman, Fitbit, Apple и клинические
   платформы дистанционного наблюдения, и собрали свой раздел на их сильных приёмах.</p>
@@ -610,7 +627,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
         <div class="st-h">Доброе утро, Гульнара</div>
         <div class="card2" style="text-align:center; background:var(--accent-wash); border-color:var(--accent)">
           <div id="ring-ok"></div>
-          <div style="font-family:Bitter,serif; font-size:17px; font-weight:600; margin-top:6px">Всё в вашей норме</div>
+          <div style="font-family:Manrope,system-ui,sans-serif; font-size:17px; font-weight:600; margin-top:6px">Всё в вашей норме</div>
           <div class="hint" style="margin-top:3px">Сон, пульс и дыхание — как обычно</div>
         </div>
         <div class="card2">
@@ -641,7 +658,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
         <div class="st-h">Изучаем вашу норму</div>
         <div class="card2" style="text-align:center">
           <div id="ring-cal"></div>
-          <div style="font-family:Bitter,serif; font-size:16px; font-weight:600; margin-top:6px">Осталось 3 ночи</div>
+          <div style="font-family:Manrope,system-ui,sans-serif; font-size:16px; font-weight:600; margin-top:6px">Осталось 3 ночи</div>
           <div class="hint" style="margin-top:4px">У каждого человека своя норма пульса и сна.
           Носите браслет ночью — через три ночи начнём показывать отклонения именно от вашей.</div>
         </div>
@@ -667,7 +684,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
         <div class="st-top"><span>9:41</span><span>30 дней</span></div>
         <div class="st-h">Ритм и пульс</div>
         <div class="card2" style="background:var(--warn-wash); border-color:var(--warn)">
-          <div style="font-family:Bitter,serif; font-size:15px; font-weight:600">Пульс выше обычного</div>
+          <div style="font-family:Manrope,system-ui,sans-serif; font-size:15px; font-weight:600">Пульс выше обычного</div>
           <div class="hint" style="margin-top:3px">Третью ночь подряд. Врач видит это,
           отдельно звонить не нужно.</div>
         </div>
@@ -805,7 +822,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">07</span><h2>Производство</h2></div>
+  <div class="shead"><span class="snum">Раздел 07</span><h2>Производство</h2></div>
   <p class="sdek">Проверено двенадцать контрактных заводов. Решает не цена, а доступ
   к данным устройства и наличие системы качества.</p>
 
@@ -832,7 +849,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">08</span><h2>Регистрация</h2></div>
+  <div class="shead"><span class="snum">Раздел 08</span><h2>Регистрация</h2></div>
   <p class="sdek">Класс риска 2а, национальная процедура, держатель удостоверения —
   Damumed. Два решения приняты заранее, чтобы не поднимать класс.</p>
 
@@ -878,7 +895,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">09</span><h2>Риски</h2></div>
+  <div class="shead"><span class="snum">Раздел 09</span><h2>Риски</h2></div>
   <div class="tw"><table>
     <tr><th>Риск</th><th>Чем снимается</th></tr>
     <tr><td><strong>Завод не даёт доступ к данным или документацию для регистрации</strong></td>
@@ -900,7 +917,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">10</span><h2>Что даёт</h2></div>
+  <div class="shead"><span class="snum">Раздел 10</span><h2>Что даёт</h2></div>
   <p>Проект ставит Damumed в позицию, которую в Казахстане никто не занял: единственное
   носимое устройство со статусом медицинского изделия, встроенное в медкарту и рабочее
   место врача, и при этом дешевле массового фитнес-браслета.</p>
@@ -916,7 +933,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
 </section>
 
 <section id="files">
-  <div class="shead"><span class="snum">—</span><h2>Файлы отчёта</h2></div>
+  <div class="shead"><span class="snum">Приложения</span><h2>Файлы отчёта</h2></div>
   <p class="sdek">Всё, что нужно для решения: документы, расчёты и полные тексты.</p>
   <p class="sdek" style="margin-top:0">Документы скачиваются по ссылкам ниже. Там же —
   полноразмерный калькулятор и полные тексты, которые можно скопировать со страницы.</p>
@@ -1243,7 +1260,7 @@ function device(mount) {
   s.appendChild(el('rect', {x: gx + 28, y: gy + 26, width: 52, height: 66, rx: 15,
     fill: acc, opacity: .1}));
   s.appendChild(el('text', {x: gx + 54, y: gy + 64, 'text-anchor': 'middle',
-    'font-size': 10, fill: acc, 'font-family': 'IBM Plex Mono, monospace'}, 'damumed'));
+    'font-size': 10, fill: acc, 'font-family': 'Spline Sans Mono, monospace'}, 'damumed'));
   s.appendChild(el('text', {x: gx + 54, y: gy + 182, 'text-anchor': 'middle', class: 'lbl-strong'}, 'Вид сверху'));
   s.appendChild(el('text', {x: gx + 54, y: gy + 198, 'text-anchor': 'middle', class: 'axis-text'}, 'экрана нет'));
 
@@ -1290,46 +1307,7 @@ function device(mount) {
   mount.appendChild(s);
 }
 
-/* ── Три форм-фактора ── */
-function forms(mount) {
-  const W = 720, H = 176;
-  const s = svg(W, H);
-  const acc = 'var(--accent)', ink = 'var(--ink-2)', surf = 'var(--surface)';
-  const cards = [
-    {x: 30,  pick: true,  t: 'Браслет без экрана', p: 'выбран',
-     d: ['цена завода $7,5', 'батарея 5–7 дней', 'вся ценность в приложении']},
-    {x: 268, pick: false, t: 'Браслет с экраном', p: 'дороже',
-     d: ['цена завода $11–13', 'батарея 3–4 дня', 'экран не лечит']},
-    {x: 506, pick: false, t: 'Кольцо', p: 'сложнее',
-     d: ['18 размеров на складе', 'не подходит при отёках', 'дороже в производстве']},
-  ];
-  cards.forEach(c => {
-    const w = 184;
-    s.appendChild(el('rect', {x: c.x, y: 10, width: w, height: 152, rx: 4, fill: surf,
-      stroke: c.pick ? acc : 'var(--line)', 'stroke-width': c.pick ? 2 : 1}));
-    // пиктограмма
-    const px = c.x + 26, py = 32;
-    if (c.t === 'Кольцо') {
-      s.appendChild(el('circle', {cx: px + 14, cy: py + 16, r: 15, fill: 'none',
-        stroke: c.pick ? acc : ink, 'stroke-width': 6, opacity: c.pick ? 1 : .5}));
-    } else {
-      s.appendChild(el('rect', {x: px, y: py, width: 28, height: 34, rx: 9, fill: 'none',
-        stroke: c.pick ? acc : ink, 'stroke-width': 2, opacity: c.pick ? 1 : .55}));
-      if (c.t.includes('с экраном'))
-        s.appendChild(el('rect', {x: px + 5, y: py + 7, width: 18, height: 20, rx: 3,
-          fill: ink, opacity: .3}));
-    }
-    s.appendChild(el('text', {x: c.x + 68, y: py + 14, class: 'lbl-strong'}, c.t));
-    s.appendChild(el('text', {x: c.x + 68, y: py + 30, class: 'axis-text',
-      fill: c.pick ? acc : 'var(--muted)'}, c.p));
-    c.d.forEach((d, i) => s.appendChild(el('text', {x: c.x + 20, y: 96 + i * 18,
-      class: 'axis-text'}, '· ' + d)));
-  });
-  mount.appendChild(s);
-}
-
 device(document.getElementById('c-device'));
-forms(document.getElementById('c-forms'));
 
 /* ── Встроенный калькулятор ── */
 (function () {
@@ -1396,7 +1374,7 @@ function ring(mount, pct, glyph, color) {
     'stroke-width': 8, 'stroke-linecap': 'round',
     'stroke-dasharray': `${c * pct} ${c}`, transform: `rotate(-90 ${S / 2} ${S / 2})`}));
   const t = el('text', {x: S / 2, y: S / 2 + 9, 'text-anchor': 'middle',
-    'font-size': 26, fill: color, 'font-family': 'Bitter, serif', 'font-weight': 600}, glyph);
+    'font-size': 26, fill: color, 'font-family': 'Manrope, sans-serif', 'font-weight': 700}, glyph);
   s.appendChild(t);
   s.style.margin = '0 auto';
   mount.appendChild(s);
@@ -1415,7 +1393,7 @@ function hrBand(mount) {
   s.appendChild(el('rect', {x: padL, y: Y(hi), width: iw, height: Y(lo) - Y(hi),
     fill: 'var(--ink-2)', opacity: .12, rx: 3}));
   [max, hi, lo].forEach(v => s.appendChild(el('text', {x: 0, y: Y(v) + 4,
-    'font-size': 9, fill: 'var(--muted)', 'font-family': 'IBM Plex Mono, monospace'}, v)));
+    'font-size': 9, fill: 'var(--muted)', 'font-family': 'Spline Sans Mono, monospace'}, v)));
   const d = data.map((v, i) => `${i ? 'L' : 'M'}${X(i)} ${Y(v)}`).join(' ');
   s.appendChild(el('path', {d, fill: 'none', stroke: 'var(--accent)', 'stroke-width': 2,
     'stroke-linejoin': 'round'}));
@@ -1435,9 +1413,9 @@ function actogram(mount) {
                   [2.0,6.6],[1.6,7.1],[1.5,7.3],[2.2,6.4],[1.7,7.0],[1.9,6.8],[1.6,7.2]];
   const scale = (W - padL - 8) / 12;   // окно 22:00 → 10:00
   s.appendChild(el('text', {x: padL, y: 8, 'font-size': 9, fill: 'var(--muted)',
-    'font-family': 'IBM Plex Mono, monospace'}, '22:00'));
+    'font-family': 'Spline Sans Mono, monospace'}, '22:00'));
   s.appendChild(el('text', {x: W - 8, y: 8, 'text-anchor': 'end', 'font-size': 9,
-    fill: 'var(--muted)', 'font-family': 'IBM Plex Mono, monospace'}, '10:00'));
+    fill: 'var(--muted)', 'font-family': 'Spline Sans Mono, monospace'}, '10:00'));
   nights.forEach((n, i) => {
     const y = padT + i * (rowH + gap);
     s.appendChild(el('rect', {x: padL, y, width: W - padL - 8, height: rowH,
@@ -1462,9 +1440,9 @@ function bpChart(mount) {
   s.appendChild(el('rect', {x: padL, y: Y(target), width: iw, height: padT + ih - Y(target),
     fill: 'var(--accent)', opacity: .13, rx: 3}));
   s.appendChild(el('text', {x: padL + 3, y: Y(target) + 10, 'font-size': 9,
-    fill: 'var(--accent)', 'font-family': 'IBM Plex Mono, monospace'}, 'цель <135'));
+    fill: 'var(--accent)', 'font-family': 'Spline Sans Mono, monospace'}, 'цель <135'));
   [max, target, min].forEach(v => s.appendChild(el('text', {x: 0, y: Y(v) + 4,
-    'font-size': 9, fill: 'var(--muted)', 'font-family': 'IBM Plex Mono, monospace'}, v)));
+    'font-size': 9, fill: 'var(--muted)', 'font-family': 'Spline Sans Mono, monospace'}, v)));
   const d = data.map((v, i) => `${i ? 'L' : 'M'}${X(i)} ${Y(v)}`).join(' ');
   s.appendChild(el('path', {d, fill: 'none', stroke: 'var(--info)', 'stroke-width': 2,
     'stroke-linejoin': 'round'}));
@@ -1474,7 +1452,7 @@ function bpChart(mount) {
     stroke: 'var(--warn)', 'stroke-width': 1.5, 'stroke-dasharray': '3 3'}));
   s.appendChild(el('circle', {cx: X(ev), cy: padT + ih + 8, r: 4.5, fill: 'var(--warn)'}));
   s.appendChild(el('text', {x: X(ev) + 9, y: padT + ih + 12, 'font-size': 9,
-    fill: 'var(--ink-2)', 'font-family': 'IBM Plex Mono, monospace'}, '18.08 смена препарата'));
+    fill: 'var(--ink-2)', 'font-family': 'Spline Sans Mono, monospace'}, '18.08 смена препарата'));
   mount.appendChild(s);
 }
 
