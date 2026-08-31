@@ -1270,7 +1270,7 @@ function tip(node, text) {
 
 /* ── Полка: бары с силуэтами устройств ── */
 function priceShelf(mount, rows) {
-  const W = 720, rowH = 46, padT = 6, padL = 210, padR = 82, icoW = 40;
+  const W = 720, rowH = 46, padT = 6, padL = 210, padR = 104, icoW = 40;
   const H = padT + rows.length * rowH + 8;
   const s = svg(W, H);
   const max = Math.max(...rows.map(r => r.v));
@@ -1318,7 +1318,7 @@ function priceShelf(mount, rows) {
 }
 
 function hbars(mount, rows, opts = {}) {
-  const W = 720, rowH = 34, padT = 6, padL = opts.padL || 168, padR = 74;
+  const W = 720, rowH = 34, padT = 6, padL = opts.padL || 168, padR = 112;
   const H = padT + rows.length * rowH + 8;
   const s = svg(W, H);
   const max = Math.max(...rows.map(r => r.v));
@@ -1660,7 +1660,7 @@ hbars(document.getElementById('c-cohorts'), [
   {k: 'Астма', v: 110000},
   {k: 'Лёгочная болезнь (ХОБЛ)', v: 70000},
   {k: 'Сердечная недостаточность', v: 37485},
-], {padL: 210});
+], {padL: 210, unit: ''});
 
 </script>
 
