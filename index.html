@@ -7,59 +7,45 @@
 <meta name="description" content="Damumed Band — аналитический отчёт по запуску браслета для контроля здоровья">
 <title>Damumed Band</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500&display=swap">
 <style>
 :root{
-  --ground:#FBF9F4; --surface:#FFFFFF; --surface-2:#F5F2EA;
-  --ink:#16232B; --ink-2:#3C4A53; --muted:#6A7883;
-  --line:#E6E0D4; --line-strong:#D4CBB9;
-  --accent:#00849B; --warn:#C58A2E; --alert:#C0453C; --info:#2F6D9E;
-  --accent-wash:#E3F1F4; --warn-wash:#FDF4E3; --alert-wash:#F9E9E7;
-  --head:#0E7C8C; --head-ink:#FBF9F4;
-  --seq1:#054C58; --seq2:#00707F; --seq3:#3AA0B0; --seq4:#96CBD5;
+  --ground:#F4F7F5; --surface:#FFFFFF; --surface-2:#EDF3EF;
+  --ink:#16232B; --ink-2:#42504A; --muted:#7B8C82;
+  --line:#E3E9E5; --line-strong:#CBD8D0;
+  --accent:#0E7A50; --warn:#A87718; --alert:#C0453C; --info:#2F6D9E;
+  --accent-wash:#E8F5F0; --warn-wash:#FFF6E3; --alert-wash:#F9E9E7;
+  --head:#0B3D2C; --head-ink:#F2F7F4;
+  --seq1:#0B3D2C; --seq2:#0E7A50; --seq3:#3AAF7C; --seq4:#A9D9C0;
   --shadow:0 1px 2px rgba(22,35,43,.05), 0 10px 28px rgba(22,35,43,.06);
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --ground:#0E1719; --surface:#16242A; --surface-2:#1C2E34;
-    --ink:#E9EFEE; --ink-2:#A9BCC0; --muted:#7D9298;
-    --line:#243940; --line-strong:#334C54;
-    --accent:#2FA3B4; --warn:#B4862A; --alert:#D45566; --info:#4E8CC4;
-    --accent-wash:#0F2C31; --warn-wash:#2A2317; --alert-wash:#2E1B1C;
-    --head:#0B4A55; --head-ink:#EAF4F5;
-    --seq1:#0A4E58; --seq2:#12707F; --seq3:#2FA3B4; --seq4:#63C4D1;
-    --shadow:0 1px 2px rgba(0,0,0,.45), 0 10px 28px rgba(0,0,0,.32);
-  }
-}
-:root[data-theme="dark"]{
-  --ground:#0E1719; --surface:#16242A; --surface-2:#1C2E34;
-  --ink:#E9EFEE; --ink-2:#A9BCC0; --muted:#7D9298;
-  --line:#243940; --line-strong:#334C54;
-  --accent:#2FA3B4; --warn:#B4862A; --alert:#D45566; --info:#4E8CC4;
-  --accent-wash:#0F2C31; --warn-wash:#2A2317; --alert-wash:#2E1B1C;
-  --head:#0B4A55; --head-ink:#EAF4F5;
-  --seq1:#0A4E58; --seq2:#12707F; --seq3:#2FA3B4; --seq4:#63C4D1;
-  --shadow:0 1px 2px rgba(0,0,0,.45), 0 10px 28px rgba(0,0,0,.32);
 }
 *{box-sizing:border-box}
 body{
   background:var(--ground); color:var(--ink);
-  font-family:Manrope,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-family:"Golos Text",-apple-system,"Segoe UI",Roboto,sans-serif;
   font-size:17.5px; line-height:1.62; margin:0;
   -webkit-font-smoothing:antialiased;
 }
 .wrap{max-width:1080px; margin:0 auto; padding:0 24px 80px}
-h1,h2,h3{font-family:Manrope,system-ui,sans-serif; text-wrap:balance; margin:0}
+h1,h2,h3{font-family:"Golos Text",system-ui,sans-serif; text-wrap:balance; margin:0}
 .num{font-family:"Spline Sans Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
 
 /* шапка */
 .hero{background:var(--head); color:var(--head-ink); margin:0 0 38px; padding:0;
   position:relative; overflow:hidden}
-.hero-in{max-width:1080px; margin:0 auto; padding:44px 24px 38px; position:relative; z-index:1}
+.hero-in{max-width:1080px; margin:0 auto; padding:0 24px; position:relative; z-index:1;
+  display:grid; grid-template-columns:1.15fr 1fr; gap:40px; align-items:stretch}
+.hero-in header{padding:46px 0 42px}
+.hero-img{position:relative; min-height:320px}
+.hero-img img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block}
+@media(max-width:760px){.hero-in{grid-template-columns:1fr} .hero-img{display:none}
+  .hero-in header{padding:38px 0 34px}}
 .hero-orn{position:absolute; right:-70px; top:-80px; opacity:.15; pointer-events:none}
 header{padding:0}
-.eyebrow{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.18em;
-  text-transform:uppercase; opacity:.8; margin-bottom:16px}
+.eyebrow{display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.13);
+  border-radius:99px; padding:6px 14px 6px 12px; font-size:12.5px; font-weight:500;
+  letter-spacing:.03em; margin-bottom:22px}
+.eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:#3ECF8E}
 .hero .lede{color:var(--head-ink); opacity:.92}
 .hero .meta{color:var(--head-ink); opacity:.82; border-top:1px solid rgba(255,255,255,.24);
   padding-top:22px}
@@ -73,32 +59,34 @@ h1{font-size:clamp(36px,5vw,58px); font-weight:800; line-height:1.12; letter-spa
 
 /* плитки */
 .tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(178px,1fr)); gap:14px; margin-bottom:44px}
-.tile{background:var(--surface); border:1px solid var(--line); border-radius:2px;
+.tile{background:var(--surface); border:1px solid var(--line); border-radius:14px;
   padding:16px 18px 15px; box-shadow:var(--shadow)}
 .tile .k{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.1em;
   text-transform:uppercase; color:var(--muted); display:block; margin-bottom:9px}
 .tile .v{font-family:'Spline Sans Mono',monospace; font-size:34px; font-weight:500; line-height:1;
   font-variant-numeric:tabular-nums; letter-spacing:-.01em}
-.tile .u{font-size:14.5px; color:var(--ink-2); font-family:Manrope,sans-serif; font-weight:400}
+.tile .u{font-size:14.5px; color:var(--ink-2); font-family:"Golos Text",sans-serif; font-weight:400}
 .tile .d{font-size:13.5px; color:var(--muted); margin-top:7px; line-height:1.4}
-.tile.hot{border-color:var(--accent); background:var(--accent-wash)}
-.tile.hot .v{color:var(--accent)}
+.tile.hot{border-color:var(--accent); background:var(--accent)}
+.tile.hot .v{color:#fff}
+.tile.hot .k{color:#BEDCCB}
+.tile.hot .d{color:#CFE7DB}
+.tile.hot .u{color:#E8F5F0}
 
 /* секции */
 section{margin-bottom:52px; scroll-margin-top:20px}
 .shead{display:flex; align-items:center; gap:13px; margin-bottom:6px;
   padding-bottom:13px; border-bottom:1px solid var(--line-strong)}
-.shead::before{content:""; width:19px; height:19px; flex:none; transform:rotate(45deg);
-  border:1.8px solid var(--warn)}
-.snum{font-family:"Spline Sans Mono",monospace; font-size:12.5px; color:var(--warn);
-  font-weight:500; letter-spacing:.16em; text-transform:uppercase}
+.snum{font-size:13px; color:var(--accent); font-weight:600; background:var(--accent-wash);
+  border-radius:8px; padding:5px 12px; white-space:nowrap}
 h2{font-size:30px; font-weight:800; letter-spacing:-.01em}
 .sdek{color:var(--ink-2); margin:14px 0 22px; max-width:66ch}
 p{margin:0 0 15px} p:last-child{margin-bottom:0}
 strong{font-weight:600}
+a{color:var(--accent)} a:hover{color:#0B5C3C}
 
 /* карточка графика */
-.fig{background:var(--surface); border:1px solid var(--line); border-radius:2px;
+.fig{background:var(--surface); border:1px solid var(--line); border-radius:16px;
   padding:20px 22px 16px; margin:22px 0; box-shadow:var(--shadow)}
 .fig h3{font-size:18px; font-weight:600; margin-bottom:3px}
 .fig .sub{color:var(--muted); font-size:14.5px; margin-bottom:18px}
@@ -110,7 +98,7 @@ svg{display:block; max-width:100%; height:auto}
 .axis-text{font-family:"Spline Sans Mono",monospace; font-size:12px; fill:var(--muted)}
 .lbl{font-family:"Spline Sans Mono",monospace; font-size:12.5px; fill:var(--ink-2)}
 .lbl-strong{font-family:"Spline Sans Mono",monospace; font-size:13px; fill:var(--ink); font-weight:500}
-.name{font-family:Manrope,sans-serif; font-size:13.5px; fill:var(--ink-2)}
+.name{font-family:"Golos Text",sans-serif; font-size:13.5px; fill:var(--ink-2)}
 .mark{transition:opacity .12s} .mark:hover{opacity:.78; cursor:default}
 
 /* легенда */
@@ -133,7 +121,7 @@ tr:last-child td{border-bottom:0}
 
 /* врезки */
 .note{border-left:3px solid var(--warn); background:var(--surface);
-  padding:15px 18px; margin:22px 0; border-radius:0 3px 3px 0; box-shadow:var(--shadow)}
+  padding:15px 18px; margin:22px 0; border-radius:0 14px 14px 0; box-shadow:var(--shadow)}
 .note.warn{border-left-color:var(--warn); background:var(--warn-wash)}
 .note.alert{border-left-color:var(--alert); background:var(--alert-wash)}
 .note .t{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.14em;
@@ -146,12 +134,12 @@ ol{counter-reset:i; list-style:none; padding-left:0}
 ol li{counter-increment:i; padding-left:30px; position:relative}
 ol li::before{content:counter(i); position:absolute; left:0; top:2px;
   font-family:"Spline Sans Mono",monospace; font-size:12.5px; color:var(--accent);
-  border:1px solid var(--line-strong); border-radius:2px; width:19px; height:19px;
+  border:1px solid var(--line-strong); border-radius:6px; width:19px; height:19px;
   display:flex; align-items:center; justify-content:center}
 
 /* этапы */
 .steps{display:grid; gap:1px; background:var(--line); border:1px solid var(--line);
-  border-radius:3px; overflow:hidden; margin:22px 0}
+  border-radius:14px; overflow:hidden; margin:22px 0}
 .step{background:var(--surface); padding:14px 18px; display:grid;
   grid-template-columns:86px 1fr; gap:16px; align-items:start}
 .step .w{font-family:"Spline Sans Mono",monospace; font-size:13px; color:var(--accent)}
@@ -161,32 +149,32 @@ ol li::before{content:counter(i); position:absolute; left:0; top:2px;
 /* фотографии устройства */
 .shots{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin:4px 0}
 .shots figure{margin:0}
-.shots img{width:100%; height:auto; display:block; border-radius:2px;
+.shots img{width:100%; height:auto; display:block; border-radius:12px;
   border:1px solid var(--line); background:var(--surface-2)}
 .shots figcaption{font-size:14px; color:var(--muted); line-height:1.5; margin-top:10px}
 
-/* мокапы приложения — тёмная тема действующего Damumed */
+/* мокапы приложения — светлая тема действующего Damumed */
 .screens{display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr));
   gap:22px; margin:24px 0}
 .ph{background:#000; border:1px solid #2C2C2E; border-radius:26px; padding:7px;
   box-shadow:var(--shadow)}
 .ph-cap{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.08em;
   text-transform:uppercase; color:var(--muted); text-align:center; padding:0 0 9px}
-.dscr{--g:#17A96E; --gd:#0E7A50; --bg:#000000; --cd:#1C1C1E; --cd2:#242426;
-  --tx:#FFFFFF; --tx2:#C7C7CC; --mut:#8E8E93; --ln:#2C2C2E; --blue:#4A89C4;
-  --wn:#E0A33A; --al:#E0605C;
-  --accent:#17A96E; --line:#2C2C2E; --ink:#FFFFFF; --ink-2:#C7C7CC; --muted:#8E8E93;
-  --surface:#1C1C1E; --surface-2:#000000; --info:#4A89C4; --warn:#E0A33A; --alert:#E0605C;
-  background:#000; border-radius:20px; overflow:hidden; min-height:540px;
-  display:flex; flex-direction:column; color:#fff}
+.dscr{--g:#0E7A50; --gd:#0B5C3C; --bg:#F4F6F5; --cd:#FFFFFF; --cd2:#EFF2F0;
+  --tx:#16232B; --tx2:#42504A; --mut:#7B8C82; --ln:#E3E9E5; --blue:#2F6D9E;
+  --wn:#A87718; --al:#C0453C;
+  --accent:#0E7A50; --line:#E3E9E5; --ink:#16232B; --ink-2:#42504A; --muted:#7B8C82;
+  --surface:#FFFFFF; --surface-2:#F4F6F5; --info:#2F6D9E; --warn:#A87718; --alert:#C0453C;
+  background:#F4F6F5; border-radius:20px; overflow:hidden; min-height:540px;
+  display:flex; flex-direction:column; color:#16232B}
 .dst{display:flex; justify-content:space-between; padding:8px 14px 2px;
-  font-size:10px; color:#fff; font-weight:600}
+  font-size:10px; color:#16232B; font-weight:600}
 .dhd{padding:8px 12px 11px; display:flex; align-items:center; justify-content:space-between}
-.dhd .ava{width:24px; height:24px; border-radius:50%; background:#3A3A3C; flex:none}
+.dhd .ava{width:24px; height:24px; border-radius:50%; background:#DDE5E0; flex:none}
 .dhd .lg{display:flex; align-items:center; gap:6px; font-weight:700; font-size:15px;
-  letter-spacing:.03em; color:#fff}
-.dhd .ic{display:flex; gap:9px; color:#D8D8DA}
-.dback{display:flex; align-items:center; gap:10px; padding:6px 12px 12px; color:#fff}
+  letter-spacing:.03em; color:#16232B}
+.dhd .ic{display:flex; gap:9px; color:#5A6873}
+.dback{display:flex; align-items:center; gap:10px; padding:6px 12px 12px; color:#16232B}
 .dback b{font-size:15.5px; font-weight:700; flex:1; text-align:center; margin-right:22px}
 .dbody{padding:0 11px 8px; display:flex; flex-direction:column; gap:9px; flex:1;
   overflow:hidden}
@@ -195,41 +183,41 @@ ol li::before{content:counter(i); position:absolute; left:0; top:2px;
   line-height:1.25; min-height:46px}
 .dpill.a{background:#E8E8EA; color:#1C1C1E} .dpill.b{background:var(--blue); color:#fff}
 .dpill.c{background:#E8E8EA; color:#1C1C1E}
-.dcard{background:var(--cd); border-radius:16px; padding:12px 13px}
+.dcard{background:var(--cd); border:1px solid var(--ln); border-radius:16px; padding:12px 13px}
 .dcard h4{font-size:11px; font-weight:700; color:var(--mut); text-transform:uppercase;
   letter-spacing:.05em; margin:0 0 9px}
 .dring{display:flex; flex-direction:column; align-items:center; gap:2px; padding:2px 0}
 .dstat{font-size:15.5px; font-weight:700; margin-top:6px}
 .dsub{font-size:12.5px; color:var(--mut); text-align:center; line-height:1.4}
 .dmetric{display:flex; align-items:center; gap:11px}
-.dmi{width:34px; height:34px; border-radius:10px; background:#12352A; flex:none;
+.dmi{width:34px; height:34px; border-radius:10px; background:#E4F3EC; flex:none;
   display:flex; align-items:center; justify-content:center; color:var(--g)}
 .dmv{font-size:14.5px; font-weight:700}
 .dmk{font-size:11.5px; color:var(--mut)}
 .drow{display:flex; justify-content:space-between; align-items:center; padding:7px 0;
   font-size:13.5px; border-bottom:1px solid var(--ln); color:var(--tx2)}
 .drow:last-child{border-bottom:0}
-.drow b{font-weight:700; font-size:14px; color:#fff}
+.drow b{font-weight:700; font-size:14px; color:#16232B}
 .dtag{display:inline-block; font-size:10px; padding:2px 9px; border-radius:99px; font-weight:700}
-.t-ok{background:#12352A; color:var(--g)} .t-wn{background:#33280F; color:var(--wn)}
-.t-al{background:#3A1D1C; color:var(--al)}
+.t-ok{background:#E4F3EC; color:var(--g)} .t-wn{background:#FBF0D9; color:var(--wn)}
+.t-al{background:#FBE4E2; color:var(--al)}
 .dnote{font-size:12px; color:var(--mut); line-height:1.45}
 .dbtn{text-align:center; background:var(--g); color:#fff; border-radius:99px;
   padding:11px; font-size:13.5px; font-weight:700}
 .dbtn.gh{background:transparent; color:var(--g); border:1px solid var(--g)}
-.dnav{background:#000; border-top:1px solid var(--ln); display:flex; padding:8px 2px 9px;
+.dnav{background:#fff; border-top:1px solid var(--ln); display:flex; padding:8px 2px 9px;
   margin-top:auto}
 .dnav span{flex:1; text-align:center; font-size:9.5px; color:#8E8E93; line-height:1.5;
   position:relative}
-.dnav span.on{color:#fff; font-weight:700}
+.dnav span.on{color:var(--g); font-weight:700}
 .dnav svg{display:block; margin:0 auto 2px}
 .dbadge{position:absolute; top:-3px; right:14px; background:var(--g); color:#fff;
   border-radius:99px; font-size:8px; font-weight:700; padding:1px 5px}
-.dalert{background:#33280F; border-radius:16px; padding:11px 13px}
-.dalert.crit{background:#3A1D1C}
+.dalert{background:#FBF0D9; border-radius:16px; padding:11px 13px}
+.dalert.crit{background:#FBE4E2}
 
 /* рабочее место врача — десктопная МИС */
-.mis{--g:#1F9A75; --gw:#E8F5F0; --bg:#F2F4F5; --ln:#E1E6E8; --tx:#16232B; --tx2:#5A6873;
+.mis{--g:#0E7A50; --gw:#E8F5F0; --bg:#F2F4F5; --ln:#E1E6E8; --tx:#16232B; --tx2:#5A6873;
   --mut:#8A959D; --wn:#C58A2E; --wnw:#FDF4E3; --al:#C0453C; --alw:#F9E9E7;
   border:1px solid var(--line-strong); border-radius:8px; overflow:hidden;
   background:#fff; color:var(--tx); margin:22px 0; box-shadow:var(--shadow)}
@@ -273,32 +261,32 @@ ol li::before{content:counter(i); position:absolute; left:0; top:2px;
 /* файлы */
 .files{display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:12px; margin-top:20px}
 .file{display:flex; gap:14px; align-items:center; text-decoration:none; color:inherit;
-  background:var(--surface); border:1px solid var(--line); border-radius:3px;
+  background:var(--surface); border:1px solid var(--line); border-radius:14px;
   padding:15px 17px; box-shadow:var(--shadow); transition:border-color .14s, transform .14s;
   font:inherit; text-align:left; cursor:pointer; width:100%}
 .file:hover{border-color:var(--accent); transform:translateY(-1px)}
 .file:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
 .fi{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.06em;
-  color:var(--accent); border:1px solid var(--accent); border-radius:2px;
+  color:var(--accent); border:1px solid var(--accent); border-radius:8px;
   padding:5px 7px; flex:none}
 .fb{display:flex; flex-direction:column; gap:3px; min-width:0}
 .fb b{font-size:16px; font-weight:600}
 .fb i{font-style:normal; font-size:13.5px; color:var(--muted); line-height:1.4}
 
 .det{margin-top:20px; background:var(--surface); border:1px solid var(--line);
-  border-radius:3px; box-shadow:var(--shadow)}
+  border-radius:14px; box-shadow:var(--shadow)}
 .det summary{cursor:pointer; padding:15px 18px; font-weight:600; font-size:16px;
   list-style:none; display:flex; align-items:center; gap:9px}
 .det summary::-webkit-details-marker{display:none}
 .det summary::before{content:"+"; font-family:"Spline Sans Mono",monospace; color:var(--accent);
-  border:1px solid var(--line-strong); border-radius:2px; width:19px; height:19px;
+  border:1px solid var(--line-strong); border-radius:6px; width:19px; height:19px;
   display:flex; align-items:center; justify-content:center; font-size:13px; flex:none}
 .det[open] summary::before{content:"–"}
 .det summary:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
 .det-b{padding:0 18px 18px; color:var(--ink-2); font-size:15.5px; line-height:1.62;
   border-top:1px solid var(--line); padding-top:15px; white-space:normal}
 .det-b p{margin:0 0 11px}
-.det-b h4{font-family:Manrope,system-ui,sans-serif; font-size:15px; color:var(--ink); margin:20px 0 9px}
+.det-b h4{font-family:"Golos Text",system-ui,sans-serif; font-size:15px; color:var(--ink); margin:20px 0 9px}
 .det-b table{font-size:15px}
 
 /* калькулятор */
@@ -309,14 +297,14 @@ ol li::before{content:counter(i); position:absolute; left:0; top:2px;
 .calc-in label b{float:right; font-family:"Spline Sans Mono",monospace; color:var(--ink);
   font-variant-numeric:tabular-nums; font-size:13px}
 .calc-in input[type=range]{width:100%; accent-color:var(--accent); margin-top:5px}
-.calc-out{background:var(--surface-2); border:1px solid var(--line); border-radius:3px;
+.calc-out{background:var(--surface-2); border:1px solid var(--line); border-radius:12px;
   padding:15px 16px; align-self:start}
 .co{display:flex; justify-content:space-between; align-items:baseline; gap:12px;
   padding:8px 0; border-bottom:1px dashed var(--line); font-size:14.5px}
 .co:last-of-type{border-bottom:0}
 .co b{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums;
   font-size:16px; color:var(--ink); white-space:nowrap}
-.co.big b{font-family:Manrope,system-ui,sans-serif; font-size:23px; color:var(--accent)}
+.co.big b{font-family:"Golos Text",system-ui,sans-serif; font-size:23px; color:var(--accent)}
 .co.big b.neg{color:var(--alert)}
 
 footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56px;
@@ -331,12 +319,6 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 <body>
 
 <div class="hero">
-  <svg class="hero-orn" width="380" height="380" viewBox="0 0 360 360" fill="none" aria-hidden="true">
-    <path d="M180 20 L250 90 L180 160 L110 90 Z" stroke="currentColor" stroke-width="2" fill="none"/>
-    <path d="M180 100 L250 170 L180 240 L110 170 Z" stroke="currentColor" stroke-width="2" fill="none"/>
-    <path d="M180 180 L250 250 L180 320 L110 250 Z" stroke="currentColor" stroke-width="2" fill="none"/>
-    <circle cx="180" cy="170" r="118" stroke="currentColor" stroke-width="2" fill="none"/>
-  </svg>
   <div class="hero-in">
     <header>
       <div class="eyebrow">Аналитический отчёт · 31 августа 2026</div>
@@ -351,6 +333,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
         <span>Горизонт расчёта · <b>24 месяца</b></span>
       </div>
     </header>
+    <div class="hero-img"><img src="img/device-wrist-woman.jpg" alt="Браслет Damumed на запястье"></div>
   </div>
 </div>
 
@@ -757,7 +740,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 
   <h3 style="font-size:17px; margin:34px 0 6px">Экраны пациента</h3>
   <p class="sdek" style="margin-top:0">Экраны нарисованы в интерфейсе действующего
-  приложения: те же тёмные карточки, зелёный акцент и пять вкладок внизу. Раздел не
+  приложения: светлая тема: белые карточки, зелёный акцент и пять вкладок внизу. Раздел не
   добавляет шестую вкладку — он живёт внутри «Моих данных», где уже есть пункт
   «Показатели здоровья».</p>
 
@@ -824,7 +807,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
         <div class="dbody">
   <div class="dalert">
     <div style="font-weight:700;font-size:13px">Пульс выше обычного</div>
-    <div class="dnote" style="margin-top:3px;color:#D9C9A4">Третью ночь подряд.
+    <div class="dnote" style="margin-top:3px;color:#8A6D1E">Третью ночь подряд.
     Врач это видит, отдельно звонить не нужно.</div>
   </div>
   <div class="dcard">
@@ -1512,7 +1495,7 @@ function ring(mount, pct, glyph, color) {
     'stroke-width': 8, 'stroke-linecap': 'round',
     'stroke-dasharray': `${c * pct} ${c}`, transform: `rotate(-90 ${S / 2} ${S / 2})`}));
   const t = el('text', {x: S / 2, y: S / 2 + 9, 'text-anchor': 'middle',
-    'font-size': 26, fill: color, 'font-family': 'Manrope, sans-serif', 'font-weight': 700}, glyph);
+    'font-size': 26, fill: color, 'font-family': 'Golos Text, sans-serif', 'font-weight': 700}, glyph);
   s.appendChild(t);
   s.style.margin = '0 auto';
   mount.appendChild(s);
