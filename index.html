@@ -1148,18 +1148,21 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 
 <section id="files">
   <div class="shead"><span class="snum">Приложения</span><h2>Файлы отчёта</h2></div>
-  <p class="sdek">Всё, что нужно для решения: документы, расчёты и полные тексты.</p>
-  <p class="sdek" style="margin-top:0">Документы скачиваются по ссылкам ниже. Там же —
-  полноразмерный калькулятор и полные тексты, которые можно скопировать со страницы.</p>
+  <p class="sdek">Все документы проекта в одном месте. Полный отчёт и презентация
+  продублированы кнопками в самом верху страницы.</p>
 
   <div class="files">
-    <a class="file" href="files/damumed-band-otchet.docx" download>
+    <a class="file" href="files/damumed-band-polnyy-otchet.docx" download>
       <span class="fi">DOCX</span>
-      <span class="fb"><b>Детальный отчёт</b><i>эта страница целиком в Word, со всеми таблицами</i></span>
+      <span class="fb"><b>Полный аналитический отчёт</b><i>11 разделов, все цифры с источниками — основной документ</i></span>
+    </a>
+    <a class="file" href="files/damumed-band-prezentaciya.pptx" download>
+      <span class="fi">PPTX</span>
+      <span class="fb"><b>Презентация проекта</b><i>16 слайдов для показа совладельцам</i></span>
     </a>
     <a class="file" href="files/damumed-band-rezyume.docx" download>
       <span class="fi">DOCX</span>
-      <span class="fb"><b>Инвестиционное резюме</b><i>короткая версия на две страницы для совладельцев</i></span>
+      <span class="fb"><b>Инвестиционное резюме</b><i>короткая версия на две страницы</i></span>
     </a>
     <a class="file" href="files/zapros-nnczrz.md" download>
       <span class="fi">TXT</span>
@@ -1167,42 +1170,10 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
     </a>
     <a class="file" href="calculator.html">
       <span class="fi">HTML</span>
-      <span class="fb"><b>Калькулятор экономики</b><i>полная версия со всеми допущениями и ползунками</i></span>
+      <span class="fb"><b>Калькулятор экономики</b><i>все допущения ползунками, пересчёт вживую</i></span>
     </a>
   </div>
 
-  <details class="det" open>
-    <summary>Калькулятор экономики — посчитать свои цифры</summary>
-    <div class="det-b">
-      <p style="margin-top:0">Двигайте параметры — расчёт пересчитывается сразу.
-      Это та же модель, по которой построены все графики выше.</p>
-      <div class="calc">
-        <div class="calc-in">
-          <label>Партия, шт <b id="kN"></b>
-            <input type="range" id="qN" min="5000" max="50000" step="1000" value="10000"></label>
-          <label>Закупочная цена, $ <b id="kF"></b>
-            <input type="range" id="qF" min="7" max="14" step="0.1" value="7.5"></label>
-          <label>Розница, ₸ <b id="kC"></b>
-            <input type="range" id="qC" min="7990" max="40000" step="500" value="14990"></label>
-          <label>Поликлинике, ₸ <b id="kB"></b>
-            <input type="range" id="qB" min="4000" max="40000" step="100" value="6900"></label>
-          <label>Подписка, ₸/мес <b id="kS"></b>
-            <input type="range" id="qS" min="0" max="3000" step="50" value="690"></label>
-          <label>Мониторинг, ₸/пациент/мес <b id="kM"></b>
-            <input type="range" id="qM" min="0" max="2000" step="50" value="500"></label>
-        </div>
-        <div class="calc-out">
-          <div class="co"><span>Себестоимость на складе</span><b id="oC1"></b></div>
-          <div class="co"><span>Маржа с устройства в рознице</span><b id="oC2"></b></div>
-          <div class="co"><span>Маржа с устройства поликлинике</span><b id="oC3"></b></div>
-          <div class="co"><span>Выручка сервиса в месяц</span><b id="oC4"></b></div>
-          <div class="co big"><span>Результат за 24 месяца</span><b id="oC5"></b></div>
-          <div class="co"><span>Окупаемость</span><b id="oC6"></b></div>
-          <div class="hint" id="oC7" style="margin-top:9px"></div>
-        </div>
-      </div>
-    </div>
-  </details>
 
   <details class="det">
     <summary>Инвестиционное резюме для совладельцев — полный текст</summary>
@@ -1456,60 +1427,6 @@ function cashline(mount, data) {
 }
 
 
-/* ── Встроенный калькулятор ── */
-(function () {
-  const FX = 465, LOG = .4, DUTY = .02, PACK = .6, DEF = .03;
-  const CAPEX = 18e6, OPEX = 1.5e6, RU = 16, RAMP = 6, H = 24, KOM = .13, SR = .3, SHARE = .7;
-  const ids = {N: 'qN', F: 'qF', C: 'qC', B: 'qB', S: 'qS', M: 'qM'};
-  const g = k => parseFloat(document.getElementById(ids[k]).value);
-  const money = x => Math.abs(x) >= 1e6
-    ? (x / 1e6).toLocaleString('ru-RU', {maximumFractionDigits: 1}) + ' млн ₸'
-    : Math.round(x).toLocaleString('ru-RU') + ' ₸';
-
-  function run() {
-    const N = g('N'), fob = g('F'), cp = g('C'), bp = g('B'), sp = g('S'), bf = g('M');
-    document.getElementById('kN').textContent = N.toLocaleString('ru-RU');
-    document.getElementById('kF').textContent = '$' + fob.toFixed(1);
-    document.getElementById('kC').textContent = cp.toLocaleString('ru-RU');
-    document.getElementById('kB').textContent = bp.toLocaleString('ru-RU');
-    document.getElementById('kS').textContent = sp.toLocaleString('ru-RU');
-    document.getElementById('kM').textContent = bf.toLocaleString('ru-RU');
-
-    const landed = (fob + LOG) * FX * (1 + DUTY) + PACK * FX;
-    const eff = landed / (1 - DEF);
-    const nB = Math.round(N * SHARE), nC = N - nB;
-    const mB = bp - eff, mC = cp * (1 - KOM) - eff;
-    const mrr = nB * bf + nC * SR * sp;
-    const sold = m => m < RU ? 0 : Math.min(1, (m - RU + 1) / RAMP);
-    let revDev = 0, revSrv = 0;
-    for (let m = 1; m <= H; m++) {
-      revDev += (sold(m) - sold(m - 1)) * (nB * bp + nC * cp * (1 - KOM));
-      revSrv += sold(m) * mrr;
-    }
-    const pnl = revDev + revSrv - (landed * N + CAPEX + OPEX * H);
-    let be = 'дольше 5 лет', cum = -CAPEX - landed * N;
-    for (let m = 1; m <= 60; m++) {
-      cum += (sold(m) - sold(m - 1)) * (nB * bp + nC * cp * (1 - KOM)) + sold(m) * mrr - OPEX;
-      if (cum >= 0) { be = 'месяц ' + m; break; }
-    }
-    document.getElementById('oC1').textContent = money(landed);
-    document.getElementById('oC2').textContent = money(mC);
-    document.getElementById('oC3').textContent = money(mB);
-    document.getElementById('oC4').textContent = money(mrr);
-    const el5 = document.getElementById('oC5');
-    el5.textContent = (pnl >= 0 ? '+' : '−') + money(Math.abs(pnl));
-    el5.className = pnl >= 0 ? '' : 'neg';
-    document.getElementById('oC6').textContent = be;
-    document.getElementById('oC7').textContent = mB < 0 || mC < 0
-      ? 'Цена ниже себестоимости — устройство продаётся в убыток.'
-      : pnl < 0
-        ? 'За два года партия не окупается: нужен больший объём или цена выше.'
-        : 'Партия окупается в горизонте расчёта; сервис продолжает приносить выручку и дальше.';
-  }
-  Object.values(ids).forEach(id =>
-    document.getElementById(id).addEventListener('input', run));
-  run();
-})();
 
 /* ── Мокапы: кольцо статуса ── */
 function ring(mount, pct, glyph, color) {
