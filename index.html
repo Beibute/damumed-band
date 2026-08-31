@@ -466,7 +466,9 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
     <h3>Где мы встаём на полке</h3>
     <div class="sub">Розничные цены, Kaspi, проверено 31 августа 2026</div>
     <div class="chart" id="c-prices"></div>
-    <div class="cap">Премиальные устройства здоровья за 170–260 тысяч ₸ на графике не показаны —
+    <div class="cap">Силуэт слева показывает главное отличие: у всех конкурентов экран, у нас —
+    глухой корпус, потому что вся информация живёт в приложении и у врача.
+    Премиальные устройства здоровья за 170–260 тысяч ₸ на графике не показаны —
     в Казахстане они продаются «серыми» продавцами, без подписки, сервиса и
     регистрационного удостоверения. Ниша устройств здоровья с медицинским статусом
     пуста целиком.</div>
@@ -1259,6 +1261,56 @@ function tip(node, text) {
 }
 
 /* ── Горизонтальные бары: цены на полке ── */
+
+/* ── Полка: бары с силуэтами устройств ── */
+function priceShelf(mount, rows) {
+  const W = 720, rowH = 46, padT = 6, padL = 210, padR = 82, icoW = 40;
+  const H = padT + rows.length * rowH + 8;
+  const s = svg(W, H);
+  const max = Math.max(...rows.map(r => r.v));
+  const iw = W - padL - padR;
+
+  function silhouette(x, y, kind, hot) {
+    const g = el('g', {});
+    const stroke = hot ? 'var(--accent)' : 'var(--muted)';
+    // ремешок
+    g.appendChild(el('path', {d: `M${x + 11} ${y + 4} h8 M${x + 11} ${y + 34} h8`,
+      stroke, 'stroke-width': 3, opacity: .5, 'stroke-linecap': 'round'}));
+    if (kind === 'ours') {          // глухая капсула, залита
+      g.appendChild(el('rect', {x: x + 7, y: y + 7, width: 16, height: 24, rx: 8,
+        fill: 'var(--accent)'}));
+      g.appendChild(el('circle', {cx: x + 15, cy: y + 14, r: 2.4, fill: '#FFFFFF', opacity: .9}));
+    } else if (kind === 'strip') {  // безымянный: тонкая полоска
+      g.appendChild(el('rect', {x: x + 10, y: y + 8, width: 10, height: 22, rx: 5,
+        fill: 'none', stroke, 'stroke-width': 1.6}));
+    } else {                        // капсула с экраном
+      g.appendChild(el('rect', {x: x + 7, y: y + 6, width: 16, height: 26, rx: 7,
+        fill: 'none', stroke, 'stroke-width': 1.6}));
+      g.appendChild(el('rect', {x: x + 10, y: y + 10, width: 10, height: 18, rx: 4,
+        fill: stroke, opacity: .55}));
+    }
+    return g;
+  }
+
+  rows.forEach((r, i) => {
+    const y = padT + i * rowH;
+    s.appendChild(silhouette(0, y + 3, r.kind || 'band', r.hot));
+    s.appendChild(el('text', {x: padL - 12, y: y + 26, 'text-anchor': 'end',
+      class: r.hot ? 'lbl-strong' : 'name'}, r.k));
+    const bw = Math.max(3, r.v / max * iw);
+    const bar = el('rect', {x: padL, y: y + 13, width: bw, height: 18, rx: 4,
+      fill: r.hot ? 'var(--accent)' : 'var(--line-strong)'});
+    tip(bar, `${r.k}: ${fmt(r.v)} ₸`);
+    s.appendChild(bar);
+    s.appendChild(el('text', {x: padL + bw + 9, y: y + 27,
+      class: r.hot ? 'lbl-strong' : 'lbl'}, fmt(r.v) + ' ₸'));
+    if (r.note) s.appendChild(el('text', {x: icoW, y: y + 40, class: 'axis-text'}, ''));
+  });
+  // легенда отличия
+  s.appendChild(el('text', {x: 0, y: H - 2, class: 'axis-text'}, ''));
+  mount.appendChild(s);
+}
+
 function hbars(mount, rows, opts = {}) {
   const W = 720, rowH = 34, padT = 6, padL = opts.padL || 168, padR = 74;
   const H = padT + rows.length * rowH + 8;
@@ -1542,13 +1594,13 @@ actogram(document.getElementById('ph-sleep'));
 bpChart(document.getElementById('ph-bp'));
 
 /* ── Данные ── */
-hbars(document.getElementById('c-prices'), [
-  {k: 'Damumed Band', v: 14990, hot: true},
+priceShelf(document.getElementById('c-prices'), [
+  {k: 'Damumed Band — без экрана', v: 14990, hot: true, kind: 'ours'},
   {k: 'Huawei Band 10', v: 16890},
   {k: 'Xiaomi Smart Band 10', v: 21989},
   {k: 'Samsung Galaxy Fit3', v: 22299},
   {k: 'Honor Band 9', v: 34880},
-  {k: 'Безымянный браслет', v: 1470},
+  {k: 'Безымянный браслет', v: 1470, kind: 'strip'},
 ]);
 
 vbars(document.getElementById('c-price-sens'), [
