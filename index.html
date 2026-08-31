@@ -313,6 +313,22 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   .step{grid-template-columns:1fr; gap:4px}
   header{padding-top:36px}
 }
+
+/* кнопки скачивания в шапке */
+.dl-row{display:flex; flex-wrap:wrap; gap:14px; margin-top:28px}
+.dl-btn{display:flex; align-items:center; gap:14px; text-decoration:none;
+  background:rgba(255,255,255,.14); color:#fff; border:1.5px solid rgba(255,255,255,.42);
+  border-radius:14px; padding:16px 22px; min-width:264px;
+  transition:background .15s, transform .15s, border-color .15s}
+.dl-btn:hover{background:rgba(255,255,255,.24); border-color:#fff; transform:translateY(-1px)}
+.dl-btn:focus-visible{outline:3px solid #fff; outline-offset:3px}
+.dl-btn.primary{background:#fff; color:var(--accent); border-color:#fff}
+.dl-btn.primary:hover{background:#F2FBF6}
+.dl-btn svg{flex:none}
+.dl-btn span{display:flex; flex-direction:column; gap:3px; line-height:1.25}
+.dl-btn b{font-size:18px; font-weight:700}
+.dl-btn i{font-style:normal; font-size:13.5px; opacity:.85}
+@media(max-width:640px){.dl-btn{min-width:0; flex:1 1 100%}}
 </style>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
@@ -331,6 +347,16 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
         <span>Партия · <b>10 000 шт</b></span>
         <span>Курс · <b>465 ₸/$</b> (НБ РК)</span>
         <span>Горизонт расчёта · <b>24 месяца</b></span>
+      </div>
+      <div class="dl-row">
+        <a class="dl-btn primary" href="files/damumed-band-polnyy-otchet.docx" download>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+          <span><b>Полный отчёт</b><i>Word · 11 разделов, все расчёты</i></span>
+        </a>
+        <a class="dl-btn" href="files/damumed-band-prezentaciya.pptx" download>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+          <span><b>Презентация</b><i>PowerPoint · 16 слайдов</i></span>
+        </a>
       </div>
     </header>
     <div class="hero-img"><img src="img/device-wrist-woman.jpg" alt="Браслет Damumed на запястье"></div>
