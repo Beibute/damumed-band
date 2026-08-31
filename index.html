@@ -158,6 +158,13 @@ ol li::before{content:counter(i); position:absolute; left:0; top:1px;
 .step .b{font-weight:600; font-size:14.5px; margin-bottom:3px}
 .step .c{color:var(--ink-2); font-size:13.5px}
 
+/* фотографии устройства */
+.shots{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin:4px 0}
+.shots figure{margin:0}
+.shots img{width:100%; height:auto; display:block; border-radius:2px;
+  border:1px solid var(--line); background:var(--surface-2)}
+.shots figcaption{font-size:12.5px; color:var(--muted); line-height:1.5; margin-top:10px}
+
 /* мокапы приложения */
 .screens{display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr));
   gap:20px; margin:24px 0}
@@ -319,14 +326,25 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
 
   <div class="fig">
     <h3>Как выглядит устройство</h3>
-    <div class="sub">Схема по спецификации, которая уходит на заводы в запросе цены</div>
-    <div class="chart" id="c-device"></div>
-    <div class="cap">Экрана нет: он даёт +25–30% к цене, съедает батарею и требует
-    отдельной сертификации яркости, а вся информация всё равно живёт в приложении.
-    Корпус — анодированный алюминий, ремешок сменный стандартный, защита IP68,
-    вес около 25 г, батарея на 5–7 дней и память на пять суток без телефона.
-    Это рисунок по спецификации для запроса заводам, а не фотография готового
-    изделия: настоящие снимки появятся с образцами.</div>
+    <div class="sub">Корпус без экрана, сменный силиконовый ремешок, датчики со стороны кожи</div>
+    <div class="shots">
+      <figure>
+        <img src="img/device-hero.jpg" alt="Браслет без экрана: серебристый корпус и бирюзовый силиконовый ремешок с пряжкой">
+        <figcaption>Экрана нет — вся информация живёт в приложении. Корпус около 40 мм,
+        вес порядка 25 г, ремешок стандартный сменный.</figcaption>
+      </figure>
+      <figure>
+        <img src="img/device-sensors.jpg" alt="Сенсорная сторона браслета: четыре оптических окна, центральный фотодиод и два золотых контакта зарядки">
+        <figcaption>Сторона к коже: четыре оптических окна — зелёные для пульса и
+        вариабельности ритма, красное и инфракрасное для насыщения кислородом; в центре
+        фотодиод, ниже — магнитные контакты зарядки.</figcaption>
+      </figure>
+    </div>
+    <div class="cap">Экран не берём: он даёт +25–30% к цене, съедает батарею и требует
+    отдельной сертификации, а клинической пользы не приносит. Защита IP68, батарея на
+    5–7 дней, память на пять суток без телефона.
+    <b>Это визуализация по спецификации для запроса заводам, а не фотография готового
+    изделия</b> — настоящие снимки появятся с образцами.</div>
   </div>
 
   <div class="note">
@@ -1242,136 +1260,6 @@ function cashline(mount, data) {
   mount.appendChild(s);
 }
 
-/* ── Изображение устройства ── */
-function device(mount) {
-  const W = 720, H = 400;
-  const s = svg(W, H);
-  const defs = el('defs', {});
-
-  const grad = (id, stops, x1, y1, x2, y2) => {
-    const g = el('linearGradient', {id, x1, y1, x2, y2});
-    stops.forEach(([o, c, op]) => g.appendChild(el('stop',
-      Object.assign({offset: o, 'stop-color': c}, op != null ? {'stop-opacity': op} : {}))));
-    defs.appendChild(g);
-  };
-  // корпус: тёплый металл с бликом
-  grad('gCase', [[0, '#5A6A73'], [.18, '#8FA0A8'], [.42, '#3E4C54'], [.72, '#63737C'], [1, '#2C363C']], '0%', '0%', '100%', '100%');
-  // ремешок: матовый силикон в цвет акцента
-  grad('gStrap', [[0, 'var(--seq2)'], [.5, 'var(--seq1)'], [1, 'var(--seq2)']], '0%', '0%', '0%', '100%');
-  grad('gStrapSide', [[0, 'var(--seq1)'], [1, '#000000']], '0%', '0%', '0%', '100%');
-  // стекло сенсорной площадки
-  grad('gGlass', [[0, '#1C2429'], [.55, '#0B1114'], [1, '#222C31']], '0%', '0%', '100%', '100%');
-  const blur = el('filter', {id: 'fSoft', x: '-30%', y: '-30%', width: '160%', height: '160%'});
-  blur.appendChild(el('feGaussianBlur', {'in': 'SourceGraphic', stdDeviation: 7}));
-  defs.appendChild(blur);
-  s.appendChild(defs);
-
-  /* ── левая половина: устройство сверху, в перспективе ── */
-  const cx = 200, cy = 196;
-  // мягкая тень под устройством
-  s.appendChild(el('ellipse', {cx: cx + 6, cy: cy + 108, rx: 96, ry: 17,
-    fill: '#0B1114', opacity: .18, filter: 'url(#fSoft)'}));
-
-  // ремешок: две дуги, уходящие вверх и вниз с сужением
-  s.appendChild(el('path', {
-    d: `M${cx - 40} ${cy - 44} C${cx - 46} ${cy - 108} ${cx - 34} ${cy - 150} ${cx - 22} ${cy - 176}
-        L${cx + 26} ${cy - 176} C${cx + 38} ${cy - 150} ${cx + 46} ${cy - 108} ${cx + 40} ${cy - 44} Z`,
-    fill: 'url(#gStrap)'}));
-  s.appendChild(el('path', {
-    d: `M${cx - 40} ${cy + 44} C${cx - 46} ${cy + 104} ${cx - 34} ${cy + 140} ${cx - 22} ${cy + 164}
-        L${cx + 26} ${cy + 164} C${cx + 38} ${cy + 140} ${cx + 46} ${cy + 104} ${cx + 40} ${cy + 44} Z`,
-    fill: 'url(#gStrap)'}));
-  // рёбра ремешка
-  [-150, -120, -92, 96, 122, 148].forEach(dy => {
-    const w = 34 - Math.abs(dy) * .045;
-    s.appendChild(el('rect', {x: cx - w, y: cy + dy, width: w * 2, height: 3, rx: 1.5,
-      fill: '#000000', opacity: .13}));
-  });
-  // отверстия под пряжку
-  [-160, -138, -116].forEach(dy => s.appendChild(el('ellipse',
-    {cx: cx + 2, cy: cy + dy, rx: 4, ry: 5.5, fill: '#000000', opacity: .34})));
-
-  // корпус
-  s.appendChild(el('rect', {x: cx - 52, y: cy - 62, width: 104, height: 124, rx: 34,
-    fill: 'url(#gCase)'}));
-  // фаска
-  s.appendChild(el('rect', {x: cx - 47, y: cy - 57, width: 94, height: 114, rx: 30,
-    fill: 'none', stroke: '#FFFFFF', 'stroke-width': 1.2, opacity: .22}));
-  // верхняя площадка — глухая, без экрана
-  s.appendChild(el('rect', {x: cx - 40, y: cy - 50, width: 80, height: 100, rx: 26,
-    fill: 'url(#gGlass)'}));
-  // блик
-  s.appendChild(el('path', {d: `M${cx - 34} ${cy - 34} Q${cx - 16} ${cy - 52} ${cx + 6} ${cy - 46}
-      L${cx - 12} ${cy + 4} Q${cx - 30} ${cy - 6} ${cx - 34} ${cy - 34} Z`,
-    fill: '#FFFFFF', opacity: .07}));
-  // тиснёный знак
-  s.appendChild(el('path', {d: `M${cx} ${cy - 12} L${cx + 13} ${cy} L${cx} ${cy + 12} L${cx - 13} ${cy} Z`,
-    fill: 'none', stroke: '#FFFFFF', 'stroke-width': 1.4, opacity: .30}));
-  s.appendChild(el('circle', {cx, cy, r: 21, fill: 'none', stroke: '#FFFFFF',
-    'stroke-width': 1, opacity: .16}));
-
-  s.appendChild(el('text', {x: cx, y: cy + 200, 'text-anchor': 'middle', class: 'lbl-strong'},
-    'Вид сверху — экрана нет'));
-
-  /* ── правая половина: сенсорная сторона ── */
-  const bx = 470, by = 196;
-  s.appendChild(el('ellipse', {cx: bx + 6, cy: by + 92, rx: 74, ry: 13,
-    fill: '#0B1114', opacity: .16, filter: 'url(#fSoft)'}));
-  // обрезки ремешка по краям
-  s.appendChild(el('path', {d: `M${bx - 38} ${by - 44} L${bx - 42} ${by - 96} L${bx + 42} ${by - 96} L${bx + 38} ${by - 44} Z`,
-    fill: 'url(#gStrapSide)', opacity: .9}));
-  s.appendChild(el('path', {d: `M${bx - 38} ${by + 44} L${bx - 42} ${by + 96} L${bx + 42} ${by + 96} L${bx + 38} ${by + 44} Z`,
-    fill: 'url(#gStrapSide)', opacity: .9}));
-  // корпус со стороны кожи
-  s.appendChild(el('rect', {x: bx - 50, y: by - 60, width: 100, height: 120, rx: 33,
-    fill: 'url(#gCase)'}));
-  // сенсорный островок
-  s.appendChild(el('ellipse', {cx: bx, cy: by, rx: 33, ry: 33, fill: 'url(#gGlass)'}));
-  s.appendChild(el('ellipse', {cx: bx, cy: by, rx: 33, ry: 33, fill: 'none',
-    stroke: '#FFFFFF', 'stroke-width': 1, opacity: .12}));
-  // светодиоды: два зелёных, два красно-инфракрасных
-  const leds = [[-13, -12, 'var(--seq3)', 'Зелёные светодиоды — пульс и вариабельность ритма'],
-                [13, -12, 'var(--seq3)', 'Зелёные светодиоды — пульс и вариабельность ритма'],
-                [-13, 12, 'var(--alert)', 'Красный и инфракрасный — насыщение крови кислородом'],
-                [13, 12, 'var(--info)', 'Красный и инфракрасный — насыщение крови кислородом']];
-  leds.forEach(([dx, dy, c, t]) => {
-    const g = el('g', {});
-    g.appendChild(el('circle', {cx: bx + dx, cy: by + dy, r: 8.5, fill: c, opacity: .9}));
-    g.appendChild(el('circle', {cx: bx + dx - 2, cy: by + dy - 2.5, r: 2.6, fill: '#FFFFFF', opacity: .45}));
-    tip(g, t);
-    s.appendChild(g);
-  });
-  // фотодиод в центре
-  s.appendChild(el('circle', {cx: bx, cy: by, r: 4.5, fill: '#05090B'}));
-  // датчик температуры
-  const tsens = el('rect', {x: bx - 5, y: by - 47, width: 10, height: 10, rx: 2.5, fill: 'var(--warn)'});
-  tip(tsens, 'Датчик температуры кожи');
-  s.appendChild(tsens);
-  // магнитные контакты
-  [[-16, 42], [16, 42]].forEach(([dx, dy]) => {
-    const c = el('circle', {cx: bx + dx, cy: by + dy, r: 5.5, fill: '#C9B27A'});
-    tip(c, 'Магнитные контакты зарядки');
-    s.appendChild(c);
-  });
-  s.appendChild(el('text', {x: bx, y: by + 200, 'text-anchor': 'middle', class: 'lbl-strong'},
-    'Сторона к коже — датчики'));
-
-  /* ── подписи-выноски ── */
-  const notes = [
-    [bx + 62, by - 42, 'Температура кожи'],
-    [bx + 62, by + 4, 'Оптические датчики'],
-    [bx + 62, by + 46, 'Зарядка на магнитах'],
-  ];
-  notes.forEach(([x, y, t]) => {
-    s.appendChild(el('line', {x1: bx + 40, y1: y - 4, x2: x - 8, y2: y - 4,
-      stroke: 'var(--line-strong)', 'stroke-width': 1}));
-    s.appendChild(el('text', {x, y, class: 'axis-text'}, t));
-  });
-
-  mount.appendChild(s);
-}
-
-device(document.getElementById('c-device'));
 
 /* ── Встроенный калькулятор ── */
 (function () {
