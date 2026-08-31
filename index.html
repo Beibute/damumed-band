@@ -45,7 +45,7 @@
 body{
   background:var(--ground); color:var(--ink);
   font-family:Manrope,-apple-system,"Segoe UI",Roboto,sans-serif;
-  font-size:15.5px; line-height:1.6; margin:0;
+  font-size:17.5px; line-height:1.62; margin:0;
   -webkit-font-smoothing:antialiased;
 }
 .wrap{max-width:1080px; margin:0 auto; padding:0 24px 80px}
@@ -65,22 +65,22 @@ header{padding:0}
   padding-top:22px}
 .hero .meta b{color:var(--head-ink)}
 @media(max-width:700px){.hero-orn{display:none}}
-h1{font-size:clamp(32px,4.6vw,52px); font-weight:800; line-height:1.12; letter-spacing:-.015em}
-.lede{color:var(--ink-2); font-size:17px; max-width:62ch; margin:14px 0 0}
-.meta{display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:22px;
-  font-family:"Spline Sans Mono",monospace; font-size:12px; color:var(--muted)}
+h1{font-size:clamp(36px,5vw,58px); font-weight:800; line-height:1.12; letter-spacing:-.015em}
+.lede{color:var(--ink-2); font-size:19.5px; max-width:62ch; margin:14px 0 0}
+.meta{display:flex; flex-wrap:wrap; gap:9px 24px; margin-top:24px;
+  font-family:"Spline Sans Mono",monospace; font-size:13.5px; color:var(--muted)}
 .meta b{color:var(--ink-2); font-weight:500}
 
 /* плитки */
 .tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(178px,1fr)); gap:14px; margin-bottom:44px}
 .tile{background:var(--surface); border:1px solid var(--line); border-radius:2px;
   padding:16px 18px 15px; box-shadow:var(--shadow)}
-.tile .k{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.1em;
+.tile .k{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.1em;
   text-transform:uppercase; color:var(--muted); display:block; margin-bottom:9px}
-.tile .v{font-family:'Spline Sans Mono',monospace; font-size:30px; font-weight:500; line-height:1;
+.tile .v{font-family:'Spline Sans Mono',monospace; font-size:34px; font-weight:500; line-height:1;
   font-variant-numeric:tabular-nums; letter-spacing:-.01em}
-.tile .u{font-size:13px; color:var(--ink-2); font-family:Manrope,sans-serif; font-weight:400}
-.tile .d{font-size:12.5px; color:var(--muted); margin-top:7px; line-height:1.4}
+.tile .u{font-size:14.5px; color:var(--ink-2); font-family:Manrope,sans-serif; font-weight:400}
+.tile .d{font-size:13.5px; color:var(--muted); margin-top:7px; line-height:1.4}
 .tile.hot{border-color:var(--accent); background:var(--accent-wash)}
 .tile.hot .v{color:var(--accent)}
 
@@ -90,9 +90,9 @@ section{margin-bottom:52px; scroll-margin-top:20px}
   padding-bottom:13px; border-bottom:1px solid var(--line-strong)}
 .shead::before{content:""; width:19px; height:19px; flex:none; transform:rotate(45deg);
   border:1.8px solid var(--warn)}
-.snum{font-family:"Spline Sans Mono",monospace; font-size:11.5px; color:var(--warn);
+.snum{font-family:"Spline Sans Mono",monospace; font-size:12.5px; color:var(--warn);
   font-weight:500; letter-spacing:.16em; text-transform:uppercase}
-h2{font-size:26px; font-weight:800; letter-spacing:-.01em}
+h2{font-size:30px; font-weight:800; letter-spacing:-.01em}
 .sdek{color:var(--ink-2); margin:14px 0 22px; max-width:66ch}
 p{margin:0 0 15px} p:last-child{margin-bottom:0}
 strong{font-weight:600}
@@ -100,29 +100,29 @@ strong{font-weight:600}
 /* карточка графика */
 .fig{background:var(--surface); border:1px solid var(--line); border-radius:2px;
   padding:20px 22px 16px; margin:22px 0; box-shadow:var(--shadow)}
-.fig h3{font-size:16px; font-weight:600; margin-bottom:3px}
-.fig .sub{color:var(--muted); font-size:13px; margin-bottom:18px}
-.fig .cap{color:var(--muted); font-size:12.5px; margin-top:14px; padding-top:12px;
+.fig h3{font-size:18px; font-weight:600; margin-bottom:3px}
+.fig .sub{color:var(--muted); font-size:14.5px; margin-bottom:18px}
+.fig .cap{color:var(--muted); font-size:14px; margin-top:14px; padding-top:12px;
   border-top:1px solid var(--line); line-height:1.5}
 .chart{width:100%; overflow-x:auto}
 svg{display:block; max-width:100%; height:auto}
 .grid-line{stroke:var(--line); stroke-width:1}
-.axis-text{font-family:"Spline Sans Mono",monospace; font-size:11px; fill:var(--muted)}
-.lbl{font-family:"Spline Sans Mono",monospace; font-size:11.5px; fill:var(--ink-2)}
-.lbl-strong{font-family:"Spline Sans Mono",monospace; font-size:12px; fill:var(--ink); font-weight:500}
-.name{font-family:Manrope,sans-serif; font-size:12.5px; fill:var(--ink-2)}
+.axis-text{font-family:"Spline Sans Mono",monospace; font-size:12px; fill:var(--muted)}
+.lbl{font-family:"Spline Sans Mono",monospace; font-size:12.5px; fill:var(--ink-2)}
+.lbl-strong{font-family:"Spline Sans Mono",monospace; font-size:13px; fill:var(--ink); font-weight:500}
+.name{font-family:Manrope,sans-serif; font-size:13.5px; fill:var(--ink-2)}
 .mark{transition:opacity .12s} .mark:hover{opacity:.78; cursor:default}
 
 /* легенда */
-.legend{display:flex; flex-wrap:wrap; gap:7px 18px; margin-top:14px;
-  font-size:12.5px; color:var(--ink-2)}
+.legend{display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:15px;
+  font-size:13.5px; color:var(--ink-2)}
 .legend i{width:11px; height:11px; border-radius:2px; display:inline-block;
   margin-right:6px; vertical-align:-1px}
 
 /* таблицы */
 .tw{overflow-x:auto; margin:20px 0}
-table{border-collapse:collapse; width:100%; font-size:14px; min-width:520px}
-th{text-align:left; font-family:"Spline Sans Mono",monospace; font-size:10.5px;
+table{border-collapse:collapse; width:100%; font-size:15.5px; min-width:520px}
+th{text-align:left; font-family:"Spline Sans Mono",monospace; font-size:11.5px;
   letter-spacing:.09em; text-transform:uppercase; color:var(--muted); font-weight:500;
   padding:0 14px 9px 0; border-bottom:1px solid var(--line-strong); white-space:nowrap}
 td{padding:11px 14px 11px 0; border-bottom:1px solid var(--line); vertical-align:top}
@@ -136,7 +136,7 @@ tr:last-child td{border-bottom:0}
   padding:15px 18px; margin:22px 0; border-radius:0 3px 3px 0; box-shadow:var(--shadow)}
 .note.warn{border-left-color:var(--warn); background:var(--warn-wash)}
 .note.alert{border-left-color:var(--alert); background:var(--alert-wash)}
-.note .t{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.14em;
+.note .t{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.14em;
   text-transform:uppercase; color:var(--warn); margin-bottom:7px}
 .note.warn .t{color:var(--warn)} .note.alert .t{color:var(--alert)}
 
@@ -144,8 +144,8 @@ tr:last-child td{border-bottom:0}
 ol,ul{margin:0 0 15px; padding-left:22px} li{margin-bottom:7px}
 ol{counter-reset:i; list-style:none; padding-left:0}
 ol li{counter-increment:i; padding-left:30px; position:relative}
-ol li::before{content:counter(i); position:absolute; left:0; top:1px;
-  font-family:"Spline Sans Mono",monospace; font-size:11.5px; color:var(--accent);
+ol li::before{content:counter(i); position:absolute; left:0; top:2px;
+  font-family:"Spline Sans Mono",monospace; font-size:12.5px; color:var(--accent);
   border:1px solid var(--line-strong); border-radius:2px; width:19px; height:19px;
   display:flex; align-items:center; justify-content:center}
 
@@ -154,73 +154,79 @@ ol li::before{content:counter(i); position:absolute; left:0; top:1px;
   border-radius:3px; overflow:hidden; margin:22px 0}
 .step{background:var(--surface); padding:14px 18px; display:grid;
   grid-template-columns:86px 1fr; gap:16px; align-items:start}
-.step .w{font-family:"Spline Sans Mono",monospace; font-size:12px; color:var(--accent)}
-.step .b{font-weight:600; font-size:14.5px; margin-bottom:3px}
-.step .c{color:var(--ink-2); font-size:13.5px}
+.step .w{font-family:"Spline Sans Mono",monospace; font-size:13px; color:var(--accent)}
+.step .b{font-weight:600; font-size:16px; margin-bottom:3px}
+.step .c{color:var(--ink-2); font-size:15px}
 
 /* фотографии устройства */
 .shots{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin:4px 0}
 .shots figure{margin:0}
 .shots img{width:100%; height:auto; display:block; border-radius:2px;
   border:1px solid var(--line); background:var(--surface-2)}
-.shots figcaption{font-size:12.5px; color:var(--muted); line-height:1.5; margin-top:10px}
+.shots figcaption{font-size:14px; color:var(--muted); line-height:1.5; margin-top:10px}
 
-/* мокапы приложения — стиль действующего Damumed */
+/* мокапы приложения — тёмная тема действующего Damumed */
 .screens{display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr));
   gap:22px; margin:24px 0}
-.ph{background:#1B2226; border-radius:26px; padding:8px; box-shadow:var(--shadow)}
+.ph{background:#000; border:1px solid #2C2C2E; border-radius:26px; padding:7px;
+  box-shadow:var(--shadow)}
 .ph-cap{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.08em;
   text-transform:uppercase; color:var(--muted); text-align:center; padding:0 0 9px}
-/* внутри экрана — палитра приложения, не страницы */
-.dscr{--g:#1F9A75; --g2:#29B188; --gw:#E8F5F0; --bg:#F2F4F5; --cd:#FFFFFF;
-  --tx:#16232B; --tx2:#5A6873; --mut:#8A959D; --ln:#E4E8EA;
-  --wn:#C58A2E; --wnw:#FDF4E3; --al:#C0453C; --alw:#F9E9E7;
-  --accent:#1F9A75; --line:#E4E8EA; --ink:#16232B; --ink-2:#5A6873; --muted:#8A959D;
-  --surface:#FFFFFF; --surface-2:#F2F4F5; --info:#2F6D9E; --warn:#C58A2E; --alert:#C0453C;
-  background:var(--bg); border-radius:19px; overflow:hidden; min-height:496px;
-  display:flex; flex-direction:column; color:var(--tx)}
-.dhd{background:#fff; padding:11px 12px 10px; display:flex; align-items:center;
-  justify-content:space-between; border-bottom:1px solid var(--ln)}
-.dhd .ava{width:22px; height:22px; border-radius:50%; background:#DDE4E6; flex:none}
-.dhd .lg{display:flex; align-items:center; gap:5px; font-weight:800; font-size:12px;
-  letter-spacing:.06em; color:var(--g)}
-.dhd .ic{display:flex; gap:7px; color:var(--mut)}
-.dbody{padding:11px 11px 6px; display:flex; flex-direction:column; gap:9px; flex:1}
-.dpills{display:flex; gap:7px; overflow:hidden}
-.dpill{flex:1; border-radius:11px; padding:8px 9px; font-size:10px; font-weight:600;
-  color:#fff; line-height:1.25; min-height:44px; display:flex; align-items:flex-start}
-.dpill.a{background:#3E9E9C} .dpill.b{background:var(--g)}
-.dpill.c{background:#fff; color:var(--tx2); border:1px solid var(--ln)}
-.dcard{background:var(--cd); border-radius:14px; padding:12px 13px}
-.dcard h4{font-size:10.5px; font-weight:700; color:var(--mut); text-transform:uppercase;
+.dscr{--g:#17A96E; --gd:#0E7A50; --bg:#000000; --cd:#1C1C1E; --cd2:#242426;
+  --tx:#FFFFFF; --tx2:#C7C7CC; --mut:#8E8E93; --ln:#2C2C2E; --blue:#4A89C4;
+  --wn:#E0A33A; --al:#E0605C;
+  --accent:#17A96E; --line:#2C2C2E; --ink:#FFFFFF; --ink-2:#C7C7CC; --muted:#8E8E93;
+  --surface:#1C1C1E; --surface-2:#000000; --info:#4A89C4; --warn:#E0A33A; --alert:#E0605C;
+  background:#000; border-radius:20px; overflow:hidden; min-height:540px;
+  display:flex; flex-direction:column; color:#fff}
+.dst{display:flex; justify-content:space-between; padding:8px 14px 2px;
+  font-size:10px; color:#fff; font-weight:600}
+.dhd{padding:8px 12px 11px; display:flex; align-items:center; justify-content:space-between}
+.dhd .ava{width:24px; height:24px; border-radius:50%; background:#3A3A3C; flex:none}
+.dhd .lg{display:flex; align-items:center; gap:6px; font-weight:700; font-size:15px;
+  letter-spacing:.03em; color:#fff}
+.dhd .ic{display:flex; gap:9px; color:#D8D8DA}
+.dback{display:flex; align-items:center; gap:10px; padding:6px 12px 12px; color:#fff}
+.dback b{font-size:15.5px; font-weight:700; flex:1; text-align:center; margin-right:22px}
+.dbody{padding:0 11px 8px; display:flex; flex-direction:column; gap:9px; flex:1;
+  overflow:hidden}
+.dpills{display:flex; gap:7px}
+.dpill{flex:1; border-radius:12px; padding:9px 10px; font-size:10px; font-weight:600;
+  line-height:1.25; min-height:46px}
+.dpill.a{background:#E8E8EA; color:#1C1C1E} .dpill.b{background:var(--blue); color:#fff}
+.dpill.c{background:#E8E8EA; color:#1C1C1E}
+.dcard{background:var(--cd); border-radius:16px; padding:12px 13px}
+.dcard h4{font-size:11px; font-weight:700; color:var(--mut); text-transform:uppercase;
   letter-spacing:.05em; margin:0 0 9px}
-.dring{display:flex; flex-direction:column; align-items:center; gap:2px; padding:4px 0 2px}
-.dstat{font-size:14.5px; font-weight:800; margin-top:6px}
-.dsub{font-size:11.5px; color:var(--mut); text-align:center; line-height:1.4}
+.dring{display:flex; flex-direction:column; align-items:center; gap:2px; padding:2px 0}
+.dstat{font-size:15.5px; font-weight:700; margin-top:6px}
+.dsub{font-size:12.5px; color:var(--mut); text-align:center; line-height:1.4}
 .dmetric{display:flex; align-items:center; gap:11px}
-.dmi{width:34px; height:34px; border-radius:10px; background:var(--gw); flex:none;
+.dmi{width:34px; height:34px; border-radius:10px; background:#12352A; flex:none;
   display:flex; align-items:center; justify-content:center; color:var(--g)}
-.dmv{font-size:13.5px; font-weight:700}
-.dmk{font-size:10.5px; color:var(--mut)}
-.drow{display:flex; justify-content:space-between; align-items:center; padding:6px 0;
-  font-size:12.5px; border-bottom:1px solid var(--ln)}
+.dmv{font-size:14.5px; font-weight:700}
+.dmk{font-size:11.5px; color:var(--mut)}
+.drow{display:flex; justify-content:space-between; align-items:center; padding:7px 0;
+  font-size:13.5px; border-bottom:1px solid var(--ln); color:var(--tx2)}
 .drow:last-child{border-bottom:0}
-.drow b{font-weight:700; font-size:13px}
-.dtag{display:inline-block; font-size:10px; padding:2px 8px; border-radius:99px; font-weight:600}
-.t-ok{background:var(--gw); color:var(--g)} .t-wn{background:var(--wnw); color:var(--wn)}
-.t-al{background:var(--alw); color:var(--al)}
-.dnote{font-size:11px; color:var(--mut); line-height:1.45}
-.dbtn{text-align:center; background:var(--g); color:#fff; border-radius:11px;
-  padding:10px; font-size:12.5px; font-weight:700}
-.dbtn.gh{background:#fff; color:var(--g); border:1px solid var(--g)}
-.dnav{background:#fff; border-top:1px solid var(--ln); display:flex; padding:7px 4px 8px;
+.drow b{font-weight:700; font-size:14px; color:#fff}
+.dtag{display:inline-block; font-size:10px; padding:2px 9px; border-radius:99px; font-weight:700}
+.t-ok{background:#12352A; color:var(--g)} .t-wn{background:#33280F; color:var(--wn)}
+.t-al{background:#3A1D1C; color:var(--al)}
+.dnote{font-size:12px; color:var(--mut); line-height:1.45}
+.dbtn{text-align:center; background:var(--g); color:#fff; border-radius:99px;
+  padding:11px; font-size:13.5px; font-weight:700}
+.dbtn.gh{background:transparent; color:var(--g); border:1px solid var(--g)}
+.dnav{background:#000; border-top:1px solid var(--ln); display:flex; padding:8px 2px 9px;
   margin-top:auto}
-.dnav span{flex:1; text-align:center; font-size:8.5px; color:var(--mut); line-height:1.5}
-.dnav span.on{color:var(--g); font-weight:700}
+.dnav span{flex:1; text-align:center; font-size:9.5px; color:#8E8E93; line-height:1.5;
+  position:relative}
+.dnav span.on{color:#fff; font-weight:700}
 .dnav svg{display:block; margin:0 auto 2px}
-.dalert{background:var(--wnw); border-radius:14px; padding:11px 13px}
-.dalert.crit{background:var(--alw)}
-
+.dbadge{position:absolute; top:-3px; right:14px; background:var(--g); color:#fff;
+  border-radius:99px; font-size:8px; font-weight:700; padding:1px 5px}
+.dalert{background:#33280F; border-radius:16px; padding:11px 13px}
+.dalert.crit{background:#3A1D1C}
 
 /* рабочее место врача — десктопная МИС */
 .mis{--g:#1F9A75; --gw:#E8F5F0; --bg:#F2F4F5; --ln:#E1E6E8; --tx:#16232B; --tx2:#5A6873;
@@ -228,31 +234,31 @@ ol li::before{content:counter(i); position:absolute; left:0; top:1px;
   border:1px solid var(--line-strong); border-radius:8px; overflow:hidden;
   background:#fff; color:var(--tx); margin:22px 0; box-shadow:var(--shadow)}
 .mis-top{background:var(--g); color:#fff; display:flex; align-items:center; gap:14px;
-  padding:9px 14px; font-size:12.5px}
+  padding:10px 15px; font-size:13.5px}
 .mis-top .b{font-weight:800; letter-spacing:.05em; display:flex; align-items:center; gap:6px}
 .mis-top .sp{flex:1}
 .mis-top .u{opacity:.9; font-size:11.5px}
 .mis-body{display:grid; grid-template-columns:172px 1fr; min-height:392px}
-.mis-side{background:#F7F9F9; border-right:1px solid var(--ln); padding:10px 0; font-size:12px}
+.mis-side{background:#F7F9F9; border-right:1px solid var(--ln); padding:10px 0; font-size:13px}
 .mis-side div{padding:8px 14px; color:var(--tx2); display:flex; align-items:center; gap:8px}
 .mis-side div.on{background:var(--gw); color:var(--g); font-weight:700;
   box-shadow:inset 3px 0 0 var(--g)}
 .mis-main{padding:13px 15px; min-width:0; overflow-x:auto}
 .mis-h{display:flex; align-items:baseline; gap:12px; margin-bottom:11px; flex-wrap:wrap}
-.mis-h b{font-size:14.5px; font-weight:800}
-.mis-h span{font-size:11.5px; color:var(--mut)}
+.mis-h b{font-size:16px; font-weight:800}
+.mis-h span{font-size:13px; color:var(--mut)}
 .mis-f{display:flex; gap:7px; margin-bottom:11px; flex-wrap:wrap}
 .mis-f span{border:1px solid var(--ln); border-radius:99px; padding:3px 11px;
   font-size:11px; color:var(--tx2)}
 .mis-f span.on{background:var(--g); border-color:var(--g); color:#fff; font-weight:600}
-.mis table{width:100%; border-collapse:collapse; font-size:12px; min-width:600px}
+.mis table{width:100%; border-collapse:collapse; font-size:13.5px; min-width:600px}
 .mis th{background:#F7F9F9; color:var(--mut); font-size:9.5px; letter-spacing:.07em;
   text-transform:uppercase; text-align:left; padding:7px 9px; border-bottom:1px solid var(--ln);
   font-weight:700; white-space:nowrap}
 .mis td{padding:9px; border-bottom:1px solid var(--ln); vertical-align:top; line-height:1.45}
 .mis tr:last-child td{border-bottom:0}
 .mis .nm{font-weight:700}
-.mis .sm{font-size:10.5px; color:var(--mut)}
+.mis .sm{font-size:11.5px; color:var(--mut)}
 .mis .st{display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700;
   border-radius:99px; padding:2px 9px; white-space:nowrap}
 .mis .st i{width:7px; height:7px; border-radius:50%; display:inline-block}
@@ -276,12 +282,12 @@ ol li::before{content:counter(i); position:absolute; left:0; top:1px;
   color:var(--accent); border:1px solid var(--accent); border-radius:2px;
   padding:5px 7px; flex:none}
 .fb{display:flex; flex-direction:column; gap:3px; min-width:0}
-.fb b{font-size:14.5px; font-weight:600}
-.fb i{font-style:normal; font-size:12.5px; color:var(--muted); line-height:1.4}
+.fb b{font-size:16px; font-weight:600}
+.fb i{font-style:normal; font-size:13.5px; color:var(--muted); line-height:1.4}
 
 .det{margin-top:20px; background:var(--surface); border:1px solid var(--line);
   border-radius:3px; box-shadow:var(--shadow)}
-.det summary{cursor:pointer; padding:14px 17px; font-weight:600; font-size:14.5px;
+.det summary{cursor:pointer; padding:15px 18px; font-weight:600; font-size:16px;
   list-style:none; display:flex; align-items:center; gap:9px}
 .det summary::-webkit-details-marker{display:none}
 .det summary::before{content:"+"; font-family:"Spline Sans Mono",monospace; color:var(--accent);
@@ -289,32 +295,32 @@ ol li::before{content:counter(i); position:absolute; left:0; top:1px;
   display:flex; align-items:center; justify-content:center; font-size:13px; flex:none}
 .det[open] summary::before{content:"–"}
 .det summary:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
-.det-b{padding:0 17px 17px; color:var(--ink-2); font-size:14px; line-height:1.62;
+.det-b{padding:0 18px 18px; color:var(--ink-2); font-size:15.5px; line-height:1.62;
   border-top:1px solid var(--line); padding-top:15px; white-space:normal}
 .det-b p{margin:0 0 11px}
 .det-b h4{font-family:Manrope,system-ui,sans-serif; font-size:15px; color:var(--ink); margin:20px 0 9px}
-.det-b table{font-size:13.5px}
+.det-b table{font-size:15px}
 
 /* калькулятор */
 .calc{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:16px}
 @media(max-width:640px){.calc{grid-template-columns:1fr}}
 .calc-in{display:flex; flex-direction:column; gap:13px}
-.calc-in label{display:block; font-size:12.5px; color:var(--muted)}
+.calc-in label{display:block; font-size:13.5px; color:var(--muted)}
 .calc-in label b{float:right; font-family:"Spline Sans Mono",monospace; color:var(--ink);
   font-variant-numeric:tabular-nums; font-size:13px}
 .calc-in input[type=range]{width:100%; accent-color:var(--accent); margin-top:5px}
 .calc-out{background:var(--surface-2); border:1px solid var(--line); border-radius:3px;
   padding:15px 16px; align-self:start}
 .co{display:flex; justify-content:space-between; align-items:baseline; gap:12px;
-  padding:7px 0; border-bottom:1px dashed var(--line); font-size:13px}
+  padding:8px 0; border-bottom:1px dashed var(--line); font-size:14.5px}
 .co:last-of-type{border-bottom:0}
 .co b{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums;
-  font-size:14.5px; color:var(--ink); white-space:nowrap}
-.co.big b{font-family:Manrope,system-ui,sans-serif; font-size:20px; color:var(--accent)}
+  font-size:16px; color:var(--ink); white-space:nowrap}
+.co.big b{font-family:Manrope,system-ui,sans-serif; font-size:23px; color:var(--accent)}
 .co.big b.neg{color:var(--alert)}
 
-footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56px;
-  color:var(--muted); font-size:13px}
+footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56px;
+  color:var(--muted); font-size:14px}
 @media(max-width:640px){
   .step{grid-template-columns:1fr; gap:4px}
   header{padding-top:36px}
@@ -750,43 +756,44 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
   </div>
 
   <h3 style="font-size:17px; margin:34px 0 6px">Экраны пациента</h3>
-  <p class="sdek" style="margin-top:0">Семь ключевых экранов. Крупный шрифт, контрастные
-  цвета и большие кнопки — расчёт на пользователя 65+.</p>
+  <p class="sdek" style="margin-top:0">Экраны нарисованы в интерфейсе действующего
+  приложения: те же тёмные карточки, зелёный акцент и пять вкладок внизу. Раздел не
+  добавляет шестую вкладку — он живёт внутри «Моих данных», где уже есть пункт
+  «Показатели здоровья».</p>
 
   <div class="screens">
     <div class="ph">
-      <div class="ph-cap">1 · Здоровье · сегодня</div>
+      <div class="ph-cap">1 · Мои данные → Показатели</div>
       <div class="dscr">
-        <div class="dhd"><span class="ava"></span><span class="lg"><svg width="13" height="13" viewBox="0 0 26 26" fill="currentColor"><path d="M13 0a13 13 0 1 1 0 26 13 13 0 0 1 0-26zm-1 6.5a6.5 6.5 0 1 0 6.4 7.6c.2 2.4-1.5 4.4-3.6 4.6a3 3 0 0 1-2.4-.9 2.3 2.3 0 0 0 1.6-2.2 2.4 2.4 0 1 0-4.8.2c.1 3 2.7 5.2 5.7 5.1"/></svg>DAMUMED</span><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h2l2.4 11h9.6l2-8H6"/><circle cx="9" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg></span></div>
+        <div class="dst"><span>19:41</span><span>◦◦◦ ▪ ▮</span></div><div class="dback"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 5l-7 7 7 7"/></svg><b>Показатели здоровья</b></div>
         <div class="dbody">
-  <div class="dpills"><div class="dpill a">Графики<br>врачей</div><div class="dpill b">Обзор<br>приложения</div><div class="dpill c">Проверить<br>полис</div></div>
   <div class="dcard">
     <div class="dring"><div id="ring-ok"></div>
       <div class="dstat">Всё в вашей норме</div>
       <div class="dsub">Сон, пульс и дыхание — как обычно</div></div>
   </div>
   <div class="dcard dmetric">
-    <span class="dmi"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l2-5 3 10 2.5-5H21"/></svg></span>
-    <span><span class="dmk">пульс покоя за ночь</span><br><span class="dmv">ЧСС покоя | 61 уд/мин</span></span>
+    <span class="dmi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l2-5 3 10 2.5-5H21"/></svg></span>
+    <span><span class="dmk">пульс покоя за ночь</span><br><span class="dmv">61 уд/мин</span></span>
   </div>
   <div class="dcard dmetric">
-    <span class="dmi"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 14a8 8 0 1 1-10-10 7 7 0 0 0 10 10z"/></svg></span>
-    <span><span class="dmk">режим ровный</span><br><span class="dmv">Сон | 7 ч 10 мин</span></span>
+    <span class="dmi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 14a8 8 0 1 1-10-10 7 7 0 0 0 10 10z"/></svg></span>
+    <span><span class="dmk">режим ровный</span><br><span class="dmv">Сон 7 ч 10 мин</span></span>
   </div>
   <div class="dcard">
     <h4>Сегодня нужно</h4>
-    <div class="drow"><span>Давление утром</span><span class="dtag t-ok">132/84 ✓</span></div>
+    <div class="drow"><span>Давление утром</span><span class="dtag t-ok">132/84</span></div>
     <div class="drow"><span>Лекарства</span><span class="dtag t-ok">2 из 3</span></div>
-    <div class="drow"><span>Давление вечером</span><span class="dnote">напомню в 20:00</span></div>
+    <div class="drow"><span>Давление вечером</span><span class="dnote">в 20:00</span></div>
   </div>
         </div>
-        <div class="dnav"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10.5 12 3l9 7.5V21H3z"/></svg>Главная</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>Медкарта</span><span class="on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20s-7-4.5-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5c0 5-7 9.5-7 9.5z"/></svg>Здоровье</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Заказы</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg>Другое</span></div>
+        <div class="dnav"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 10.5 12 3l9 7.5V21H3z"/></svg>Главная</span><span class="on"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 8h14v12H5z"/><path d="M9 8V5h6v3"/><circle cx="12" cy="13" r="2"/></svg>Мои данные</span><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 4l2.4 5 5.6.7-4 3.9 1 5.4-5-2.7-5 2.7 1-5.4-4-3.9 5.6-.7z"/></svg>Избранное</span><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Заказы</span><span><span class="dbadge">7</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="7" cy="12" r=".8"/><circle cx="12" cy="12" r=".8"/><circle cx="17" cy="12" r=".8"/></svg>Другое</span></div>
       </div>
     </div>
     <div class="ph">
       <div class="ph-cap">2 · Первая неделя</div>
       <div class="dscr">
-        <div class="dhd"><span class="ava"></span><span class="lg"><svg width="13" height="13" viewBox="0 0 26 26" fill="currentColor"><path d="M13 0a13 13 0 1 1 0 26 13 13 0 0 1 0-26zm-1 6.5a6.5 6.5 0 1 0 6.4 7.6c.2 2.4-1.5 4.4-3.6 4.6a3 3 0 0 1-2.4-.9 2.3 2.3 0 0 0 1.6-2.2 2.4 2.4 0 1 0-4.8.2c.1 3 2.7 5.2 5.7 5.1"/></svg>DAMUMED</span><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h2l2.4 11h9.6l2-8H6"/><circle cx="9" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg></span></div>
+        <div class="dst"><span>19:41</span><span>◦◦◦ ▪ ▮</span></div><div class="dback"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 5l-7 7 7 7"/></svg><b>Показатели здоровья</b></div>
         <div class="dbody">
   <div class="dcard">
     <div class="dring"><div id="ring-cal"></div>
@@ -807,38 +814,37 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
   </div>
   <div class="dbtn gh">Внести давление</div>
         </div>
-        <div class="dnav"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10.5 12 3l9 7.5V21H3z"/></svg>Главная</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>Медкарта</span><span class="on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20s-7-4.5-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5c0 5-7 9.5-7 9.5z"/></svg>Здоровье</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Заказы</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg>Другое</span></div>
+        <div class="dnav"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 10.5 12 3l9 7.5V21H3z"/></svg>Главная</span><span class="on"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 8h14v12H5z"/><path d="M9 8V5h6v3"/><circle cx="12" cy="13" r="2"/></svg>Мои данные</span><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 4l2.4 5 5.6.7-4 3.9 1 5.4-5-2.7-5 2.7 1-5.4-4-3.9 5.6-.7z"/></svg>Избранное</span><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Заказы</span><span><span class="dbadge">7</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="7" cy="12" r=".8"/><circle cx="12" cy="12" r=".8"/><circle cx="17" cy="12" r=".8"/></svg>Другое</span></div>
       </div>
     </div>
     <div class="ph">
       <div class="ph-cap">3 · Ритм и пульс</div>
       <div class="dscr">
-        <div class="dhd"><span class="ava"></span><span class="lg"><svg width="13" height="13" viewBox="0 0 26 26" fill="currentColor"><path d="M13 0a13 13 0 1 1 0 26 13 13 0 0 1 0-26zm-1 6.5a6.5 6.5 0 1 0 6.4 7.6c.2 2.4-1.5 4.4-3.6 4.6a3 3 0 0 1-2.4-.9 2.3 2.3 0 0 0 1.6-2.2 2.4 2.4 0 1 0-4.8.2c.1 3 2.7 5.2 5.7 5.1"/></svg>DAMUMED</span><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h2l2.4 11h9.6l2-8H6"/><circle cx="9" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg></span></div>
+        <div class="dst"><span>19:41</span><span>◦◦◦ ▪ ▮</span></div><div class="dback"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 5l-7 7 7 7"/></svg><b>Ритм и пульс</b></div>
         <div class="dbody">
   <div class="dalert">
-    <div style="font-weight:800;font-size:13px">Пульс выше обычного</div>
-    <div class="dnote" style="margin-top:3px">Третью ночь подряд. Врач это видит,
-    отдельно звонить не нужно.</div>
+    <div style="font-weight:700;font-size:13px">Пульс выше обычного</div>
+    <div class="dnote" style="margin-top:3px;color:#D9C9A4">Третью ночь подряд.
+    Врач это видит, отдельно звонить не нужно.</div>
   </div>
   <div class="dcard">
     <h4>Ночной пульс и ваш коридор</h4>
     <div id="ph-hr"></div>
-    <div class="dnote" style="margin-top:7px">Серая полоса — ваша обычная ночь,
-    58–66 ударов.</div>
+    <div class="dnote" style="margin-top:7px">Серая полоса — ваша обычная ночь, 58–66 ударов.</div>
   </div>
   <div class="dcard">
     <div class="drow"><span>Вариабельность ритма</span><b>38 мс</b></div>
     <div class="drow"><span>Нерегулярный ритм</span><b>не выявлен</b></div>
   </div>
-  <div class="dbtn gh">Записать ЭКГ</div>
+  <div class="dbtn gh">Показать врачу</div>
         </div>
-        <div class="dnav"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10.5 12 3l9 7.5V21H3z"/></svg>Главная</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>Медкарта</span><span class="on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20s-7-4.5-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5c0 5-7 9.5-7 9.5z"/></svg>Здоровье</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Заказы</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg>Другое</span></div>
+        <div class="dnav"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 10.5 12 3l9 7.5V21H3z"/></svg>Главная</span><span class="on"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 8h14v12H5z"/><path d="M9 8V5h6v3"/><circle cx="12" cy="13" r="2"/></svg>Мои данные</span><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 4l2.4 5 5.6.7-4 3.9 1 5.4-5-2.7-5 2.7 1-5.4-4-3.9 5.6-.7z"/></svg>Избранное</span><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Заказы</span><span><span class="dbadge">7</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="7" cy="12" r=".8"/><circle cx="12" cy="12" r=".8"/><circle cx="17" cy="12" r=".8"/></svg>Другое</span></div>
       </div>
     </div>
     <div class="ph">
       <div class="ph-cap">4 · Сон</div>
       <div class="dscr">
-        <div class="dhd"><span class="ava"></span><span class="lg"><svg width="13" height="13" viewBox="0 0 26 26" fill="currentColor"><path d="M13 0a13 13 0 1 1 0 26 13 13 0 0 1 0-26zm-1 6.5a6.5 6.5 0 1 0 6.4 7.6c.2 2.4-1.5 4.4-3.6 4.6a3 3 0 0 1-2.4-.9 2.3 2.3 0 0 0 1.6-2.2 2.4 2.4 0 1 0-4.8.2c.1 3 2.7 5.2 5.7 5.1"/></svg>DAMUMED</span><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h2l2.4 11h9.6l2-8H6"/><circle cx="9" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg></span></div>
+        <div class="dst"><span>19:41</span><span>◦◦◦ ▪ ▮</span></div><div class="dback"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 5l-7 7 7 7"/></svg><b>Сон</b></div>
         <div class="dbody">
   <div class="dcard">
     <h4>Ровный сон</h4>
@@ -852,23 +858,23 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
     <div class="drow"><span>Просыпаетесь</span><b>6:30</b></div>
   </div>
         </div>
-        <div class="dnav"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10.5 12 3l9 7.5V21H3z"/></svg>Главная</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>Медкарта</span><span class="on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20s-7-4.5-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5c0 5-7 9.5-7 9.5z"/></svg>Здоровье</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Заказы</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg>Другое</span></div>
+        <div class="dnav"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 10.5 12 3l9 7.5V21H3z"/></svg>Главная</span><span class="on"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 8h14v12H5z"/><path d="M9 8V5h6v3"/><circle cx="12" cy="13" r="2"/></svg>Мои данные</span><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 4l2.4 5 5.6.7-4 3.9 1 5.4-5-2.7-5 2.7 1-5.4-4-3.9 5.6-.7z"/></svg>Избранное</span><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Заказы</span><span><span class="dbadge">7</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="7" cy="12" r=".8"/><circle cx="12" cy="12" r=".8"/><circle cx="17" cy="12" r=".8"/></svg>Другое</span></div>
       </div>
     </div>
     <div class="ph">
       <div class="ph-cap">5 · Давление и лекарства</div>
       <div class="dscr">
-        <div class="dhd"><span class="ava"></span><span class="lg"><svg width="13" height="13" viewBox="0 0 26 26" fill="currentColor"><path d="M13 0a13 13 0 1 1 0 26 13 13 0 0 1 0-26zm-1 6.5a6.5 6.5 0 1 0 6.4 7.6c.2 2.4-1.5 4.4-3.6 4.6a3 3 0 0 1-2.4-.9 2.3 2.3 0 0 0 1.6-2.2 2.4 2.4 0 1 0-4.8.2c.1 3 2.7 5.2 5.7 5.1"/></svg>DAMUMED</span><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h2l2.4 11h9.6l2-8H6"/><circle cx="9" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg></span></div>
+        <div class="dst"><span>19:41</span><span>◦◦◦ ▪ ▮</span></div><div class="dback"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 5l-7 7 7 7"/></svg><b>Давление</b></div>
         <div class="dbody">
   <div class="dcard">
     <h4>Верхнее давление и цель врача</h4>
     <div id="ph-bp"></div>
     <div class="dnote" style="margin-top:7px">Зелёная полоса — цель врача. Метка внизу —
-    день смены препарата: после него давление вошло в цель.</div>
+    день смены препарата.</div>
   </div>
   <div class="dcard dmetric">
-    <span class="dmi"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3s6 6.5 6 10a6 6 0 0 1-12 0c0-3.5 6-10 6-10z"/></svg></span>
-    <span><span class="dmk">среднее за две недели</span><br><span class="dmv">Давление | 134/85</span></span>
+    <span class="dmi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3s6 6.5 6 10a6 6 0 0 1-12 0c0-3.5 6-10 6-10z"/></svg></span>
+    <span><span class="dmk">среднее за две недели</span><br><span class="dmv">134/85</span></span>
   </div>
   <div class="dcard">
     <div class="drow"><span>Измерений внесено</span><b>24 из 28</b></div>
@@ -876,16 +882,16 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
   </div>
   <div class="dbtn">Внести измерение</div>
         </div>
-        <div class="dnav"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10.5 12 3l9 7.5V21H3z"/></svg>Главная</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>Медкарта</span><span class="on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20s-7-4.5-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5c0 5-7 9.5-7 9.5z"/></svg>Здоровье</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Заказы</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg>Другое</span></div>
+        <div class="dnav"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 10.5 12 3l9 7.5V21H3z"/></svg>Главная</span><span class="on"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 8h14v12H5z"/><path d="M9 8V5h6v3"/><circle cx="12" cy="13" r="2"/></svg>Мои данные</span><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 4l2.4 5 5.6.7-4 3.9 1 5.4-5-2.7-5 2.7 1-5.4-4-3.9 5.6-.7z"/></svg>Избранное</span><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Заказы</span><span><span class="dbadge">7</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="7" cy="12" r=".8"/><circle cx="12" cy="12" r=".8"/><circle cx="17" cy="12" r=".8"/></svg>Другое</span></div>
       </div>
     </div>
     <div class="ph">
       <div class="ph-cap">6 · Отчёт к приёму</div>
       <div class="dscr">
-        <div class="dhd"><span class="ava"></span><span class="lg"><svg width="13" height="13" viewBox="0 0 26 26" fill="currentColor"><path d="M13 0a13 13 0 1 1 0 26 13 13 0 0 1 0-26zm-1 6.5a6.5 6.5 0 1 0 6.4 7.6c.2 2.4-1.5 4.4-3.6 4.6a3 3 0 0 1-2.4-.9 2.3 2.3 0 0 0 1.6-2.2 2.4 2.4 0 1 0-4.8.2c.1 3 2.7 5.2 5.7 5.1"/></svg>DAMUMED</span><span class="ic"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4-3 7-7 9-4-2-7-5-7-9V6z"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h2l2.4 11h9.6l2-8H6"/><circle cx="9" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg></span></div>
+        <div class="dst"><span>19:41</span><span>◦◦◦ ▪ ▮</span></div><div class="dback"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 5l-7 7 7 7"/></svg><b>Отчёт к приёму</b></div>
         <div class="dbody">
   <div class="dcard dmetric">
-    <span class="dmi"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h4"/></svg></span>
+    <span class="dmi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h4"/></svg></span>
     <span><span class="dmk">приём 12 сентября</span><br><span class="dmv">Отчёт за 30 дней</span></span>
   </div>
   <div class="dcard">
@@ -903,7 +909,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:22px; margin-top:56p
   </div>
   <div class="dbtn gh">Отправить врачу заранее</div>
         </div>
-        <div class="dnav"><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10.5 12 3l9 7.5V21H3z"/></svg>Главная</span><span class="on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg>Медкарта</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20s-7-4.5-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5c0 5-7 9.5-7 9.5z"/></svg>Здоровье</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Заказы</span><span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg>Другое</span></div>
+        <div class="dnav"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 10.5 12 3l9 7.5V21H3z"/></svg>Главная</span><span class="on"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 8h14v12H5z"/><path d="M9 8V5h6v3"/><circle cx="12" cy="13" r="2"/></svg>Мои данные</span><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 4l2.4 5 5.6.7-4 3.9 1 5.4-5-2.7-5 2.7 1-5.4-4-3.9 5.6-.7z"/></svg>Избранное</span><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Заказы</span><span><span class="dbadge">7</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="7" cy="12" r=".8"/><circle cx="12" cy="12" r=".8"/><circle cx="17" cy="12" r=".8"/></svg>Другое</span></div>
       </div>
     </div>
   </div>
