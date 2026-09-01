@@ -37,17 +37,16 @@
 <p style="margin:0 0 14px"><a href="bez-registracii.html" style="color:#0e7d6b;text-decoration:none;font-size:13px">← к отчёту (вариант без регистрации)</a></p>
 <h1>Damumed Band — калькулятор экономики первой партии · вариант без регистрации</h1>
 <p class="sub">Допущения и источники — <code>finance/model.md</code>, раздел «Вариант Б». Всё в ₸.
-Розница стартует после доставки партии (базово месяц 6 от контракта), продажи растекаются
-на выбранное число месяцев, горизонт 24 месяца. Поликлиничный трек — рисковая опция:
-закуп возможен, но без РУ в контур дистанционного наблюдения устройство не встаёт
-(п.5 Требований приказа № ҚР ДСМ-39), базово доля 0%.</p>
+Каналы и цены — те же, что в варианте с регистрацией (поликлиники + розница); отличия —
+регистрации нет (CAPEX без РУ) и продажи стартуют после доставки партии, базово месяц 6
+от контракта. Горизонт 24 месяца.</p>
 
-<div class="warnbox">⚠️ Оценочная модель для решения «копать дальше или нет». Главное
-число, которого она не знает: доля партии, которую розница реально выкупит, — двигайте
-ползунок «Продастся из партии». Точка безубыточности базового сценария — около половины
-партии за 24 месяца. Поликлиничный трек (ползунок «Доля поликлиник») — <b>рисковая
-опция</b>: без РУ наблюдение не засчитывается и мотивация закупа слабая, базово 0%.
-Разработка ПО принята силами Damumed и в затраты не входит.</div>
+<div class="warnbox">⚠️ <b>Оговорка о приказе.</b> Без РУ дистанционное наблюдение
+официально не засчитывается (п.5 Требований приказа № ҚР ДСМ-39 допускает автоматический
+приём данных только с сертифицированных устройств) — поликлиники закупают браслеты в
+рамке «программы приверженности», без баллов стимулирующего компонента. Готовы ли они
+на это — главное непроверенное допущение: проверьте ползунком «Доля B2B» сценарий, где
+поликлиники выпадают. Разработка ПО принята силами Damumed и в затраты не входит.</div>
 
 <div class="grid">
 <div>
@@ -57,8 +56,8 @@
       <input type="range" id="N" min="500" max="50000" step="500" value="10000">
       <div class="src">пилот Eternity возможен от 500 шт</div></div>
     <div class="p"><label>FOB, $/шт <b id="vFob"></b></label>
-      <input type="range" id="fob" min="7" max="18" step="0.1" value="7.5">
-      <div class="src">WP1: без ЭКГ $7.4–13 при 10k; запас варианта — в плюсе до $17+</div></div>
+      <input type="range" id="fob" min="7" max="20" step="0.1" value="7.5">
+      <div class="src">WP1: без ЭКГ $7.4–13 при 10k; базово нижняя граница как цель переговоров</div></div>
     <div class="p"><label>Курс USD/KZT <b id="vFx"></b></label>
       <input type="range" id="fx" min="440" max="520" step="1" value="465">
       <div class="src">НБ РК 31.08.2026: 464.77</div></div>
@@ -77,41 +76,41 @@
     <h3>CAPEX и OPEX</h3>
     <div class="p"><label>Регистрация РУ, млн ₸ <b id="vReg"></b></label>
       <input type="range" id="reg" min="0" max="20" step="1" value="0">
-      <div class="src">вариант Б: 0 — регистрации нет; ползунок оставлен для сценария «этап 2»</div></div>
+      <div class="src">вариант Б: 0 — регистрации нет; ползунок — для сценария «этап 2»</div></div>
     <div class="p"><label>Разработка ПО (MVP), млн ₸ <b id="vSoft"></b></label>
       <input type="range" id="soft" min="0" max="120" step="5" value="0">
       <div class="src">решение владельца: делает команда Damumed (ползунок — цена внешнего подрядчика)</div></div>
     <div class="p"><label>Облако+поддержка, млн ₸/мес <b id="vOpex"></b></label>
       <input type="range" id="opex" min="0.5" max="4" step="0.25" value="1.5"></div>
     <div class="p"><label>Месяц старта продаж, от контракта <b id="vRu"></b></label>
-      <input type="range" id="ru" min="4" max="12" step="1" value="6">
-      <div class="src">образцы 4–6 нед + партия 8–12 нед + доставка ~4 нед</div></div>
+      <input type="range" id="ru" min="4" max="16" step="1" value="6">
+      <div class="src">образцы 4–6 нед + партия 8–12 нед + доставка ~4 нед; 16 = сценарий с РУ</div></div>
+    <div class="p"><label>Продажи растекаются на, мес <b id="vRamp"></b></label>
+      <input type="range" id="ramp" min="3" max="24" step="1" value="6">
+      <div class="src">6 мес при закупе поликлиник; без них розница продаётся медленнее</div></div>
   </div>
 
   <div class="card">
-    <h3>Каналы</h3>
-    <div class="p"><label>Продастся из партии, % <b id="vSell"></b></label>
-      <input type="range" id="sell" min="10" max="100" step="5" value="100">
-      <div class="src">главное непроверенное число варианта; безубыточность ≈ 50%</div></div>
-    <div class="p"><label>Продажи растекаются на, мес <b id="vRamp"></b></label>
-      <input type="range" id="ramp" min="6" max="24" step="1" value="12">
-      <div class="src">розница без закупа поликлиник продаётся медленнее — базово 12 мес</div></div>
-    <div class="p"><label>Розничная цена, ₸ <b id="vCp"></b></label>
+    <h3>Каналы (как в варианте с РУ)</h3>
+    <div class="p"><label>Доля B2B (поликлиники), % ⚠️ <b id="vShare"></b></label>
+      <input type="range" id="share" min="0" max="100" step="5" value="70">
+      <div class="src">оговорка о приказе: закуп без зачёта наблюдения и баллов — проверить сценарий 0%</div></div>
+    <div class="p"><label>B2B: цена устройства, ₸ <b id="vBp"></b></label>
+      <input type="range" id="bp" min="4000" max="60000" step="100" value="6900">
+      <div class="src">или рассрочка 640 ₸/мес × 12 ≈ 7 680 ₸</div></div>
+    <div class="p"><label>B2B: модуль наблюдения, ₸/пациент/мес <b id="vBf"></b></label>
+      <input type="range" id="bf" min="0" max="3000" step="100" value="500">
+      <div class="src">внутренняя цена в аренде МИС (поликлиника отдельно не платит)</div></div>
+    <div class="p"><label>B2C: розничная цена, ₸ <b id="vCp"></b></label>
       <input type="range" id="cp" min="7990" max="60000" step="500" value="14990">
       <div class="src">на треть ниже Xiaomi Band 10 (21 989 ₸)</div></div>
     <div class="p"><label>Комиссия канала (Kaspi), % <b id="vKom"></b></label>
       <input type="range" id="kom" min="0" max="20" step="0.5" value="13">
       <div class="src">Kaspi «Электроника» 12,5%; продажи в приложении Damumed — почти 0%</div></div>
-    <div class="p"><label>Подписка, ₸/мес <b id="vSp"></b></label>
+    <div class="p"><label>B2C: подписка, ₸/мес <b id="vSp"></b></label>
       <input type="range" id="sp" min="0" max="4990" step="100" value="690"></div>
-    <div class="p"><label>Конверсия в подписку, % <b id="vSr"></b></label>
+    <div class="p"><label>B2C: конверсия в подписку, % <b id="vSr"></b></label>
       <input type="range" id="sr" min="0" max="60" step="5" value="30"></div>
-    <div class="p"><label>Доля поликлиник, % ⚠️ <b id="vShare"></b></label>
-      <input type="range" id="share" min="0" max="50" step="5" value="0">
-      <div class="src">рисковый трек: закуп возможен, официального наблюдения без РУ нет; базово 0</div></div>
-    <div class="p"><label>Поликлиникам: цена устройства, ₸ <b id="vBp"></b></label>
-      <input type="range" id="bp" min="4000" max="20000" step="100" value="6900">
-      <div class="src">закуп разово; рассрочка 640 ₸/мес × 12 ≈ 7 680 ₸; подписки у трека нет</div></div>
   </div>
 </div>
 
@@ -127,14 +126,15 @@
 
   <div class="card">
     <h3>Маржа на устройство</h3>
-    <div class="out"><span>Маржа с устройства (после комиссии)</span><b id="oMc"></b></div>
-    <div class="out"><span>Подписочная выручка в устойчивом режиме, ₸/мес</span><b id="oMrr"></b></div>
+    <div class="out"><span>B2B: маржа с устройства</span><b id="oMb"></b></div>
+    <div class="out"><span>B2C: маржа с устройства (после комиссии)</span><b id="oMc"></b></div>
+    <div class="out"><span>Сервисная выручка в устойчивом режиме, ₸/мес</span><b id="oMrr"></b></div>
   </div>
 
   <div class="card">
     <h3>Итог 24 месяцев от контракта</h3>
     <div class="out"><span>Выручка: устройства</span><b id="oRevDev"></b></div>
-    <div class="out"><span>Выручка: подписки</span><b id="oRevSrv"></b></div>
+    <div class="out"><span>Выручка: сервис/подписки</span><b id="oRevSrv"></b></div>
     <div class="out"><span>Все затраты (партия+CAPEX+OPEX 24 мес)</span><b id="oCost"></b></div>
     <div class="out big"><span>Результат к месяцу 24</span><b id="oPnl"></b></div>
     <div class="out"><span>Окупаемость первой партии</span><b id="oBe"></b></div>
@@ -146,12 +146,11 @@
     <div class="note">
       Landed = (FOB+логистика)×курс×(1+пошлина) + упаковка×курс; брак раскладывается на
       проданные штуки. Продажи стартуют с выбранного месяца и растекаются равными долями
-      на выбранное число месяцев; продаётся заданная доля партии, остаток лежит на складе
-      (его стоимость уже в затратах). Поликлиничная доля продаётся по цене закупа без
-      подписки — рисковый трек, базово 0%. Розничная подписка — доля купивших × цена,
-      с месяца покупки.
-      OPEX идёт с месяца 1. НДС при импорте 16% (льготы 5% без РУ нет) — зачётный,
-      в P&L не входит, но замораживает деньги в обороте. Налог на прибыль не учтён.
+      на выбранное число месяцев по обоим каналам. Сервис B2B: 1 устройство = 1 пациент
+      на модуле наблюдения с месяца продажи (внутренняя цена в аренде МИС). Подписка
+      B2C — доля покупателей × цена, с месяца покупки. OPEX идёт с месяца 1. НДС при
+      импорте 16% (льготы 5% без РУ нет) — зачётный, в P&L не входит, но замораживает
+      деньги в обороте. Налог на прибыль не учтён.
     </div>
   </div>
 </div>
@@ -159,7 +158,7 @@
 
 <script>
 const $=id=>document.getElementById(id);
-const P=['N','fob','fx','log','duty','pack','def','reg','soft','opex','ru','sell','ramp','cp','kom','sp','sr','share','bp'];
+const P=['N','fob','fx','log','duty','pack','def','reg','soft','opex','ru','ramp','share','bp','bf','cp','kom','sp','sr'];
 const fmt=(x,d=0)=>x.toLocaleString('ru-RU',{maximumFractionDigits:d});
 const money=x=>Math.abs(x)>=1e6? fmt(x/1e6,1)+' млн ₸' : fmt(x)+' ₸';
 
@@ -170,11 +169,11 @@ function calc(){
   $('vDuty').textContent=v.duty+'%'; $('vPack').textContent='$'+v.pack.toFixed(1);
   $('vDef').textContent=v.def+'%'; $('vReg').textContent=fmt(v.reg);
   $('vSoft').textContent=fmt(v.soft); $('vOpex').textContent=v.opex.toFixed(2);
-  $('vRu').textContent=v.ru; $('vSell').textContent=v.sell+'%';
-  $('vRamp').textContent=v.ramp;
+  $('vRu').textContent=v.ru; $('vRamp').textContent=v.ramp;
+  $('vShare').textContent=v.share+'%';
+  $('vBp').textContent=fmt(v.bp); $('vBf').textContent=fmt(v.bf);
   $('vCp').textContent=fmt(v.cp); $('vKom').textContent=v.kom+'%';
   $('vSp').textContent=fmt(v.sp); $('vSr').textContent=v.sr+'%';
-  $('vShare').textContent=v.share+'%'; $('vBp').textContent=fmt(v.bp);
 
   const landed=(v.fob+v.log)*v.fx*(1+v.duty/100)+v.pack*v.fx;
   const landedEff=landed/(1-v.def/100);
@@ -182,15 +181,15 @@ function calc(){
   const batchCost=landed*v.N;
   const capex=(v.reg+v.soft+3)*1e6;
 
-  const nSold=Math.round(v.N*v.sell/100);
-  const nB2B=Math.round(nSold*v.share/100), nB2C=nSold-nB2B;
-  const mC=v.cp*(1-v.kom/100)-landedEff;
-  const devRevTotal=nB2C*v.cp*(1-v.kom/100)+nB2B*v.bp;
-  const mrr=nB2C*(v.sr/100)*v.sp;
+  const nB2B=Math.round(v.N*v.share/100), nB2C=v.N-nB2B;
+  const mB2B=v.bp-landedEff;
+  const mB2C=v.cp*(1-v.kom/100)-landedEff;
+  const devRevTotal=nB2B*v.bp+nB2C*v.cp*(1-v.kom/100);
+  const mrr=nB2B*v.bf + nB2C*(v.sr/100)*v.sp;
 
   const H=24;
   let revDev=0, revSrv=0;
-  const soldFrac=m=>{ // доля ПРОДАВАЕМОГО объёма, реализованная к концу месяца m
+  const soldFrac=m=>{
     if(m<v.ru) return 0;
     return Math.min(1,(m-v.ru+1)/v.ramp);
   };
@@ -215,7 +214,8 @@ function calc(){
   $('oVat').textContent=money(vatTotal);
   $('oBatch').textContent=money(batchCost);
   $('oCapex').textContent=money(capex);
-  $('oMc').textContent=fmt(mC)+' ₸ ('+fmt(mC/v.cp*100)+'%)';
+  $('oMb').textContent=fmt(mB2B)+' ₸ ('+fmt(mB2B/v.bp*100)+'%)';
+  $('oMc').textContent=fmt(mB2C)+' ₸ ('+fmt(mB2C/v.cp*100)+'%)';
   $('oMrr').textContent=money(mrr)+'/мес';
   $('oRevDev').textContent=money(revDev);
   $('oRevSrv').textContent=money(revSrv);
@@ -224,8 +224,8 @@ function calc(){
   el.className=pnl>=0?'pos':'neg';
   $('oBe').textContent=be;
   $('oComment').textContent = pnl>=0
-    ? 'Вариант в плюсе при этих допущениях. Помните: главное допущение — доля партии, которую выкупит розница.'
-    : 'При этих допущениях партия не окупается за 24 мес. Проверьте долю продаж: безубыточность базового сценария ≈ 50% партии.';
+    ? 'В плюсе при этих допущениях. Помните об оговорке о приказе: доля B2B держится на готовности поликлиник закупать без зачёта наблюдения — проверьте сценарий «Доля B2B = 0».'
+    : 'При этих допущениях партия не окупается за 24 мес. Чаще всего это сценарий выпадения поликлиник — попробуйте растянуть розничные продажи (ramp) и снизить долю B2B заранее.';
 }
 P.forEach(k=>$(k).addEventListener('input',calc));
 calc();
