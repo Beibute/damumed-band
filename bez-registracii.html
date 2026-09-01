@@ -7,45 +7,44 @@
 <meta name="description" content="Damumed Band — вариант запуска без регистрации медизделия: отчёт и расчёты">
 <title>Damumed Band — без регистрации</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500&display=swap">
 <style>
 :root{
-  --ground:#F4F7F5; --surface:#FFFFFF; --surface-2:#EDF3EF;
-  --ink:#16232B; --ink-2:#42504A; --muted:#7B8C82;
-  --line:#E3E9E5; --line-strong:#CBD8D0;
-  --accent:#0E7A50; --warn:#A87718; --alert:#C0453C; --info:#2F6D9E;
-  --accent-wash:#E8F5F0; --warn-wash:#FFF6E3; --alert-wash:#F9E9E7;
-  --head:#0B3D2C; --head-ink:#F2F7F4;
-  --seq1:#0B3D2C; --seq2:#0E7A50; --seq3:#3AAF7C; --seq4:#A9D9C0;
-  --shadow:0 1px 2px rgba(22,35,43,.05), 0 10px 28px rgba(22,35,43,.06);
+  --ground:#f4faf7; --surface:#FFFFFF; --surface-2:#e7f5ee;
+  --ink:#103126; --ink-2:#4d6c60; --muted:#7a948a;
+  --line:#dce9e2; --line-strong:#c6ddd2;
+  --accent:#17936f; --accent-bright:#2bb488;
+  --warn:#8a6416; --alert:#d1453f; --info:#2F6D9E;
+  --accent-wash:#e7f5ee; --warn-wash:#fff6e6; --alert-wash:#fdecec;
+  --head:#082f24; --head-ink:#f4faf7; --head-ink-2:#9fd4c0;
+  --seq1:#082f24; --seq2:#17936f; --seq3:#2bb488; --seq4:#9fd4c0;
+  --shadow:0 2px 12px rgba(8,47,36,.06);
 }
 *{box-sizing:border-box}
 body{
   background:var(--ground); color:var(--ink);
-  font-family:"Golos Text",-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-family:"Manrope",-apple-system,"Segoe UI",Roboto,sans-serif;
   font-size:17.5px; line-height:1.62; margin:0;
   -webkit-font-smoothing:antialiased;
 }
 .wrap{max-width:1080px; margin:0 auto; padding:0 24px 80px}
-h1,h2,h3{font-family:"Golos Text",system-ui,sans-serif; text-wrap:balance; margin:0}
+h1,h2,h3{font-family:"Manrope",system-ui,sans-serif; text-wrap:balance; margin:0}
 .num{font-family:"Spline Sans Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
 
 /* шапка */
-.hero{background:var(--head); color:var(--head-ink); margin:0 0 38px; padding:0;
-  position:relative; overflow:hidden}
-.hero-in{max-width:1080px; margin:0 auto; padding:0 24px; position:relative; z-index:1;
-  display:grid; grid-template-columns:1.15fr 1fr; gap:40px; align-items:stretch}
-.hero-in header{padding:46px 0 42px}
-.hero-img{position:relative; min-height:320px}
-.hero-img img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block}
-@media(max-width:760px){.hero-in{grid-template-columns:1fr} .hero-img{display:none}
-  .hero-in header{padding:38px 0 34px}}
+.hero{color:var(--head-ink); margin:0 0 38px; padding:0; position:relative; overflow:hidden;
+  background-image:linear-gradient(100deg,rgba(8,47,36,.97) 0%,rgba(8,47,36,.92) 42%,rgba(8,47,36,.55) 72%,rgba(8,47,36,.4) 100%),url('img/device-wrist.jpg');
+  background-size:cover; background-position:center right}
+.hero .rule{width:88px; height:8px; background:var(--accent-bright); margin:0 0 26px}
+.hero .wordmark{font-weight:800; font-size:15px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--head-ink); margin-bottom:26px}
+.hero-in{max-width:1080px; margin:0 auto; padding:0 24px; position:relative; z-index:1}
+.hero-in header{padding:64px 0 56px; max-width:62ch}
+@media(max-width:760px){.hero-in header{padding:44px 0 40px}}
 .hero-orn{position:absolute; right:-70px; top:-80px; opacity:.15; pointer-events:none}
 header{padding:0}
-.eyebrow{display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.13);
-  border-radius:99px; padding:6px 14px 6px 12px; font-size:12.5px; font-weight:500;
-  letter-spacing:.03em; margin-bottom:22px}
-.eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:#3ECF8E}
+.eyebrow{font-size:13px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent-bright); margin-bottom:20px}
 .hero .lede{color:var(--head-ink); opacity:.92}
 .hero .meta{color:var(--head-ink); opacity:.82; border-top:1px solid rgba(255,255,255,.24);
   padding-top:22px}
@@ -59,35 +58,35 @@ h1{font-size:clamp(36px,5vw,58px); font-weight:800; line-height:1.12; letter-spa
 
 /* плитки */
 .tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(178px,1fr)); gap:14px; margin-bottom:44px}
-.tile{background:var(--surface); border:1px solid var(--line); border-radius:14px;
-  padding:16px 18px 15px; box-shadow:var(--shadow)}
+.tile{background:var(--surface); border-radius:22px;
+  padding:22px 24px 20px; box-shadow:var(--shadow)}
 .tile .k{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.1em;
   text-transform:uppercase; color:var(--muted); display:block; margin-bottom:9px}
 .tile .v{font-family:'Spline Sans Mono',monospace; font-size:34px; font-weight:500; line-height:1;
   font-variant-numeric:tabular-nums; letter-spacing:-.01em}
-.tile .u{font-size:14.5px; color:var(--ink-2); font-family:"Golos Text",sans-serif; font-weight:400}
+.tile .u{font-size:14.5px; color:var(--ink-2); font-family:"Manrope",sans-serif; font-weight:400}
 .tile .d{font-size:13.5px; color:var(--muted); margin-top:7px; line-height:1.4}
-.tile.hot{border-color:var(--accent); background:var(--accent)}
+.tile.hot{background:var(--head)}
 .tile.hot .v{color:#fff}
-.tile.hot .k{color:#BEDCCB}
-.tile.hot .d{color:#CFE7DB}
-.tile.hot .u{color:#E8F5F0}
+.tile.hot .k{color:var(--head-ink-2)}
+.tile.hot .d{color:#d7efe5}
+.tile.hot .u{color:#d7efe5}
 
 /* секции */
 section{margin-bottom:52px; scroll-margin-top:20px}
 .shead{display:flex; align-items:center; gap:13px; margin-bottom:6px;
   padding-bottom:13px; border-bottom:1px solid var(--line-strong)}
-.snum{font-size:13px; color:var(--accent); font-weight:600; background:var(--accent-wash);
-  border-radius:8px; padding:5px 12px; white-space:nowrap}
+.snum{font-size:13px; color:var(--accent); font-weight:800; letter-spacing:.14em;
+  text-transform:uppercase; white-space:nowrap}
 h2{font-size:30px; font-weight:800; letter-spacing:-.01em}
 .sdek{color:var(--ink-2); margin:14px 0 22px; max-width:66ch}
 p{margin:0 0 15px} p:last-child{margin-bottom:0}
 strong{font-weight:600}
-a{color:var(--accent)} a:hover{color:#0B5C3C}
+a{color:var(--accent)} a:hover{color:var(--accent-bright)}
 
 /* карточка графика */
-.fig{background:var(--surface); border:1px solid var(--line); border-radius:16px;
-  padding:20px 22px 16px; margin:22px 0; box-shadow:var(--shadow)}
+.fig{background:var(--surface); border-radius:22px;
+  padding:26px 28px 20px; margin:24px 0; box-shadow:var(--shadow)}
 .fig h3{font-size:18px; font-weight:600; margin-bottom:3px}
 .fig .sub{color:var(--muted); font-size:14.5px; margin-bottom:18px}
 .fig .cap{color:var(--muted); font-size:14px; margin-top:14px; padding-top:12px;
@@ -98,7 +97,7 @@ svg{display:block; max-width:100%; height:auto}
 .axis-text{font-family:"Spline Sans Mono",monospace; font-size:12px; fill:var(--muted)}
 .lbl{font-family:"Spline Sans Mono",monospace; font-size:12.5px; fill:var(--ink-2)}
 .lbl-strong{font-family:"Spline Sans Mono",monospace; font-size:13px; fill:var(--ink); font-weight:500}
-.name{font-family:"Golos Text",sans-serif; font-size:13.5px; fill:var(--ink-2)}
+.name{font-family:"Manrope",sans-serif; font-size:13.5px; fill:var(--ink-2)}
 .mark{transition:opacity .12s} .mark:hover{opacity:.78; cursor:default}
 
 /* легенда */
@@ -110,14 +109,16 @@ svg{display:block; max-width:100%; height:auto}
 /* таблицы */
 .tw{overflow-x:auto; margin:20px 0}
 table{border-collapse:collapse; width:100%; font-size:15.5px; min-width:520px}
-th{text-align:left; font-family:"Spline Sans Mono",monospace; font-size:11.5px;
-  letter-spacing:.09em; text-transform:uppercase; color:var(--muted); font-weight:500;
-  padding:0 14px 9px 0; border-bottom:1px solid var(--line-strong); white-space:nowrap}
-td{padding:11px 14px 11px 2px; border-bottom:1px solid var(--line); vertical-align:top}
+table{border-radius:22px; overflow:hidden}
+th{text-align:left; font-family:"Manrope",sans-serif; font-size:12.5px;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--head-ink-2); font-weight:700;
+  background:var(--head); padding:13px 14px; white-space:nowrap}
+th:first-child{border-radius:0} 
+td{padding:13px 14px; border-bottom:1px solid rgba(16,49,38,.08); vertical-align:top}
 td.n{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums; white-space:nowrap}
 tr:last-child td{border-bottom:0}
 .pick td{background:var(--accent-wash)}
-.pick td:first-child{box-shadow:inset 3px 0 0 var(--accent); padding-left:18px}
+.pick td:first-child{padding-left:18px}
 
 /* врезки */
 .note{border-left:3px solid var(--warn); background:var(--surface);
@@ -160,10 +161,10 @@ ol li::before{content:counter(i); position:absolute; left:0; top:2px;
   box-shadow:var(--shadow)}
 .ph-cap{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.08em;
   text-transform:uppercase; color:var(--muted); text-align:center; padding:0 0 9px}
-.dscr{--g:#0E7A50; --gd:#0B5C3C; --bg:#F4F6F5; --cd:#FFFFFF; --cd2:#EFF2F0;
+.dscr{--g:#17936f; --gd:#106b51; --bg:#F4F6F5; --cd:#FFFFFF; --cd2:#EFF2F0;
   --tx:#16232B; --tx2:#42504A; --mut:#7B8C82; --ln:#E3E9E5; --blue:#2F6D9E;
   --wn:#A87718; --al:#C0453C;
-  --accent:#0E7A50; --line:#E3E9E5; --ink:#16232B; --ink-2:#42504A; --muted:#7B8C82;
+  --accent:#17936f; --line:#E3E9E5; --ink:#16232B; --ink-2:#42504A; --muted:#7B8C82;
   --surface:#FFFFFF; --surface-2:#F4F6F5; --info:#2F6D9E; --warn:#A87718; --alert:#C0453C;
   background:#F4F6F5; border-radius:20px; overflow:hidden; min-height:540px;
   display:flex; flex-direction:column; color:#16232B}
@@ -217,7 +218,7 @@ ol li::before{content:counter(i); position:absolute; left:0; top:2px;
 .dalert.crit{background:#FBE4E2}
 
 /* рабочее место врача — десктопная МИС */
-.mis{--g:#0E7A50; --gw:#E8F5F0; --bg:#F2F4F5; --ln:#E1E6E8; --tx:#16232B; --tx2:#5A6873;
+.mis{--g:#17936f; --gw:#E8F5F0; --bg:#F2F4F5; --ln:#E1E6E8; --tx:#16232B; --tx2:#5A6873;
   --mut:#8A959D; --wn:#C58A2E; --wnw:#FDF4E3; --al:#C0453C; --alw:#F9E9E7;
   border:1px solid var(--line-strong); border-radius:8px; overflow:hidden;
   background:#fff; color:var(--tx); margin:22px 0; box-shadow:var(--shadow)}
@@ -286,7 +287,7 @@ ol li::before{content:counter(i); position:absolute; left:0; top:2px;
 .det-b{padding:0 18px 18px; color:var(--ink-2); font-size:15.5px; line-height:1.62;
   border-top:1px solid var(--line); padding-top:15px; white-space:normal}
 .det-b p{margin:0 0 11px}
-.det-b h4{font-family:"Golos Text",system-ui,sans-serif; font-size:15px; color:var(--ink); margin:20px 0 9px}
+.det-b h4{font-family:"Manrope",system-ui,sans-serif; font-size:15px; color:var(--ink); margin:20px 0 9px}
 .det-b table{font-size:15px}
 
 /* калькулятор */
@@ -304,7 +305,7 @@ ol li::before{content:counter(i); position:absolute; left:0; top:2px;
 .co:last-of-type{border-bottom:0}
 .co b{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums;
   font-size:16px; color:var(--ink); white-space:nowrap}
-.co.big b{font-family:"Golos Text",system-ui,sans-serif; font-size:23px; color:var(--accent)}
+.co.big b{font-family:"Manrope",system-ui,sans-serif; font-size:23px; color:var(--accent)}
 .co.big b.neg{color:var(--alert)}
 
 footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56px;
@@ -337,7 +338,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   margin-bottom:22px}
 .vswitch a{color:#fff; text-decoration:none; font-size:13.5px; font-weight:600;
   padding:7px 16px; border-radius:99px; opacity:.85; white-space:nowrap}
-.vswitch a.on{background:#fff; color:var(--accent); opacity:1}
+.vswitch a.on{background:#fff; color:var(--head); opacity:1}
 .vswitch a:hover{opacity:1}
 @media(max-width:640px){.vswitch a{padding:6px 12px; font-size:12.5px}}
 </style>
@@ -347,11 +348,13 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 <div class="hero">
   <div class="hero-in">
     <header>
+      <div class="wordmark">Damumed</div>
+      <div class="rule"></div>
       <nav class="vswitch" aria-label="Вариант стратегии">
         <a href="index.html">Медизделие с РУ</a>
         <a class="on" href="bez-registracii.html" aria-current="page">Без регистрации</a>
       </nav>
-      <h1>Damumed Band</h1>
+    <h1>Damumed Band</h1>
       <p class="lede">Тот же браслет, то же приложение, та же панель врача и те же
       каналы продаж — но без регистрации медизделия. Продажи через полгода после
       контракта; весь поликлиничный контур — под оговоркой о приказе.</p>
@@ -372,7 +375,6 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
         </a>
       </div>
     </header>
-    <div class="hero-img"><img src="img/device-hero-title.jpg" alt="Браслет Damumed Band: серебристый модуль с гравировкой damumed и бирюзовый ремешок, сверху знак Damumed"></div>
   </div>
 </div>
 
@@ -397,7 +399,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </div>
 
 <section>
-  <div class="shead"><span class="snum">Раздел 01</span><h2>Идея варианта</h2></div>
+  <div class="shead"><span class="snum">01</span><h2>Идея варианта</h2></div>
   <p class="sdek">Продукт и пути продаж не меняются: датчик на руке → данные в
   приложении Damumed → панель врача; поликлиники — основной канал, розница — второй.
   Меняется одно: устройство не регистрируется как медизделие — и продажи начинаются
@@ -427,7 +429,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">Раздел 02</span><h2>Цена</h2></div>
+  <div class="shead"><span class="snum">02</span><h2>Цена</h2></div>
   <p class="sdek">Цены — те же, что в стратегии с регистрацией: железо не должно быть
   барьером, деньги приходят от подписок и внутренней цены модуля наблюдения.</p>
 
@@ -455,7 +457,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">Раздел 03</span><h2>Экономика</h2></div>
+  <div class="shead"><span class="snum">03</span><h2>Экономика</h2></div>
   <p class="sdek">Себестоимость на складе — 4 026 ₸, каналы и цены как в стратегии с
   регистрацией. Отличий в расчёте два: вложения без регистрации (43 млн) и старт
   продаж с шестого месяца. Отсюда результат.</p>
@@ -502,7 +504,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">Раздел 04</span><h2>Каналы и целевые группы</h2></div>
+  <div class="shead"><span class="snum">04</span><h2>Каналы и целевые группы</h2></div>
   <p class="sdek">Пути продаж — те же: 70% партии поликлиникам под мониторинг
   пациентов с хроническими заболеваниями, 30% в розницу. Клиническая рамка та же —
   четыре группы, по которым браслет даёт осмысленный сигнал.</p>
@@ -537,7 +539,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">Раздел 05</span><h2>Приложение и панель врача</h2></div>
+  <div class="shead"><span class="snum">05</span><h2>Приложение и панель врача</h2></div>
   <p class="sdek">Программная часть — та же по функциям: раздел «Показатели здоровья»
   у пациента и панель со светофором у врача. Другой у неё только правовой статус.</p>
 
@@ -566,7 +568,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">Раздел 06</span><h2>Граница закона: оговорка о приказе</h2></div>
+  <div class="shead"><span class="snum">06</span><h2>Граница закона: оговорка о приказе</h2></div>
   <p class="sdek">Две нормы, из которых растёт оговорка, — дословно, и что из них
   следует практически.</p>
 
@@ -611,7 +613,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">Раздел 07</span><h2>Производство</h2></div>
+  <div class="shead"><span class="snum">07</span><h2>Производство</h2></div>
   <p class="sdek">Проверено 12 контрактных заводов; фильтр номер один — полный доступ
   к данным без облака производителя. Поскольку регистрация — вероятный второй этап,
   критерии выбора разумно держать «медицинскими» уже сейчас.</p>
@@ -638,7 +640,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">Раздел 08</span><h2>Риски</h2></div>
+  <div class="shead"><span class="snum">08</span><h2>Риски</h2></div>
   <p class="sdek">У каждого риска есть ответ до заказа партии, а не после.</p>
   <div class="tw"><table>
     <tr><th>Риск</th><th>Чем снимается</th></tr>
@@ -670,7 +672,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section id="sravnenie">
-  <div class="shead"><span class="snum">Раздел 09</span><h2>Сравнение вариантов</h2></div>
+  <div class="shead"><span class="snum">09</span><h2>Сравнение вариантов</h2></div>
   <p class="sdek">Один продукт, одни цены и каналы — два правовых статуса. Жирным в
   каждой строке выделен вариант, который по этому критерию сильнее.</p>
 
