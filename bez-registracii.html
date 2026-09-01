@@ -1,0 +1,754 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Damumed Band — вариант запуска без регистрации медизделия: отчёт и расчёты">
+<title>Damumed Band — без регистрации</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F4F7F5; --surface:#FFFFFF; --surface-2:#EDF3EF;
+  --ink:#16232B; --ink-2:#42504A; --muted:#7B8C82;
+  --line:#E3E9E5; --line-strong:#CBD8D0;
+  --accent:#0E7A50; --warn:#A87718; --alert:#C0453C; --info:#2F6D9E;
+  --accent-wash:#E8F5F0; --warn-wash:#FFF6E3; --alert-wash:#F9E9E7;
+  --head:#0B3D2C; --head-ink:#F2F7F4;
+  --seq1:#0B3D2C; --seq2:#0E7A50; --seq3:#3AAF7C; --seq4:#A9D9C0;
+  --shadow:0 1px 2px rgba(22,35,43,.05), 0 10px 28px rgba(22,35,43,.06);
+}
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:"Golos Text",-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:17.5px; line-height:1.62; margin:0;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px; margin:0 auto; padding:0 24px 80px}
+h1,h2,h3{font-family:"Golos Text",system-ui,sans-serif; text-wrap:balance; margin:0}
+.num{font-family:"Spline Sans Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
+
+/* шапка */
+.hero{background:var(--head); color:var(--head-ink); margin:0 0 38px; padding:0;
+  position:relative; overflow:hidden}
+.hero-in{max-width:1080px; margin:0 auto; padding:0 24px; position:relative; z-index:1;
+  display:grid; grid-template-columns:1.15fr 1fr; gap:40px; align-items:stretch}
+.hero-in header{padding:46px 0 42px}
+.hero-img{position:relative; min-height:320px}
+.hero-img img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block}
+@media(max-width:760px){.hero-in{grid-template-columns:1fr} .hero-img{display:none}
+  .hero-in header{padding:38px 0 34px}}
+.hero-orn{position:absolute; right:-70px; top:-80px; opacity:.15; pointer-events:none}
+header{padding:0}
+.eyebrow{display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.13);
+  border-radius:99px; padding:6px 14px 6px 12px; font-size:12.5px; font-weight:500;
+  letter-spacing:.03em; margin-bottom:22px}
+.eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:#3ECF8E}
+.hero .lede{color:var(--head-ink); opacity:.92}
+.hero .meta{color:var(--head-ink); opacity:.82; border-top:1px solid rgba(255,255,255,.24);
+  padding-top:22px}
+.hero .meta b{color:var(--head-ink)}
+@media(max-width:700px){.hero-orn{display:none}}
+h1{font-size:clamp(36px,5vw,58px); font-weight:800; line-height:1.12; letter-spacing:-.015em}
+.lede{color:var(--ink-2); font-size:19.5px; max-width:62ch; margin:14px 0 0}
+.meta{display:flex; flex-wrap:wrap; gap:9px 24px; margin-top:24px;
+  font-family:"Spline Sans Mono",monospace; font-size:13.5px; color:var(--muted)}
+.meta b{color:var(--ink-2); font-weight:500}
+
+/* плитки */
+.tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(178px,1fr)); gap:14px; margin-bottom:44px}
+.tile{background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  padding:16px 18px 15px; box-shadow:var(--shadow)}
+.tile .k{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted); display:block; margin-bottom:9px}
+.tile .v{font-family:'Spline Sans Mono',monospace; font-size:34px; font-weight:500; line-height:1;
+  font-variant-numeric:tabular-nums; letter-spacing:-.01em}
+.tile .u{font-size:14.5px; color:var(--ink-2); font-family:"Golos Text",sans-serif; font-weight:400}
+.tile .d{font-size:13.5px; color:var(--muted); margin-top:7px; line-height:1.4}
+.tile.hot{border-color:var(--accent); background:var(--accent)}
+.tile.hot .v{color:#fff}
+.tile.hot .k{color:#BEDCCB}
+.tile.hot .d{color:#CFE7DB}
+.tile.hot .u{color:#E8F5F0}
+
+/* секции */
+section{margin-bottom:52px; scroll-margin-top:20px}
+.shead{display:flex; align-items:center; gap:13px; margin-bottom:6px;
+  padding-bottom:13px; border-bottom:1px solid var(--line-strong)}
+.snum{font-size:13px; color:var(--accent); font-weight:600; background:var(--accent-wash);
+  border-radius:8px; padding:5px 12px; white-space:nowrap}
+h2{font-size:30px; font-weight:800; letter-spacing:-.01em}
+.sdek{color:var(--ink-2); margin:14px 0 22px; max-width:66ch}
+p{margin:0 0 15px} p:last-child{margin-bottom:0}
+strong{font-weight:600}
+a{color:var(--accent)} a:hover{color:#0B5C3C}
+
+/* карточка графика */
+.fig{background:var(--surface); border:1px solid var(--line); border-radius:16px;
+  padding:20px 22px 16px; margin:22px 0; box-shadow:var(--shadow)}
+.fig h3{font-size:18px; font-weight:600; margin-bottom:3px}
+.fig .sub{color:var(--muted); font-size:14.5px; margin-bottom:18px}
+.fig .cap{color:var(--muted); font-size:14px; margin-top:14px; padding-top:12px;
+  border-top:1px solid var(--line); line-height:1.5}
+.chart{width:100%; overflow-x:auto}
+svg{display:block; max-width:100%; height:auto}
+.grid-line{stroke:var(--line); stroke-width:1}
+.axis-text{font-family:"Spline Sans Mono",monospace; font-size:12px; fill:var(--muted)}
+.lbl{font-family:"Spline Sans Mono",monospace; font-size:12.5px; fill:var(--ink-2)}
+.lbl-strong{font-family:"Spline Sans Mono",monospace; font-size:13px; fill:var(--ink); font-weight:500}
+.name{font-family:"Golos Text",sans-serif; font-size:13.5px; fill:var(--ink-2)}
+.mark{transition:opacity .12s} .mark:hover{opacity:.78; cursor:default}
+
+/* легенда */
+.legend{display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:15px;
+  font-size:13.5px; color:var(--ink-2)}
+.legend i{width:11px; height:11px; border-radius:2px; display:inline-block;
+  margin-right:6px; vertical-align:-1px}
+
+/* таблицы */
+.tw{overflow-x:auto; margin:20px 0}
+table{border-collapse:collapse; width:100%; font-size:15.5px; min-width:520px}
+th{text-align:left; font-family:"Spline Sans Mono",monospace; font-size:11.5px;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--muted); font-weight:500;
+  padding:0 14px 9px 0; border-bottom:1px solid var(--line-strong); white-space:nowrap}
+td{padding:11px 14px 11px 2px; border-bottom:1px solid var(--line); vertical-align:top}
+td.n{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums; white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.pick td{background:var(--accent-wash)}
+.pick td:first-child{box-shadow:inset 3px 0 0 var(--accent); padding-left:18px}
+
+/* врезки */
+.note{border-left:3px solid var(--warn); background:var(--surface);
+  padding:15px 18px; margin:22px 0; border-radius:0 14px 14px 0; box-shadow:var(--shadow)}
+.note.warn{border-left-color:var(--warn); background:var(--warn-wash)}
+.note.alert{border-left-color:var(--alert); background:var(--alert-wash)}
+.note .t{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--warn); margin-bottom:7px}
+.note.warn .t{color:var(--warn)} .note.alert .t{color:var(--alert)}
+
+/* списки */
+ol,ul{margin:0 0 15px; padding-left:22px} li{margin-bottom:7px}
+ol{counter-reset:i; list-style:none; padding-left:0}
+ol li{counter-increment:i; padding-left:30px; position:relative}
+ol li::before{content:counter(i); position:absolute; left:0; top:2px;
+  font-family:"Spline Sans Mono",monospace; font-size:12.5px; color:var(--accent);
+  border:1px solid var(--line-strong); border-radius:6px; width:19px; height:19px;
+  display:flex; align-items:center; justify-content:center}
+
+/* этапы */
+.steps{display:grid; gap:1px; background:var(--line); border:1px solid var(--line);
+  border-radius:14px; overflow:hidden; margin:22px 0}
+.step{background:var(--surface); padding:14px 18px; display:grid;
+  grid-template-columns:86px 1fr; gap:16px; align-items:start}
+.step .w{font-family:"Spline Sans Mono",monospace; font-size:13px; color:var(--accent)}
+.step .b{font-weight:600; font-size:16px; margin-bottom:3px}
+.step .c{color:var(--ink-2); font-size:15px}
+
+/* фотографии устройства */
+.shots{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin:4px 0}
+.shots figure{margin:0}
+.shots img{width:100%; height:auto; display:block; border-radius:12px;
+  border:1px solid var(--line); background:var(--surface-2)}
+.shots figcaption{font-size:14px; color:var(--muted); line-height:1.5; margin-top:10px}
+
+/* мокапы приложения — светлая тема действующего Damumed */
+.screens{display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr));
+  gap:22px; margin:24px 0}
+.ph{background:#000; border:1px solid #2C2C2E; border-radius:26px; padding:7px;
+  box-shadow:var(--shadow)}
+.ph-cap{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted); text-align:center; padding:0 0 9px}
+.dscr{--g:#0E7A50; --gd:#0B5C3C; --bg:#F4F6F5; --cd:#FFFFFF; --cd2:#EFF2F0;
+  --tx:#16232B; --tx2:#42504A; --mut:#7B8C82; --ln:#E3E9E5; --blue:#2F6D9E;
+  --wn:#A87718; --al:#C0453C;
+  --accent:#0E7A50; --line:#E3E9E5; --ink:#16232B; --ink-2:#42504A; --muted:#7B8C82;
+  --surface:#FFFFFF; --surface-2:#F4F6F5; --info:#2F6D9E; --warn:#A87718; --alert:#C0453C;
+  background:#F4F6F5; border-radius:20px; overflow:hidden; min-height:540px;
+  display:flex; flex-direction:column; color:#16232B}
+.dst{display:flex; justify-content:space-between; padding:8px 14px 2px;
+  font-size:10px; color:#16232B; font-weight:600}
+.dhd{padding:8px 12px 11px; display:flex; align-items:center; justify-content:space-between}
+.dhd .ava{width:24px; height:24px; border-radius:50%; background:#DDE5E0; flex:none}
+.dhd .lg{display:flex; align-items:center; gap:6px; font-weight:700; font-size:15px;
+  letter-spacing:.03em; color:#16232B}
+.dhd .ic{display:flex; gap:9px; color:#5A6873}
+.dback{display:flex; align-items:center; gap:10px; padding:6px 12px 12px; color:#16232B}
+.dback b{font-size:15.5px; font-weight:700; flex:1; text-align:center; margin-right:22px}
+.dbody{padding:0 11px 8px; display:flex; flex-direction:column; gap:9px; flex:1;
+  overflow:hidden}
+.dpills{display:flex; gap:7px}
+.dpill{flex:1; border-radius:12px; padding:9px 10px; font-size:10px; font-weight:600;
+  line-height:1.25; min-height:46px}
+.dpill.a{background:#E8E8EA; color:#1C1C1E} .dpill.b{background:var(--blue); color:#fff}
+.dpill.c{background:#E8E8EA; color:#1C1C1E}
+.dcard{background:var(--cd); border:1px solid var(--ln); border-radius:16px; padding:12px 13px}
+.dcard h4{font-size:11px; font-weight:700; color:var(--mut); text-transform:uppercase;
+  letter-spacing:.05em; margin:0 0 9px}
+.dring{display:flex; flex-direction:column; align-items:center; gap:2px; padding:2px 0}
+.dstat{font-size:15.5px; font-weight:700; margin-top:6px}
+.dsub{font-size:12.5px; color:var(--mut); text-align:center; line-height:1.4}
+.dmetric{display:flex; align-items:center; gap:11px}
+.dmi{width:34px; height:34px; border-radius:10px; background:#E4F3EC; flex:none;
+  display:flex; align-items:center; justify-content:center; color:var(--g)}
+.dmv{font-size:14.5px; font-weight:700}
+.dmk{font-size:11.5px; color:var(--mut)}
+.drow{display:flex; justify-content:space-between; align-items:center; padding:7px 0;
+  font-size:13.5px; border-bottom:1px solid var(--ln); color:var(--tx2)}
+.drow:last-child{border-bottom:0}
+.drow b{font-weight:700; font-size:14px; color:#16232B}
+.dtag{display:inline-block; font-size:10px; padding:2px 9px; border-radius:99px; font-weight:700}
+.t-ok{background:#E4F3EC; color:var(--g)} .t-wn{background:#FBF0D9; color:var(--wn)}
+.t-al{background:#FBE4E2; color:var(--al)}
+.dnote{font-size:12px; color:var(--mut); line-height:1.45}
+.dbtn{text-align:center; background:var(--g); color:#fff; border-radius:99px;
+  padding:11px; font-size:13.5px; font-weight:700}
+.dbtn.gh{background:transparent; color:var(--g); border:1px solid var(--g)}
+.dnav{background:#fff; border-top:1px solid var(--ln); display:flex; padding:8px 2px 9px;
+  margin-top:auto}
+.dnav span{flex:1; text-align:center; font-size:9.5px; color:#8E8E93; line-height:1.5;
+  position:relative}
+.dnav span.on{color:var(--g); font-weight:700}
+.dnav svg{display:block; margin:0 auto 2px}
+.dbadge{position:absolute; top:-3px; right:14px; background:var(--g); color:#fff;
+  border-radius:99px; font-size:8px; font-weight:700; padding:1px 5px}
+.dalert{background:#FBF0D9; border-radius:16px; padding:11px 13px}
+.dalert.crit{background:#FBE4E2}
+
+/* рабочее место врача — десктопная МИС */
+.mis{--g:#0E7A50; --gw:#E8F5F0; --bg:#F2F4F5; --ln:#E1E6E8; --tx:#16232B; --tx2:#5A6873;
+  --mut:#8A959D; --wn:#C58A2E; --wnw:#FDF4E3; --al:#C0453C; --alw:#F9E9E7;
+  border:1px solid var(--line-strong); border-radius:8px; overflow:hidden;
+  background:#fff; color:var(--tx); margin:22px 0; box-shadow:var(--shadow)}
+.mis-top{background:var(--g); color:#fff; display:flex; align-items:center; gap:14px;
+  padding:10px 15px; font-size:13.5px}
+.mis-top .b{font-weight:800; letter-spacing:.05em; display:flex; align-items:center; gap:6px}
+.mis-top .sp{flex:1}
+.mis-top .u{opacity:.9; font-size:11.5px}
+.mis-body{display:grid; grid-template-columns:172px 1fr; min-height:392px}
+.mis-side{background:#F7F9F9; border-right:1px solid var(--ln); padding:10px 0; font-size:13px}
+.mis-side div{padding:8px 14px; color:var(--tx2); display:flex; align-items:center; gap:8px}
+.mis-side div.on{background:var(--gw); color:var(--g); font-weight:700;
+  box-shadow:inset 3px 0 0 var(--g)}
+.mis-main{padding:13px 15px; min-width:0; overflow-x:auto}
+.mis-h{display:flex; align-items:baseline; gap:12px; margin-bottom:11px; flex-wrap:wrap}
+.mis-h b{font-size:16px; font-weight:800}
+.mis-h span{font-size:13px; color:var(--mut)}
+.mis-f{display:flex; gap:7px; margin-bottom:11px; flex-wrap:wrap}
+.mis-f span{border:1px solid var(--ln); border-radius:99px; padding:3px 11px;
+  font-size:11px; color:var(--tx2)}
+.mis-f span.on{background:var(--g); border-color:var(--g); color:#fff; font-weight:600}
+.mis table{width:100%; border-collapse:collapse; font-size:13.5px; min-width:600px}
+.mis th{background:#F7F9F9; color:var(--mut); font-size:9.5px; letter-spacing:.07em;
+  text-transform:uppercase; text-align:left; padding:7px 9px; border-bottom:1px solid var(--ln);
+  font-weight:700; white-space:nowrap}
+.mis td{padding:9px; border-bottom:1px solid var(--ln); vertical-align:top; line-height:1.45}
+.mis tr:last-child td{border-bottom:0}
+.mis .nm{font-weight:700}
+.mis .sm{font-size:11.5px; color:var(--mut)}
+.mis .st{display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700;
+  border-radius:99px; padding:2px 9px; white-space:nowrap}
+.mis .st i{width:7px; height:7px; border-radius:50%; display:inline-block}
+.s-red{background:var(--alw); color:var(--al)} .s-red i{background:var(--al)}
+.s-yel{background:var(--wnw); color:var(--wn)} .s-yel i{background:var(--wn)}
+.s-grn{background:var(--gw); color:var(--g)} .s-grn i{background:var(--g)}
+.mis .act{display:inline-block; border:1px solid var(--g); color:var(--g); border-radius:6px;
+  padding:3px 9px; font-size:11px; font-weight:700; margin:0 4px 4px 0}
+.mis .act.fill{background:var(--g); color:#fff}
+.mis-row-red{background:#FEF7F6}
+
+/* файлы */
+.files{display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:12px; margin-top:20px}
+.file{display:flex; gap:14px; align-items:center; text-decoration:none; color:inherit;
+  background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  padding:15px 17px; box-shadow:var(--shadow); transition:border-color .14s, transform .14s;
+  font:inherit; text-align:left; cursor:pointer; width:100%}
+.file:hover{border-color:var(--accent); transform:translateY(-1px)}
+.file:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.fi{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.06em;
+  color:var(--accent); border:1px solid var(--accent); border-radius:8px;
+  padding:5px 7px; flex:none}
+.fb{display:flex; flex-direction:column; gap:3px; min-width:0}
+.fb b{font-size:16px; font-weight:600}
+.fb i{font-style:normal; font-size:13.5px; color:var(--muted); line-height:1.4}
+
+.det{margin-top:20px; background:var(--surface); border:1px solid var(--line);
+  border-radius:14px; box-shadow:var(--shadow)}
+.det summary{cursor:pointer; padding:15px 18px; font-weight:600; font-size:16px;
+  list-style:none; display:flex; align-items:center; gap:9px}
+.det summary::-webkit-details-marker{display:none}
+.det summary::before{content:"+"; font-family:"Spline Sans Mono",monospace; color:var(--accent);
+  border:1px solid var(--line-strong); border-radius:6px; width:19px; height:19px;
+  display:flex; align-items:center; justify-content:center; font-size:13px; flex:none}
+.det[open] summary::before{content:"–"}
+.det summary:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
+.det-b{padding:0 18px 18px; color:var(--ink-2); font-size:15.5px; line-height:1.62;
+  border-top:1px solid var(--line); padding-top:15px; white-space:normal}
+.det-b p{margin:0 0 11px}
+.det-b h4{font-family:"Golos Text",system-ui,sans-serif; font-size:15px; color:var(--ink); margin:20px 0 9px}
+.det-b table{font-size:15px}
+
+/* калькулятор */
+.calc{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:16px}
+@media(max-width:640px){.calc{grid-template-columns:1fr}}
+.calc-in{display:flex; flex-direction:column; gap:13px}
+.calc-in label{display:block; font-size:13.5px; color:var(--muted)}
+.calc-in label b{float:right; font-family:"Spline Sans Mono",monospace; color:var(--ink);
+  font-variant-numeric:tabular-nums; font-size:13px}
+.calc-in input[type=range]{width:100%; accent-color:var(--accent); margin-top:5px}
+.calc-out{background:var(--surface-2); border:1px solid var(--line); border-radius:12px;
+  padding:15px 16px; align-self:start}
+.co{display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+  padding:8px 0; border-bottom:1px dashed var(--line); font-size:14.5px}
+.co:last-of-type{border-bottom:0}
+.co b{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums;
+  font-size:16px; color:var(--ink); white-space:nowrap}
+.co.big b{font-family:"Golos Text",system-ui,sans-serif; font-size:23px; color:var(--accent)}
+.co.big b.neg{color:var(--alert)}
+
+footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56px;
+  color:var(--muted); font-size:14px}
+@media(max-width:640px){
+  .step{grid-template-columns:1fr; gap:4px}
+  header{padding-top:36px}
+}
+
+/* кнопки скачивания в шапке */
+.dl-row{display:flex; flex-wrap:wrap; gap:14px; margin-top:28px}
+.dl-btn{display:flex; align-items:center; gap:14px; text-decoration:none;
+  background:rgba(255,255,255,.14); color:#fff; border:1.5px solid rgba(255,255,255,.42);
+  border-radius:14px; padding:16px 22px; min-width:264px;
+  transition:background .15s, transform .15s, border-color .15s}
+.dl-btn:hover{background:rgba(255,255,255,.24); border-color:#fff; transform:translateY(-1px)}
+.dl-btn:focus-visible{outline:3px solid #fff; outline-offset:3px}
+.dl-btn.primary{background:#fff; color:var(--accent); border-color:#fff}
+.dl-btn.primary:hover{background:#F2FBF6}
+.dl-btn svg{flex:none}
+.dl-btn span{display:flex; flex-direction:column; gap:3px; line-height:1.25}
+.dl-btn b{font-size:18px; font-weight:700}
+.dl-btn i{font-style:normal; font-size:13.5px; opacity:.85}
+@media(max-width:640px){.dl-btn{min-width:0; flex:1 1 100%}}
+</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>
+.vswitch{display:inline-flex; background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.38); border-radius:99px; padding:4px; gap:4px;
+  margin-bottom:22px}
+.vswitch a{color:#fff; text-decoration:none; font-size:13.5px; font-weight:600;
+  padding:7px 16px; border-radius:99px; opacity:.85; white-space:nowrap}
+.vswitch a.on{background:#fff; color:var(--accent); opacity:1}
+.vswitch a:hover{opacity:1}
+@media(max-width:640px){.vswitch a{padding:6px 12px; font-size:12.5px}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-in">
+    <header>
+      <nav class="vswitch" aria-label="Вариант стратегии">
+        <a href="index.html">Медизделие с РУ</a>
+        <a class="on" href="bez-registracii.html" aria-current="page">Без регистрации</a>
+      </nav>
+      <h1>Damumed Band</h1>
+      <p class="lede">Быстрый путь: браслет для личного контроля показателей здоровья
+      в приложении Damumed — без регистрации медизделия. Продажи через полгода после
+      контракта, вложения на 15 млн ₸ меньше.</p>
+      <div class="meta">
+        <span>Статус · <b>устройство благополучия</b></span>
+        <span>Партия · <b>10 000 шт</b></span>
+        <span>Курс · <b>465 ₸/$</b> (НБ РК)</span>
+        <span>Горизонт расчёта · <b>24 месяца</b></span>
+      </div>
+      <div class="dl-row">
+        <a class="dl-btn primary" href="files/damumed-band-otchet-bez-ru.docx" download>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+          <span><b>Отчёт варианта Б</b><i>Word · 12 разделов, все расчёты</i></span>
+        </a>
+        <a class="dl-btn" href="calculator-bez-ru.html">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h3M13 11h3M8 15h3M13 15h3"/></svg>
+          <span><b>Калькулятор</b><i>расчёты варианта Б вживую</i></span>
+        </a>
+      </div>
+    </header>
+    <div class="hero-img"><img src="img/device-hero-title.jpg" alt="Браслет Damumed Band: серебристый модуль с гравировкой damumed и бирюзовый ремешок, сверху знак Damumed"></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="tiles">
+  <div class="tile hot"><span class="k">Розничная цена</span>
+    <div class="v">14 990<span class="u"> ₸</span></div>
+    <div class="d">на треть ниже Xiaomi Band 10</div></div>
+  <div class="tile"><span class="k">Вложения</span>
+    <div class="v">43<span class="u"> млн ₸</span></div>
+    <div class="d">партия 40 + образцы 3; регистрации нет</div></div>
+  <div class="tile"><span class="k">Старт продаж</span>
+    <div class="v">6<span class="u"> мес</span></div>
+    <div class="d">от контракта — против 16 в варианте с РУ</div></div>
+  <div class="tile"><span class="k">Окупаемость</span>
+    <div class="v">11<span class="u"> мес</span></div>
+    <div class="d">при распродаже партии за год</div></div>
+  <div class="tile"><span class="k">Результат 24 мес</span>
+    <div class="v">+79<span class="u"> млн ₸</span></div>
+    <div class="d">безубыточность — продать половину партии</div></div>
+</div>
+
+<section>
+  <div class="shead"><span class="snum">Раздел 01</span><h2>Идея варианта</h2></div>
+  <p class="sdek">То же железо, тот же канал на 5,3 млн пациентов — но без полутора лет
+  и 15 млн тенге на регистрацию. Браслет продаётся как устройство для личного контроля
+  показателей: сон, пульс, кислород, активность — в привычном приложении Damumed.</p>
+
+  <p>Между контрактом и первой продажей остаются только образцы, производство и
+  доставка: <strong>продажи начинаются с шестого месяца</strong>. Так продаются все
+  браслеты на Kaspi — Xiaomi, Huawei, Samsung: устройства общего благополучия, без
+  регистрации, и это законно ровно до тех пор, пока производитель не заявляет
+  медицинское назначение.</p>
+
+  <p>Формула позиционирования — <strong>«знай свою норму»</strong>. Устройство помогает
+  человеку видеть собственные тренды и вовремя замечать отклонения; что с ними делать —
+  человек решает сам, в том числе показав данные своему врачу на приёме. Единственное,
+  чего нет ни у одного конкурента: показатели живут в том же приложении, где медкарта,
+  запись к врачу и лекарства.</p>
+
+  <div class="note warn">
+    <div class="t">Чем заплачено</div>
+    Канал поликлиник закрыт (раздел 06), права говорить о медицине нет, барьера от
+    копирования нет, и весь проект держится на одном непроверенном числе — розничном
+    спросе. Полное сравнение с вариантом регистрации — раздел 09.
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">Раздел 02</span><h2>Цена и полка</h2></div>
+  <p class="sdek">Цены те же, что в варианте с регистрацией, — для сравнимости вариантов
+  и потому что экономика их выдерживает с большим запасом.</p>
+
+  <div class="tw"><table>
+    <tr><th>Кто платит</th><th>За что</th><th>Цена</th><th>Пояснение</th></tr>
+    <tr><td>Человек<br><span style="color:var(--muted);font-size:13.5px">покупает для себя</span></td>
+      <td>Браслет — один раз</td><td class="n"><b>14 990 ₸</b></td>
+      <td>в рассрочку на год — 1 250 ₸/мес; на треть ниже Xiaomi Smart Band 10 (21 989 ₸)</td></tr>
+    <tr><td></td><td>Подписка в приложении — по желанию</td><td class="n"><b>690 ₸/мес</b></td>
+      <td>длинные тренды, отчёты за период, расширенные объяснения; базовые функции бесплатны</td></tr>
+  </table></div>
+
+  <p>Одна строка таблицы против четырёх в варианте с регистрацией: поликлиничных цен
+  здесь нет. Полка выглядит так: дешевле нас только Xiaomi Band 9 Active (11 991 ₸)
+  и безымянные браслеты; дороже — Huawei Band 10 (16 890 ₸) и Xiaomi Band 10 (21 989 ₸).
+  По железу и бренду мы это сравнение проигрываем — выигрываем ценой и интеграцией
+  с Damumed. Продажа встраивается прямо в приложение: баннер в разделе здоровья,
+  оплата, доставка — и комиссия канала около нуля против 13–19% на Kaspi.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">Раздел 03</span><h2>Экономика</h2></div>
+  <p class="sdek">Себестоимость та же — 4 026 ₸ на складе. Вся партия продаётся по
+  розничной марже около 8 900 ₸ вместо поликлиничной 2 750 ₸, и продажи начинаются
+  на десять месяцев раньше. Отсюда результат.</p>
+
+  <div class="fig">
+    <h3>Базовый расчёт</h3>
+    <div class="sub">Партия 10 000, продажи с месяца 6 равными долями за 12 месяцев, горизонт 24 месяца</div>
+    <div class="tw"><table>
+      <tr><th>Строка</th><th>Значение</th></tr>
+      <tr><td>Выручка от устройств (за вычетом комиссии)</td><td class="n">130,4 млн ₸</td></tr>
+      <tr><td>Выручка от подписок за горизонт</td><td class="n">27,9 млн ₸</td></tr>
+      <tr><td>Партия + образцы + облако и поддержка за 24 мес</td><td class="n">−79,3 млн ₸</td></tr>
+      <tr class="pick"><td><strong>Результат к 24-му месяцу</strong></td><td class="n"><strong>+79,1 млн ₸</strong></td></tr>
+      <tr><td>Точка окупаемости</td><td class="n">месяц 11</td></tr>
+      <tr><td>Подписочная выручка в устойчивом режиме</td><td class="n">2,07 млн ₸/мес</td></tr>
+    </table></div>
+    <div class="cap">Для сравнения: вариант с регистрацией даёт +20 млн ₸ к 24-му месяцу
+    с окупаемостью на 21-м. Разница оплачена риском спроса — см. следующую таблицу.</div>
+  </div>
+
+  <div class="fig">
+    <h3>Главный риск: сколько реально продастся</h3>
+    <div class="sub">Результат к 24-му месяцу при разной доле проданной партии</div>
+    <div class="tw"><table>
+      <tr><th>Продано из 10 000</th><th>Результат</th><th>Окупаемость</th></tr>
+      <tr><td>100% — базовый расчёт</td><td class="n">+79,1 млн ₸</td><td class="n">месяц 11</td></tr>
+      <tr><td>70%</td><td class="n">+31,6 млн ₸</td><td class="n">месяц 13</td></tr>
+      <tr class="pick"><td><strong>50% — точка безубыточности</strong></td><td class="n"><strong>≈ 0</strong></td><td class="n">месяц 17</td></tr>
+      <tr><td>меньше половины</td><td class="n" style="color:var(--alert)">убыток</td><td class="n">за горизонтом</td></tr>
+    </table></div>
+    <div class="cap">В варианте с регистрацией спрос страховал закуп поликлиник — 70%
+    партии. Здесь всё решает конверсия канала Damumed, и она проверяется дёшево:
+    пилотная партия 500 штук (Eternity) до заказа десяти тысяч — 6–7 тысяч долларов.</div>
+  </div>
+
+  <div class="fig">
+    <h3>Чувствительность к остальным параметрам</h3>
+    <div class="sub">Результат к 24-му месяцу, млн ₸</div>
+    <div class="tw"><table>
+      <tr><th>Сценарий</th><th>Результат</th></tr>
+      <tr><td>База</td><td class="n">+79,1</td></tr>
+      <tr><td>Продажи растянулись на 18 месяцев вместо 12</td><td class="n">+72,9</td></tr>
+      <tr><td>Закупочная цена $10 вместо $7,5</td><td class="n">+67,2</td></tr>
+      <tr><td>Розничная цена 12 990 ₸ вместо 14 990</td><td class="n">+61,7</td></tr>
+      <tr><td>Предельная закупочная цена</td><td class="n">в плюсе до цены выше $17</td></tr>
+    </table></div>
+    <div class="cap">Экономика нечувствительна к цене завода (запас — выше $17 против
+    $11,5 в варианте с РУ) и умеренно чувствительна к цене полки. Весь риск — в спросе.
+    Все допущения крутятся в <a href="calculator-bez-ru.html">калькуляторе</a>.</div>
+  </div>
+
+  <p>Честные оговорки расчёта: маркетинговый бюджет принят нулевым (ставка на
+  бесплатный канал приложения); НДС при импорте без удостоверения — 16% вместо
+  льготных 5% (зачётный, но замораживает ~6,4 млн ₸ в обороте); сегмент корпораций
+  и страховых в расчёт не включён — это резерв сверх плана.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">Раздел 04</span><h2>Кто покупает</h2></div>
+  <p class="sdek">Клинической модели в этом варианте нет — есть розничные сегменты.
+  Достижимая доля за 2–3 года оценивается в 15–35 тысяч устройств; партия 10 000 —
+  нижняя граница.</p>
+
+  <div class="tw"><table>
+    <tr><th>Сегмент</th><th>Мотив покупки</th><th>Что важно в продукте</th></tr>
+    <tr><td><strong>Самоконтроль при хронических состояниях</strong></td>
+      <td>видеть сон, пульс, кислород рядом с дневником давления и лекарств; показать врачу на приёме</td>
+      <td>ручной дневник, отчёт за период, простые объяснения</td></tr>
+    <tr><td><strong>Взрослые дети — родителям</strong></td>
+      <td>спокойствие: «как спал, как пульс» без звонков-допросов</td>
+      <td>совместный доступ с согласия, крупный шрифт, казахский язык</td></tr>
+    <tr><td><strong>Аудитория здорового образа жизни</strong></td>
+      <td>сон и восстановление без экрана</td>
+      <td>базовые функции бесплатны, честная цена</td></tr>
+    <tr><td>Корпорации и страховые (резерв)</td>
+      <td>программы благополучия сотрудников</td>
+      <td>партии со скидкой, обезличенная статистика</td></tr>
+  </table></div>
+
+  <div class="note">
+    <div class="t">Честная оговорка</div>
+    «Показать врачу» здесь — ручной сценарий: человек сам приносит отчёт на приём или
+    вносит показатели в дневник. Автоматически врач данные не получает и наблюдения не
+    ведёт — правовая причина в разделе 06.
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">Раздел 05</span><h2>Приложение</h2></div>
+  <p class="sdek">Раздел «Показатели здоровья» в приложении Damumed — тот же, что в
+  варианте с регистрацией: личные коридоры вместо популяционных норм, честная
+  калибровка первой недели, понятные объяснения на русском и казахском. Мокапы
+  экранов — на <a href="index.html">странице варианта с регистрацией</a>.</p>
+
+  <div class="tw"><table>
+    <tr><th>Остаётся</th><th>Уходит</th><th>Появляется взамен</th></tr>
+    <tr>
+      <td>личный коридор, сон, ритм и пульс, дневник давления и веса; ИИ: качество
+      сигнала, умные напоминания, объяснения показателей</td>
+      <td>панель врача в медсистеме; тревоги «врач это видит»; протоколы по диагнозу
+      от врача; черновики заключений</td>
+      <td>«Отчёт для врача» руками пациента (документ за 30 дней); совместный доступ
+      для семьи; дневник самочувствия с ручным вводом</td>
+    </tr>
+  </table></div>
+
+  <div class="note warn">
+    <div class="t">Слово, которое всё меняет</div>
+    Один и тот же экран легален и нелегален в зависимости от подписи. «Ваш пульс выше
+    вашего обычного» — благополучие. «Признак ухудшения, сообщите врачу» — медицинская
+    интерпретация, которая превращает программу в медизделие. Все тексты раздела до
+    релиза проходят юридическую вычитку.
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">Раздел 06</span><h2>Граница закона</h2></div>
+  <p class="sdek">Без удостоверения проект жив ровно до тех пор, пока не пересекает две
+  границы: границу назначения и границу дистанционных медицинских услуг.</p>
+
+  <p><strong>Граница первая — назначение.</strong> Статус устройства определяется не
+  железом, а заявленным назначением (Рекомендация Коллегии ЕЭК от 12.11.2018 № 25,
+  пункт 5). Пока формулировки — про самочувствие и активность, регистрация не нужна:
+  так продаются все Xiaomi и Huawei на Kaspi. Но слова «диагностика», «выявление
+  аритмии», «контроль заболевания», «врач наблюдает» в упаковке, приложении или
+  рекламе превращают браслет в незарегистрированное медизделие: изъятие из обращения,
+  административная ответственность, удар по бренду Damumed.</p>
+
+  <p><strong>Граница вторая — дистанционные медуслуги.</strong> Пункт 5 Требований
+  (приказ Минздрава № ҚР ДСМ-39, действующая редакция в силе с 01.09.2026) допускает
+  автоматическое получение данных врачом только «при использовании носимых медицинских
+  устройств, <strong>сертифицированных согласно пункту 7 статьи 60 Кодекса</strong> и
+  имеющих функции передачи данных». Пункт 7 статьи 60 Кодекса: «Носимые медицинские
+  устройства подлежат сертификации в соответствии с законодательством Республики
+  Казахстан».</p>
+
+  <div class="tw"><table>
+    <tr><th>Следствие</th><th>Что это значит</th></tr>
+    <tr><td><strong>Автоматический контур закрыт</strong></td>
+      <td>показатели несертифицированного браслета нельзя принимать в медицинские
+      цифровые системы; панели врача нет</td></tr>
+    <tr><td><strong>Поликлинике незачем покупать</strong></td>
+      <td>наблюдение не засчитывается, программа управления заболеваниями не работает
+      с этими данными, стимулирующий компонент не задействуется</td></tr>
+    <tr><td><strong>Ручной ввод — законен</strong></td>
+      <td>тот же пункт 5 прямо разрешает ручной ввод данных самим пациентом; сценарий
+      «покажите данные врачу» — честный и легальный</td></tr>
+  </table></div>
+
+  <p>Остальное проще, чем в варианте с регистрацией: не нужны досье, экспертиза и
+  медицинская маркировка. Но НДС при импорте — 16% вместо льготных 5% (льгота даётся
+  только по удостоверению), а код товарной номенклатуры без медицинского назначения
+  может отличаться — предварительное решение Комитета госдоходов обязательно до
+  контракта. Требования закона о персональных данных действуют независимо от статуса:
+  хранение в Казахстане, данные напрямую нам, без облака производителя.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">Раздел 07</span><h2>Производство</h2></div>
+  <p class="sdek">База — те же 12 проверенных заводов и тот же железный фильтр: полный
+  доступ к данным без облака производителя. Меняется вес критериев: сертификат
+  ISO 13485 из обязательного становится желательным — и короткий список
+  переворачивается.</p>
+
+  <div class="tw"><table>
+    <tr><th>Кандидат</th><th>Почему подходит</th><th>Что проверить</th></tr>
+    <tr class="pick"><td><strong>Eternity</strong> (Guangdong)</td>
+      <td>самый глубокий профиль безэкранных браслетов; минимальная партия 500 штук —
+      пилот за 6–7 тыс долларов; прозрачная цена $12,59 при 10 000</td>
+      <td>состав комплекта разработчика на образцах; ISO 13485 — если держим путь к РУ</td></tr>
+    <tr><td><strong>Wonlex</strong> (Шэньчжэнь)</td>
+      <td>лучшее железо выборки; комплект разработчика проверяем до контракта по
+      публичному репозиторию</td>
+      <td>минимальная партия и цена не раскрыты</td></tr>
+    <tr><td>J-Style — если Б это этап 1</td>
+      <td>единственный с ISO 13485 и опытом медрегистрации: сохраняет путь к
+      удостоверению без смены завода</td>
+      <td>цена, вероятно, выше витринных</td></tr>
+  </table></div>
+
+  <div class="note">
+    <div class="t">Выбор завода — это выбор стратегии</div>
+    Если вариант Б — самостоятельный путь, оптимальны Eternity или Wonlex. Если это
+    этап 1 перед регистрацией — завод стоит выбирать уже сейчас по критериям варианта
+    с РУ (система качества, технический файл), иначе через год этап 2 начнётся со
+    смены площадки и досье с нуля.
+  </div>
+
+  <p>Сроки: образцы 4–6 недель, серийная партия 8–12 недель после утверждения образца,
+  доставка около 4 недель. От контракта до склада — 4–5 месяцев; старт продаж в
+  расчёте — месяц 6.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">Раздел 08</span><h2>Риски</h2></div>
+  <p class="sdek">У каждого риска есть ответ до заказа партии, а не после.</p>
+  <div class="tw"><table>
+    <tr><th>Риск</th><th>Чем снимается</th></tr>
+    <tr class="pick"><td><strong>Розничный спрос не подтверждается</strong> — ключевой риск варианта</td>
+      <td>пилот 500 штук через Eternity до заказа 10 000; жёсткий критерий продолжения
+      по продажам пилота и конверсии канала</td></tr>
+    <tr><td>Маркетинг пересекает границу медизделия</td>
+      <td>санитарный словарь формулировок; юридическая вычитка упаковки, приложения и
+      карточек магазинов до релиза</td></tr>
+    <tr><td>Завод не даёт доступ к данным или гонит их через своё облако</td>
+      <td>проверка комплекта разработчика до предоплаты; аудит сетевого трафика
+      прошивки на стенде</td></tr>
+    <tr><td>Конкурент повторяет модель — барьера нет</td>
+      <td>скорость и канал: выйти первыми, занять полку в приложении; интеграцию с
+      медкартой без Damumed не повторить</td></tr>
+    <tr><td>Код номенклатуры и пошлина отличаются от заложенных</td>
+      <td>предварительное классификационное решение Комитета госдоходов до контракта</td></tr>
+    <tr><td>Пациенты не носят браслет</td>
+      <td>метрика доли ночей с данными в пилоте; вариативность ремешков; напоминания</td></tr>
+  </table></div>
+</section>
+
+<section id="sravnenie">
+  <div class="shead"><span class="snum">Раздел 09</span><h2>Сравнение вариантов</h2></div>
+  <p class="sdek">Два пути на одном железе. Жирным в каждой строке выделен вариант,
+  который по этому критерию сильнее.</p>
+
+  <div class="tw"><table>
+    <tr><th>Критерий</th><th>С регистрацией (РУ)</th><th>Без регистрации</th></tr>
+    <tr><td>Старт продаж</td><td class="n">месяц 16</td><td class="n"><strong>месяц 6</strong></td></tr>
+    <tr><td>Вложения</td><td class="n">58 млн ₸</td><td class="n"><strong>43 млн ₸</strong></td></tr>
+    <tr><td>Результат к 24-му месяцу</td><td class="n">+20 млн ₸</td><td class="n"><strong>+79 млн ₸</strong> при проданной партии</td></tr>
+    <tr><td>Окупаемость</td><td class="n">месяц 21</td><td class="n"><strong>месяц 11</strong></td></tr>
+    <tr><td>Каналы</td><td><strong>поликлиники + розница</strong></td><td>только розница</td></tr>
+    <tr><td>Подстраховка спроса</td><td><strong>закуп поликлиник — 70% партии</strong></td><td>нет; безубыточность — 50% партии</td></tr>
+    <tr><td>Повторная выручка</td><td class="n"><strong>4,1 млн ₸/мес</strong></td><td class="n">2,1 млн ₸/мес</td></tr>
+    <tr><td>Право говорить о медицине</td><td><strong>да</strong></td><td>нет — только язык благополучия</td></tr>
+    <tr><td>Исполнение приказа ДСМ-39 для поликлиник</td><td><strong>да</strong></td><td>нет</td></tr>
+    <tr><td>Барьер для конкурентов</td><td><strong>18 месяцев регистрации</strong></td><td>нет</td></tr>
+    <tr><td>Запас по цене завода</td><td class="n">до $11,5</td><td class="n"><strong>выше $17</strong></td></tr>
+    <tr><td>Главный риск</td><td>сроки и класс при регистрации</td><td>розничный спрос</td></tr>
+    <tr><td>Стратегическая позиция Damumed</td><td><strong>уникальная ниша занята</strong></td><td>ниша остаётся свободной</td></tr>
+  </table></div>
+
+  <p><strong>Если верить в розничный спрос</strong> — вариант без регистрации сильнее
+  по всем денежным метрикам: быстрее, дешевле, прибыльнее. Вся конструкция держится
+  на одном непроверенном числе — конверсии канала Damumed.
+  <strong>Если главная цель — стратегическая позиция</strong> (встроить Damumed в
+  контур дистанционного наблюдения, занять пустую нишу, поставить барьер) — вариант
+  с регистрацией без альтернатив.</p>
+
+  <div class="note">
+    <div class="t">Двухэтапный путь</div>
+    Пилот 500 штук → розничный запуск без РУ → параллельно регистрация по фактическим
+    данным → открытие поликлиник на втором году. Условие: завод выбирается по
+    критериям варианта с РУ уже сейчас. Цена пути — конкурентное окно: полтора года
+    ниша медизделия остаётся свободной для любого, кто начнёт регистрацию раньше.
+  </div>
+</section>
+
+<section id="files">
+  <div class="shead"><span class="snum">Приложения</span><h2>Файлы варианта</h2></div>
+  <p class="sdek">Документы и расчёты именно этого варианта. Материалы варианта с
+  регистрацией — на <a href="index.html">его странице</a>.</p>
+
+  <div class="files">
+    <a class="file" href="files/damumed-band-otchet-bez-ru.docx" download>
+      <span class="fi">DOCX</span>
+      <span class="fb"><b>Полный отчёт варианта Б</b><i>12 разделов: экономика, право, риски, сравнение</i></span>
+    </a>
+    <a class="file" href="calculator-bez-ru.html">
+      <span class="fi">HTML</span>
+      <span class="fb"><b>Калькулятор варианта Б</b><i>доля продаж, цены и сроки — ползунками</i></span>
+    </a>
+    <a class="file" href="index.html">
+      <span class="fi">→</span>
+      <span class="fb"><b>Вариант с регистрацией</b><i>страница, отчёт и калькулятор варианта А</i></span>
+    </a>
+  </div>
+
+  <details class="det">
+    <summary>Резюме варианта Б для совладельцев — полный текст</summary>
+    <div class="det-b"><h4>Резюме варианта Б: запуск без регистрации медизделия</h4>
+<p>Дата: 1 сентября 2026 г. Парный документ — резюме варианта А (запуск с регистрационным удостоверением); исследовательская база общая.</p>
+<h4>1. Суть варианта</h4>
+<p>Выпускаем под брендом Damumed браслет без экрана (контрактный завод в Китае, партия около 10 000 штук) и продаём его в розницу как устройство для личного контроля показателей здоровья — без регистрации медицинского изделия. Показатели — сон, пульс, вариабельность ритма, кислород, температура кожи, активность — идут в раздел «Показатели здоровья» приложения Damumed. Продажи начинаются примерно через полгода после контракта.</p>
+<h4>2. В чём сила</h4>
+<p>1. Скорость: продажи с 6-го месяца против 16-го у варианта с регистрацией. 2. Вложения меньше на 15 млн ₸: 43 млн вместо 58. 3. Маржа с устройства около 8 900 ₸ — запас по цене завода практически неограничен (в плюсе до цены выше 17 долларов). 4. Живая проверка спроса и ношения за год до любых решений о регистрации.</p>
+<h4>3. Чем заплачено</h4>
+<p>1. Канал поликлиник закрыт: по пункту 5 Требований приказа № ҚР ДСМ-39 в автоматический контур дистанционного наблюдения попадают только устройства, сертифицированные согласно пункту 7 статьи 60 Кодекса. Без удостоверения наблюдение не засчитывается и стимулирующий компонент не работает. 2. Права говорить о медицине нет — только язык благополучия; главный рекламный аргумент варианта А недоступен. 3. Барьера для конкурентов нет. 4. Весь проект зависит от розничного спроса: точка безубыточности — продать половину партии за два года.</p>
+<h4>4. Экономика</h4>
+<p>1. Себестоимость на складе — 4 026 ₸ (та же). 2. Вложения: партия около 40 млн ₸ плюс образцы 3 млн. 3. Маржа с устройства после комиссии — около 8 900 ₸. 4. Подписка 690 ₸/мес, конверсия 30% — около 2,1 млн ₸ в месяц при распроданной партии. 5. Итог: окупаемость на 11-й месяц, результат к 24-му месяцу +79 млн ₸ — при условии, что партия продана за год. Продано 70% — +32 млн; 50% — ноль; меньше — убыток. 6. НДС при импорте 16% (льгота 5% только по удостоверению), зачётный.</p>
+<h4>5. Право</h4>
+<p>Статус устройства определяется заявленным назначением (Рекомендация ЕЭК № 25): пока формулировки про самочувствие и активность — регистрация не нужна, это законно. Запрещены медицинские утверждения в упаковке, приложении и рекламе — юридическая вычитка всех текстов до релиза обязательна. Ручной сценарий «покажите данные врачу» законен: пункт 5 Требований прямо разрешает ручной ввод данных самим пациентом.</p>
+<h4>6. Производство</h4>
+<p>Те же 12 проверенных заводов и тот же главный фильтр — полный доступ к данным без облака производителя. Фавориты смещаются: Eternity (минимальная партия 500 штук — дешёвый пилот, прозрачные цены) и Wonlex (лучшее железо). J-Style остаётся выбором, если вариант Б — первый этап перед регистрацией: он один сохраняет путь к удостоверению без смены завода.</p>
+<h4>7. Рекомендация</h4>
+<p>Ключевой вопрос — Б это самостоятельный путь или этап 1? Осторожная конструкция: пилот 500 штук (6–7 тыс долларов) для проверки спроса и ношения; выбор завода с системой качества; решение о регистрации — по данным пилота, не откладывая дольше двух-трёх месяцев после старта продаж. Это сохраняет скорость варианта Б и не отдаёт нишу варианта А конкурентам.</p></div>
+  </details>
+</section>
+
+<footer>
+  Расчёты: <a href="calculator-bez-ru.html">калькулятор варианта Б</a> и finance/model.md
+  (раздел «Вариант Б»). Исследования по производству, рынку и приложениям конкурентов —
+  общие с вариантом с регистрацией, папка research/. Все цифры по Казахстану приведены
+  с указанием источника и года в исходных материалах.
+</footer>
+
+</div>
+</body>
+</html>

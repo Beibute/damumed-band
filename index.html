@@ -331,12 +331,26 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 @media(max-width:640px){.dl-btn{min-width:0; flex:1 1 100%}}
 </style>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>
+.vswitch{display:inline-flex; background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.38); border-radius:99px; padding:4px; gap:4px;
+  margin-bottom:22px}
+.vswitch a{color:#fff; text-decoration:none; font-size:13.5px; font-weight:600;
+  padding:7px 16px; border-radius:99px; opacity:.85; white-space:nowrap}
+.vswitch a.on{background:#fff; color:var(--accent); opacity:1}
+.vswitch a:hover{opacity:1}
+@media(max-width:640px){.vswitch a{padding:6px 12px; font-size:12.5px}}
+</style>
 </head>
 <body>
 
 <div class="hero">
   <div class="hero-in">
     <header>
+      <nav class="vswitch" aria-label="Вариант стратегии">
+        <a class="on" href="index.html" aria-current="page">Медизделие с РУ</a>
+        <a href="bez-registracii.html">Без регистрации</a>
+      </nav>
       <h1>Damumed Band</h1>
       <p class="lede">Врач рядом — каждый день, а не пятнадцать минут в месяц.
       Damumed Band — первое в Казахстане носимое медицинское изделие, встроенное
@@ -1203,6 +1217,45 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   регистрационное удостоверение, интеграция с медицинской системой и панель врача —
   становится барьером для любого следующего игрока: повторить её стоит тех же
   восемнадцати месяцев.</p>
+</section>
+
+<section id="sravnenie">
+  <div class="shead"><span class="snum">Сравнение</span><h2>А если без регистрации?</h2></div>
+  <p class="sdek">У проекта есть второй вариант — запуск без регистрации медизделия:
+  быстрее и дешевле, но без поликлиник и без права говорить о медицине. Полный разбор —
+  на <a href="bez-registracii.html">странице варианта без регистрации</a>; здесь —
+  сравнение. Жирным в каждой строке выделен вариант, который по этому критерию сильнее.</p>
+
+  <div class="tw"><table>
+    <tr><th>Критерий</th><th>С регистрацией (эта страница)</th><th>Без регистрации</th></tr>
+    <tr><td>Старт продаж</td><td class="n">месяц 16</td><td class="n"><strong>месяц 6</strong></td></tr>
+    <tr><td>Вложения</td><td class="n">58 млн ₸</td><td class="n"><strong>43 млн ₸</strong></td></tr>
+    <tr><td>Результат к 24-му месяцу</td><td class="n">+20 млн ₸</td><td class="n"><strong>+79 млн ₸</strong> при проданной партии</td></tr>
+    <tr><td>Окупаемость</td><td class="n">месяц 21</td><td class="n"><strong>месяц 11</strong></td></tr>
+    <tr><td>Каналы</td><td><strong>поликлиники + розница</strong></td><td>только розница</td></tr>
+    <tr><td>Подстраховка спроса</td><td><strong>закуп поликлиник — 70% партии</strong></td><td>нет; безубыточность — 50% партии</td></tr>
+    <tr><td>Повторная выручка</td><td class="n"><strong>4,1 млн ₸/мес</strong></td><td class="n">2,1 млн ₸/мес</td></tr>
+    <tr><td>Право говорить о медицине</td><td><strong>да</strong></td><td>нет — только язык благополучия</td></tr>
+    <tr><td>Исполнение приказа ДСМ-39 для поликлиник</td><td><strong>да</strong></td><td>нет</td></tr>
+    <tr><td>Барьер для конкурентов</td><td><strong>18 месяцев регистрации</strong></td><td>нет</td></tr>
+    <tr><td>Запас по цене завода</td><td class="n">до $11,5</td><td class="n"><strong>выше $17</strong></td></tr>
+    <tr><td>Главный риск</td><td>сроки и класс при регистрации</td><td>розничный спрос</td></tr>
+    <tr><td>Стратегическая позиция Damumed</td><td><strong>уникальная ниша занята</strong></td><td>ниша остаётся свободной</td></tr>
+  </table></div>
+
+  <p><strong>Если верить в розничный спрос</strong> — вариант без регистрации сильнее по
+  всем денежным метрикам, но вся его конструкция держится на одном непроверенном числе —
+  конверсии канала Damumed. <strong>Если главная цель — стратегическая позиция</strong>
+  (встроить Damumed в контур дистанционного наблюдения, занять пустую нишу медизделия,
+  поставить барьер) — регистрация без альтернатив: всё это делает только она.</p>
+
+  <div class="note">
+    <div class="t">Двухэтапный путь</div>
+    Варианты совместимы: пилот 500 штук → розничный запуск без РУ → параллельно
+    регистрация по фактическим данным → открытие поликлиник на втором году. Условие —
+    завод с системой качества уже на старте. Цена пути — полтора года ниша медизделия
+    остаётся свободной для любого, кто начнёт регистрацию раньше.
+  </div>
 </section>
 
 <section id="files">
