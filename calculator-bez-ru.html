@@ -38,13 +38,16 @@
 <h1>Damumed Band — калькулятор экономики первой партии · вариант без регистрации</h1>
 <p class="sub">Допущения и источники — <code>finance/model.md</code>, раздел «Вариант Б». Всё в ₸.
 Розница стартует после доставки партии (базово месяц 6 от контракта), продажи растекаются
-на выбранное число месяцев, горизонт 24 месяца. Поликлиники недоступны: без РУ устройство
-не встаёт в контур дистанционного наблюдения (п.5 Требований приказа № ҚР ДСМ-39).</p>
+на выбранное число месяцев, горизонт 24 месяца. Поликлиничный трек — рисковая опция:
+закуп возможен, но без РУ в контур дистанционного наблюдения устройство не встаёт
+(п.5 Требований приказа № ҚР ДСМ-39), базово доля 0%.</p>
 
 <div class="warnbox">⚠️ Оценочная модель для решения «копать дальше или нет». Главное
 число, которого она не знает: доля партии, которую розница реально выкупит, — двигайте
 ползунок «Продастся из партии». Точка безубыточности базового сценария — около половины
-партии за 24 месяца. Разработка ПО принята силами Damumed и в затраты не входит.</div>
+партии за 24 месяца. Поликлиничный трек (ползунок «Доля поликлиник») — <b>рисковая
+опция</b>: без РУ наблюдение не засчитывается и мотивация закупа слабая, базово 0%.
+Разработка ПО принята силами Damumed и в затраты не входит.</div>
 
 <div class="grid">
 <div>
@@ -86,7 +89,7 @@
   </div>
 
   <div class="card">
-    <h3>Розница (единственный канал)</h3>
+    <h3>Каналы</h3>
     <div class="p"><label>Продастся из партии, % <b id="vSell"></b></label>
       <input type="range" id="sell" min="10" max="100" step="5" value="100">
       <div class="src">главное непроверенное число варианта; безубыточность ≈ 50%</div></div>
@@ -103,6 +106,12 @@
       <input type="range" id="sp" min="0" max="4990" step="100" value="690"></div>
     <div class="p"><label>Конверсия в подписку, % <b id="vSr"></b></label>
       <input type="range" id="sr" min="0" max="60" step="5" value="30"></div>
+    <div class="p"><label>Доля поликлиник, % ⚠️ <b id="vShare"></b></label>
+      <input type="range" id="share" min="0" max="50" step="5" value="0">
+      <div class="src">рисковый трек: закуп возможен, официального наблюдения без РУ нет; базово 0</div></div>
+    <div class="p"><label>Поликлиникам: цена устройства, ₸ <b id="vBp"></b></label>
+      <input type="range" id="bp" min="4000" max="20000" step="100" value="6900">
+      <div class="src">закуп разово; рассрочка 640 ₸/мес × 12 ≈ 7 680 ₸; подписки у трека нет</div></div>
   </div>
 </div>
 
@@ -138,7 +147,9 @@
       Landed = (FOB+логистика)×курс×(1+пошлина) + упаковка×курс; брак раскладывается на
       проданные штуки. Продажи стартуют с выбранного месяца и растекаются равными долями
       на выбранное число месяцев; продаётся заданная доля партии, остаток лежит на складе
-      (его стоимость уже в затратах). Подписка — доля купивших × цена, с месяца покупки.
+      (его стоимость уже в затратах). Поликлиничная доля продаётся по цене закупа без
+      подписки — рисковый трек, базово 0%. Розничная подписка — доля купивших × цена,
+      с месяца покупки.
       OPEX идёт с месяца 1. НДС при импорте 16% (льготы 5% без РУ нет) — зачётный,
       в P&L не входит, но замораживает деньги в обороте. Налог на прибыль не учтён.
     </div>
@@ -148,7 +159,7 @@
 
 <script>
 const $=id=>document.getElementById(id);
-const P=['N','fob','fx','log','duty','pack','def','reg','soft','opex','ru','sell','ramp','cp','kom','sp','sr'];
+const P=['N','fob','fx','log','duty','pack','def','reg','soft','opex','ru','sell','ramp','cp','kom','sp','sr','share','bp'];
 const fmt=(x,d=0)=>x.toLocaleString('ru-RU',{maximumFractionDigits:d});
 const money=x=>Math.abs(x)>=1e6? fmt(x/1e6,1)+' млн ₸' : fmt(x)+' ₸';
 
@@ -163,6 +174,7 @@ function calc(){
   $('vRamp').textContent=v.ramp;
   $('vCp').textContent=fmt(v.cp); $('vKom').textContent=v.kom+'%';
   $('vSp').textContent=fmt(v.sp); $('vSr').textContent=v.sr+'%';
+  $('vShare').textContent=v.share+'%'; $('vBp').textContent=fmt(v.bp);
 
   const landed=(v.fob+v.log)*v.fx*(1+v.duty/100)+v.pack*v.fx;
   const landedEff=landed/(1-v.def/100);
@@ -171,8 +183,10 @@ function calc(){
   const capex=(v.reg+v.soft+3)*1e6;
 
   const nSold=Math.round(v.N*v.sell/100);
+  const nB2B=Math.round(nSold*v.share/100), nB2C=nSold-nB2B;
   const mC=v.cp*(1-v.kom/100)-landedEff;
-  const mrr=nSold*(v.sr/100)*v.sp;
+  const devRevTotal=nB2C*v.cp*(1-v.kom/100)+nB2B*v.bp;
+  const mrr=nB2C*(v.sr/100)*v.sp;
 
   const H=24;
   let revDev=0, revSrv=0;
@@ -182,7 +196,7 @@ function calc(){
   };
   for(let m=1;m<=H;m++){
     const dSold=(soldFrac(m)-soldFrac(m-1));
-    revDev+=dSold*nSold*v.cp*(1-v.kom/100);
+    revDev+=dSold*devRevTotal;
     revSrv+=soldFrac(m)*mrr;
   }
   const opexTotal=v.opex*1e6*H;
@@ -192,7 +206,7 @@ function calc(){
   let be='не в горизонте 60 мес', cum=-capex-batchCost;
   for(let m=1;m<=60;m++){
     const dSold=(soldFrac(m)-soldFrac(m-1));
-    cum+=dSold*nSold*v.cp*(1-v.kom/100)+soldFrac(m)*mrr-v.opex*1e6;
+    cum+=dSold*devRevTotal+soldFrac(m)*mrr-v.opex*1e6;
     if(cum>=0){be='месяц '+m+' от контракта';break;}
   }
 
