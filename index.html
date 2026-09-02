@@ -260,6 +260,22 @@ ol li::before{content:counter(i); position:absolute; left:0; top:2px;
 .mis-row-red{background:#FEF7F6}
 
 /* файлы */
+.names{display:grid; grid-template-columns:repeat(auto-fit,minmax(232px,1fr)); gap:14px; margin:22px 0 4px}
+.name{background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  padding:22px 20px 20px; text-align:center; position:relative; box-shadow:var(--shadow)}
+.name.top{border-color:var(--accent-bright); box-shadow:0 3px 16px rgba(23,147,111,.13)}
+.name .badge{position:absolute; top:12px; right:12px; font-size:10.5px; font-weight:800;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--accent);
+  background:var(--accent-wash); border-radius:999px; padding:4px 9px}
+.name img{width:104px; height:104px; display:block; margin:2px auto 14px}
+.name .nm{font-size:21px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--head); line-height:1.1}
+.name .kk{font-size:13.5px; color:var(--muted); margin-top:3px}
+.name .mean{font-size:14.5px; color:var(--ink-2); margin-top:11px; line-height:1.5}
+.name .rem{font-size:13px; color:var(--muted); margin-top:9px; padding-top:9px;
+  border-top:1px solid var(--line); line-height:1.45}
+@media(max-width:640px){.names{grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px}
+  .name{padding:16px 12px 14px} .name img{width:78px; height:78px} .name .nm{font-size:17px}}
 .files{display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:12px; margin-top:20px}
 .file{display:flex; gap:14px; align-items:center; text-decoration:none; color:inherit;
   background:var(--surface); border:1px solid var(--line); border-radius:14px;
@@ -1219,6 +1235,84 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   регистрационное удостоверение, интеграция с медицинской системой и панель врача —
   становится барьером для любого следующего игрока: повторить её стоит тех же
   восемнадцати месяцев.</p>
+</section>
+
+<section id="nazvanie">
+  <div class="shead"><span class="snum">11</span><h2>Название</h2></div>
+  <p class="sdek">Рабочее название – Damumed Band. По-английски «band» это просто браслет:
+  точно, но безлико. Восемь казахских вариантов ниже показаны со знаками, собранными в
+  языке логотипа Damumed – тот же зелёный диск и белая форма внутри. Решение за
+  совладельцами; до него название остаётся рабочим.</p>
+
+  <div class="names">
+  <div class="name top">
+    <span class="badge">шорт-лист</span>
+    <img src="img/names/tamyr.png" alt="Знак варианта Tamyr" loading="lazy">
+    <div class="nm">Tamyr</div>
+    <div class="kk">Тамыр</div>
+    <div class="mean">Пульс, кровеносный сосуд, побратим, корень</div>
+    <div class="rem">Врач буквально «держит тамыр» – руку на пульсе. Главный кандидат: проверить товарный знак</div>
+  </div>
+  <div class="name top">
+    <span class="badge">шорт-лист</span>
+    <img src="img/names/tynys.png" alt="Знак варианта Tynys" loading="lazy">
+    <div class="nm">Tynys</div>
+    <div class="kk">Тыныс</div>
+    <div class="mean">Дыхание; жизнь и покой – «тынысы кең»</div>
+    <div class="rem">Самое светлое и лёгкое, медицинское без больничности. Смысл мягче: про состояние, а не про связь с врачом</div>
+  </div>
+  <div class="name top">
+    <span class="badge">шорт-лист</span>
+    <img src="img/names/bailam.png" alt="Знак варианта Bailam" loading="lazy">
+    <div class="nm">Bailam</div>
+    <div class="kk">Байлам</div>
+    <div class="mean">От «байлау», вязать: повязка, связка, узел</div>
+    <div class="rem">Почти созвучно английскому Band – преемственность сохраняется. В речи слово чаще значит «вывод»</div>
+  </div>
+  <div class="name">
+    <img src="img/names/bilezik.png" alt="Знак варианта Bilezik" loading="lazy">
+    <div class="nm">Bilezik</div>
+    <div class="kk">Білезік</div>
+    <div class="mean">Браслет; серебряный білезік – оберег на запястье</div>
+    <div class="rem">Продукт возвращает старому оберегу его смысл. Оттенок украшения, скорее женский</div>
+  </div>
+  <div class="name">
+    <img src="img/names/qorgan.png" alt="Знак варианта Qorgan" loading="lazy">
+    <div class="nm">Qorgan</div>
+    <div class="kk">Қорған</div>
+    <div class="mean">Крепость, защита</div>
+    <div class="rem">Оберегающий, мужественный характер. Военный оттенок, дальше от медицины</div>
+  </div>
+  <div class="name">
+    <img src="img/names/amanat.png" alt="Знак варианта Amanat" loading="lazy">
+    <div class="nm">Amanat</div>
+    <div class="kk">Аманат</div>
+    <div class="mean">Доверенное на сохранение</div>
+    <div class="rem">Точная этика продукта: пациент доверяет здоровье. Слово занято многими организациями</div>
+  </div>
+  <div class="name">
+    <img src="img/names/aman.png" alt="Знак варианта Aman" loading="lazy">
+    <div class="nm">Aman</div>
+    <div class="kk">Аман</div>
+    <div class="mean">Жив-здоров – «аман-сау»</div>
+    <div class="rem">Тёплое и понятное каждому. Много существующих брендов с «Aman»</div>
+  </div>
+  <div class="name">
+    <img src="img/names/arqau.png" alt="Знак варианта Arqau" loading="lazy">
+    <div class="nm">Arqau</div>
+    <div class="kk">Арқау</div>
+    <div class="mean">Нить-основа ткани; стержень</div>
+    <div class="rem">Поэтичный образ нити между пациентом и врачом. Смысл не считывается мгновенно</div>
+  </div>
+  </div>
+
+  <div class="note">
+    <div class="t">Что это за знаки</div>
+    Эскизы, а не готовый логотип: они показывают, как каждое название выглядит рядом с
+    фирменным знаком Damumed, и помогают выбрать слово, а не утвердить графику. Финальный
+    знак рисует дизайнер после выбора названия. До решения проверить два условия –
+    свободность товарного знака и произношение на фокус-группе пациентов 65+.
+  </div>
 </section>
 
 <section id="sravnenie">
