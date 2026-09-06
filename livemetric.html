@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Damumed Band — вариант запуска без регистрации медизделия: отчёт и расчёты">
+<title>Damumed Band — без регистрации</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#f4faf7; --surface:#FFFFFF; --surface-2:#e7f5ee;
+  --ink:#103126; --ink-2:#4d6c60; --muted:#7a948a;
+  --line:#dce9e2; --line-strong:#c6ddd2;
+  --accent:#17936f; --accent-bright:#2bb488;
+  --warn:#8a6416; --alert:#d1453f; --info:#2F6D9E;
+  --accent-wash:#e7f5ee; --warn-wash:#fff6e6; --alert-wash:#fdecec;
+  --head:#082f24; --head-ink:#f4faf7; --head-ink-2:#9fd4c0;
+  --seq1:#082f24; --seq2:#17936f; --seq3:#2bb488; --seq4:#9fd4c0;
+  --shadow:0 2px 12px rgba(8,47,36,.06);
+}
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:"Manrope",-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:17.5px; line-height:1.62; margin:0;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px; margin:0 auto; padding:0 24px 80px}
+h1,h2,h3{font-family:"Manrope",system-ui,sans-serif; text-wrap:balance; margin:0}
+.num{font-family:"Spline Sans Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
+
+/* шапка */
+.hero{color:var(--head-ink); margin:0 0 38px; padding:0; position:relative; overflow:hidden;
+  background-image:linear-gradient(100deg,rgba(8,47,36,.97) 0%,rgba(8,47,36,.92) 42%,rgba(8,47,36,.55) 72%,rgba(8,47,36,.4) 100%),url('img/device-wrist.jpg');
+  background-size:cover; background-position:center right}
+.hero .rule{width:88px; height:8px; background:var(--accent-bright); margin:0 0 26px}
+.hero .wordmark{font-weight:800; font-size:15px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--head-ink); margin-bottom:26px}
+.hero-in{max-width:1080px; margin:0 auto; padding:0 24px; position:relative; z-index:1}
+.hero-in header{padding:64px 0 56px; max-width:62ch}
+@media(max-width:760px){.hero-in header{padding:44px 0 40px}}
+.hero-orn{position:absolute; right:-70px; top:-80px; opacity:.15; pointer-events:none}
+header{padding:0}
+.eyebrow{font-size:13px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent-bright); margin-bottom:20px}
+.hero .lede{color:var(--head-ink); opacity:.92}
+.hero .meta{color:var(--head-ink); opacity:.82; border-top:1px solid rgba(255,255,255,.24);
+  padding-top:22px}
+.hero .meta b{color:var(--head-ink)}
+@media(max-width:700px){.hero-orn{display:none}}
+h1{font-size:clamp(36px,5vw,58px); font-weight:800; line-height:1.12; letter-spacing:-.015em}
+.lede{color:var(--ink-2); font-size:19.5px; max-width:62ch; margin:14px 0 0}
+.meta{display:flex; flex-wrap:wrap; gap:9px 24px; margin-top:24px;
+  font-family:"Spline Sans Mono",monospace; font-size:13.5px; color:var(--muted)}
+.meta b{color:var(--ink-2); font-weight:500}
+
+/* плитки */
+.tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(178px,1fr)); gap:14px; margin-bottom:44px}
+.tile{background:var(--surface); border-radius:22px;
+  padding:22px 24px 20px; box-shadow:var(--shadow)}
+.tile .k{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted); display:block; margin-bottom:9px}
+.tile .v{font-family:'Spline Sans Mono',monospace; font-size:34px; font-weight:500; line-height:1;
+  font-variant-numeric:tabular-nums; letter-spacing:-.01em}
+.tile .u{font-size:14.5px; color:var(--ink-2); font-family:"Manrope",sans-serif; font-weight:400}
+.tile .d{font-size:13.5px; color:var(--muted); margin-top:7px; line-height:1.4}
+.tile.hot{background:var(--head)}
+.tile.hot .v{color:#fff}
+.tile.hot .k{color:var(--head-ink-2)}
+.tile.hot .d{color:#d7efe5}
+.tile.hot .u{color:#d7efe5}
+
+/* секции */
+section{margin-bottom:52px; scroll-margin-top:20px}
+.shead{display:flex; align-items:center; gap:13px; margin-bottom:6px;
+  padding-bottom:13px; border-bottom:1px solid var(--line-strong)}
+.snum{font-size:13px; color:var(--accent); font-weight:800; letter-spacing:.14em;
+  text-transform:uppercase; white-space:nowrap}
+h2{font-size:30px; font-weight:800; letter-spacing:-.01em}
+.sdek{color:var(--ink-2); margin:14px 0 22px; max-width:66ch}
+p{margin:0 0 15px} p:last-child{margin-bottom:0}
+strong{font-weight:600}
+a{color:var(--accent)} a:hover{color:var(--accent-bright)}
+
+/* карточка графика */
+.fig{background:var(--surface); border-radius:22px;
+  padding:26px 28px 20px; margin:24px 0; box-shadow:var(--shadow)}
+.fig h3{font-size:18px; font-weight:600; margin-bottom:3px}
+.fig .sub{color:var(--muted); font-size:14.5px; margin-bottom:18px}
+.fig .cap{color:var(--muted); font-size:14px; margin-top:14px; padding-top:12px;
+  border-top:1px solid var(--line); line-height:1.5}
+.chart{width:100%; overflow-x:auto}
+svg{display:block; max-width:100%; height:auto}
+.grid-line{stroke:var(--line); stroke-width:1}
+.axis-text{font-family:"Spline Sans Mono",monospace; font-size:12px; fill:var(--muted)}
+.lbl{font-family:"Spline Sans Mono",monospace; font-size:12.5px; fill:var(--ink-2)}
+.lbl-strong{font-family:"Spline Sans Mono",monospace; font-size:13px; fill:var(--ink); font-weight:500}
+.name{font-family:"Manrope",sans-serif; font-size:13.5px; fill:var(--ink-2)}
+.mark{transition:opacity .12s} .mark:hover{opacity:.78; cursor:default}
+
+/* легенда */
+.legend{display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:15px;
+  font-size:13.5px; color:var(--ink-2)}
+.legend i{width:11px; height:11px; border-radius:2px; display:inline-block;
+  margin-right:6px; vertical-align:-1px}
+
+/* таблицы */
+.tw{overflow-x:auto; margin:20px 0}
+table{border-collapse:collapse; width:100%; font-size:15.5px; min-width:520px}
+table{border-radius:22px; overflow:hidden}
+th{text-align:left; font-family:"Manrope",sans-serif; font-size:12.5px;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--head-ink-2); font-weight:700;
+  background:var(--head); padding:13px 14px; white-space:nowrap}
+th:first-child{border-radius:0} 
+td{padding:13px 14px; border-bottom:1px solid rgba(16,49,38,.08); vertical-align:top}
+td.n{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums; white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.pick td{background:var(--accent-wash)}
+.pick td:first-child{padding-left:18px}
+
+/* врезки */
+.note{border-left:3px solid var(--warn); background:var(--surface);
+  padding:15px 18px; margin:22px 0; border-radius:0 14px 14px 0; box-shadow:var(--shadow)}
+.note.warn{border-left-color:var(--warn); background:var(--warn-wash)}
+.note.alert{border-left-color:var(--alert); background:var(--alert-wash)}
+.note .t{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--warn); margin-bottom:7px}
+.note.warn .t{color:var(--warn)} .note.alert .t{color:var(--alert)}
+
+/* списки */
+ol,ul{margin:0 0 15px; padding-left:22px} li{margin-bottom:7px}
+ol{counter-reset:i; list-style:none; padding-left:0}
+ol li{counter-increment:i; padding-left:30px; position:relative}
+ol li::before{content:counter(i); position:absolute; left:0; top:2px;
+  font-family:"Spline Sans Mono",monospace; font-size:12.5px; color:var(--accent);
+  border:1px solid var(--line-strong); border-radius:6px; width:19px; height:19px;
+  display:flex; align-items:center; justify-content:center}
+
+/* этапы */
+.steps{display:grid; gap:1px; background:var(--line); border:1px solid var(--line);
+  border-radius:14px; overflow:hidden; margin:22px 0}
+.step{background:var(--surface); padding:14px 18px; display:grid;
+  grid-template-columns:86px 1fr; gap:16px; align-items:start}
+.step .w{font-family:"Spline Sans Mono",monospace; font-size:13px; color:var(--accent)}
+.step .b{font-weight:600; font-size:16px; margin-bottom:3px}
+.step .c{color:var(--ink-2); font-size:15px}
+
+/* фотографии устройства */
+.shots{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin:4px 0}
+.shots figure{margin:0}
+.shots img{width:100%; height:auto; display:block; border-radius:12px;
+  border:1px solid var(--line); background:var(--surface-2)}
+.shots figcaption{font-size:14px; color:var(--muted); line-height:1.5; margin-top:10px}
+
+/* мокапы приложения — светлая тема действующего Damumed */
+.screens{display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr));
+  gap:22px; margin:24px 0}
+.ph{background:#000; border:1px solid #2C2C2E; border-radius:26px; padding:7px;
+  box-shadow:var(--shadow)}
+.ph-cap{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted); text-align:center; padding:0 0 9px}
+.dscr{--g:#17936f; --gd:#106b51; --bg:#F4F6F5; --cd:#FFFFFF; --cd2:#EFF2F0;
+  --tx:#16232B; --tx2:#42504A; --mut:#7B8C82; --ln:#E3E9E5; --blue:#2F6D9E;
+  --wn:#A87718; --al:#C0453C;
+  --accent:#17936f; --line:#E3E9E5; --ink:#16232B; --ink-2:#42504A; --muted:#7B8C82;
+  --surface:#FFFFFF; --surface-2:#F4F6F5; --info:#2F6D9E; --warn:#A87718; --alert:#C0453C;
+  background:#F4F6F5; border-radius:20px; overflow:hidden; min-height:540px;
+  display:flex; flex-direction:column; color:#16232B}
+.dst{display:flex; justify-content:space-between; padding:8px 14px 2px;
+  font-size:10px; color:#16232B; font-weight:600}
+.dhd{padding:8px 12px 11px; display:flex; align-items:center; justify-content:space-between}
+.dhd .ava{width:24px; height:24px; border-radius:50%; background:#DDE5E0; flex:none}
+.dhd .lg{display:flex; align-items:center; gap:6px; font-weight:700; font-size:15px;
+  letter-spacing:.03em; color:#16232B}
+.dhd .ic{display:flex; gap:9px; color:#5A6873}
+.dback{display:flex; align-items:center; gap:10px; padding:6px 12px 12px; color:#16232B}
+.dback b{font-size:15.5px; font-weight:700; flex:1; text-align:center; margin-right:22px}
+.dbody{padding:0 11px 8px; display:flex; flex-direction:column; gap:9px; flex:1;
+  overflow:hidden}
+.dpills{display:flex; gap:7px}
+.dpill{flex:1; border-radius:12px; padding:9px 10px; font-size:10px; font-weight:600;
+  line-height:1.25; min-height:46px}
+.dpill.a{background:#E8E8EA; color:#1C1C1E} .dpill.b{background:var(--blue); color:#fff}
+.dpill.c{background:#E8E8EA; color:#1C1C1E}
+.dcard{background:var(--cd); border:1px solid var(--ln); border-radius:16px; padding:12px 13px}
+.dcard h4{font-size:11px; font-weight:700; color:var(--mut); text-transform:uppercase;
+  letter-spacing:.05em; margin:0 0 9px}
+.dring{display:flex; flex-direction:column; align-items:center; gap:2px; padding:2px 0}
+.dstat{font-size:15.5px; font-weight:700; margin-top:6px}
+.dsub{font-size:12.5px; color:var(--mut); text-align:center; line-height:1.4}
+.dmetric{display:flex; align-items:center; gap:11px}
+.dmi{width:34px; height:34px; border-radius:10px; background:#E4F3EC; flex:none;
+  display:flex; align-items:center; justify-content:center; color:var(--g)}
+.dmv{font-size:14.5px; font-weight:700}
+.dmk{font-size:11.5px; color:var(--mut)}
+.drow{display:flex; justify-content:space-between; align-items:center; padding:7px 0;
+  font-size:13.5px; border-bottom:1px solid var(--ln); color:var(--tx2)}
+.drow:last-child{border-bottom:0}
+.drow b{font-weight:700; font-size:14px; color:#16232B}
+.dtag{display:inline-block; font-size:10px; padding:2px 9px; border-radius:99px; font-weight:700}
+.t-ok{background:#E4F3EC; color:var(--g)} .t-wn{background:#FBF0D9; color:var(--wn)}
+.t-al{background:#FBE4E2; color:var(--al)}
+.dnote{font-size:12px; color:var(--mut); line-height:1.45}
+.dbtn{text-align:center; background:var(--g); color:#fff; border-radius:99px;
+  padding:11px; font-size:13.5px; font-weight:700}
+.dbtn.gh{background:transparent; color:var(--g); border:1px solid var(--g)}
+.dnav{background:#fff; border-top:1px solid var(--ln); display:flex; padding:8px 2px 9px;
+  margin-top:auto}
+.dnav span{flex:1; text-align:center; font-size:9.5px; color:#8E8E93; line-height:1.5;
+  position:relative}
+.dnav span.on{color:var(--g); font-weight:700}
+.dnav svg{display:block; margin:0 auto 2px}
+.dbadge{position:absolute; top:-3px; right:14px; background:var(--g); color:#fff;
+  border-radius:99px; font-size:8px; font-weight:700; padding:1px 5px}
+.dalert{background:#FBF0D9; border-radius:16px; padding:11px 13px}
+.dalert.crit{background:#FBE4E2}
+
+/* рабочее место врача — десктопная МИС */
+.mis{--g:#17936f; --gw:#E8F5F0; --bg:#F2F4F5; --ln:#E1E6E8; --tx:#16232B; --tx2:#5A6873;
+  --mut:#8A959D; --wn:#C58A2E; --wnw:#FDF4E3; --al:#C0453C; --alw:#F9E9E7;
+  border:1px solid var(--line-strong); border-radius:8px; overflow:hidden;
+  background:#fff; color:var(--tx); margin:22px 0; box-shadow:var(--shadow)}
+.mis-top{background:var(--g); color:#fff; display:flex; align-items:center; gap:14px;
+  padding:10px 15px; font-size:13.5px}
+.mis-top .b{font-weight:800; letter-spacing:.05em; display:flex; align-items:center; gap:6px}
+.mis-top .sp{flex:1}
+.mis-top .u{opacity:.9; font-size:11.5px}
+.mis-body{display:grid; grid-template-columns:172px 1fr; min-height:392px}
+.mis-side{background:#F7F9F9; border-right:1px solid var(--ln); padding:10px 0; font-size:13px}
+.mis-side div{padding:8px 14px; color:var(--tx2); display:flex; align-items:center; gap:8px}
+.mis-side div.on{background:var(--gw); color:var(--g); font-weight:700;
+  box-shadow:inset 3px 0 0 var(--g)}
+.mis-main{padding:13px 15px; min-width:0; overflow-x:auto}
+.mis-h{display:flex; align-items:baseline; gap:12px; margin-bottom:11px; flex-wrap:wrap}
+.mis-h b{font-size:16px; font-weight:800}
+.mis-h span{font-size:13px; color:var(--mut)}
+.mis-f{display:flex; gap:7px; margin-bottom:11px; flex-wrap:wrap}
+.mis-f span{border:1px solid var(--ln); border-radius:99px; padding:3px 11px;
+  font-size:11px; color:var(--tx2)}
+.mis-f span.on{background:var(--g); border-color:var(--g); color:#fff; font-weight:600}
+.mis table{width:100%; border-collapse:collapse; font-size:13.5px; min-width:600px}
+.mis th{background:#F7F9F9; color:var(--mut); font-size:9.5px; letter-spacing:.07em;
+  text-transform:uppercase; text-align:left; padding:7px 9px; border-bottom:1px solid var(--ln);
+  font-weight:700; white-space:nowrap}
+.mis td{padding:9px; border-bottom:1px solid var(--ln); vertical-align:top; line-height:1.45}
+.mis tr:last-child td{border-bottom:0}
+.mis .nm{font-weight:700}
+.mis .sm{font-size:11.5px; color:var(--mut)}
+.mis .st{display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700;
+  border-radius:99px; padding:2px 9px; white-space:nowrap}
+.mis .st i{width:7px; height:7px; border-radius:50%; display:inline-block}
+.s-red{background:var(--alw); color:var(--al)} .s-red i{background:var(--al)}
+.s-yel{background:var(--wnw); color:var(--wn)} .s-yel i{background:var(--wn)}
+.s-grn{background:var(--gw); color:var(--g)} .s-grn i{background:var(--g)}
+.mis .act{display:inline-block; border:1px solid var(--g); color:var(--g); border-radius:6px;
+  padding:3px 9px; font-size:11px; font-weight:700; margin:0 4px 4px 0}
+.mis .act.fill{background:var(--g); color:#fff}
+.mis-row-red{background:#FEF7F6}
+
+/* файлы */
+.files{display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:12px; margin-top:20px}
+.file{display:flex; gap:14px; align-items:center; text-decoration:none; color:inherit;
+  background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  padding:15px 17px; box-shadow:var(--shadow); transition:border-color .14s, transform .14s;
+  font:inherit; text-align:left; cursor:pointer; width:100%}
+.file:hover{border-color:var(--accent); transform:translateY(-1px)}
+.file:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.fi{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.06em;
+  color:var(--accent); border:1px solid var(--accent); border-radius:8px;
+  padding:5px 7px; flex:none}
+.fb{display:flex; flex-direction:column; gap:3px; min-width:0}
+.fb b{font-size:16px; font-weight:600}
+.fb i{font-style:normal; font-size:13.5px; color:var(--muted); line-height:1.4}
+
+.det{margin-top:20px; background:var(--surface); border:1px solid var(--line);
+  border-radius:14px; box-shadow:var(--shadow)}
+.det summary{cursor:pointer; padding:15px 18px; font-weight:600; font-size:16px;
+  list-style:none; display:flex; align-items:center; gap:9px}
+.det summary::-webkit-details-marker{display:none}
+.det summary::before{content:"+"; font-family:"Spline Sans Mono",monospace; color:var(--accent);
+  border:1px solid var(--line-strong); border-radius:6px; width:19px; height:19px;
+  display:flex; align-items:center; justify-content:center; font-size:13px; flex:none}
+.det[open] summary::before{content:"–"}
+.det summary:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
+.det-b{padding:0 18px 18px; color:var(--ink-2); font-size:15.5px; line-height:1.62;
+  border-top:1px solid var(--line); padding-top:15px; white-space:normal}
+.det-b p{margin:0 0 11px}
+.det-b h4{font-family:"Manrope",system-ui,sans-serif; font-size:15px; color:var(--ink); margin:20px 0 9px}
+.det-b table{font-size:15px}
+
+/* калькулятор */
+.calc{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:16px}
+@media(max-width:640px){.calc{grid-template-columns:1fr}}
+.calc-in{display:flex; flex-direction:column; gap:13px}
+.calc-in label{display:block; font-size:13.5px; color:var(--muted)}
+.calc-in label b{float:right; font-family:"Spline Sans Mono",monospace; color:var(--ink);
+  font-variant-numeric:tabular-nums; font-size:13px}
+.calc-in input[type=range]{width:100%; accent-color:var(--accent); margin-top:5px}
+.calc-out{background:var(--surface-2); border:1px solid var(--line); border-radius:12px;
+  padding:15px 16px; align-self:start}
+.co{display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+  padding:8px 0; border-bottom:1px dashed var(--line); font-size:14.5px}
+.co:last-of-type{border-bottom:0}
+.co b{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums;
+  font-size:16px; color:var(--ink); white-space:nowrap}
+.co.big b{font-family:"Manrope",system-ui,sans-serif; font-size:23px; color:var(--accent)}
+.co.big b.neg{color:var(--alert)}
+
+footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56px;
+  color:var(--muted); font-size:14px}
+@media(max-width:640px){
+  .step{grid-template-columns:1fr; gap:4px}
+  header{padding-top:36px}
+}
+
+/* кнопки скачивания в шапке */
+.dl-row{display:flex; flex-wrap:wrap; gap:14px; margin-top:28px}
+.dl-btn{display:flex; align-items:center; gap:14px; text-decoration:none;
+  background:rgba(255,255,255,.14); color:#fff; border:1.5px solid rgba(255,255,255,.42);
+  border-radius:14px; padding:16px 22px; min-width:264px;
+  transition:background .15s, transform .15s, border-color .15s}
+.dl-btn:hover{background:rgba(255,255,255,.24); border-color:#fff; transform:translateY(-1px)}
+.dl-btn:focus-visible{outline:3px solid #fff; outline-offset:3px}
+.dl-btn.primary{background:#fff; color:var(--accent); border-color:#fff}
+.dl-btn.primary:hover{background:#F2FBF6}
+.dl-btn svg{flex:none}
+.dl-btn span{display:flex; flex-direction:column; gap:3px; line-height:1.25}
+.dl-btn b{font-size:18px; font-weight:700}
+.dl-btn i{font-style:normal; font-size:13.5px; opacity:.85}
+@media(max-width:640px){.dl-btn{min-width:0; flex:1 1 100%}}
+</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>
+.vswitch{display:inline-flex; background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.38); border-radius:99px; padding:4px; gap:4px;
+  margin-bottom:22px}
+.vswitch a{color:#fff; text-decoration:none; font-size:13.5px; font-weight:600;
+  padding:7px 16px; border-radius:99px; opacity:.85; white-space:nowrap}
+.vswitch a.on{background:#fff; color:var(--head); opacity:1}
+.vswitch a:hover{opacity:1}
+@media(max-width:640px){.vswitch a{padding:6px 12px; font-size:12.5px}}
+.vswitch span.soon{color:#fff; font-size:13.5px; font-weight:600; padding:7px 16px;
+  border-radius:99px; opacity:.5; white-space:nowrap; cursor:default}
+.vswitch span.soon i{font-style:normal; font-size:11.5px; opacity:.85}
+
+</style>
+<style>
+.ph{background:var(--surface); border-radius:22px; padding:18px; margin:26px 0}
+.ph img{width:100%; border-radius:14px; display:block; background:#fff}
+.ph .cap{color:var(--muted); font-size:13.5px; margin-top:12px; line-height:1.55}
+.phg{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:26px 0}
+@media(max-width:700px){.phg{grid-template-columns:1fr}}
+.phg .ph{margin:0}
+.crumb{display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.38); border-radius:99px; padding:7px 16px;
+  margin-bottom:22px; color:#fff; text-decoration:none; font-size:13.5px; font-weight:600}
+.crumb:hover{background:rgba(255,255,255,.22)}
+.yes{color:#1a7f4b; font-weight:700} .no{color:#c0392b; font-weight:700}
+.co{background:var(--surface); border-radius:22px; padding:24px 26px; margin:22px 0}
+.co h3{font-size:20px; margin:0 0 4px; font-weight:680}
+.co .sub{color:var(--muted); font-size:14.5px; margin-bottom:16px}
+.co .rank{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--muted); display:block; margin-bottom:10px}
+.ask{border-left:3px solid var(--head); padding-left:16px; margin:16px 0}
+.ask b{display:block; margin-bottom:6px; font-size:14px}
+.st{display:inline-flex; align-items:center; gap:8px; border-radius:99px; padding:6px 14px;
+  font-size:13.5px; font-weight:650; margin-bottom:14px}
+.st.sent{background:rgba(26,127,75,.12); color:#1a7f4b}
+.st.wait{background:rgba(192,57,43,.10); color:#c0392b}
+.st.hold{background:var(--warn-wash); color:var(--warn)}
+.rows{display:flex; flex-direction:column; gap:10px; margin:22px 0}
+.row{background:var(--surface); border-radius:16px; padding:16px 20px;
+  display:grid; grid-template-columns:auto 1fr auto; gap:6px 16px; align-items:baseline}
+.row .nm{font-weight:700; font-size:16.5px}
+.row .geo{color:var(--muted); font-size:13.5px; font-weight:400}
+.row .want{grid-column:2/4; color:var(--muted); font-size:14.5px; line-height:1.55}
+.row .pr{font-family:"Spline Sans Mono",monospace; font-size:12px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted); align-self:center}
+.row .stt{font-size:13.5px; font-weight:650; white-space:nowrap}
+.row.hi{box-shadow:inset 3px 0 0 var(--head)}
+@media(max-width:640px){
+  .row{grid-template-columns:1fr; gap:4px}
+  .row .want{grid-column:1}
+  .row .stt{white-space:normal}
+}
+.path{background:var(--surface); border-radius:18px; padding:18px 20px; margin:12px 0}
+.path .ph-h{display:flex; justify-content:space-between; align-items:baseline; gap:14px;
+  flex-wrap:wrap; margin-bottom:10px}
+.path .ph-n{font-weight:700; font-size:16.5px}
+.path .ph-v{font-size:13.5px; font-weight:700; white-space:nowrap}
+.path dl{display:grid; grid-template-columns:auto 1fr; gap:4px 14px; margin:0; font-size:14.5px}
+.path dt{color:var(--muted)} .path dd{margin:0}
+@media(max-width:560px){.path dl{grid-template-columns:1fr} .path dt{margin-top:6px}}
+.three{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin:22px 0}
+.three .c{background:var(--surface); border-radius:18px; padding:18px 20px}
+.three .c h4{font-size:16px; margin:0 0 6px; font-weight:650}
+.three .c p{font-size:14.5px; color:var(--muted); margin:0; line-height:1.6}
+.three .c .tag{font-family:"Spline Sans Mono",monospace; font-size:11px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--muted); display:block; margin-bottom:8px}
+@media(max-width:640px){.co{padding:20px 18px}}
+</style>
+
+<style>
+.crumb{display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.38); border-radius:99px; padding:7px 16px;
+  margin-bottom:22px; color:#fff; text-decoration:none; font-size:13.5px; font-weight:600}
+.crumb:hover{background:rgba(255,255,255,.22)}
+.flag{font-size:30px; line-height:1; margin-right:10px; vertical-align:-2px}
+.ph{background:var(--surface); border-radius:22px; padding:18px; margin:26px 0}
+.ph img{width:100%; border-radius:14px; display:block; background:#fff}
+.ph .cap{color:var(--muted); font-size:13.5px; margin-top:12px; line-height:1.55}
+.noph{background:var(--surface); border-radius:22px; padding:34px 24px; margin:26px 0;
+  text-align:center; color:var(--muted); font-size:15px; line-height:1.6}
+.yes{color:#1a7f4b; font-weight:700} .no{color:#c0392b; font-weight:700}
+.st{display:inline-flex; align-items:center; gap:8px; border-radius:99px; padding:6px 14px;
+  font-size:13.5px; font-weight:650; margin-bottom:16px}
+.st.sent{background:rgba(26,127,75,.12); color:#1a7f4b}
+.st.hold{background:var(--warn-wash); color:var(--warn)}
+.ask{border-left:3px solid var(--head); padding-left:16px; margin:18px 0}
+.ask b{display:block; margin-bottom:6px; font-size:14px}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-in">
+    <header>
+      <div class="wordmark">Damumed</div>
+      <div class="rule"></div>
+      <a class="crumb" href="ag.html">← Гипертония: шесть компаний</a>
+    <h1><span class="flag">🇱🇺</span>LiveMetric — LiveOne</h1>
+      <p class="lede">Единственный прибор категории, который измеряет давление механически: массив датчиков прижимается к лучевой артерии. Допуск FDA есть, а компании фактически нет — десять человек в поиске капитала.</p>
+      <div class="meta">
+        <span>Страна · <b>Люксембург и Нью-Йорк</b></span><span>Основана · <b>2016</b></span><span>Сотрудников · <b>⚠️ 10</b></span><span>Приоритет · <b>пятый</b></span>
+      </div>
+    </header>
+  </div>
+</div>
+
+<div class="wrap">
+<div class="tiles">
+  <div class="tile hot"><span class="k">Датчиков давления</span>
+    <div class="v">4<span class="u"> МЭМС</span></div>
+    <div class="d">массив над лучевой артерией</div></div>
+  <div class="tile"><span class="k">Точность</span>
+    <div class="v">±3<span class="u"> мм рт. ст.</span></div>
+    <div class="d">или ±2 % показания</div></div>
+  <div class="tile"><span class="k">Частота дискретизации</span>
+    <div class="v">100<span class="u"> Гц</span></div>
+    <div class="d">видна форма волны</div></div>
+  <div class="tile"><span class="k">Рассмотрение в FDA</span>
+    <div class="v">719<span class="u"> дней</span></div>
+    <div class="d">необычно долго</div></div>
+  <div class="tile"><span class="k">Общая популяция</span>
+    <div class="v">8<span class="u"> человек</span></div>
+    <div class="d">вся выборка исследования</div></div>
+</div>
+<div class="ph">
+  <img src="img/companies/livemetric.png" alt="Браслет LiveOne с массивом датчиков">
+  <div class="cap"><b>LiveOne</b> — снизу виден массив из четырёх датчиков давления, которые ложатся на лучевую артерию. Фото: livemetric.com (открытый источник).</div>
+</div>
+<div class="st sent">✅ Письмо отправлено 6 сентября 2026, 14:37 · ждём ответа</div>
+<section>
+  <div class="shead"><span class="snum">01</span><h2>Чем принципиально отличается</h2></div>
+  <p class="sdek">Не оптика и не манжета, а прямая тонометрия.</p>
+
+  <p>Пять приборов из шести в этой категории считают давление из оптического
+  сигнала. LiveOne — исключение: он использует <strong>аппланационную тонометрию</strong>.
+  Массив МЭМС-датчиков давления высокого разрешения прижимается к <strong>лучевой
+  артерии</strong> и снимает форму пульсовой волны напрямую — тот же принцип, что
+  у инвазивных систем, только через кожу.</p>
+
+  <p>Отсюда два следствия, которых нет ни у кого другого в списке.
+  <strong>Первое:</strong> калибровка манжетой не нужна вообще — прибор автокалибруется.
+  <strong>Второе:</strong> он показывает <strong>непрерывную форму пульсовой волны
+  лучевой артерии</strong>, а не только два числа.</p>
+
+  <div class="note">
+    <div class="t">Как это выглядит на практике</div>
+    Датчики ставятся над лучевой артерией у основания большого пальца. В приложении
+    видно <b>четыре сигнала от четырёх датчиков</b>, и для корректного измерения нужно,
+    чтобы хотя бы один–два из них были «зелёными». По сути, это ручная подстройка
+    положения браслета — и главная практическая слабость конструкции: в программе
+    на тысячи пожилых пациентов такая процедура плохо масштабируется.
+  </div>
+</section>
+<section>
+  <div class="shead"><span class="snum">02</span><h2>Характеристики</h2></div>
+  <p class="sdek">По базе FDA 510(k) и документам FCC.</p>
+
+  <div class="tw"><table>
+    <tr><th>Параметр</th><th>Значение</th></tr>
+    <tr><td>Принцип</td><td class="n"><b>аппланационная тонометрия</b>, МЭМС-массив высокого разрешения</td></tr>
+    <tr><td>Датчики</td><td class="n"><b>4 датчика давления</b> + акселерометр</td></tr>
+    <tr><td>Частота дискретизации</td><td class="n"><b>100 Гц</b></td></tr>
+    <tr><td>Калибровка</td><td class="n"><b>не требуется</b></td></tr>
+    <tr><td>Точность</td><td class="n"><b>±3 мм рт. ст. или ±2 % показания</b>; ЧСС ±4 %</td></tr>
+    <tr><td>Диапазон</td><td class="n">систолическое 50–250, диастолическое 30–180, пульс 40–199</td></tr>
+    <tr><td>Обхват запястья</td><td class="n">155–210 мм (S: 155–180, L: 180–210)</td></tr>
+    <tr><td>Материалы</td><td class="n">силикон 60 Shore A, корпус — анодированный алюминий, пряжка — сталь</td></tr>
+    <tr><td>Связь</td><td class="n">Bluetooth 4.0</td></tr>
+    <tr><td>Защита</td><td class="n">⚠️ <b>IP22</b> — только от брызг</td></tr>
+    <tr><td>Температура</td><td class="n">−10…+45 °C</td></tr>
+    <tr><td>Компаньон</td><td class="n"><b>планшет</b> (в допуске указан Microsoft Surface)</td></tr>
+  </table></div>
+
+  <p>Три режима работы: разовый по назначению врача, <strong>суточное мониторирование</strong>
+  и клинический разовый с наблюдением формы волны.</p>
+</section>
+<section>
+  <div class="shead"><span class="snum">03</span><h2>Регуляторный статус</h2></div>
+  <p class="sdek">Допуск сильный, путь к нему был долгим.</p>
+
+  <p><strong>FDA 510(k) K201302</strong>, решение <strong>4 мая 2022 года</strong>,
+  код DXN, 21 CFR 870.1130, класс II. Заявитель — Livemetric (Medical) S.A., Люксембург.
+  Предикаты — TL10 и TL300 Tensymeter. Соответствие IEC 60601-1, IEC 60601-1-2
+  и ISO 10993-1.</p>
+
+  <p>Срок рассмотрения — <strong>719 дней</strong>, что сама база 510(k) отмечает
+  как необычно долгий период, указывающий на сложную оценку эквивалентности.</p>
+
+  <p><strong>Ограничения применения.</strong> Только клиническое применение;
+  <strong>не для операционных, реанимаций и электрофизиологических лабораторий</strong>;
+  тревог нет. Возраст ≥18 лет, при этом в самом допуске целевая популяция указана
+  как старше 27 лет. Противопоказания: беременность, нарушение целостности кожи
+  запястья, обхват вне диапазона, механическая поддержка кровообращения, когнитивные
+  нарушения.</p>
+</section>
+<section>
+  <div class="shead"><span class="snum">04</span><h2>🔴 Клиническая база: восемь человек</h2></div>
+  <p class="sdek">Формально критерии стандарта выполнены. По существу — выборка, на которой нельзя строить закупку.</p>
+
+  <div class="tw"><table>
+    <tr><th>Исследование</th><th>Результат против артериальной линии</th></tr>
+    <tr><td>Многоцентровое в реанимации</td><td class="n"><b>26</b> пациентов — смещение САД 0,7 ± 6,6; ДАД 2,0 ± 5,5 мм рт. ст.</td></tr>
+    <tr><td>Общая популяция</td><td class="n"><b>8</b> человек — смещение САД −1,3 ± 7,2; ДАД −0,4 ± 5,7 мм рт. ст.</td></tr>
+    <tr><td>Отдельное исследование NCT03919136</td><td class="n">40 участников, 3 центра</td></tr>
+  </table></div>
+
+  <p>Оба исследования проведены по ISO 81060-2:2018 против артериальной линии —
+  то есть против инвазивного эталона, и результаты укладываются в критерии.
+  Но <strong>восемь человек в общей популяции</strong> — это не та доказательная база,
+  на которой закупают приборы для программы на тысячи пациентов.</p>
+</section>
+<section>
+  <div class="shead"><span class="snum">05</span><h2>⚠️ Состояние компании</h2></div>
+  <p class="sdek">Здесь наша переговорная позиция сильна — и именно поэтому опасна.</p>
+
+  <p>В компании <strong>десять человек</strong>. С момента получения допуска FDA
+  прошло четыре года без коммерческого разворота. Компания открыто говорит, что находится
+  в процессе привлечения капитала, и участвует в акселераторах — в ноябре 2025 года
+  вошла в HeartX Accelerator.</p>
+
+  <div class="note warn">
+    <div class="t">Расхождение в данных о финансировании</div>
+    Профиль компании в LinkedIn указывает <b>$24 млн</b> (Series A от января 2019 года) —
+    эта цифра попала и в наш первый сводный отчёт. CBInsights при этом показывает
+    <b>всего $50 тыс. за три раунда</b>, и все три — акселераторные программы:
+    Fit 4 Start в Люксембурге, MedTech Innovator в 2022-м и HeartX в 2025-м.
+    До сверки обе цифры считать неподтверждёнными.
+  </div>
+
+  <p>🔴 <strong>Главный риск — выживаемость.</strong> Строить регуляторную стратегию
+  на поставщике из десяти человек в поиске капитала нельзя: если компания не найдёт
+  деньги, мы останемся с прибором без поддержки и без пути к регистрации. Разговор
+  имеет смысл как дешёвый эксперимент, а не как опора.</p>
+</section>
+<section>
+  <div class="shead"><span class="snum">06</span><h2>Что мы просим</h2></div>
+  <div class="ask">
+    <b>Четыре вопроса отправленного письма</b>
+    <b>1.</b> Доступен ли браслет для поставки за пределы США и Европы, работают ли
+    через страновых партнёров.<br>
+    <b>2.</b> Можно ли передавать измерения на наши серверы через API, минуя облако
+    поставщика.<br>
+    <b>3.</b> Рассматривают ли лицензирование сенсорной технологии или выпуск
+    под локальным брендом.<br>
+    <b>4.</b> Поддержат ли регистрационное досье в ЕАЭС и кто будет держателем
+    удостоверения.
+  </div>
+
+  <p>В письме прямо сказано, что мы находимся на стадии выбора между собственным
+  устройством и интеграцией готового — и что прямой ответ в любую сторону нам полезен.
+  Для компании такого размера это честная рамка: мы не обещаем объёмов, которых
+  не можем гарантировать.</p>
+</section>
+<footer>
+  Профиль составлен 06.09.2026 по базе FDA 510(k) K201302, руководству для медработников и инструкции пользователя (документы FCC), профилям компании в LinkedIn и CBInsights.
+  Исходный текст — research/13-shest-kompaniy-profili.md.
+  Назад: <a href="ag.html">гипертония и шесть компаний</a>.
+</footer>
+
+</div>
+</body>
+</html>
