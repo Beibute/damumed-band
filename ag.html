@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Damumed Band — вариант запуска без регистрации медизделия: отчёт и расчёты">
+<title>Damumed Band — без регистрации</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#f4faf7; --surface:#FFFFFF; --surface-2:#e7f5ee;
+  --ink:#103126; --ink-2:#4d6c60; --muted:#7a948a;
+  --line:#dce9e2; --line-strong:#c6ddd2;
+  --accent:#17936f; --accent-bright:#2bb488;
+  --warn:#8a6416; --alert:#d1453f; --info:#2F6D9E;
+  --accent-wash:#e7f5ee; --warn-wash:#fff6e6; --alert-wash:#fdecec;
+  --head:#082f24; --head-ink:#f4faf7; --head-ink-2:#9fd4c0;
+  --seq1:#082f24; --seq2:#17936f; --seq3:#2bb488; --seq4:#9fd4c0;
+  --shadow:0 2px 12px rgba(8,47,36,.06);
+}
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:"Manrope",-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:17.5px; line-height:1.62; margin:0;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px; margin:0 auto; padding:0 24px 80px}
+h1,h2,h3{font-family:"Manrope",system-ui,sans-serif; text-wrap:balance; margin:0}
+.num{font-family:"Spline Sans Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
+
+/* шапка */
+.hero{color:var(--head-ink); margin:0 0 38px; padding:0; position:relative; overflow:hidden;
+  background-image:linear-gradient(100deg,rgba(8,47,36,.97) 0%,rgba(8,47,36,.92) 42%,rgba(8,47,36,.55) 72%,rgba(8,47,36,.4) 100%),url('img/device-wrist.jpg');
+  background-size:cover; background-position:center right}
+.hero .rule{width:88px; height:8px; background:var(--accent-bright); margin:0 0 26px}
+.hero .wordmark{font-weight:800; font-size:15px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--head-ink); margin-bottom:26px}
+.hero-in{max-width:1080px; margin:0 auto; padding:0 24px; position:relative; z-index:1}
+.hero-in header{padding:64px 0 56px; max-width:62ch}
+@media(max-width:760px){.hero-in header{padding:44px 0 40px}}
+.hero-orn{position:absolute; right:-70px; top:-80px; opacity:.15; pointer-events:none}
+header{padding:0}
+.eyebrow{font-size:13px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent-bright); margin-bottom:20px}
+.hero .lede{color:var(--head-ink); opacity:.92}
+.hero .meta{color:var(--head-ink); opacity:.82; border-top:1px solid rgba(255,255,255,.24);
+  padding-top:22px}
+.hero .meta b{color:var(--head-ink)}
+@media(max-width:700px){.hero-orn{display:none}}
+h1{font-size:clamp(36px,5vw,58px); font-weight:800; line-height:1.12; letter-spacing:-.015em}
+.lede{color:var(--ink-2); font-size:19.5px; max-width:62ch; margin:14px 0 0}
+.meta{display:flex; flex-wrap:wrap; gap:9px 24px; margin-top:24px;
+  font-family:"Spline Sans Mono",monospace; font-size:13.5px; color:var(--muted)}
+.meta b{color:var(--ink-2); font-weight:500}
+
+/* плитки */
+.tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(178px,1fr)); gap:14px; margin-bottom:44px}
+.tile{background:var(--surface); border-radius:22px;
+  padding:22px 24px 20px; box-shadow:var(--shadow)}
+.tile .k{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted); display:block; margin-bottom:9px}
+.tile .v{font-family:'Spline Sans Mono',monospace; font-size:34px; font-weight:500; line-height:1;
+  font-variant-numeric:tabular-nums; letter-spacing:-.01em}
+.tile .u{font-size:14.5px; color:var(--ink-2); font-family:"Manrope",sans-serif; font-weight:400}
+.tile .d{font-size:13.5px; color:var(--muted); margin-top:7px; line-height:1.4}
+.tile.hot{background:var(--head)}
+.tile.hot .v{color:#fff}
+.tile.hot .k{color:var(--head-ink-2)}
+.tile.hot .d{color:#d7efe5}
+.tile.hot .u{color:#d7efe5}
+
+/* секции */
+section{margin-bottom:52px; scroll-margin-top:20px}
+.shead{display:flex; align-items:center; gap:13px; margin-bottom:6px;
+  padding-bottom:13px; border-bottom:1px solid var(--line-strong)}
+.snum{font-size:13px; color:var(--accent); font-weight:800; letter-spacing:.14em;
+  text-transform:uppercase; white-space:nowrap}
+h2{font-size:30px; font-weight:800; letter-spacing:-.01em}
+.sdek{color:var(--ink-2); margin:14px 0 22px; max-width:66ch}
+p{margin:0 0 15px} p:last-child{margin-bottom:0}
+strong{font-weight:600}
+a{color:var(--accent)} a:hover{color:var(--accent-bright)}
+
+/* карточка графика */
+.fig{background:var(--surface); border-radius:22px;
+  padding:26px 28px 20px; margin:24px 0; box-shadow:var(--shadow)}
+.fig h3{font-size:18px; font-weight:600; margin-bottom:3px}
+.fig .sub{color:var(--muted); font-size:14.5px; margin-bottom:18px}
+.fig .cap{color:var(--muted); font-size:14px; margin-top:14px; padding-top:12px;
+  border-top:1px solid var(--line); line-height:1.5}
+.chart{width:100%; overflow-x:auto}
+svg{display:block; max-width:100%; height:auto}
+.grid-line{stroke:var(--line); stroke-width:1}
+.axis-text{font-family:"Spline Sans Mono",monospace; font-size:12px; fill:var(--muted)}
+.lbl{font-family:"Spline Sans Mono",monospace; font-size:12.5px; fill:var(--ink-2)}
+.lbl-strong{font-family:"Spline Sans Mono",monospace; font-size:13px; fill:var(--ink); font-weight:500}
+.name{font-family:"Manrope",sans-serif; font-size:13.5px; fill:var(--ink-2)}
+.mark{transition:opacity .12s} .mark:hover{opacity:.78; cursor:default}
+
+/* легенда */
+.legend{display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:15px;
+  font-size:13.5px; color:var(--ink-2)}
+.legend i{width:11px; height:11px; border-radius:2px; display:inline-block;
+  margin-right:6px; vertical-align:-1px}
+
+/* таблицы */
+.tw{overflow-x:auto; margin:20px 0}
+table{border-collapse:collapse; width:100%; font-size:15.5px; min-width:520px}
+table{border-radius:22px; overflow:hidden}
+th{text-align:left; font-family:"Manrope",sans-serif; font-size:12.5px;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--head-ink-2); font-weight:700;
+  background:var(--head); padding:13px 14px; white-space:nowrap}
+th:first-child{border-radius:0} 
+td{padding:13px 14px; border-bottom:1px solid rgba(16,49,38,.08); vertical-align:top}
+td.n{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums; white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.pick td{background:var(--accent-wash)}
+.pick td:first-child{padding-left:18px}
+
+/* врезки */
+.note{border-left:3px solid var(--warn); background:var(--surface);
+  padding:15px 18px; margin:22px 0; border-radius:0 14px 14px 0; box-shadow:var(--shadow)}
+.note.warn{border-left-color:var(--warn); background:var(--warn-wash)}
+.note.alert{border-left-color:var(--alert); background:var(--alert-wash)}
+.note .t{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--warn); margin-bottom:7px}
+.note.warn .t{color:var(--warn)} .note.alert .t{color:var(--alert)}
+
+/* списки */
+ol,ul{margin:0 0 15px; padding-left:22px} li{margin-bottom:7px}
+ol{counter-reset:i; list-style:none; padding-left:0}
+ol li{counter-increment:i; padding-left:30px; position:relative}
+ol li::before{content:counter(i); position:absolute; left:0; top:2px;
+  font-family:"Spline Sans Mono",monospace; font-size:12.5px; color:var(--accent);
+  border:1px solid var(--line-strong); border-radius:6px; width:19px; height:19px;
+  display:flex; align-items:center; justify-content:center}
+
+/* этапы */
+.steps{display:grid; gap:1px; background:var(--line); border:1px solid var(--line);
+  border-radius:14px; overflow:hidden; margin:22px 0}
+.step{background:var(--surface); padding:14px 18px; display:grid;
+  grid-template-columns:86px 1fr; gap:16px; align-items:start}
+.step .w{font-family:"Spline Sans Mono",monospace; font-size:13px; color:var(--accent)}
+.step .b{font-weight:600; font-size:16px; margin-bottom:3px}
+.step .c{color:var(--ink-2); font-size:15px}
+
+/* фотографии устройства */
+.shots{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin:4px 0}
+.shots figure{margin:0}
+.shots img{width:100%; height:auto; display:block; border-radius:12px;
+  border:1px solid var(--line); background:var(--surface-2)}
+.shots figcaption{font-size:14px; color:var(--muted); line-height:1.5; margin-top:10px}
+
+/* мокапы приложения — светлая тема действующего Damumed */
+.screens{display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr));
+  gap:22px; margin:24px 0}
+.ph{background:#000; border:1px solid #2C2C2E; border-radius:26px; padding:7px;
+  box-shadow:var(--shadow)}
+.ph-cap{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted); text-align:center; padding:0 0 9px}
+.dscr{--g:#17936f; --gd:#106b51; --bg:#F4F6F5; --cd:#FFFFFF; --cd2:#EFF2F0;
+  --tx:#16232B; --tx2:#42504A; --mut:#7B8C82; --ln:#E3E9E5; --blue:#2F6D9E;
+  --wn:#A87718; --al:#C0453C;
+  --accent:#17936f; --line:#E3E9E5; --ink:#16232B; --ink-2:#42504A; --muted:#7B8C82;
+  --surface:#FFFFFF; --surface-2:#F4F6F5; --info:#2F6D9E; --warn:#A87718; --alert:#C0453C;
+  background:#F4F6F5; border-radius:20px; overflow:hidden; min-height:540px;
+  display:flex; flex-direction:column; color:#16232B}
+.dst{display:flex; justify-content:space-between; padding:8px 14px 2px;
+  font-size:10px; color:#16232B; font-weight:600}
+.dhd{padding:8px 12px 11px; display:flex; align-items:center; justify-content:space-between}
+.dhd .ava{width:24px; height:24px; border-radius:50%; background:#DDE5E0; flex:none}
+.dhd .lg{display:flex; align-items:center; gap:6px; font-weight:700; font-size:15px;
+  letter-spacing:.03em; color:#16232B}
+.dhd .ic{display:flex; gap:9px; color:#5A6873}
+.dback{display:flex; align-items:center; gap:10px; padding:6px 12px 12px; color:#16232B}
+.dback b{font-size:15.5px; font-weight:700; flex:1; text-align:center; margin-right:22px}
+.dbody{padding:0 11px 8px; display:flex; flex-direction:column; gap:9px; flex:1;
+  overflow:hidden}
+.dpills{display:flex; gap:7px}
+.dpill{flex:1; border-radius:12px; padding:9px 10px; font-size:10px; font-weight:600;
+  line-height:1.25; min-height:46px}
+.dpill.a{background:#E8E8EA; color:#1C1C1E} .dpill.b{background:var(--blue); color:#fff}
+.dpill.c{background:#E8E8EA; color:#1C1C1E}
+.dcard{background:var(--cd); border:1px solid var(--ln); border-radius:16px; padding:12px 13px}
+.dcard h4{font-size:11px; font-weight:700; color:var(--mut); text-transform:uppercase;
+  letter-spacing:.05em; margin:0 0 9px}
+.dring{display:flex; flex-direction:column; align-items:center; gap:2px; padding:2px 0}
+.dstat{font-size:15.5px; font-weight:700; margin-top:6px}
+.dsub{font-size:12.5px; color:var(--mut); text-align:center; line-height:1.4}
+.dmetric{display:flex; align-items:center; gap:11px}
+.dmi{width:34px; height:34px; border-radius:10px; background:#E4F3EC; flex:none;
+  display:flex; align-items:center; justify-content:center; color:var(--g)}
+.dmv{font-size:14.5px; font-weight:700}
+.dmk{font-size:11.5px; color:var(--mut)}
+.drow{display:flex; justify-content:space-between; align-items:center; padding:7px 0;
+  font-size:13.5px; border-bottom:1px solid var(--ln); color:var(--tx2)}
+.drow:last-child{border-bottom:0}
+.drow b{font-weight:700; font-size:14px; color:#16232B}
+.dtag{display:inline-block; font-size:10px; padding:2px 9px; border-radius:99px; font-weight:700}
+.t-ok{background:#E4F3EC; color:var(--g)} .t-wn{background:#FBF0D9; color:var(--wn)}
+.t-al{background:#FBE4E2; color:var(--al)}
+.dnote{font-size:12px; color:var(--mut); line-height:1.45}
+.dbtn{text-align:center; background:var(--g); color:#fff; border-radius:99px;
+  padding:11px; font-size:13.5px; font-weight:700}
+.dbtn.gh{background:transparent; color:var(--g); border:1px solid var(--g)}
+.dnav{background:#fff; border-top:1px solid var(--ln); display:flex; padding:8px 2px 9px;
+  margin-top:auto}
+.dnav span{flex:1; text-align:center; font-size:9.5px; color:#8E8E93; line-height:1.5;
+  position:relative}
+.dnav span.on{color:var(--g); font-weight:700}
+.dnav svg{display:block; margin:0 auto 2px}
+.dbadge{position:absolute; top:-3px; right:14px; background:var(--g); color:#fff;
+  border-radius:99px; font-size:8px; font-weight:700; padding:1px 5px}
+.dalert{background:#FBF0D9; border-radius:16px; padding:11px 13px}
+.dalert.crit{background:#FBE4E2}
+
+/* рабочее место врача — десктопная МИС */
+.mis{--g:#17936f; --gw:#E8F5F0; --bg:#F2F4F5; --ln:#E1E6E8; --tx:#16232B; --tx2:#5A6873;
+  --mut:#8A959D; --wn:#C58A2E; --wnw:#FDF4E3; --al:#C0453C; --alw:#F9E9E7;
+  border:1px solid var(--line-strong); border-radius:8px; overflow:hidden;
+  background:#fff; color:var(--tx); margin:22px 0; box-shadow:var(--shadow)}
+.mis-top{background:var(--g); color:#fff; display:flex; align-items:center; gap:14px;
+  padding:10px 15px; font-size:13.5px}
+.mis-top .b{font-weight:800; letter-spacing:.05em; display:flex; align-items:center; gap:6px}
+.mis-top .sp{flex:1}
+.mis-top .u{opacity:.9; font-size:11.5px}
+.mis-body{display:grid; grid-template-columns:172px 1fr; min-height:392px}
+.mis-side{background:#F7F9F9; border-right:1px solid var(--ln); padding:10px 0; font-size:13px}
+.mis-side div{padding:8px 14px; color:var(--tx2); display:flex; align-items:center; gap:8px}
+.mis-side div.on{background:var(--gw); color:var(--g); font-weight:700;
+  box-shadow:inset 3px 0 0 var(--g)}
+.mis-main{padding:13px 15px; min-width:0; overflow-x:auto}
+.mis-h{display:flex; align-items:baseline; gap:12px; margin-bottom:11px; flex-wrap:wrap}
+.mis-h b{font-size:16px; font-weight:800}
+.mis-h span{font-size:13px; color:var(--mut)}
+.mis-f{display:flex; gap:7px; margin-bottom:11px; flex-wrap:wrap}
+.mis-f span{border:1px solid var(--ln); border-radius:99px; padding:3px 11px;
+  font-size:11px; color:var(--tx2)}
+.mis-f span.on{background:var(--g); border-color:var(--g); color:#fff; font-weight:600}
+.mis table{width:100%; border-collapse:collapse; font-size:13.5px; min-width:600px}
+.mis th{background:#F7F9F9; color:var(--mut); font-size:9.5px; letter-spacing:.07em;
+  text-transform:uppercase; text-align:left; padding:7px 9px; border-bottom:1px solid var(--ln);
+  font-weight:700; white-space:nowrap}
+.mis td{padding:9px; border-bottom:1px solid var(--ln); vertical-align:top; line-height:1.45}
+.mis tr:last-child td{border-bottom:0}
+.mis .nm{font-weight:700}
+.mis .sm{font-size:11.5px; color:var(--mut)}
+.mis .st{display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700;
+  border-radius:99px; padding:2px 9px; white-space:nowrap}
+.mis .st i{width:7px; height:7px; border-radius:50%; display:inline-block}
+.s-red{background:var(--alw); color:var(--al)} .s-red i{background:var(--al)}
+.s-yel{background:var(--wnw); color:var(--wn)} .s-yel i{background:var(--wn)}
+.s-grn{background:var(--gw); color:var(--g)} .s-grn i{background:var(--g)}
+.mis .act{display:inline-block; border:1px solid var(--g); color:var(--g); border-radius:6px;
+  padding:3px 9px; font-size:11px; font-weight:700; margin:0 4px 4px 0}
+.mis .act.fill{background:var(--g); color:#fff}
+.mis-row-red{background:#FEF7F6}
+
+/* файлы */
+.files{display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:12px; margin-top:20px}
+.file{display:flex; gap:14px; align-items:center; text-decoration:none; color:inherit;
+  background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  padding:15px 17px; box-shadow:var(--shadow); transition:border-color .14s, transform .14s;
+  font:inherit; text-align:left; cursor:pointer; width:100%}
+.file:hover{border-color:var(--accent); transform:translateY(-1px)}
+.file:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.fi{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.06em;
+  color:var(--accent); border:1px solid var(--accent); border-radius:8px;
+  padding:5px 7px; flex:none}
+.fb{display:flex; flex-direction:column; gap:3px; min-width:0}
+.fb b{font-size:16px; font-weight:600}
+.fb i{font-style:normal; font-size:13.5px; color:var(--muted); line-height:1.4}
+
+.det{margin-top:20px; background:var(--surface); border:1px solid var(--line);
+  border-radius:14px; box-shadow:var(--shadow)}
+.det summary{cursor:pointer; padding:15px 18px; font-weight:600; font-size:16px;
+  list-style:none; display:flex; align-items:center; gap:9px}
+.det summary::-webkit-details-marker{display:none}
+.det summary::before{content:"+"; font-family:"Spline Sans Mono",monospace; color:var(--accent);
+  border:1px solid var(--line-strong); border-radius:6px; width:19px; height:19px;
+  display:flex; align-items:center; justify-content:center; font-size:13px; flex:none}
+.det[open] summary::before{content:"–"}
+.det summary:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
+.det-b{padding:0 18px 18px; color:var(--ink-2); font-size:15.5px; line-height:1.62;
+  border-top:1px solid var(--line); padding-top:15px; white-space:normal}
+.det-b p{margin:0 0 11px}
+.det-b h4{font-family:"Manrope",system-ui,sans-serif; font-size:15px; color:var(--ink); margin:20px 0 9px}
+.det-b table{font-size:15px}
+
+/* калькулятор */
+.calc{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:16px}
+@media(max-width:640px){.calc{grid-template-columns:1fr}}
+.calc-in{display:flex; flex-direction:column; gap:13px}
+.calc-in label{display:block; font-size:13.5px; color:var(--muted)}
+.calc-in label b{float:right; font-family:"Spline Sans Mono",monospace; color:var(--ink);
+  font-variant-numeric:tabular-nums; font-size:13px}
+.calc-in input[type=range]{width:100%; accent-color:var(--accent); margin-top:5px}
+.calc-out{background:var(--surface-2); border:1px solid var(--line); border-radius:12px;
+  padding:15px 16px; align-self:start}
+.co{display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+  padding:8px 0; border-bottom:1px dashed var(--line); font-size:14.5px}
+.co:last-of-type{border-bottom:0}
+.co b{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums;
+  font-size:16px; color:var(--ink); white-space:nowrap}
+.co.big b{font-family:"Manrope",system-ui,sans-serif; font-size:23px; color:var(--accent)}
+.co.big b.neg{color:var(--alert)}
+
+footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56px;
+  color:var(--muted); font-size:14px}
+@media(max-width:640px){
+  .step{grid-template-columns:1fr; gap:4px}
+  header{padding-top:36px}
+}
+
+/* кнопки скачивания в шапке */
+.dl-row{display:flex; flex-wrap:wrap; gap:14px; margin-top:28px}
+.dl-btn{display:flex; align-items:center; gap:14px; text-decoration:none;
+  background:rgba(255,255,255,.14); color:#fff; border:1.5px solid rgba(255,255,255,.42);
+  border-radius:14px; padding:16px 22px; min-width:264px;
+  transition:background .15s, transform .15s, border-color .15s}
+.dl-btn:hover{background:rgba(255,255,255,.24); border-color:#fff; transform:translateY(-1px)}
+.dl-btn:focus-visible{outline:3px solid #fff; outline-offset:3px}
+.dl-btn.primary{background:#fff; color:var(--accent); border-color:#fff}
+.dl-btn.primary:hover{background:#F2FBF6}
+.dl-btn svg{flex:none}
+.dl-btn span{display:flex; flex-direction:column; gap:3px; line-height:1.25}
+.dl-btn b{font-size:18px; font-weight:700}
+.dl-btn i{font-style:normal; font-size:13.5px; opacity:.85}
+@media(max-width:640px){.dl-btn{min-width:0; flex:1 1 100%}}
+</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>
+.vswitch{display:inline-flex; background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.38); border-radius:99px; padding:4px; gap:4px;
+  margin-bottom:22px}
+.vswitch a{color:#fff; text-decoration:none; font-size:13.5px; font-weight:600;
+  padding:7px 16px; border-radius:99px; opacity:.85; white-space:nowrap}
+.vswitch a.on{background:#fff; color:var(--head); opacity:1}
+.vswitch a:hover{opacity:1}
+@media(max-width:640px){.vswitch a{padding:6px 12px; font-size:12.5px}}
+</style>
+<style>
+.ph{background:var(--surface); border-radius:22px; padding:18px; margin:26px 0}
+.ph img{width:100%; border-radius:14px; display:block; background:#fff}
+.ph .cap{color:var(--muted); font-size:13.5px; margin-top:12px; line-height:1.55}
+.phg{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:26px 0}
+@media(max-width:700px){.phg{grid-template-columns:1fr}}
+.phg .ph{margin:0}
+.crumb{display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.38); border-radius:99px; padding:7px 16px;
+  margin-bottom:22px; color:#fff; text-decoration:none; font-size:13.5px; font-weight:600}
+.crumb:hover{background:rgba(255,255,255,.22)}
+.yes{color:#1a7f4b; font-weight:700} .no{color:#c0392b; font-weight:700}
+.co{background:var(--surface); border-radius:22px; padding:24px 26px; margin:22px 0}
+.co h3{font-size:20px; margin:0 0 4px; font-weight:680}
+.co .sub{color:var(--muted); font-size:14.5px; margin-bottom:16px}
+.co .rank{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--muted); display:block; margin-bottom:10px}
+.ask{border-left:3px solid var(--head); padding-left:16px; margin:16px 0}
+.ask b{display:block; margin-bottom:6px; font-size:14px}
+.three{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin:22px 0}
+.three .c{background:var(--surface); border-radius:18px; padding:18px 20px}
+.three .c h4{font-size:16px; margin:0 0 6px; font-weight:650}
+.three .c p{font-size:14.5px; color:var(--muted); margin:0; line-height:1.6}
+.three .c .tag{font-family:"Spline Sans Mono",monospace; font-size:11px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--muted); display:block; margin-bottom:8px}
+@media(max-width:640px){.co{padding:20px 18px}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-in">
+    <header>
+      <div class="wordmark">Damumed</div>
+      <div class="rule"></div>
+      <a class="crumb" href="index.html">← К стратегии проекта</a>
+    <h1>Артериальная гипертония</h1>
+      <p class="lede">Самая крупная целевая группа проекта — и единственная, чей главный
+      показатель наш браслет не измеряет. Здесь собрано всё, что с этим можно сделать:
+      корпоративный трек Huawei и шесть компаний мира, которые умеют мерить давление
+      на запястье. Кому пишем, что просим и чего ждать.</p>
+      <div class="meta">
+        <span>Группа · <b>1,78 млн</b> на диспансерном учёте</span>
+        <span>Компаний в мире · <b>6</b></span>
+        <span>Писем готово · <b>5</b></span>
+        <span>Отправлено · <b>1</b></span>
+      </div>
+    </header>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="tiles">
+  <div class="tile hot"><span class="k">Целевая группа</span>
+    <div class="v">1,78<span class="u"> млн</span></div>
+    <div class="d">гипертоников на учёте в РК</div></div>
+  <div class="tile"><span class="k">Наш браслет</span>
+    <div class="v">нет<span class="u"> АД</span></div>
+    <div class="d">решение DB-411, подтверждено</div></div>
+  <div class="tile"><span class="k">Приборов с цифрой АД</span>
+    <div class="v">6<span class="u"> в мире</span></div>
+    <div class="d">и ни один не решает первую партию</div></div>
+  <div class="tile"><span class="k">Лидер для нас</span>
+    <div class="v">Sky<span class="u"> Labs</span></div>
+    <div class="d">зашёл через возмещение, не через технологию</div></div>
+  <div class="tile"><span class="k">Корпоративный Huawei</span>
+    <div class="v">КНР<span class="u"> только</span></div>
+    <div class="d">данные и бренд — за стеной</div></div>
+</div>
+
+<section>
+  <div class="shead"><span class="snum">01</span><h2>Задача</h2></div>
+  <p class="sdek">Артериальная гипертония — целевая группа № 2 по нашему приоритету
+  и самая массовая: 1,78 млн человек на диспансерном учёте. Целевой показатель программы
+  управления заболеванием — удержание давления ниже 140/90. Именно этот показатель
+  наш браслет и не закрывает.</p>
+
+  <p>Мы приняли это сознательно: оптическая оценка давления без манжеты не подтверждена
+  наукой, и требование DB-411 отключает её в серийной прошивке. Европейское и
+  американское кардиологические общества не рекомендуют такие данные для клинических
+  решений, а FDA вынесло предупреждение Whoop ровно за эту функцию. Решение оказалось
+  верным и со временем стало обоснованнее.</p>
+
+  <p>Но задача осталась: <strong>для гипертоника ценность браслета — скрининг
+  фибрилляции предсердий, поведенческий контур и приверженность, а цифру давления даёт
+  манжетный тонометр.</strong> Эта страница — о том, можно ли закрыть разрыв чужими
+  руками: через партнёрство с теми, кто цифру давать умеет.</p>
+
+  <div class="note warn">
+    <div class="t">Главный вывод страницы</div>
+    Ни один из шести мировых игроков и ни одна конфигурация с Huawei <b>не решают
+    задачу первой партии</b>. Все они либо дорогие, либо без допуска в Казахстане,
+    либо не нашего сегмента. Смысл этих переговоров в другом: добыть недостающее —
+    цифру давления вторым продуктом линейки и требования к оптическому тракту
+    для запроса заводам.
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">02</span><h2>Что умеет мир: три технологии</h2></div>
+  <p class="sdek">Полный разбор — в исследовании по безманжетному давлению (32 источника).
+  Здесь — суть в трёх абзацах.</p>
+
+  <div class="three">
+    <div class="c"><span class="tag">Работает</span>
+      <h4>Микроманжета в ремешке</h4>
+      <p>Насос физически пережимает артерию — это миниатюрный тонометр, а не алгоритм.
+      Единственная технология, где цифра настоящая. Так устроены Huawei Watch D2 и D3.</p></div>
+    <div class="c"><span class="tag">Допущено со звёздочкой</span>
+      <h4>Оптика + калибровка манжетой</h4>
+      <p>Допущено FDA у Hilo, но калибровочная манжета входит в комплект и нужна
+      регулярно. То есть допущен не «браслет вместо тонометра», а «браслет плюс
+      тонометр».</p></div>
+    <div class="c"><span class="tag">Не доказано</span>
+      <h4>Без калибровки вообще</h4>
+      <p>Заявляют Vital Signals и Valencell. Ни одной опубликованной рецензируемой
+      валидации, ни одного допуска. Академическая позиция: термин «без калибровки»
+      следует понимать операционально, а не буквально.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">03</span><h2>Корпоративный трек Huawei</h2></div>
+  <p class="sdek">Huawei — единственный производитель, который довёл измерение давления
+  на запястье до медицинской сертификации. Но интересен не его магазин, а его
+  корпоративный контур: там есть ровно то, что нам нужно.</p>
+
+  <div class="phg">
+    <div class="ph">
+      <img src="img/huawei/h9d20.png" alt="Huawei Qingyun H9D20 — корпоративные часы с микроманжетой">
+      <div class="cap"><b>擎云 H9D20</b> — корпоративная версия с четырьмя регистрациями
+      NMPA, открытыми данными и кастомизацией под бренд заказчика.
+      <a href="h9d20.html">Детальный разбор →</a><br>
+      Фото: qingyun.huawei.com (открытый источник).</div>
+    </div>
+    <div class="ph">
+      <img src="img/huawei/watch-d3.jpg" alt="Huawei Watch D3">
+      <div class="cap"><b>WATCH D3</b> — потребительская линейка, вышла 02.09.2026,
+      CE MDR на суточный мониторинг, €449. Справочно: ориентир цены честной цифры
+      давления.<br>
+      Фото: пресс-материалы Huawei (notebookcheck.net).</div>
+    </div>
+  </div>
+
+  <p><strong>Три контура Huawei — и их постоянно путают.</strong> Потребительский
+  (Huawei Health и Health Kit, около 170 стран, включая Казахстан). Корпоративный
+  擎云 Qingyun (устройства H9D20 и H3550, только материковый Китай). Исследовательский
+  (платформа Terve Research в Европе, прямые проекты с клиниками). В китайских кейсах
+  впечатляет второй, а доступен нам первый — самый ограниченный.</p>
+
+  <div class="tw"><table>
+    <tr><th>Что нужно нам</th><th>Health Kit<br><span style="color:var(--muted);font-size:13px">доступен в РК</span></th><th>Корпоративный контур<br><span style="color:var(--muted);font-size:13px">только КНР</span></th></tr>
+    <tr><td>ЧСС, SpO2, сон, стресс</td><td class="yes">есть</td><td class="yes">есть</td></tr>
+    <tr><td><b>RR-интервалы, вариабельность ритма</b></td><td class="no">нет</td><td class="yes">есть</td></tr>
+    <tr><td><b>Артериальное давление и отчёт суточного мониторинга</b></td><td class="no">нет</td><td class="yes">есть</td></tr>
+    <tr><td><b>Статус ношения</b> (наш DB-403)</td><td class="no">нет</td><td class="yes">есть</td></tr>
+    <tr><td>Апноэ сна, аритмия по пульсовой волне</td><td class="no">нет</td><td class="yes">есть</td></tr>
+    <tr><td><b>Кастомизация под бренд Damumed</b></td><td class="no">нет</td><td class="yes">логотип, циферблаты, коробка, ремешок</td></tr>
+    <tr><td><b>Регистрация медизделия</b></td><td class="no">нет в РК</td><td class="yes">4 удостоверения NMPA</td></tr>
+  </table></div>
+
+  <div class="note alert">
+    <div class="t">🔴 Две стены, которые надо знать до переговоров</div>
+    <b>География.</b> Документация Huawei формулирует прямо: «Health Service Kit
+    поддерживает страны и регионы только в пределах территории Китая» — за исключением
+    Гонконга, Макао и Тайваня. Порог доступа к уровню с давлением и ЭКГ — оплаченный
+    капитал от 5 млн юаней.<br><br>
+    <b>Договор.</b> Пользовательское соглашение потребительского Health Kit, раздел
+    2.1 (6): «<i>You may not use this Service in connection with any product or service
+    that may qualify as a medical or scientific device</i>». Damumed — медицинская
+    информационная система, и панель врача на этих данных под определение попадает.
+  </div>
+
+  <p><strong>Почему разговор всё равно имеет смысл.</strong> Huawei работает
+  в Казахстане с 1998 года, <strong>меморандум с Министерством здравоохранения подписан
+  ещё в 2019 году</strong>, с Министерством цифрового развития — 29 июля 2025-го.
+  Есть локальное юрлицо и раздел «Здравоохранение» на корпоративном сайте. В Китае
+  модель называется «платформа плюс экосистема»: Huawei даёт устройство и открытые
+  данные, партнёр пишет приложение под конкретную нозологию — <strong>ровно та роль,
+  на которую претендует Damumed</strong>. Вне Китая так уже работают Dubai Health,
+  катарский QCRI и испанская HM Hospitals.</p>
+
+  <div class="ask">
+    <b>Главный вопрос переговоров</b>
+    «Watch D2 уже продаётся в Казахстане и имеет CE MDR. Что мешает открыть на нём тот
+    же уровень данных, который открыт на H9D20 внутри Китая?» Ответ определяет, есть ли
+    у этого направления будущее. Остальное: размещение данных в РК, регистрационный
+    статус и держатель удостоверения, устройства на пилот, цена для программы.
+  </div>
+
+  <div class="note">
+    <div class="t">Что уже забрали бесплатно</div>
+    Разбор корпоративной линейки дал четыре готовых актива независимо от исхода
+    переговоров: перечень противопоказаний для нашего регистрационного досье;
+    подтверждение архитектуры «железо и модули ПО регистрируются отдельно»; честную
+    формулировку про глюкозу («оценка риска при ношении от трёх суток», не значение);
+    и цену честной цифры давления — <b>один день автономности вместо шести</b>.
+    Подробности — в <a href="h9d20.html">разборе H9D20</a>.
+  </div>
+
+  <p><strong>Чего в этом направлении нет:</strong> дистрибуция потребительских
+  устройств Huawei снята — закуп Band 10 в РК (16 369 ₸ от 100 шт) выше нашей
+  розничной цены 14 990 ₸ и вчетверо выше себестоимости. Watch D2 и D3 остаются
+  справочно: как ориентир цены и как ответ главврачу на вопрос, почему наш браслет
+  не меряет давление.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">04</span><h2>Шесть компаний категории</h2></div>
+  <p class="sdek">Все, кто в мире делает носимое измерение давления. Проработка показала,
+  что практический лидер для нас — не тот, кто впереди по деньгам и допускам.</p>
+
+  <div class="tw"><table>
+    <tr><th>#</th><th>Компания</th><th>Что просим</th><th>Приоритет</th><th>Статус</th></tr>
+    <tr><td>1</td><td><b>Sky Labs</b> (Корея)</td><td>дистрибуция в РК + интеграция с Damumed</td>
+      <td class="n">🔥 высокий</td><td>письмо готово</td></tr>
+    <tr><td>2</td><td><b>Hilo</b> (Швейцария)</td><td>лицензия CALFREE</td>
+      <td class="n">высокий</td><td class="yes">отправлено 05.09</td></tr>
+    <tr><td>3</td><td><b>Valencell</b> (США)</td><td>лицензия алгоритма</td>
+      <td class="n">средний</td><td>письмо готово</td></tr>
+    <tr><td>4</td><td><b>Biobeat</b> (Израиль)</td><td>пилот в стационаре</td>
+      <td class="n">средний</td><td>ждёт решения А/Б</td></tr>
+    <tr><td>5</td><td><b>LiveMetric</b> (Израиль/США)</td><td>пилот или лицензия</td>
+      <td class="n">низкий</td><td>письмо готово</td></tr>
+    <tr><td>6</td><td><b>Vital Signals</b> (США)</td><td>ничего</td>
+      <td class="n">🚫 не пишем</td><td>наблюдаем</td></tr>
+  </table></div>
+
+  <div class="co">
+    <span class="rank">Приоритет 1 · Корея · кольцо CART BP</span>
+    <h3>Sky Labs — главный кандидат</h3>
+    <div class="sub">Основана в сентябре 2015. CEO — Jack Byunghwan Lee. Медицинская
+    версия CART BP pro по назначению врача и потребительская CART BP с 25.09.2025
+    по 550 тыс. вон ($392).</div>
+
+    <p>В январе 2026 получен <strong>CE-MDR</strong>. В феврале подписана эксклюзивная
+    дистрибуция в Японии с <strong>Otsuka Pharmaceutical</strong>. 31 августа объявлено
+    соглашение с немецкой <strong>IEM GmbH</strong>: кольцо интегрируется с их системой
+    суточного мониторирования, старт — Великобритания; первые отгрузки дали 2,6 млрд вон
+    ($1,9 млн) выручки за полугодие. В ноябре 2025 <strong>Omron Healthcare</strong>,
+    держатель около половины мирового рынка тонометров, инвестировал 3,5 млрд вон.
+    В Корее прибор принят во всех топ-5 больницах и в 38 из 47 третичных больниц,
+    150 тысяч назначений за первый год. Компания готовит IPO с выходом в прибыль
+    к 2028 году.</p>
+
+    <div class="note">
+      <div class="t">🔑 Почему именно они — их собственная схема захода</div>
+      Sky Labs сам описал, как попал в Японию, и назвал это «успешным случаем открытых
+      инноваций»: компания вышла на <b>корейскую дочернюю структуру</b> Otsuka,
+      и уже та вывела её на штаб-квартиру.<br><br>
+      Для нас это готовый сценарий. Мы — не безымянный покупатель из третьей страны,
+      а медицинская информационная система в поликлиниках Казахстана, то есть готовый
+      канал в первичное звено. Ровно та роль, которую в Японии играет Otsuka, а
+      в Европе — IEM. Плюс их продукт возмещается государственной страховкой по коду
+      суточного мониторирования, а наш вариант А построен на той же логике приказа
+      и целевых показателей. Мы говорим на одном языке.
+    </div>
+
+    <div class="ask">
+      <b>Что просим</b>
+      Права на дистрибуцию в Казахстане. Кто держатель регистрационного удостоверения
+      в ЕАЭС. API для интеграции с нашей панелью врача и где размещаются данные. Цена
+      для программы здравоохранения и модель — продажа прибора или плата за исследование,
+      как в корейской схеме возмещения. Совместный пилот с публикацией.
+    </div>
+
+    <p><strong>Риски:</strong> компания на пороге IPO и занята Японией, Европой и США.
+    Цена потребительской версии $392 для массовой поликлиники запретительна — разговор
+    имеет смысл про медицинскую версию с возмещением. Кольцо требует подбора размера.</p>
+  </div>
+
+  <div class="co">
+    <span class="rank">Приоритет 2 · Швейцария · браслет</span>
+    <h3>Hilo (ex-Aktiia) — переписка идёт</h3>
+    <div class="sub">Спин-офф швейцарского центра CSEM, $119 млн за шесть раундов,
+    200 тысяч пользователей, первый в мире безрецептурный допуск FDA на безманжетный
+    монитор давления.</div>
+
+    <p>✅ <strong>Письмо отправлено владельцем 5 сентября 2026 года в 15:30 по Астане</strong>
+    на info@aktiia.com, тема «CALFREE licensing enquiry». Проверено по Gmail 6 сентября:
+    одно исходящее в треде, черновиков не осталось, ответа пока нет. Если не будет
+    к <strong>26 сентября</strong> — короткое напоминание в тот же тред.</p>
+
+    <p><strong>Что помнить:</strong> облачный расчёт конфликтует с требованием хранить
+    данные в Казахстане; допуск FDA узкий — 22–59 лет и разовые замеры; за два года
+    после CE-марки на технологию CALFREE ни одного публично названного партнёра. Самый
+    ценный ответ — по требованиям к оптическому тракту: он полезен независимо от исхода,
+    поскольку задаёт критерий качества PPG-модуля для выбора завода.</p>
+  </div>
+
+  <div class="co">
+    <span class="rank">Приоритет 3 · США · устройство на палец</span>
+    <h3>Valencell — кандидат не на прибор, а на лицензию</h3>
+    <div class="sub">Основана в 2006 году, Роли, Северная Каролина. Со-основатель
+    и президент — Steven LeBoeuf. Более 150 патентов.</div>
+
+    <div class="note warn">
+      <div class="t">Что мы недооценили в первом отчёте</div>
+      Там Valencell описан одной строкой — «своё устройство так и не вышло». Верно,
+      но упускает главное: <b>Valencell по своей природе не производитель, а лицензиар
+      сенсорных технологий</b>. Их алгоритмы стоят более чем в 90 продуктах и десятках
+      миллионов устройств <b>Samsung, Suunto, Bose, Jabra, Huawei и Sony</b>.
+      Собственный прибор — попытка стать владельцем продукта, и именно она забуксовала.
+      Отсюда: это <b>второй после Hilo адресат вопроса о лицензии</b>, и для него
+      лицензирование — не побочный эксперимент, а исторически основная модель.
+    </div>
+
+    <p>🔴 <strong>Чего не хватает:</strong> заявленный на конец 2023 года допуск FDA
+    не получен до сих пор, на сайте формулировка осталась в будущем времени. Три года
+    просрочки — сигнал, что технология не проходит планку регулятора. Ожидания
+    невысокие: мы получим технологию без допуска. Ценность запроса в требованиях
+    к оптическому тракту от компании, чьи датчики стоят у Samsung и Huawei.</p>
+  </div>
+
+  <div class="co">
+    <span class="rank">Приоритет 4 · Израиль и Флорида · нагрудный пластырь</span>
+    <h3>Biobeat — сильный игрок не нашего сегмента</h3>
+    <div class="sub">CEO — Arik Ben Ishay. Допуск FDA 510(k) 2019 года на давление,
+    оксигенацию и пульс — для больниц, клиник и дома. CE-марка с 2019 года.</div>
+
+    <p>30 декабря 2025 закрыт <strong>Series B на $50 млн</strong> (Ally Bridge Group,
+    OrbiMed, Elevage Medical). 13 января 2026 <strong>Kestra Medical Technologies</strong>
+    заключила эксклюзивную лицензию с инвестицией $5 млн. Идут пилоты с RWJBarnabas
+    Health и партнёрство с Inbound Health в формате «госпиталь на дому».</p>
+
+    <div class="note alert">
+      <div class="t">🔴 Второй тревожный случай независимой валидации</div>
+      PLOS One, 20 апреля 2026: многоцентровое исследование в трёх французских
+      больницах, послеоперационные пациенты. Результат жёсткий — <b>значительная потеря
+      данных</b>, которую авторы называют существенной проблемой для анализа. Прямой
+      вывод: нужна независимая валидация, свободная от предвзятости производителя.
+      Это второй случай после ретракции независимой работы по Aktiia. Закономерность,
+      а не совпадение.
+    </div>
+
+    <p><strong>Почему не первый приоритет:</strong> его среда — стационар,
+    послеоперационная палата, госпиталь на дому. Наш сценарий — амбулаторное наблюдение
+    хроников поликлиникой, где одноразовый пластырь экономически не работает. Плюс
+    компания только что подняла $50 млн под США.</p>
+  </div>
+
+  <div class="co">
+    <span class="rank">Приоритет 5 · Люксембург и Нью-Йорк · браслет</span>
+    <h3>LiveMetric — слабый партнёр с сильным допуском</h3>
+    <div class="sub">Основана в 2016 году. CEO — Tomer Bentzion. ⚠️ Всего 10 сотрудников.</div>
+
+    <p>Технология отличается от всех: не оптика и не манжета, а <strong>прямая
+    тонометрия</strong> — массив нанодатчиков давления на лучевой артерии, сопоставление
+    с артериальной линией, без калибровки. Допуск FDA 510(k) от 4 мая 2022 года, срок
+    рассмотрения <strong>719 дней</strong> — необычно долго, что указывает на сложную
+    оценку эквивалентности. Клиническое исследование — 40 пациентов в трёх центрах.</p>
+
+    <p>⚠️ <strong>Расхождение в финансировании:</strong> LinkedIn указывает $24 млн,
+    CBInsights — всего $50 тыс. за три раунда, и все три акселераторные. Обе цифры
+    до сверки считать неподтверждёнными. Переговорная позиция у нас сильная, но
+    🔴 главный риск — выживаемость компании: строить регуляторную стратегию
+    на поставщике из десяти человек нельзя.</p>
+  </div>
+
+  <div class="co">
+    <span class="rank">Не пишем · США · кольцо $399</span>
+    <h3>Vital Signals — наблюдаем</h3>
+    <div class="sub">Сан-Франциско, основана в 2023 году. CEO — Tom Moss, один из ранних
+    участников команды Android. Кольцо $399 без подписки, отгрузка с октября 2026,
+    только США.</div>
+
+    <p>Допуска FDA нет — компания сама называет продукт investigational. Валидация
+    не опубликована: заявлено исследование на 451 участнике со средней ошибкой
+    −0,3 мм рт. ст., но это данные компании из заказанного ею исследования, протокол
+    и подгрупповой анализ не раскрыты. Расчёт обязательно идёт в облаке. В демонстрации
+    Bloomberg часть замеров оказалась неточной.</p>
+
+    <div class="note">
+      <div class="t">Что отслеживать</div>
+      Публикацию исследования на 451 участнике с разбивкой по возрасту, тону кожи
+      и диапазонам давления — обещана осенью 2026. Отдельно: в январе 2026 FDA начало
+      готовить более широкие исключения для устройств, дающих показания давления
+      с оптических пульсометров. Если это состоится, изменится вся категория — включая
+      наше решение отключить оптическое давление в прошивке.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">05</span><h2>Итоговая аналитика: восемь путей закрыть давление</h2></div>
+  <p class="sdek">Всё, что разобрано выше, сведено в одну матрицу по единым критериям.
+  Это главный раздел страницы: по нему принимается решение.</p>
+
+  <div class="tw"><table>
+    <tr><th>Путь</th><th>Цифра АД</th><th>Статус в РК</th><th>Цена пациенту</th><th>Срок</th><th>Что требуется от нас</th><th>Вердикт</th></tr>
+    <tr><td><b>1. Ничего не менять</b><br><span style="color:var(--muted);font-size:13px">браслет + манжетный тонометр дома</span></td>
+      <td class="no">нет</td><td class="yes">чисто</td><td class="n">14 990 ₸</td><td class="n">по плану А/Б</td>
+      <td>ничего</td><td class="yes"><b>база</b></td></tr>
+    <tr><td><b>2. SKU C — своя микроманжета</b><br><span style="color:var(--muted);font-size:13px">котировка у китайского завода</span></td>
+      <td class="yes">да</td><td>своё РУ, класс 2а</td><td class="n">выше 11,5 USD FOB<br><span style="color:var(--muted);font-size:13px">оценка</span></td>
+      <td class="n">2-й продукт</td><td>запрос в RFQ + валидация по ISO 81060-2</td><td class="yes"><b>запросить</b></td></tr>
+    <tr><td><b>3. Huawei — корпоративный контур</b><br><span style="color:var(--muted);font-size:13px">H9D20 под брендом Damumed</span></td>
+      <td class="yes">да</td><td class="no">нет, и контур закрыт вне КНР</td><td class="n">не публикуется</td>
+      <td class="n">неизвестен</td><td>капитал от 5 млн ¥ + снятие географии</td><td><b>спросить</b></td></tr>
+    <tr><td><b>4. Sky Labs — дистрибуция</b><br><span style="color:var(--muted);font-size:13px">кольцо CART BP pro</span></td>
+      <td class="yes">да</td><td>CE-MDR → короче путь в ЕАЭС</td><td class="n">$392 розница</td>
+      <td class="n">от их решения</td><td>канал в поликлиники + подбор размеров</td><td class="yes"><b>писать первым</b></td></tr>
+    <tr><td><b>5. Hilo — лицензия CALFREE</b></td>
+      <td>с калибровкой манжетой</td><td class="no">нет</td><td class="n">лицензия неизвестна</td>
+      <td class="n">неизвестен</td><td>решить вопрос облака</td><td>ждём ответа</td></tr>
+    <tr><td><b>6. Valencell — лицензия алгоритма</b></td>
+      <td class="no">без допуска</td><td class="no">нет</td><td class="n">лицензия неизвестна</td>
+      <td class="n">FDA не получен 3 года</td><td>своя валидация</td><td>спросить ради оптики</td></tr>
+    <tr><td><b>7. Biobeat — пилот</b><br><span style="color:var(--muted);font-size:13px">нагрудный пластырь</span></td>
+      <td class="yes">да</td><td class="no">нет</td><td class="n">одноразовый</td>
+      <td class="n">после А/Б</td><td>стационарное звено</td><td>не наш сегмент</td></tr>
+    <tr><td><b>8. LiveMetric — пилот или OEM</b></td>
+      <td class="yes">да, тонометрия</td><td class="no">нет</td><td class="n">неизвестна</td>
+      <td class="n">неизвестен</td><td>принять риск поставщика</td><td>дешёвый эксперимент</td></tr>
+  </table></div>
+
+  <div class="note warn">
+    <div class="t">Что видно из матрицы сразу</div>
+    <b>Ни один путь не даёт одновременно цифру давления, законный статус в Казахстане
+    и приемлемую цену.</b> Каждый жертвует чем-то одним: путь 2 — сроком и ценой,
+    путь 3 — недоступен по географии, путь 4 — ценой, пути 5–8 — статусом в РК.
+    Это не недоработка анализа, а состояние отрасли: категория легализована меньше
+    двух лет назад и до Казахстана ещё не дошла.
+  </div>
+
+  <h3 style="font-size:19px;margin:34px 0 10px">Ранжирование по стоимости проверки</h3>
+  <p>Правильный критерий сейчас — не «сколько заработаем», а «сколько стоит выяснить».
+  Ни один вариант не готов к решению, зато три из них проверяются бесплатно.</p>
+
+  <div class="tw"><table>
+    <tr><th>Приоритет</th><th>Действие</th><th>Стоимость проверки</th><th>Что даёт даже при отказе</th></tr>
+    <tr><td class="n"><b>1</b></td><td><b>Письмо в Sky Labs</b></td><td class="yes">0 ₸</td>
+      <td>понимание, как они устроены на новых рынках; их модель возмещения — образец для нашего варианта А</td></tr>
+    <tr><td class="n"><b>2</b></td><td><b>SKU C в RFQ заводам</b></td><td class="yes">0 ₸</td>
+      <td>настоящая цена второго продукта вместо оценки; вопрос про ISO 81060-2 и NMPA сразу отделит серьёзных поставщиков</td></tr>
+    <tr><td class="n"><b>3</b></td><td><b>Запрос в Huawei Kazakhstan</b></td><td class="yes">0 ₸</td>
+      <td>ответ про уровень данных на Watch D2 закрывает направление в любую сторону</td></tr>
+    <tr><td class="n">4</td><td>Письмо в Valencell</td><td class="yes">0 ₸</td>
+      <td>требования к оптическому тракту от поставщика датчиков Samsung и Huawei — ориентир для выбора завода</td></tr>
+    <tr><td class="n">5</td><td>Напоминание в Hilo 26.09</td><td class="yes">0 ₸</td>
+      <td>то же по оптике; плюс ясность по CALFREE</td></tr>
+    <tr><td class="n">6</td><td>Biobeat и LiveMetric</td><td class="yes">0 ₸</td>
+      <td>после решения по А/Б — сейчас отвлекает</td></tr>
+  </table></div>
+
+  <h3 style="font-size:19px;margin:34px 0 10px">Что произойдёт при каждом исходе</h3>
+
+  <p><strong>Если Sky Labs согласится на дистрибуцию</strong> — у нас появляется
+  зарегистрированный прибор с цифрой давления и путь через возмещение, который они уже
+  прошли в Корее. Это самый сильный из возможных исходов, но цена $392 ограничивает
+  его платёжеспособной группой и потребует отдельной ценовой модели.</p>
+
+  <p><strong>Если Huawei откроет данные на Watch D2</strong> — появляется техническая
+  возможность, но остаётся регуляторная: у устройства нет статуса медизделия
+  в Казахстане, и получать его пришлось бы Huawei, а не нам. То есть даже успех здесь
+  не снимает вопрос зачёта наблюдения по приказу.</p>
+
+  <p><strong>Если завод даст приемлемую цену на SKU C</strong> — это единственный путь,
+  где мы остаёмся владельцами продукта и держателями удостоверения. Медленный
+  и дорогой, но свой. Именно поэтому запрос в RFQ стоит отправить независимо от всего
+  остального.</p>
+
+  <p><strong>Если все откажут</strong> — ничего не ломается. Наша клиническая модель
+  изначально построена так, что давление в ней не несущая конструкция: для гипертоника
+  ценность браслета в скрининге фибрилляции предсердий, поведенческом контуре
+  и приверженности. Мы возвращаемся к базовому пути и ждём, во что выльются исключения
+  FDA по оптическому измерению давления в 2027 году.</p>
+
+  <div class="note">
+    <div class="t">Итог одной строкой</div>
+    <b>Решение по первой партии не зависит ни от одного из этих переговоров</b> — оно
+    лежит между вариантами А и Б. Все восемь путей относятся ко второму продукту
+    линейки, и правильная тактика сейчас — разослать бесплатные запросы, собрать ответы
+    и вернуться к вопросу через квартал, когда появятся факты вместо оценок.
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">06</span><h2>Пять выводов о рынке</h2></div>
+
+  <p><strong>1. Побеждает не технология, а способ входа в систему здравоохранения.</strong>
+  Sky Labs с кольцом на оптическом датчике обошёл технологически более сильных
+  конкурентов, потому что зашёл через возмещение и назначение врача. Это подтверждает
+  нашу ставку в варианте А.</p>
+
+  <p><strong>2. Международная экспансия здесь идёт только через локального
+  партнёра.</strong> Sky Labs: Otsuka в Японии, IEM в Европе, Omron в рознице. Biobeat:
+  Kestra, Inbound Health, RWJBarnabas. Huawei вне Китая: Dubai Health, QCRI,
+  HM Hospitals. Никто не выходит на новый рынок сам. <strong>Это наш главный аргумент
+  в любых переговорах:</strong> мы — именно такой партнёр для Казахстана.</p>
+
+  <p><strong>3. Независимая валидация продолжает бить по лидерам.</strong> После
+  ретракции работы по Aktiia появился второй случай — PLOS One по Biobeat
+  с существенной потерей данных. Чужим маркетинговым цифрам не верить.</p>
+
+  <p><strong>4. Разрыв между допуском и клиническим признанием никуда не делся.</strong>
+  Из шести компаний допуски FDA есть у трёх, но ни одна не переубедила европейское
+  и американское кардиологические общества. Ссылаться на чужие допуски как
+  на доказательство точности нельзя.</p>
+
+  <p><strong>5. Ни один вариант не решает задачу первой партии.</strong> Вариант А
+  остаётся рекомендацией, а эти переговоры — способ добыть недостающее: цифру давления
+  вторым продуктом линейки и требования к оптическому тракту для запроса заводам.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">07</span><h2>Календарь</h2></div>
+
+  <div class="tw"><table>
+    <tr><th>Когда</th><th>Действие</th></tr>
+    <tr><td><b>сейчас</b></td><td>письмо в <b>Sky Labs</b> — дистрибуция и интеграция в РК</td></tr>
+    <tr><td><b>сейчас</b></td><td>письмо в <b>Valencell</b> — лицензия алгоритма и требования к оптике</td></tr>
+    <tr><td><b>сейчас</b></td><td>запрос в <b>Huawei Technologies Kazakhstan</b> — корпоративный контур, со ссылкой на меморандум с МЗ 2019 года</td></tr>
+    <tr><td><b>26.09.2026</b></td><td>если нет ответа от <b>Hilo</b> — напоминание в тот же тред</td></tr>
+    <tr><td>после решения А/Б</td><td>письма в <b>Biobeat</b> и <b>LiveMetric</b></td></tr>
+    <tr><td>осень 2026</td><td>проверить публикацию исследования <b>Vital Signals</b></td></tr>
+    <tr><td>январь 2027</td><td>проверить, во что вылились исключения FDA по оптическому измерению АД</td></tr>
+  </table></div>
+
+  <div class="note warn">
+    <div class="t">Правило проекта</div>
+    Письма готовит агент, отправляет владелец. Тексты — на английском с русским
+    переводом — лежат черновиками в почте и в репозитории:
+    <code>docs/pisma-shest-kompaniy.md</code>. Перед отправкой сверить адресатов:
+    у Valencell и Biobeat публичные адреса в открытых источниках не подтверждены,
+    контакт берётся с их сайтов.
+  </div>
+</section>
+
+<footer>
+  Сведено 06.09.2026 из трёх исследований: мировой ландшафт безманжетного измерения
+  давления (32 источника), детальная проработка шести компаний (26 источников)
+  и корпоративный трек Huawei (37 источников). Исходные тексты —
+  research/07, research/10, research/11, разбор устройства —
+  research/12 и страница <a href="h9d20.html">Huawei Qingyun H9D20</a>.
+  Изображения — открытые материалы производителей.
+</footer>
+
+</div>
+</body>
+</html>
