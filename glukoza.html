@@ -330,6 +330,22 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 .dl-btn b{font-size:18px; font-weight:700}
 .dl-btn i{font-style:normal; font-size:13.5px; opacity:.85}
 @media(max-width:640px){.dl-btn{min-width:0; flex:1 1 100%}}
+
+  .topnav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);
+    backdrop-filter:blur(9px);border-bottom:1px solid #e5e7eb;margin:0 -22px 22px;padding:0 22px}
+  .partline{scroll-margin-top:56px}
+  .pnum{font-family:"Spline Sans Mono",monospace; font-size:11.5px;
+  letter-spacing:.16em; text-transform:uppercase; opacity:.7}
+  .pgo{font-size:12px;font-weight:500;color:#2563eb;text-decoration:none;margin-left:7px;white-space:nowrap}
+  .topnav-in{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .topnav-in::-webkit-scrollbar{display:none}
+  .topnav a{flex:0 0 auto;padding:11px 12px;font-size:13px;color:#4b5563;text-decoration:none;
+    border-bottom:2px solid transparent;white-space:nowrap;transition:color .12s,border-color .12s}
+  .topnav a:hover{color:#111827;border-bottom-color:#cbd5e1}
+  .topnav a.tn-b{font-weight:600;color:#111827}
+  .ptitle{font-size:25px; font-weight:700; line-height:1.2}
+  .pdek{font-size:15px; opacity:.85; line-height:1.5}
+  section,.partline{scroll-margin-top:56px}
 </style>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
@@ -456,14 +472,14 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
     <h1>Глюкоза</h1>
       <p class="lede"><strong>Третий продукт линейки.</strong> Здесь мы не делаем
       устройство – и это главное решение. Неинвазивное измерение сахара не работает
-      ни у кого в мире, зато нужные приборы уже продаются в Казахстане и стоят вдвое
+      ни у кого в мире, зато нужные приборы уже продаются в Казахстане и стоят заметно
       дешевле, чем считалось. Наша роль – не сенсор, а контекст: связать чужие цифры
       с медкартой, лекарствами и врачом.</p>
       <div class="meta">
         <span>Статус · <b>разведка завершена</b></span>
         <span>Своё устройство · <b>не делаем</b></span>
         <span>Сенсор в РК · <b>от 24 490 ₸</b></span>
-        <span>Источников · <b>103</b></span>
+        <span>Источников · <b>121</b></span>
       </div>
     </header>
   </div>
@@ -471,10 +487,17 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 
 <div class="wrap">
 
+<nav class="topnav">
+  <div class="topnav-in">
+    <a class="tn-b" href="#chast-1">I. Решение</a>
+    <a href="#chast-2">II. Что доступно</a>
+    <a href="#chast-3">III. Игроки и план</a>
+  </div>
+</nav>
 <div class="tiles">
   <div class="tile hot"><span class="k">Сенсор в Казахстане</span>
     <div class="v">24 490<span class="u"> ₸</span></div>
-    <div class="d">Yuwell – вдвое дешевле Libre</div></div>
+    <div class="d">Yuwell – в 1,7 раза дешевле Libre</div></div>
   <div class="tile"><span class="k">Лучшая неинвазивная точность</span>
     <div class="v">19,6<span class="u">% MARD</span></div>
     <div class="d">против 9–11% у обычного CGM</div></div>
@@ -483,11 +506,13 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
     <div class="d">и ни одного коммерческого успеха</div></div>
   <div class="tile"><span class="k">Публичный API</span>
     <div class="v">1<span class="u"> из 8</span></div>
-    <div class="d">только у Dexcom</div></div>
+    <div class="d">только Dexcom открыл интерфейс сторонним</div></div>
   <div class="tile"><span class="k">Наши вложения в железо</span>
     <div class="v">0<span class="u"> ₸</span></div>
     <div class="d">сенсор покупает пациент</div></div>
 </div>
+
+<div class="partline" id="chast-1"><span class="pnum">Часть I</span><span class="ptitle">Решение и почему оно такое</span><span class="pdek">Что мы делаем вместо своего сенсора, почему неинвазивное измерение не работает и какую рамку задали регуляторы</span></div>
 
 <section>
   <div class="shead"><span class="snum">01</span><h2>Задача и главное решение</h2></div>
@@ -515,7 +540,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 
 <section>
   <div class="shead"><span class="snum">02</span><h2>Почему неинвазивное не работает</h2></div>
-  <p class="sdek">Коротко – полный разбор в двух исследованиях проекта на 103 источника.
+  <p class="sdek">Коротко – полный разбор в исследованиях проекта на 121 источник.
   Здесь только то, что определяет решение.</p>
 
   <p><strong>Лучшая рецензируемая точность в мире – 19,6% MARD.</strong> Это результат
@@ -586,6 +611,8 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 </section>
 
+<div class="partline" id="chast-2"><span class="pnum">Часть II</span><span class="ptitle">Что подходит и что доступно</span><span class="pdek">Пять условий отбора, реальные цены казахстанского рынка и главный технический критерий – доступ к данным</span></div>
+
 <section>
   <div class="shead"><span class="snum">04</span><h2>Фильтр: что вообще подходит проекту</h2></div>
   <p class="sdek">Прибор рассматривается, только если проходит все пять условий.
@@ -597,15 +624,15 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
     <div class="pair"><dt>2. Присутствие в Казахстане</dt><dd>продаётся здесь или поставляется – иначе пациенту нечего покупать</dd></div>
     <div class="pair"><dt>3. Цена</dt><dd>при 40 тысячах тенге за сенсор годовой расход больше миллиона, это вне массовой группы</dd></div>
     <div class="pair"><dt>4. Регуляторная чистота</dt><dd>зарегистрирован или ввозится законно – мы медицинская информационная система, серые схемы исключены</dd></div>
-    <div class="pair"><dt>5. Отсутствие патентных споров</dt><dd>см. раздел 08 – в Европе это уже сработало против китайских производителей</dd></div>
+    <div class="pair"><dt>5. Отсутствие патентных споров</dt><dd>см. раздел о патентной войне – в Европе это уже сработало против китайских производителей</dd></div>
   </dl>
 </section>
 
 <section>
   <div class="shead"><span class="snum">05</span><h2>🔑 Что уже продаётся в Казахстане</h2></div>
   <p class="sdek">Главная находка разведки. Мы опирались на цену FreeStyle Libre –
-  около 41 800 ₸ за сенсор. Специализированный магазин продаёт вдвое дешевле,
-  причём с оптовым разделом.</p>
+  около 41 800 ₸ за сенсор. Специализированный магазин продаёт от 24 490 ₸,
+  то есть в 1,7 раза дешевле, причём с оптовым разделом.</p>
 
   <div class="trio">
     <div class="r"><div class="rt">Yuwell Anytime CGM CT-302 🇨🇳</div>
@@ -671,9 +698,11 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   предпочтительнее: договор снимает вопрос легитимности доступа.</p>
 </section>
 
+<div class="partline" id="chast-3"><span class="pnum">Часть III</span><span class="ptitle">Игроки, риски и план</span><span class="pdek">Кто прошёл фильтр, чем опасны патентные споры и что делаем дальше</span></div>
+
 <section>
   <div class="shead"><span class="snum">07</span><h2>Производители под наш фильтр</h2></div>
-  <p class="sdek">Кто есть кто среди тех, кто прошёл фильтр раздела 04.</p>
+  <p class="sdek">Кто есть кто среди тех, кто прошёл фильтр из пяти условий.</p>
 
   <div class="co">
     <span class="rank">Приоритет 1 · Китай · уже в Казахстане</span>
@@ -834,14 +863,14 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
     <div class="pair"><dt>Регистрация в РК</dt><dd><b>не проверялась</b> – факт продажи не равен наличию удостоверения</dd></div>
     <div class="pair"><dt>Доступ через функцию наблюдателя</dt><dd>юридически не оформлен; описан как факт, а не как рекомендация – в медицинской системе без договора использовать нельзя</dd></div>
     <div class="pair"><dt>Патентная ситуация в РК</dt><dd>не проверялась; европейские запреты приведены как индикатор поведения Abbott, а не как прямой риск для Казахстана</dd></div>
-    <div class="pair"><dt>Что не рассматривалось</dt><dd>импланты и приборы без канала поставки в РК – они не проходят фильтр раздела 04</dd></div>
+    <div class="pair"><dt>Что не рассматривалось</dt><dd>импланты и приборы без канала поставки в РК – они не проходят фильтр из пяти условий</dd></div>
   </dl>
 </section>
 
 <footer>
   Сведено 6 сентября 2026 года из трёх исследований проекта: ландшафт неинвазивных
   технологий (83 источника), профили игроков и партнёрские треки (20 источников)
-  и разбор инвазивных под фильтр проекта (19 источников). Исходные тексты –
+  и разбор инвазивных под фильтр проекта (18 источников). Исходные тексты –
   research/09, research/14 и research/15. Первичные документы: база FDA, реестр NMPA,
   публикация в Communications Medicine, документация разработчиков, витрины
   казахстанских магазинов.
