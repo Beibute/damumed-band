@@ -157,10 +157,6 @@ ol li::before{content:counter(i); position:absolute; left:0; top:2px;
 /* мокапы приложения – светлая тема действующего Damumed */
 .screens{display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr));
   gap:22px; margin:24px 0}
-.ph{background:#000; border:1px solid #2C2C2E; border-radius:26px; padding:7px;
-  box-shadow:var(--shadow)}
-.ph-cap{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.08em;
-  text-transform:uppercase; color:var(--muted); text-align:center; padding:0 0 9px}
 .dscr{--g:#17936f; --gd:#106b51; --bg:#F4F6F5; --cd:#FFFFFF; --cd2:#EFF2F0;
   --tx:#16232B; --tx2:#42504A; --mut:#7B8C82; --ln:#E3E9E5; --blue:#2F6D9E;
   --wn:#A87718; --al:#C0453C;
@@ -300,13 +296,6 @@ ol li::before{content:counter(i); position:absolute; left:0; top:2px;
 .calc-in input[type=range]{width:100%; accent-color:var(--accent); margin-top:5px}
 .calc-out{background:var(--surface-2); border:1px solid var(--line); border-radius:12px;
   padding:15px 16px; align-self:start}
-.co{display:flex; justify-content:space-between; align-items:baseline; gap:12px;
-  padding:8px 0; border-bottom:1px dashed var(--line); font-size:14.5px}
-.co:last-of-type{border-bottom:0}
-.co b{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums;
-  font-size:16px; color:var(--ink); white-space:nowrap}
-.co.big b{font-family:"Manrope",system-ui,sans-serif; font-size:23px; color:var(--accent)}
-.co.big b.neg{color:var(--alert)}
 
 footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56px;
   color:var(--muted); font-size:14px}
@@ -315,27 +304,9 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   header{padding-top:36px}
 }
 
-/* кнопки скачивания в шапке */
-.dl-row{display:flex; flex-wrap:wrap; gap:14px; margin-top:28px}
-.dl-btn{display:flex; align-items:center; gap:14px; text-decoration:none;
-  background:rgba(255,255,255,.14); color:#fff; border:1.5px solid rgba(255,255,255,.42);
-  border-radius:14px; padding:16px 22px; min-width:264px;
-  transition:background .15s, transform .15s, border-color .15s}
-.dl-btn:hover{background:rgba(255,255,255,.24); border-color:#fff; transform:translateY(-1px)}
-.dl-btn:focus-visible{outline:3px solid #fff; outline-offset:3px}
-.dl-btn.primary{background:#fff; color:var(--accent); border-color:#fff}
-.dl-btn.primary:hover{background:#F2FBF6}
-.dl-btn svg{flex:none}
-.dl-btn span{display:flex; flex-direction:column; gap:3px; line-height:1.25}
-.dl-btn b{font-size:18px; font-weight:700}
-.dl-btn i{font-style:normal; font-size:13.5px; opacity:.85}
-@media(max-width:640px){.dl-btn{min-width:0; flex:1 1 100%}}
 
   .topnav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);
     backdrop-filter:blur(9px);border-bottom:1px solid #e5e7eb;margin:0 -22px 22px;padding:0 22px}
-  .partline{scroll-margin-top:56px}
-  .pnum{font-family:"Spline Sans Mono",monospace; font-size:11.5px;
-  letter-spacing:.16em; text-transform:uppercase; opacity:.7}
   .pgo{font-size:12px;font-weight:500;color:#2563eb;text-decoration:none;margin-left:7px;white-space:nowrap}
   .topnav-in{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   .topnav-in::-webkit-scrollbar{display:none}
@@ -343,23 +314,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
     border-bottom:2px solid transparent;white-space:nowrap;transition:color .12s,border-color .12s}
   .topnav a:hover{color:#111827;border-bottom-color:#cbd5e1}
   .topnav a.tn-b{font-weight:600;color:#111827}
-  .ptitle{font-size:25px; font-weight:700; line-height:1.2}
-  .pdek{font-size:15px; opacity:.85; line-height:1.5}
   section,.partline{scroll-margin-top:56px}
-  .tn-menu{position:relative;flex:0 0 auto;margin-left:auto}
-  .tn-menu>summary{list-style:none;cursor:pointer;padding:11px 12px;font-size:13px;color:#4b5563;
-    white-space:nowrap;user-select:none;border-bottom:2px solid transparent}
-  .tn-menu>summary::-webkit-details-marker{display:none}
-  .tn-menu>summary::after{content:" ▾";font-size:10px;opacity:.65}
-  .tn-menu[open]>summary{color:#111827;border-bottom-color:#cbd5e1}
-  .tn-drop{position:absolute;right:0;top:calc(100% + 1px);z-index:70;min-width:264px;max-width:82vw;
-    max-height:64vh;overflow-y:auto;background:#fff;border:1px solid #e5e7eb;border-radius:0 0 9px 9px;
-    box-shadow:0 12px 30px rgba(15,23,42,.14);padding:6px}
-  .tn-drop a{display:block;padding:8px 11px;font-size:13px;color:#374151;text-decoration:none;
-    border-radius:6px;border-bottom:none;white-space:normal;line-height:1.35}
-  .tn-drop a:hover{background:#f1f5f9;color:#111827}
-  .tn-drop .tn-n{display:inline-block;min-width:24px;color:#9ca3af;font-size:11.5px;font-weight:600}
-  @media(max-width:640px){.tn-drop{min-width:0;width:92vw}}
 </style>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
@@ -433,10 +388,19 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 .csub-dek{color:var(--muted); font-size:15.5px; line-height:1.6; margin:0 0 14px}
 .csrc{color:var(--muted); font-size:13px; line-height:1.55; margin-top:26px;
   padding-top:14px; border-top:1px solid var(--ln)}
+.partline{margin:52px 0 30px; padding:22px 26px; background:var(--head); color:#fff;
+  border-radius:22px; display:flex; flex-direction:column; gap:4px}
+.partline .pnum{font-family:"Spline Sans Mono",monospace; font-size:11.5px;
+  letter-spacing:.16em; text-transform:uppercase; opacity:.7}
+.partline .ptitle{font-size:25px; font-weight:700; line-height:1.2}
+.partline .pdek{font-size:15px; opacity:.85; line-height:1.5}
+@media(max-width:640px){.partline{padding:18px 20px} .partline .ptitle{font-size:21px}}
 .toc{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 4px}
 .toc a{background:var(--surface); border-radius:99px; padding:8px 16px;
   text-decoration:none; font-size:14.5px; font-weight:600; color:var(--head)}
 .toc a:hover{background:var(--ln)}
+.trio .rt a{color:inherit; text-decoration:none; border-bottom:1px solid var(--ln)}
+.trio .rt a:hover{border-bottom-color:var(--accent)}
 .dl-row{display:flex; flex-wrap:wrap; gap:12px; margin-top:22px}
 .dl-btn{display:inline-flex; align-items:center; gap:12px; background:#fff;
   color:var(--head); border-radius:16px; padding:14px 20px; text-decoration:none;
@@ -503,7 +467,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 <div class="wrap">
 
 <nav class="topnav">
-  <div class="topnav-in"><a class="tn-b" href="#chast-1">I. Решение</a><a href="#chast-2">II. Что доступно</a><a href="#chast-3">III. Игроки и план</a><details class="tn-menu"><summary>Разделы</summary><div class="tn-drop"><a href="#r01"><span class="tn-n">01</span>Задача и главное решение</a><a href="#r02"><span class="tn-n">02</span>Почему неинвазивное не работает</a><a href="#r03"><span class="tn-n">03</span>Три решения регуляторов, которые задают рамку</a><a href="#r04"><span class="tn-n">04</span>Фильтр: что вообще подходит проекту</a><a href="#r05"><span class="tn-n">05</span>🔑 Что уже продаётся в Казахстане</a><a href="#r06"><span class="tn-n">06</span>Доступ к данным: главный критерий</a><a href="#r07"><span class="tn-n">07</span>Производители под наш фильтр</a><a href="#r08"><span class="tn-n">08</span>🔴 Патентная война: риск, который надо считать</a><a href="#r09"><span class="tn-n">09</span>Наша роль и что делать</a><a href="#r10"><span class="tn-n">10</span>Оговорки к этому разбору</a></div></details></div>
+  <div class="topnav-in"><a class="tn-b" href="#chast-1">I. Решение</a><a href="#chast-2">II. Отбор и план</a><a href="#chast-3">III. Разбор</a></div>
 </nav>
 <div class="tiles">
   <div class="tile hot"><span class="k">Сенсор в Казахстане</span>
@@ -622,7 +586,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 </section>
 
-<div class="partline" id="chast-2"><span class="pnum">Часть II</span><span class="ptitle">Что подходит и что доступно</span><span class="pdek">Пять условий отбора, реальные цены казахстанского рынка и главный технический критерий – доступ к данным</span></div>
+<div class="partline" id="chast-2"><span class="pnum">Часть II</span><span class="ptitle">Что подходит, риск и план</span><span class="pdek">Пять условий отбора, реальные цены казахстанского рынка, главный технический критерий – доступ к данным, патентный риск и наша роль в этом направлении</span></div>
 
 <section id="r04">
   <div class="shead"><span class="snum">04</span><h2>Фильтр: что вообще подходит проекту</h2></div>
@@ -709,94 +673,8 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   предпочтительнее: договор снимает вопрос легитимности доступа.</p>
 </section>
 
-<div class="partline" id="chast-3"><span class="pnum">Часть III</span><span class="ptitle">Игроки, риски и план</span><span class="pdek">Кто прошёл фильтр, чем опасны патентные споры и что делаем дальше</span></div>
-
 <section id="r07">
-  <div class="shead"><span class="snum">07</span><h2>Производители под наш фильтр</h2></div>
-  <p class="sdek">Кто есть кто среди тех, кто прошёл фильтр из пяти условий.</p>
-
-  <div class="co">
-    <span class="rank">Приоритет 1 · Китай · уже в Казахстане</span>
-    <h3>🇨🇳 Medtrum</h3>
-    <div class="sub">Выручка 2025 – 661 млн юаней (+91,2%), первый прибыльный год.
-    Зарубежная выручка 343 млн (+227,2%) впервые превысила внутреннюю. CGM даёт 68,3%
-    выручки компании.</div>
-
-    <p>CE-марка на инсулиновую помпу с 2017 года, на CGM – с 2020-го. В Казахстане
-    продаётся: сенсор MD3660 за 60 000 ₸, трансмиттер работает год. Данные идут через
-    портал EasyView и приложения EasyTouch, EasySense, EasyFollow.</p>
-
-    <div class="note">
-      <div class="t">🔑 Их стратегия выхода на рынки – прямо наш случай</div>
-      Сначала Восточная Европа – Италия, Польша, Румыния – с локальными
-      исследовательскими организациями для сбора дополнительных клинических данных
-      и работой с врачами известных больниц ради доступа к возмещению. Только потом
-      Западная Европа. И <b>мультибрендовый подход</b>: в госпитальном и страховом
-      канале – совместный бренд с крупным локальным дистрибьютором, в рознице –
-      собственный.<br><br>
-      То есть их модель выхода <b>изначально построена на локальном партнёре
-      с ко-брендингом</b>. Это ровно та роль, на которую претендует Damumed.
-    </div>
-  </div>
-
-  <div class="co">
-    <span class="rank">Приоритет 2 · Китай · самый дешёвый</span>
-    <h3>🇨🇳 Yuwell</h3>
-    <div class="sub">CGM одобрен в Китае в марте 2023 года. Крупная компания:
-    зарубежная выручка за первое полугодие 2023 – 368 млн юаней.</div>
-    <p>В Казахстане продаётся линейка Anytime: сенсор CT-302 – <strong>24 490 ₸</strong>,
-    5Pro – 31 990 ₸, трансмиттер – 19 990 ₸. Самая низкая цена сенсора из доступных
-    в стране. Данных о публичном API нет – нужен прямой запрос.</p>
-  </div>
-
-  <div class="co">
-    <span class="rank">Приоритет 3 · США · единственный API</span>
-    <h3>🇺🇸 Dexcom</h3>
-    <div class="sub">Выручка FY2024 – 4,03 млрд долларов. Вместе с Abbott и Medtronic
-    держит около 97% мировых поставок; в США на Dexcom приходится 22 допуска из 37
-    в категории.</div>
-    <p>Открыл безрецептурное направление: Stelo в марте 2024 года – первый в истории
-    безрецептурный CGM. Для нас ценен единственным в отрасли публичным API. Вопрос
-    решается одной заявкой: доступен ли он для Казахстана.</p>
-  </div>
-
-  <div class="co">
-    <span class="rank">Приоритет 4 · Китай · крупнейший экспортёр</span>
-    <h3>🇨🇳 Sinocare</h3>
-    <div class="sub">Основана в 2002 году, первая китайская компания-производитель
-    глюкометров на бирже. Крупнейший производитель приборов измерения глюкозы в Азии,
-    четвёртый в мире. Выручка FY2024 – 4,443 млрд юаней, 42% за рубежом.</div>
-    <p>CE-MDR с октября 2023 года – первый китайский CGM с сертификатом TÜV Rheinland.
-    Бизнес в 200+ странах, склады в 17, открытая программа для дистрибьюторов
-    с обучением, официальный Bluetooth-SDK по запросу. В Европе продаётся под
-    совместным брендом GlucoMen iCan по эксклюзивному соглашению с A. Menarini
-    Diagnostics на 20+ юрисдикций.</p>
-    <p>🔴 Но именно против Sinocare и Menarini Abbott выиграл патентный запрет
-    в октябре 2025 года – см. следующий раздел.</p>
-  </div>
-
-  <div class="co">
-    <span class="rank">Наблюдаем</span>
-    <h3>🇨🇳 SiBionics · 🇺🇸 Biolinq · 🇨🇳 Lepu</h3>
-    <div class="sub">Интересны, но не для первого разговора.</div>
-    <p><strong>SiBionics</strong> – привлечено около 165 млн долларов, CE-марка
-    на 14-дневный сенсор GS1, заявленная точность <strong>8,83% MARD</strong> – лучше,
-    чем у Libre 2 и Dexcom G6, 288 замеров в сутки. 🔴 Но в феврале 2025 года Единый
-    патентный суд по иску Abbott вынес запрет примерно в 14 странах ЕС.</p>
-    <p><strong>Biolinq</strong> – 100 млн долларов Series C, допуск De Novo, массив
-    из семи микроэлектродов в сосочковом слое дермы, автокалибровка без проколов,
-    5 дней ношения, цветовая индикация прямо на устройстве. Только США, вывод на рынок
-    осторожный.</p>
-    <p><strong>Lepu</strong> – кольцо с непрерывным измерением, единственное в мире
-    зарегистрированное носимое, MARD 9,2%, вес 15 г, измерение каждые 5 минут,
-    калибровка проколом раз в месяц. 🔴 Цена не объявлена, за пределы Китая
-    не выходили. И в Китае он не первый: до него удостоверения III класса получили
-    ещё две компании – приборы по 3–4 тысячи юаней с мизерными продажами.</p>
-  </div>
-</section>
-
-<section id="r08">
-  <div class="shead"><span class="snum">08</span><h2>🔴 Патентная война: риск, который надо считать</h2></div>
+  <div class="shead"><span class="snum">07</span><h2>🔴 Патентная война: риск, который надо считать</h2></div>
   <p class="sdek">Единственный фактор, способный обнулить выбор поставщика уже после
   старта. В Европе он уже сработал.</p>
 
@@ -826,8 +704,8 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   под сомнение никто не ставил.</p>
 </section>
 
-<section id="r09">
-  <div class="shead"><span class="snum">09</span><h2>Наша роль и что делать</h2></div>
+<section id="r08">
+  <div class="shead"><span class="snum">08</span><h2>Наша роль и что делать</h2></div>
   <p class="sdek">Мы не продаём и не производим сенсор. Пациент покупает его сам –
   в аптеке или специализированном магазине, которые уже работают в Казахстане.</p>
 
@@ -842,17 +720,17 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 
   <h3 class="csub">Приоритет переговоров</h3>
   <div class="trio">
-    <div class="r"><div class="rt">1. Medtrum</div>
+    <div class="r"><div class="rt"><a href="#medtrum">1. Medtrum</a></div>
       <div class="rv">ко-брендинг и интеграция данных, условия для казахстанского партнёра · <b>уже продаётся в РК</b>, их модель выхода построена на локальном партнёре</div></div>
-    <div class="r"><div class="rt">2. Yuwell</div>
+    <div class="r"><div class="rt"><a href="#yuwell">2. Yuwell</a></div>
       <div class="rv">цена при объёме и доступ к данным · <b>самый дешёвый сенсор в РК</b> – 24 490 ₸</div></div>
-    <div class="r"><div class="rt">3. Dexcom</div>
+    <div class="r"><div class="rt"><a href="#dexcom">3. Dexcom</a></div>
       <div class="rv">подтверждение доступности API для Казахстана · единственный публичный API, вопрос решается одной заявкой</div></div>
-    <div class="r"><div class="rt">4. Sinocare</div>
+    <div class="r"><div class="rt"><a href="#sinocare">4. Sinocare</a></div>
       <div class="rv">Bluetooth-SDK и условия дистрибуции · крупнейший экспортёр с официальным комплектом разработчика</div></div>
-    <div class="r"><div class="rt">5. Ottai</div>
+    <div class="r"><div class="rt"><a href="#ottai">5. Ottai</a></div>
       <div class="rv">условия работы в РК · уже сделали локализованную страницу для Казахстана – значит, ищут вход</div></div>
-    <div class="r"><div class="rt">Не пишем</div>
+    <div class="r"><div class="rt"><a href="#ne-pishem">Не пишем</a></div>
       <div class="rv">Abbott и Medtronic – публичного API нет, Medtronic ориентирован на диабет 1 типа и интеграцию с помпами</div></div>
   </div>
 
@@ -865,8 +743,8 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </dl>
 </section>
 
-<section id="r10">
-  <div class="shead"><span class="snum">10</span><h2>Оговорки к этому разбору</h2></div>
+<section id="r09">
+  <div class="shead"><span class="snum">09</span><h2>Оговорки к этому разбору</h2></div>
   <p class="sdek">Что здесь проверено, а что нет.</p>
 
   <dl class="pairs">
@@ -877,6 +755,275 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
     <div class="pair"><dt>Что не рассматривалось</dt><dd>импланты и приборы без канала поставки в РК – они не проходят фильтр из пяти условий</dd></div>
   </dl>
 </section>
+
+<div class="partline" id="chast-3"><span class="pnum">Часть III</span><span class="ptitle">Разбор по производителям</span><span class="pdek">Семь разборов: пять компаний, к которым идём говорить – 🇨🇳 Medtrum, 🇨🇳 Yuwell, 🇺🇸 Dexcom, 🇨🇳 Sinocare, 🇨🇳 Ottai – плюс мировые лидеры, к которым не идём, и три компании за фильтром, за которыми наблюдаем. По каждому: масштаб, регуляторный статус, присутствие в Казахстане, доступ к данным и риски. Решение принимается по части II, здесь – основания</span></div>
+
+  <div class="toc"><a href="#medtrum">🇨🇳 Medtrum</a><a href="#yuwell">🇨🇳 Yuwell</a><a href="#dexcom">🇺🇸 Dexcom</a><a href="#sinocare">🇨🇳 Sinocare</a><a href="#ottai">🇨🇳 Ottai</a><a href="#ne-pishem">🇺🇸 Abbott и Medtronic</a><a href="#nablyudaem">Наблюдаем</a></div>
+
+<section id="medtrum">
+  <div class="shead"><span class="snum">10</span><h2><span class="cflag">🇨🇳</span>Medtrum – TouchCare S9</h2></div>
+  <p class="sdek">Единственный из китайских производителей, кто уже физически присутствует в Казахстане, и чья собственная модель выхода на рынки построена на локальном партнёре с ко-брендингом. <strong>Первый в очереди на разговор.</strong></p>
+
+  <div class="st hold">⏸ Контакт не начат – приоритет 1 в плане переговоров, раздел 08</div>
+
+  <h3 class="csub">Почему именно они</h3>
+  <p class="csub-dek">Из пяти компаний фильтра Medtrum – единственный, у кого совпадает и присутствие в стране, и готовая роль для нас.</p>
+  <p>Их стратегия выхода на новые рынки описана открыто: сначала Восточная Европа –
+  Италия, Польша, Румыния – с локальными исследовательскими организациями для сбора
+  дополнительных клинических данных и работой с врачами известных больниц ради доступа
+  к возмещению. Только потом Западная Европа. И <strong>мультибрендовый подход</strong>:
+  в госпитальном и страховом канале – совместный бренд с крупным локальным
+  дистрибьютором, в рознице – собственный.</p>
+
+  <div class="note">
+    <div class="t">🔑 Их модель выхода – это ровно наша роль</div>
+    Ко-брендинг с локальным партнёром у них не исключение, а способ работы по умолчанию.
+    Damumed претендует на ту же позицию: канал в 1 700 клиник, врачебная панель
+    и приложение, в котором данные сенсора становятся частью медкарты.
+  </div>
+
+  <h3 class="csub">Масштаб и деньги</h3>
+  <dl class="pairs">
+    <div class="pair"><dt>Выручка 2025</dt><dd><b>661 млн юаней</b> (+91,2%) – первый прибыльный год компании</dd></div>
+    <div class="pair"><dt>Зарубежная выручка</dt><dd>343 млн юаней (+227,2%) – <b>впервые превысила внутреннюю</b></dd></div>
+    <div class="pair"><dt>Доля CGM</dt><dd>68,3% выручки компании (452 млн юаней)</dd></div>
+    <div class="pair"><dt>Продукты</dt><dd>TouchCare S9 (MD3660), TouchCare Nano (MD3658), инсулиновые помпы</dd></div>
+  </dl>
+
+  <h3 class="csub">Регуляторный статус и рынок Казахстана</h3>
+  <dl class="pairs">
+    <div class="pair"><dt>CE на помпу</dt><dd>2017 год</dd></div>
+    <div class="pair"><dt>CE на CGM</dt><dd><b>2020 год</b></dd></div>
+    <div class="pair"><dt>В Казахстане</dt><dd>✅ продаётся: сенсор MD3660 – <b>60 000 ₸</b>, трансмиттер работает <b>год</b></dd></div>
+    <div class="pair"><dt>Характеристики сенсора</dt><dd>диапазон 2,2–22,2 ммоль/л, срок ношения 10–14 дней</dd></div>
+    <div class="pair"><dt>⚠️ Регистрация в РК</dt><dd>не проверена – найденная регистрация относится к российскому реестру, а не к казахстанскому</dd></div>
+  </dl>
+
+  <h3 class="csub">Доступ к данным</h3>
+  <p class="csub-dek">Публичного REST API нет, но два рабочих механизма существуют.</p>
+  <p>Данные идут через портал <strong>EasyView</strong> и приложения EasyTouch,
+  EasySense и отдельное приложение-наблюдатель <strong>EasyFollow</strong>. Механизм
+  «наблюдателя» – когда пациент делится показаниями с другим аккаунтом – технически
+  и есть канал получения данных: обращения идут к <code>easyview.medtrum.eu</code>,
+  существуют открытые проекты энтузиастов, выгружающие данные этим способом.</p>
+
+  <div class="note warn">
+    <div class="t">Механизм «наблюдателя» – не интеграция</div>
+    Он работает, но без договора и гарантий. В медицинской информационной системе
+    использовать его нельзя: здесь он описан как факт, а не как рекомендация.
+    Просить надо официальный доступ – это и есть предмет разговора.
+  </div>
+
+  <h3 class="csub">Что просить</h3>
+  <p>Ко-брендинг и официальную интеграцию данных, условия для казахстанского партнёра.
+  Цена сенсора у них самая высокая из доступных в стране – 60 000 ₸ против 24 490 ₸
+  у Yuwell, и это второй предмет разговора.</p>
+</section>
+
+<section id="yuwell">
+  <div class="shead"><span class="snum">11</span><h2><span class="cflag">🇨🇳</span>Yuwell – Anytime CGM</h2></div>
+  <p class="sdek">Самый дешёвый сенсор из доступных в Казахстане. Цена – единственное, но очень весомое основание: она определяет, сможет ли пациент вообще носить прибор.</p>
+
+  <div class="st hold">⏸ Контакт не начат – приоритет 2 в плане переговоров, раздел 08</div>
+
+  <h3 class="csub">Что известно</h3>
+  <dl class="pairs">
+    <div class="pair"><dt>Допуск в Китае</dt><dd>CGM одобрен в <b>марте 2023</b></dd></div>
+    <div class="pair"><dt>Масштаб</dt><dd>зарубежная выручка за первое полугодие 2023 – <b>368 млн юаней</b></dd></div>
+    <div class="pair"><dt>Европа</dt><dd>документы на MDR поданы</dd></div>
+    <div class="pair"><dt>В Казахстане</dt><dd>✅ линейка Anytime: сенсор CT-302 – <b>24 490 ₸</b>, 5Pro – 31 990 ₸</dd></div>
+    <div class="pair"><dt>Трансмиттер</dt><dd>CT-3 / CT-300D – 19 990 ₸</dd></div>
+    <div class="pair"><dt>Доступ к данным</dt><dd>🔴 данных о публичном API нет – нужен прямой запрос</dd></div>
+  </dl>
+
+  <div class="note">
+    <div class="t">🔑 Что даёт цена 24 490 ₸</div>
+    При диагностическом курсе 1–2 сенсора в квартал расход пациента – 100–200 тыс. ₸
+    в год, сопоставимо с одним визитом к эндокринологу в частной клинике. Именно эта
+    цена, а не технология, делает направление массовым.
+  </div>
+
+  <h3 class="csub">Что просить</h3>
+  <p>Цену при объёме и доступ к данным. Доступ к данным здесь главный риск: если его
+  не дадут ни в каком виде, дешёвый сенсор для нас бесполезен – пациент носит прибор,
+  а врач в Damumed ничего не видит.</p>
+</section>
+
+<section id="dexcom">
+  <div class="shead"><span class="snum">12</span><h2><span class="cflag">🇺🇸</span>Dexcom – G-серия и Stelo</h2></div>
+  <p class="sdek">Единственный в отрасли с настоящим публичным API. Дорогой, но снимает главный технический вопрос проекта – и проверяется одной бесплатной заявкой.</p>
+
+  <div class="st hold">⏸ Контакт не начат – приоритет 3, регистрация разработчика стоит ноль</div>
+
+  <h3 class="csub">Масштаб</h3>
+  <dl class="pairs">
+    <div class="pair"><dt>Выручка FY2024</dt><dd><b>4,03 млрд долларов</b></dd></div>
+    <div class="pair"><dt>Доля рынка</dt><dd>вместе с Abbott и Medtronic – около <b>97%</b> мировых поставок</dd></div>
+    <div class="pair"><dt>Допуски в США</dt><dd>22 из 37 в категории</dd></div>
+    <div class="pair"><dt>Stelo, 03.2024</dt><dd>первый в истории <b>безрецептурный</b> CGM</dd></div>
+  </dl>
+
+  <h3 class="csub">API – как он устроен</h3>
+  <p class="csub-dek">Официальный портал разработчика, OAuth 2.0, документированные точки доступа.</p>
+  <dl class="pairs">
+    <div class="pair"><dt>Уровни доступа</dt><dd>песочница → <b>Limited Access</b> (до 5 реальных пользователей) → Full Access после проверки</dd></div>
+    <div class="pair"><dt>Авторизация</dt><dd>пациент авторизуется <b>на стороне Dexcom</b>, приложение не получает его логин и пароль</dd></div>
+    <div class="pair"><dt>Согласие</dt><dd>оформляется как HIPAA-авторизация, отзывается в личном кабинете в любой момент</dd></div>
+    <div class="pair"><dt>Токены</dt><dd>хранятся <b>на серверах партнёра</b>: access_token короткоживущий, refresh_token одноразовый, до года</dd></div>
+  </dl>
+
+  <div class="note warn">
+    <div class="t">🔴 Ключевое ограничение: API доступен не во всех странах</div>
+    При заявке на Limited или Full Access нужно указать список стран, где приложение
+    будет работать, и Dexcom подтверждает, доступен ли API там. <b>Казахстан нужно
+    уточнять отдельно</b> – это первый вопрос, который надо задать, и он бесплатный.
+  </div>
+
+  <h3 class="csub">Что просить</h3>
+  <p>Подтверждение доступности API для Казахстана. Вопрос решается одной заявкой,
+  ответ на него определяет, есть ли у нас вообще эталонный путь интеграции, с которым
+  можно сравнивать предложения китайских производителей.</p>
+</section>
+
+<section id="sinocare">
+  <div class="shead"><span class="snum">13</span><h2><span class="cflag">🇨🇳</span>Sinocare – iCan / GlucoMen iCan</h2></div>
+  <p class="sdek">Самый опытный экспортёр категории: готовая программа для дистрибьюторов и официальный Bluetooth-SDK по договору. И он же – проигравшая сторона в патентном споре с Abbott.</p>
+
+  <div class="st hold">⏸ Контакт не начат – приоритет 4 в плане переговоров, раздел 08</div>
+
+  <h3 class="csub">Масштаб и каналы</h3>
+  <dl class="pairs">
+    <div class="pair"><dt>Основана</dt><dd>2002, первая китайская компания-производитель глюкометров на бирже</dd></div>
+    <div class="pair"><dt>Позиция</dt><dd><b>крупнейший производитель приборов измерения глюкозы в Азии</b>, четвёртый в мире</dd></div>
+    <div class="pair"><dt>Выручка FY2024</dt><dd>4,443 млрд юаней (+9,5%), <b>42% – зарубеж</b></dd></div>
+    <div class="pair"><dt>География</dt><dd>бизнес в 200+ странах, склады в 17</dd></div>
+    <div class="pair"><dt>Европа</dt><dd>эксклюзив с <b>A. Menarini Diagnostics</b> (12.2024) на 20+ юрисдикций, бренд GlucoMen iCan</dd></div>
+    <div class="pair"><dt>Для дистрибьюторов</dt><dd>открытая программа оптовых закупок с обучением и поддержкой</dd></div>
+  </dl>
+
+  <h3 class="csub">Регуляторный статус</h3>
+  <dl class="pairs">
+    <div class="pair"><dt>CE-MDR, 10.2023</dt><dd>первый китайский CGM с сертификатом TÜV Rheinland</dd></div>
+    <div class="pair"><dt>MDSAP</dt><dd>Австралия, Бразилия, Канада, США</dd></div>
+    <div class="pair"><dt>⚠️ FDA</dt><dd>источники расходятся: китайское отраслевое издание пишет о 510(k) в декабре 2023, обзор рынка от 07.2026 – о нуле клиренсов FDA у китайских брендов в категории. Вероятно, допуск был на глюкометр по крови. <b>До сверки считать неподтверждённым</b></dd></div>
+  </dl>
+
+  <h3 class="csub">Доступ к данным – самый чистый из китайских</h3>
+  <p>У Sinocare есть собственный <strong>SDK для подключения приборов по Bluetooth</strong>,
+  который выдаётся партнёру по ключу – ключ предоставляет сама компания. Это официальный
+  путь через прямой договор, а не механизм «наблюдателя». Для медицинской системы такой
+  вариант предпочтительнее: договор снимает вопрос легитимности доступа.</p>
+
+  <div class="note warn">
+    <div class="t">🔴 Против них Abbott выиграл запрет</div>
+    17 октября 2025 года гаагское отделение Единого патентного суда вынесло запрет
+    по унитарному патенту EP 4 344 633 против Sinocare и Menarini; апелляция запрет
+    подтвердила. Подробнее – раздел 07.
+  </div>
+</section>
+
+<section id="ottai">
+  <div class="shead"><span class="snum">14</span><h2><span class="cflag">🇨🇳</span>Ottai – заходит на рынок Казахстана</h2></div>
+  <p class="sdek">Единственный в списке, кого мы включили не по масштабу, а по одному наблюдаемому действию: компания сама целенаправленно идёт в Казахстан.</p>
+
+  <div class="st hold">⏸ Контакт не начат – приоритет 5 в плане переговоров, раздел 08</div>
+
+  <p>Ottai ведёт <strong>локализованную страницу для Казахстана</strong> –
+  <code>ottai.com/ru-KZ/cgm</code>. Для нас это сигнал: компания ищет вход на рынок,
+  а значит, разговор с локальным партнёром для неё своевременный, и переговорная
+  позиция у нас сильнее, чем с теми, кто здесь уже закрепился.</p>
+
+  <div class="note warn">
+    <div class="t">Данных мало – это честная оговорка</div>
+    По остальным четырём компаниям у нас есть выручка, регуляторный статус и механика
+    доступа к данным. По Ottai проверен <b>один факт</b> – локализованная страница.
+    Ни цены в Казахстане, ни канала продаж, ни данных о доступе к показаниям
+    мы не подтверждали. Разбор появится после первого ответа.
+  </div>
+
+  <h3 class="csub">Что просить</h3>
+  <p>Условия работы в Казахстане: есть ли уже дистрибьютор, какая цена сенсора
+  планируется и как устроен доступ к данным.</p>
+</section>
+
+<section id="ne-pishem">
+  <div class="shead"><span class="snum">15</span><h2><span class="cflag">🇺🇸</span>Abbott и Medtronic – почему им не пишем</h2></div>
+  <p class="sdek">Два из трёх мировых лидеров отсеяны сознательно. Причины разные, и обе стоит держать в голове: они могут измениться.</p>
+
+  <h3 class="csub">Abbott – узнаваемость есть, доступа нет</h3>
+  <dl class="pairs">
+    <div class="pair"><dt>Масштаб</dt><dd>FreeStyle Libre – <b>6,81 млрд долларов</b> выручки FY2024, самый узнаваемый бренд категории</dd></div>
+    <div class="pair"><dt>Цена</dt><dd>сенсор около <b>41 800 ₸</b> – в 1,7 раза дороже Yuwell</dd></div>
+    <div class="pair"><dt>API</dt><dd>🔴 публичного API для сторонних разработчиков <b>нет</b>; открытой документации по LibreView не существует</dd></div>
+    <div class="pair"><dt>Обходной путь</dt><dd>через агрегаторов данных с договорной интеграцией – например, Validic</dd></div>
+    <div class="pair"><dt>Ответственность</dt><dd>в соглашении LibreView прямо сказано: сторонние ридеры могут быть совместимы, но <b>Abbott не отвечает</b> за подключение к ним и выгрузку данных</dd></div>
+  </dl>
+  <p>Существует неофициальная реверс-инжиниринговая спецификация – использовать её
+  в медицинском продукте нельзя.</p>
+
+  <h3 class="csub">Medtronic – здесь, но не для нашей группы</h3>
+  <dl class="pairs">
+    <div class="pair"><dt>В Казахстане</dt><dd>✅ Guardian 3 и Guardian 4 продаются по <b>24 400–25 800 ₸</b> за сенсор</dd></div>
+    <div class="pair"><dt>Масштаб</dt><dd>диабетическое направление – 2,49 млрд долларов выручки FY2024, третье место в мире</dd></div>
+    <div class="pair"><dt>🔴 Почему мимо</dt><dd>система построена вокруг интеграции с инсулиновыми помпами, то есть под пациентов с СД1 – <b>не наша целевая группа</b></dd></div>
+  </dl>
+
+  <div class="note">
+    <div class="t">Что может это изменить</div>
+    По Abbott – появление официальной партнёрской программы или работа через агрегатора,
+    если он окажется доступен в Казахстане. По Medtronic – наш выход в группу СД1,
+    которого в текущей рамке продукта нет.
+  </div>
+</section>
+
+<section id="nablyudaem">
+  <div class="shead"><span class="snum">16</span><h2>Наблюдаем: три компании за фильтром</h2></div>
+  <p class="sdek">Интересны технологически, но ни одна не проходит фильтр из пяти условий. Держим в поле зрения – статус любой из них может измениться за год.</p>
+
+  <h3 class="csub"><span class="cflag">🇨🇳</span>SiBionics – лучшая заявленная точность и патентный запрет</h3>
+  <dl class="pairs">
+    <div class="pair"><dt>Финансирование</dt><dd>около <b>165 млн долларов</b></dd></div>
+    <div class="pair"><dt>Продукт</dt><dd>14-дневный сенсор GS1, CE-марка с октября 2023</dd></div>
+    <div class="pair"><dt>Точность</dt><dd><b>MARD 8,83%</b> – лучше, чем у Libre 2 (9,2%) и Dexcom G6 (9,0%)</dd></div>
+    <div class="pair"><dt>Частота</dt><dd>288 замеров в сутки, передача каждые 5 минут</dd></div>
+    <div class="pair"><dt>🔴 Блокер</dt><dd>февраль 2025 – Единый патентный суд по иску Abbott вынес запрет примерно в <b>14 странах ЕС</b>; ранее компания ушла с ряда национальных рынков</dd></div>
+  </dl>
+
+  <h3 class="csub"><span class="cflag">🇺🇸</span>Biolinq – прибор, под который написали новую категорию</h3>
+  <dl class="pairs">
+    <div class="pair"><dt>Допуск</dt><dd><b>De Novo DEN240080</b>, 23.09.2025, класс II – создана новая категория</dd></div>
+    <div class="pair"><dt>Устройство</dt><dd>массив из <b>семи микроэлектродов</b> в сосочковом слое дермы – внутрикожно, а не подкожно</dd></div>
+    <div class="pair"><dt>Калибровка</dt><dd>автоматическая, данные через 2 часа после установки, <b>проколы не нужны вообще</b></dd></div>
+    <div class="pair"><dt>Ношение</dt><dd>5 дней, внутренняя сторона предплечья, диапазон 70–400 мг/дл</dd></div>
+    <div class="pair"><dt>Интерфейс</dt><dd>показывает глюкозу <b>цветом прямо на себе</b>, телефон не обязателен – именно качественный вывод вместо числа позволил регулятору смягчить требования к точности</dd></div>
+    <div class="pair"><dt>Ограничения</dt><dd>только от 22 лет, <b>не на инсулине</b>, противопоказан при СД1 и выраженном дальтонизме</dd></div>
+    <div class="pair"><dt>🔴 Блокер</dt><dd>только США, вывод на рынок осторожный – канала поставки в Казахстан нет</dd></div>
+  </dl>
+
+  <h3 class="csub"><span class="cflag">🇨🇳</span>Lepu Medical – единственное зарегистрированное носимое</h3>
+  <dl class="pairs">
+    <div class="pair"><dt>Регистрация</dt><dd>удостоверение III класса на кольцо, около <b>26.06.2026</b>; отдельно – неинвазивный глюкометр NeoGlu 01 (国械注准 20243072020, 15.10.2024)</dd></div>
+    <div class="pair"><dt>Кольцо</dt><dd>вес 15 г, измерение каждые 5 минут, история до 15 дней, <b>MARD 9,2%</b></dd></div>
+    <div class="pair"><dt>Калибровка</dt><dd>прокол натощак и через 2 часа после еды, далее раз в месяц – интервал не более 30 дней</dd></div>
+    <div class="pair"><dt>Ограничения в самой регистрации</dt><dd>только взрослые, только СД2 <b>без инсулинотерапии</b>, не применяется в медучреждениях, не для скрининга и диагностики, результат – дополнение к проколу, <b>не основание для коррекции лекарств</b></dd></div>
+    <div class="pair"><dt>🔴 Блокер</dt><dd>цена не объявлена, за пределы Китая не выходили</dd></div>
+  </dl>
+
+  <div class="note warn">
+    <div class="t">🔑 Вывод, который стоит держать в голове при любом разговоре о глюкозе</div>
+    До Lepu удостоверения III класса на неинвазивные глюкометры в Китае получили
+    Bobang Fangzhou (август 2019, около 3 000 юаней) и Jiangsu Jingce Medical
+    (апрель 2024, свыше 4 000 юаней) – продажи обоих на крупнейших маркетплейсах
+    незначительны. Плюс мировая история: GlucoWatch с допуском FDA 2002 года снят
+    с продажи в 2007-м, C8 MediSensors не пошёл из-за нестабильности сигнала
+    при движении. <b>Регистрация в этой категории не создаёт спроса:</b> четыре прибора
+    с допуском за 24 года – и ни одного коммерческого успеха.
+  </div>
+</section>
+
+
+
+
 
 <footer>
   Сведено 6 сентября 2026 года из трёх исследований проекта: ландшафт неинвазивных

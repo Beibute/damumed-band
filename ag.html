@@ -157,10 +157,6 @@ ol li::before{content:counter(i); position:absolute; left:0; top:2px;
 /* мокапы приложения – светлая тема действующего Damumed */
 .screens{display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr));
   gap:22px; margin:24px 0}
-.ph{background:#000; border:1px solid #2C2C2E; border-radius:26px; padding:7px;
-  box-shadow:var(--shadow)}
-.ph-cap{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.08em;
-  text-transform:uppercase; color:var(--muted); text-align:center; padding:0 0 9px}
 .dscr{--g:#17936f; --gd:#106b51; --bg:#F4F6F5; --cd:#FFFFFF; --cd2:#EFF2F0;
   --tx:#16232B; --tx2:#42504A; --mut:#7B8C82; --ln:#E3E9E5; --blue:#2F6D9E;
   --wn:#A87718; --al:#C0453C;
@@ -300,14 +296,6 @@ ol li::before{content:counter(i); position:absolute; left:0; top:2px;
 .calc-in input[type=range]{width:100%; accent-color:var(--accent); margin-top:5px}
 .calc-out{background:var(--surface-2); border:1px solid var(--line); border-radius:12px;
   padding:15px 16px; align-self:start}
-.co{display:flex; justify-content:space-between; align-items:baseline; gap:12px;
-  padding:8px 0; border-bottom:1px dashed var(--line); font-size:14.5px}
-.co:last-of-type{border-bottom:0}
-.co b{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums;
-  font-size:16px; color:var(--ink); white-space:nowrap}
-.co.big b{font-family:"Manrope",system-ui,sans-serif; font-size:23px; color:var(--accent)}
-.co.big b.neg{color:var(--alert)}
-
 footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56px;
   color:var(--muted); font-size:14px}
 @media(max-width:640px){
@@ -316,19 +304,8 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 }
 
 /* кнопки скачивания в шапке */
-.dl-row{display:flex; flex-wrap:wrap; gap:14px; margin-top:28px}
-.dl-btn{display:flex; align-items:center; gap:14px; text-decoration:none;
-  background:rgba(255,255,255,.14); color:#fff; border:1.5px solid rgba(255,255,255,.42);
-  border-radius:14px; padding:16px 22px; min-width:264px;
-  transition:background .15s, transform .15s, border-color .15s}
-.dl-btn:hover{background:rgba(255,255,255,.24); border-color:#fff; transform:translateY(-1px)}
 .dl-btn:focus-visible{outline:3px solid #fff; outline-offset:3px}
-.dl-btn.primary{background:#fff; color:var(--accent); border-color:#fff}
 .dl-btn.primary:hover{background:#F2FBF6}
-.dl-btn svg{flex:none}
-.dl-btn span{display:flex; flex-direction:column; gap:3px; line-height:1.25}
-.dl-btn b{font-size:18px; font-weight:700}
-.dl-btn i{font-style:normal; font-size:13.5px; opacity:.85}
 @media(max-width:640px){.dl-btn{min-width:0; flex:1 1 100%}}
   .pwant{font-size:13px;line-height:1.5;color:#4b5563;padding:9px 11px;margin-top:9px;
     background:#f8fafc;border-left:2px solid #cbd5e1;border-radius:0 4px 4px 0}
@@ -393,20 +370,6 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   .hc-tip b{display:block; color:#fff; margin-bottom:3px}
   .hc-d:hover .hc-tip{opacity:1; visibility:visible}
   @media(max-width:1080px){.hcal{position:static; width:216px; margin:0 0 26px}}
-  .tn-menu{position:relative;flex:0 0 auto;margin-left:auto}
-  .tn-menu>summary{list-style:none;cursor:pointer;padding:11px 12px;font-size:13px;color:#4b5563;
-    white-space:nowrap;user-select:none;border-bottom:2px solid transparent}
-  .tn-menu>summary::-webkit-details-marker{display:none}
-  .tn-menu>summary::after{content:" ▾";font-size:10px;opacity:.65}
-  .tn-menu[open]>summary{color:#111827;border-bottom-color:#cbd5e1}
-  .tn-drop{position:absolute;right:0;top:calc(100% + 1px);z-index:70;min-width:264px;max-width:82vw;
-    max-height:64vh;overflow-y:auto;background:#fff;border:1px solid #e5e7eb;border-radius:0 0 9px 9px;
-    box-shadow:0 12px 30px rgba(15,23,42,.14);padding:6px}
-  .tn-drop a{display:block;padding:8px 11px;font-size:13px;color:#374151;text-decoration:none;
-    border-radius:6px;border-bottom:none;white-space:normal;line-height:1.35}
-  .tn-drop a:hover{background:#f1f5f9;color:#111827}
-  .tn-drop .tn-n{display:inline-block;min-width:24px;color:#9ca3af;font-size:11.5px;font-weight:600}
-  @media(max-width:640px){.tn-drop{min-width:0;width:92vw}}
 </style>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
@@ -569,7 +532,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 <div class="wrap">
 
 <nav class="topnav">
-  <div class="topnav-in"><a class="tn-b" href="#chast-1">I. Продукт</a><a href="#chast-2">II. Партнёры</a><a href="#chast-3">III. Разбор</a><details class="tn-menu"><summary>Разделы</summary><div class="tn-drop"><a href="#r01"><span class="tn-n">01</span>Задача</a><a href="#r02"><span class="tn-n">02</span>Продукт: браслет с микроманжетой</a><a href="#r03"><span class="tn-n">03</span>Кому нужен и почему поликлинике это выгодно</a><a href="#r04"><span class="tn-n">04</span>Цена и экономика</a><a href="#r05"><span class="tn-n">05</span>Регистрация и производство</a><a href="#r06"><span class="tn-n">06</span>Риски и что это даёт</a><a href="#sravnenie"><span class="tn-n">07</span>Шесть путей закрыть давление</a><a href="#r08"><span class="tn-n">08</span>Пять выводов о рынке</a><a href="#huawei"><span class="tn-n">09</span>🇨🇳Huawei как партнёр: что доступно нам, а что нет</a><a href="#h9d20"><span class="tn-n">10</span>🇨🇳Устройство H9D20: эталон требований к нашему прибору</a><a href="#sky-labs"><span class="tn-n">11</span>🇰🇷Sky Labs – CART BP pro</a><a href="#hilo"><span class="tn-n">12</span>🇨🇭Hilo – Hilo Band</a><a href="#valencell"><span class="tn-n">13</span>🇺🇸Valencell – Fingertip Monitor</a><a href="#livemetric"><span class="tn-n">14</span>🇱🇺LiveMetric – LiveOne</a><a href="#vital-signals"><span class="tn-n">15</span>🇺🇸Vital Signals – Signal Ring</a></div></details></div>
+  <div class="topnav-in"><a class="tn-b" href="#chast-1">I. Продукт</a><a href="#chast-2">II. Партнёры</a><a href="#chast-3">III. Разбор</a></div>
 </nav>
 <div class="tiles">
   <div class="tile hot"><span class="k">Целевая группа</span>
