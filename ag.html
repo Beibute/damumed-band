@@ -369,6 +369,30 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   .topnav a.tn-b{font-weight:600;color:#111827}
   section,.partline{scroll-margin-top:56px}
   @media(max-width:640px){.topnav a{padding:10px 9px;font-size:12.5px}}
+  .hcal{position:absolute; right:24px; top:56px; width:216px; z-index:3;
+    background:rgba(255,255,255,.10); backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.20); border-radius:10px; padding:12px 13px 10px}
+  .hc-h{font-size:11.5px; font-weight:600; letter-spacing:.05em; text-transform:uppercase;
+    color:rgba(255,255,255,.80); margin-bottom:9px}
+  .hc-g{display:grid; grid-template-columns:repeat(7,1fr); gap:2px}
+  .hc-w{font-size:9px; color:rgba(255,255,255,.42); text-align:center; font-style:normal; padding-bottom:2px}
+  .hc-d,.hc-x{position:relative; aspect-ratio:1; display:flex; align-items:center; justify-content:center;
+    font-size:10.5px; font-style:normal; color:rgba(255,255,255,.62); border-radius:4px}
+  .hc-done{background:#16a34a; color:#fff; font-weight:700; cursor:help}
+  .hc-wait{background:#f59e0b; color:#fff; font-weight:700; cursor:help}
+  .hc-now{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.85)}
+  .hc-l{display:flex; gap:11px; margin-top:9px; padding-top:8px;
+    border-top:1px solid rgba(255,255,255,.16); font-size:10px; color:rgba(255,255,255,.66)}
+  .hc-l span{display:flex; align-items:center; gap:4px}
+  .hc-l b{width:8px; height:8px; border-radius:2px; display:inline-block}
+  .hc-bd{background:#16a34a}.hc-bw{background:#f59e0b}
+  .hc-tip{position:absolute; top:calc(100% + 7px); right:0; width:214px; padding:9px 11px;
+    background:#111827; color:#e5e7eb; font-size:11.5px; font-weight:400; line-height:1.5;
+    border-radius:6px; text-align:left; opacity:0; visibility:hidden; transition:opacity .13s;
+    z-index:30; pointer-events:none; box-shadow:0 8px 22px rgba(0,0,0,.4)}
+  .hc-tip b{display:block; color:#fff; margin-bottom:3px}
+  .hc-d:hover .hc-tip{opacity:1; visibility:visible}
+  @media(max-width:1080px){.hcal{position:static; width:216px; margin:0 0 26px}}
 </style>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
@@ -491,6 +515,11 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 
 <div class="hero">
   <div class="hero-in">
+    <div class="hcal" aria-label="Календарь переписки, сентябрь 2026">
+        <div class="hc-h">Сентябрь 2026</div>
+        <div class="hc-g"><i class="hc-w">п</i><i class="hc-w">в</i><i class="hc-w">с</i><i class="hc-w">ч</i><i class="hc-w">п</i><i class="hc-w">с</i><i class="hc-w">в</i><i class="hc-x"></i><i class="hc-d">1</i><i class="hc-d">2</i><i class="hc-d">3</i><i class="hc-d">4</i><i class="hc-d hc-done">5<span class="hc-tip"><b>5 сентября</b>Письмо в Hilo — просим лицензию CALFREE. Отправлено 15:30.</span></i><i class="hc-d hc-done hc-now">6<span class="hc-tip"><b>6 сентября</b>Письма в Sky Labs, Valencell и LiveMetric. LiveMetric ответил в тот же день, с CEO в копии; ответ на их вопросы отправлен.</span></i><i class="hc-d">7</i><i class="hc-d">8</i><i class="hc-d">9</i><i class="hc-d">10</i><i class="hc-d">11</i><i class="hc-d">12</i><i class="hc-d">13</i><i class="hc-d">14</i><i class="hc-d">15</i><i class="hc-d">16</i><i class="hc-d">17</i><i class="hc-d">18</i><i class="hc-d">19</i><i class="hc-d hc-wait">20<span class="hc-tip"><b>20 сентября</b>Нет ответа от Sky Labs и Valencell — напоминание в те же треды.</span></i><i class="hc-d">21</i><i class="hc-d">22</i><i class="hc-d">23</i><i class="hc-d">24</i><i class="hc-d">25</i><i class="hc-d hc-wait">26<span class="hc-tip"><b>26 сентября</b>Нет ответа от Hilo — напоминание в тот же тред.</span></i><i class="hc-d">27</i><i class="hc-d">28</i><i class="hc-d">29</i><i class="hc-d">30</i></div>
+        <div class="hc-l"><span><b class="hc-bd"></b>сделано</span><span><b class="hc-bw"></b>ждём</span></div>
+      </div>
     <header>
       <div class="wordmark">Damumed</div>
       <div class="rule"></div>
@@ -526,8 +555,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 
 <nav class="topnav">
   <div class="topnav-in">
-    <a class="tn-b" href="#kalendar">Календарь</a>
-    <a href="#chast-1">I. Продукт</a>
+    <a class="tn-b" href="#chast-1">I. Продукт</a>
     <a href="#chast-2">II. Решение по партнёрам</a>
     <a href="#chast-3">III. Справочник</a>
   </div>
@@ -550,39 +578,12 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
     <div class="d">валидация → регистрация → производство</div></div>
 </div>
 
-<section id="kalendar">
-  <div class="shead"><span class="snum">01</span><h2>Календарь</h2></div>
-  <p class="sdek">Что уже сделано и чего ждём. Наведите на отмеченный день – покажет,
-  что в этот день произошло или что запланировано.</p>
 
-  <div class="cal-lg">
-    <span><i class="lg-done"></i>сделано</span>
-    <span><i class="lg-wait"></i>ждём ответа</span>
-    <span><i class="lg-now"></i>сегодня</span>
-  </div>
-
-  <div class="cal-wrap"><div class="cal-m"><div class="cal-mn">Сентябрь 2026</div><div class="cal-g"><div class="cal-w">пн</div><div class="cal-w">вт</div><div class="cal-w">ср</div><div class="cal-w">чт</div><div class="cal-w">пт</div><div class="cal-w">сб</div><div class="cal-w">вс</div><div class="cal-d cal-x"></div><div class="cal-d">1</div><div class="cal-d">2</div><div class="cal-d">3</div><div class="cal-d">4</div><div class="cal-d cal-done">5<span class="cal-tip"><b>5 сентября</b>Письмо в Hilo (Швейцария) — просим лицензию на технологию CALFREE. Отправлено 15:30.</span></div><div class="cal-d cal-done cal-now">6<span class="cal-tip"><b>6 сентября</b>Отправлены письма в Sky Labs, Valencell и LiveMetric. LiveMetric ответил в тот же день, с CEO в копии; ответ на их встречные вопросы подготовлен и отправлен.</span></div><div class="cal-d">7</div><div class="cal-d">8</div><div class="cal-d">9</div><div class="cal-d">10</div><div class="cal-d">11</div><div class="cal-d cal-we">12</div><div class="cal-d cal-we">13</div><div class="cal-d">14</div><div class="cal-d">15</div><div class="cal-d">16</div><div class="cal-d">17</div><div class="cal-d">18</div><div class="cal-d cal-we">19</div><div class="cal-d cal-wait">20<span class="cal-tip"><b>20 сентября</b>Если не ответят Sky Labs и Valencell — напоминание в те же треды.</span></div><div class="cal-d">21</div><div class="cal-d">22</div><div class="cal-d">23</div><div class="cal-d">24</div><div class="cal-d">25</div><div class="cal-d cal-wait">26<span class="cal-tip"><b>26 сентября</b>Если не ответит Hilo — напоминание в тот же тред.</span></div><div class="cal-d cal-we">27</div><div class="cal-d">28</div><div class="cal-d">29</div><div class="cal-d">30</div></div></div><div class="cal-m"><div class="cal-mn">Октябрь 2026</div><div class="cal-g"><div class="cal-w">пн</div><div class="cal-w">вт</div><div class="cal-w">ср</div><div class="cal-w">чт</div><div class="cal-w">пт</div><div class="cal-w">сб</div><div class="cal-w">вс</div><div class="cal-d cal-x"></div><div class="cal-d cal-x"></div><div class="cal-d cal-x"></div><div class="cal-d">1</div><div class="cal-d">2</div><div class="cal-d cal-we">3</div><div class="cal-d cal-we">4</div><div class="cal-d">5</div><div class="cal-d">6</div><div class="cal-d">7</div><div class="cal-d">8</div><div class="cal-d">9</div><div class="cal-d cal-we">10</div><div class="cal-d cal-we">11</div><div class="cal-d">12</div><div class="cal-d">13</div><div class="cal-d">14</div><div class="cal-d">15</div><div class="cal-d">16</div><div class="cal-d cal-we">17</div><div class="cal-d cal-we">18</div><div class="cal-d">19</div><div class="cal-d">20</div><div class="cal-d">21</div><div class="cal-d">22</div><div class="cal-d">23</div><div class="cal-d cal-we">24</div><div class="cal-d cal-we">25</div><div class="cal-d">26</div><div class="cal-d">27</div><div class="cal-d">28</div><div class="cal-d">29</div><div class="cal-d">30</div><div class="cal-d cal-we">31</div></div></div></div>
-
-  <dl class="pairs" style="margin-top:20px">
-    <div class="pair"><dt>⏸ у владельца</dt><dd>запрос в <b>Huawei Technologies Kazakhstan</b> – заход через личный контакт, черновик готов, даты нет</dd></div>
-    <div class="pair"><dt>осень 2026</dt><dd>проверить публикацию исследования <b>Vital Signals</b> на 451 участнике</dd></div>
-    <div class="pair"><dt>январь 2027</dt><dd>проверить, во что вылились исключения FDA по оптическому измерению давления</dd></div>
-  </dl>
-
-  <div class="note">
-    <div class="t">Правило проекта</div>
-    Письма готовит агент, отправляет владелец. Тексты всех обращений –
-    <code>docs/pisma-shest-kompaniy.md</code> и <code>docs/pismo-huawei-kz.md</code>.
-    Письмо в Huawei Kazakhstan (aiman.sakhova@huawei.com – контактное лицо бизнес-группы
-    предприятия) <b>сознательно не отправлено</b>: у владельца есть тёплый контакт
-    в компании, заход будет через него.
-  </div>
-</section>
 
 <div class="partline" id="chast-1"><span class="pnum">Часть I</span><span class="ptitle">Продукт</span><span class="pdek">Что мы делаем, кому это нужно, сколько стоит и что требуется, чтобы выпустить</span></div>
 
 <section>
-  <div class="shead"><span class="snum">02</span><h2>Задача</h2></div>
+  <div class="shead"><span class="snum">01</span><h2>Задача</h2></div>
   <p class="sdek">Артериальная гипертония — самая массовая целевая группа: 1,78 млн
   человек на диспансерном учёте. Целевой показатель программы управления заболеванием —
   удержание давления ниже 140/90. Именно этот показатель общий браслет и не закрывает,
@@ -622,7 +623,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">03</span><h2>Продукт: браслет с микроманжетой</h2></div>
+  <div class="shead"><span class="snum">02</span><h2>Продукт: браслет с микроманжетой</h2></div>
   <p class="sdek">Второй продукт линейки отличается от общего браслета одной деталью –
   в ремешок встроены микронасос и воздушная камера. Эта деталь меняет всё: класс изделия,
   цену, срок выхода и то, какой показатель поликлиники он закрывает.</p>
@@ -676,7 +677,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">04</span><h2>Кому нужен и почему поликлинике это выгодно</h2></div>
+  <div class="shead"><span class="snum">03</span><h2>Кому нужен и почему поликлинике это выгодно</h2></div>
   <p class="sdek">Самая крупная целевая группа проекта – и единственная, где деньги
   поликлиники завязаны прямо на тот показатель, который закрывает прибор.</p>
 
@@ -713,7 +714,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">05</span><h2>Цена и экономика</h2></div>
+  <div class="shead"><span class="snum">04</span><h2>Цена и экономика</h2></div>
   <div class="note alert">
     <div class="t">Раздел снят до появления двух цифр</div>
     <p>Здесь стояли цена прибора и расчёт на 24 месяца. Оба держались на числах,
@@ -738,7 +739,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">06</span><h2>Регистрация и производство</h2></div>
+  <div class="shead"><span class="snum">05</span><h2>Регистрация и производство</h2></div>
   <p class="sdek">Класс риска тот же, что у общего браслета, но появляется отдельная
   клиническая задача, которой у него нет.</p>
 
@@ -785,7 +786,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">07</span><h2>Риски и что это даёт</h2></div>
+  <div class="shead"><span class="snum">06</span><h2>Риски и что это даёт</h2></div>
   <p class="sdek">Четыре риска, из которых два снимаются запросами, а два остаются
   предметом решения.</p>
 
@@ -836,7 +837,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 <div class="partline" id="chast-2"><span class="pnum">Часть II</span><span class="ptitle">Решение по партнёрам</span><span class="pdek">Все пути закрыть давление рядом, чем каждый жертвует и что делаем дальше</span></div>
 
 <section id="sravnenie">
-  <div class="shead"><span class="snum">08</span><h2>Шесть путей закрыть давление</h2></div>
+  <div class="shead"><span class="snum">07</span><h2>Шесть путей закрыть давление</h2></div>
 <p class="sdek">Всё, что разобрано выше, сведено в одну матрицу по единым критериям.
   Это главный раздел страницы: по нему принимается решение.</p>
 
@@ -886,7 +887,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">09</span><h2>Пять выводов о рынке</h2></div>
+  <div class="shead"><span class="snum">08</span><h2>Пять выводов о рынке</h2></div>
 
   <p><strong>1. Побеждает не технология, а способ входа в систему здравоохранения.</strong>
   Sky Labs с кольцом на оптическом датчике обошёл технологически более сильных
@@ -914,7 +915,28 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 
 
 
-<div class="partline" id="chast-3"><span class="pnum">Часть III</span><span class="ptitle">Справочник по игрокам</span><span class="pdek">Детально по каждому: характеристики, регуляторика, клиническая база, риски и статус переписки. Разделов пять, а игроков в категории шесть — израильский Biobeat отсеян: одноразовый нагрудный пластырь для стационара, в амбулаторной программе не окупается. Для тех, кто углубляется — решение принимается по части II</span></div>
+<section id="kalendar">
+  <div class="shead"><span class="snum">09</span><h2>Что дальше</h2></div>
+  <p class="sdek">Оперативные даты – в календаре наверху страницы. Здесь то,
+  что не привязано к конкретному дню.</p>
+
+  <dl class="pairs" style="margin-top:20px">
+    <div class="pair"><dt>⏸ у владельца</dt><dd>запрос в <b>Huawei Technologies Kazakhstan</b> – заход через личный контакт, черновик готов, даты нет</dd></div>
+    <div class="pair"><dt>осень 2026</dt><dd>проверить публикацию исследования <b>Vital Signals</b> на 451 участнике</dd></div>
+    <div class="pair"><dt>январь 2027</dt><dd>проверить, во что вылились исключения FDA по оптическому измерению давления</dd></div>
+  </dl>
+
+  <div class="note">
+    <div class="t">Правило проекта</div>
+    Письма готовит агент, отправляет владелец. Тексты всех обращений –
+    <code>docs/pisma-shest-kompaniy.md</code> и <code>docs/pismo-huawei-kz.md</code>.
+    Письмо в Huawei Kazakhstan (aiman.sakhova@huawei.com – контактное лицо бизнес-группы
+    предприятия) <b>сознательно не отправлено</b>: у владельца есть тёплый контакт
+    в компании, заход будет через него.
+  </div>
+</section>
+
+<div class="partline" id="chast-3"><span class="pnum">Часть III</span><span class="ptitle">Разбор по компаниям</span><span class="pdek">Детально по каждому: характеристики, регуляторика, клиническая база, риски и статус переписки. Разделов пять, а игроков в категории шесть — израильский Biobeat отсеян: одноразовый нагрудный пластырь для стационара, в амбулаторной программе не окупается. Для тех, кто углубляется — решение принимается по части II</span></div>
 
   <div class="toc"><a href="#huawei">🇨🇳 Huawei — партнёрство</a><a href="#h9d20">🇨🇳 H9D20 — устройство</a><a href="#sky-labs">🇰🇷 Sky Labs</a><a href="#hilo">🇨🇭 Hilo</a><a href="#valencell">🇺🇸 Valencell</a><a href="#livemetric">🇱🇺 LiveMetric</a><a href="#vital-signals">🇺🇸 Vital Signals</a></div>
 
