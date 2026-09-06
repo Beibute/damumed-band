@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Damumed Band — вариант запуска без регистрации медизделия: отчёт и расчёты">
+<title>Damumed Band — без регистрации</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#f4faf7; --surface:#FFFFFF; --surface-2:#e7f5ee;
+  --ink:#103126; --ink-2:#4d6c60; --muted:#7a948a;
+  --line:#dce9e2; --line-strong:#c6ddd2;
+  --accent:#17936f; --accent-bright:#2bb488;
+  --warn:#8a6416; --alert:#d1453f; --info:#2F6D9E;
+  --accent-wash:#e7f5ee; --warn-wash:#fff6e6; --alert-wash:#fdecec;
+  --head:#082f24; --head-ink:#f4faf7; --head-ink-2:#9fd4c0;
+  --seq1:#082f24; --seq2:#17936f; --seq3:#2bb488; --seq4:#9fd4c0;
+  --shadow:0 2px 12px rgba(8,47,36,.06);
+}
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:"Manrope",-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:17.5px; line-height:1.62; margin:0;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px; margin:0 auto; padding:0 24px 80px}
+h1,h2,h3{font-family:"Manrope",system-ui,sans-serif; text-wrap:balance; margin:0}
+.num{font-family:"Spline Sans Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
+
+/* шапка */
+.hero{color:var(--head-ink); margin:0 0 38px; padding:0; position:relative; overflow:hidden;
+  background-image:linear-gradient(100deg,rgba(8,47,36,.97) 0%,rgba(8,47,36,.92) 42%,rgba(8,47,36,.55) 72%,rgba(8,47,36,.4) 100%),url('img/device-wrist.jpg');
+  background-size:cover; background-position:center right}
+.hero .rule{width:88px; height:8px; background:var(--accent-bright); margin:0 0 26px}
+.hero .wordmark{font-weight:800; font-size:15px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--head-ink); margin-bottom:26px}
+.hero-in{max-width:1080px; margin:0 auto; padding:0 24px; position:relative; z-index:1}
+.hero-in header{padding:64px 0 56px; max-width:62ch}
+@media(max-width:760px){.hero-in header{padding:44px 0 40px}}
+.hero-orn{position:absolute; right:-70px; top:-80px; opacity:.15; pointer-events:none}
+header{padding:0}
+.eyebrow{font-size:13px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent-bright); margin-bottom:20px}
+.hero .lede{color:var(--head-ink); opacity:.92}
+.hero .meta{color:var(--head-ink); opacity:.82; border-top:1px solid rgba(255,255,255,.24);
+  padding-top:22px}
+.hero .meta b{color:var(--head-ink)}
+@media(max-width:700px){.hero-orn{display:none}}
+h1{font-size:clamp(36px,5vw,58px); font-weight:800; line-height:1.12; letter-spacing:-.015em}
+.lede{color:var(--ink-2); font-size:19.5px; max-width:62ch; margin:14px 0 0}
+.meta{display:flex; flex-wrap:wrap; gap:9px 24px; margin-top:24px;
+  font-family:"Spline Sans Mono",monospace; font-size:13.5px; color:var(--muted)}
+.meta b{color:var(--ink-2); font-weight:500}
+
+/* плитки */
+.tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(178px,1fr)); gap:14px; margin-bottom:44px}
+.tile{background:var(--surface); border-radius:22px;
+  padding:22px 24px 20px; box-shadow:var(--shadow)}
+.tile .k{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted); display:block; margin-bottom:9px}
+.tile .v{font-family:'Spline Sans Mono',monospace; font-size:34px; font-weight:500; line-height:1;
+  font-variant-numeric:tabular-nums; letter-spacing:-.01em}
+.tile .u{font-size:14.5px; color:var(--ink-2); font-family:"Manrope",sans-serif; font-weight:400}
+.tile .d{font-size:13.5px; color:var(--muted); margin-top:7px; line-height:1.4}
+.tile.hot{background:var(--head)}
+.tile.hot .v{color:#fff}
+.tile.hot .k{color:var(--head-ink-2)}
+.tile.hot .d{color:#d7efe5}
+.tile.hot .u{color:#d7efe5}
+
+/* секции */
+section{margin-bottom:52px; scroll-margin-top:20px}
+.shead{display:flex; align-items:center; gap:13px; margin-bottom:6px;
+  padding-bottom:13px; border-bottom:1px solid var(--line-strong)}
+.snum{font-size:13px; color:var(--accent); font-weight:800; letter-spacing:.14em;
+  text-transform:uppercase; white-space:nowrap}
+h2{font-size:30px; font-weight:800; letter-spacing:-.01em}
+.sdek{color:var(--ink-2); margin:14px 0 22px; max-width:66ch}
+p{margin:0 0 15px} p:last-child{margin-bottom:0}
+strong{font-weight:600}
+a{color:var(--accent)} a:hover{color:var(--accent-bright)}
+
+/* карточка графика */
+.fig{background:var(--surface); border-radius:22px;
+  padding:26px 28px 20px; margin:24px 0; box-shadow:var(--shadow)}
+.fig h3{font-size:18px; font-weight:600; margin-bottom:3px}
+.fig .sub{color:var(--muted); font-size:14.5px; margin-bottom:18px}
+.fig .cap{color:var(--muted); font-size:14px; margin-top:14px; padding-top:12px;
+  border-top:1px solid var(--line); line-height:1.5}
+.chart{width:100%; overflow-x:auto}
+svg{display:block; max-width:100%; height:auto}
+.grid-line{stroke:var(--line); stroke-width:1}
+.axis-text{font-family:"Spline Sans Mono",monospace; font-size:12px; fill:var(--muted)}
+.lbl{font-family:"Spline Sans Mono",monospace; font-size:12.5px; fill:var(--ink-2)}
+.lbl-strong{font-family:"Spline Sans Mono",monospace; font-size:13px; fill:var(--ink); font-weight:500}
+.name{font-family:"Manrope",sans-serif; font-size:13.5px; fill:var(--ink-2)}
+.mark{transition:opacity .12s} .mark:hover{opacity:.78; cursor:default}
+
+/* легенда */
+.legend{display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:15px;
+  font-size:13.5px; color:var(--ink-2)}
+.legend i{width:11px; height:11px; border-radius:2px; display:inline-block;
+  margin-right:6px; vertical-align:-1px}
+
+/* таблицы */
+.tw{overflow-x:auto; margin:20px 0}
+table{border-collapse:collapse; width:100%; font-size:15.5px; min-width:520px}
+table{border-radius:22px; overflow:hidden}
+th{text-align:left; font-family:"Manrope",sans-serif; font-size:12.5px;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--head-ink-2); font-weight:700;
+  background:var(--head); padding:13px 14px; white-space:nowrap}
+th:first-child{border-radius:0} 
+td{padding:13px 14px; border-bottom:1px solid rgba(16,49,38,.08); vertical-align:top}
+td.n{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums; white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.pick td{background:var(--accent-wash)}
+.pick td:first-child{padding-left:18px}
+
+/* врезки */
+.note{border-left:3px solid var(--warn); background:var(--surface);
+  padding:15px 18px; margin:22px 0; border-radius:0 14px 14px 0; box-shadow:var(--shadow)}
+.note.warn{border-left-color:var(--warn); background:var(--warn-wash)}
+.note.alert{border-left-color:var(--alert); background:var(--alert-wash)}
+.note .t{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--warn); margin-bottom:7px}
+.note.warn .t{color:var(--warn)} .note.alert .t{color:var(--alert)}
+
+/* списки */
+ol,ul{margin:0 0 15px; padding-left:22px} li{margin-bottom:7px}
+ol{counter-reset:i; list-style:none; padding-left:0}
+ol li{counter-increment:i; padding-left:30px; position:relative}
+ol li::before{content:counter(i); position:absolute; left:0; top:2px;
+  font-family:"Spline Sans Mono",monospace; font-size:12.5px; color:var(--accent);
+  border:1px solid var(--line-strong); border-radius:6px; width:19px; height:19px;
+  display:flex; align-items:center; justify-content:center}
+
+/* этапы */
+.steps{display:grid; gap:1px; background:var(--line); border:1px solid var(--line);
+  border-radius:14px; overflow:hidden; margin:22px 0}
+.step{background:var(--surface); padding:14px 18px; display:grid;
+  grid-template-columns:86px 1fr; gap:16px; align-items:start}
+.step .w{font-family:"Spline Sans Mono",monospace; font-size:13px; color:var(--accent)}
+.step .b{font-weight:600; font-size:16px; margin-bottom:3px}
+.step .c{color:var(--ink-2); font-size:15px}
+
+/* фотографии устройства */
+.shots{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin:4px 0}
+.shots figure{margin:0}
+.shots img{width:100%; height:auto; display:block; border-radius:12px;
+  border:1px solid var(--line); background:var(--surface-2)}
+.shots figcaption{font-size:14px; color:var(--muted); line-height:1.5; margin-top:10px}
+
+/* мокапы приложения — светлая тема действующего Damumed */
+.screens{display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr));
+  gap:22px; margin:24px 0}
+.ph{background:#000; border:1px solid #2C2C2E; border-radius:26px; padding:7px;
+  box-shadow:var(--shadow)}
+.ph-cap{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted); text-align:center; padding:0 0 9px}
+.dscr{--g:#17936f; --gd:#106b51; --bg:#F4F6F5; --cd:#FFFFFF; --cd2:#EFF2F0;
+  --tx:#16232B; --tx2:#42504A; --mut:#7B8C82; --ln:#E3E9E5; --blue:#2F6D9E;
+  --wn:#A87718; --al:#C0453C;
+  --accent:#17936f; --line:#E3E9E5; --ink:#16232B; --ink-2:#42504A; --muted:#7B8C82;
+  --surface:#FFFFFF; --surface-2:#F4F6F5; --info:#2F6D9E; --warn:#A87718; --alert:#C0453C;
+  background:#F4F6F5; border-radius:20px; overflow:hidden; min-height:540px;
+  display:flex; flex-direction:column; color:#16232B}
+.dst{display:flex; justify-content:space-between; padding:8px 14px 2px;
+  font-size:10px; color:#16232B; font-weight:600}
+.dhd{padding:8px 12px 11px; display:flex; align-items:center; justify-content:space-between}
+.dhd .ava{width:24px; height:24px; border-radius:50%; background:#DDE5E0; flex:none}
+.dhd .lg{display:flex; align-items:center; gap:6px; font-weight:700; font-size:15px;
+  letter-spacing:.03em; color:#16232B}
+.dhd .ic{display:flex; gap:9px; color:#5A6873}
+.dback{display:flex; align-items:center; gap:10px; padding:6px 12px 12px; color:#16232B}
+.dback b{font-size:15.5px; font-weight:700; flex:1; text-align:center; margin-right:22px}
+.dbody{padding:0 11px 8px; display:flex; flex-direction:column; gap:9px; flex:1;
+  overflow:hidden}
+.dpills{display:flex; gap:7px}
+.dpill{flex:1; border-radius:12px; padding:9px 10px; font-size:10px; font-weight:600;
+  line-height:1.25; min-height:46px}
+.dpill.a{background:#E8E8EA; color:#1C1C1E} .dpill.b{background:var(--blue); color:#fff}
+.dpill.c{background:#E8E8EA; color:#1C1C1E}
+.dcard{background:var(--cd); border:1px solid var(--ln); border-radius:16px; padding:12px 13px}
+.dcard h4{font-size:11px; font-weight:700; color:var(--mut); text-transform:uppercase;
+  letter-spacing:.05em; margin:0 0 9px}
+.dring{display:flex; flex-direction:column; align-items:center; gap:2px; padding:2px 0}
+.dstat{font-size:15.5px; font-weight:700; margin-top:6px}
+.dsub{font-size:12.5px; color:var(--mut); text-align:center; line-height:1.4}
+.dmetric{display:flex; align-items:center; gap:11px}
+.dmi{width:34px; height:34px; border-radius:10px; background:#E4F3EC; flex:none;
+  display:flex; align-items:center; justify-content:center; color:var(--g)}
+.dmv{font-size:14.5px; font-weight:700}
+.dmk{font-size:11.5px; color:var(--mut)}
+.drow{display:flex; justify-content:space-between; align-items:center; padding:7px 0;
+  font-size:13.5px; border-bottom:1px solid var(--ln); color:var(--tx2)}
+.drow:last-child{border-bottom:0}
+.drow b{font-weight:700; font-size:14px; color:#16232B}
+.dtag{display:inline-block; font-size:10px; padding:2px 9px; border-radius:99px; font-weight:700}
+.t-ok{background:#E4F3EC; color:var(--g)} .t-wn{background:#FBF0D9; color:var(--wn)}
+.t-al{background:#FBE4E2; color:var(--al)}
+.dnote{font-size:12px; color:var(--mut); line-height:1.45}
+.dbtn{text-align:center; background:var(--g); color:#fff; border-radius:99px;
+  padding:11px; font-size:13.5px; font-weight:700}
+.dbtn.gh{background:transparent; color:var(--g); border:1px solid var(--g)}
+.dnav{background:#fff; border-top:1px solid var(--ln); display:flex; padding:8px 2px 9px;
+  margin-top:auto}
+.dnav span{flex:1; text-align:center; font-size:9.5px; color:#8E8E93; line-height:1.5;
+  position:relative}
+.dnav span.on{color:var(--g); font-weight:700}
+.dnav svg{display:block; margin:0 auto 2px}
+.dbadge{position:absolute; top:-3px; right:14px; background:var(--g); color:#fff;
+  border-radius:99px; font-size:8px; font-weight:700; padding:1px 5px}
+.dalert{background:#FBF0D9; border-radius:16px; padding:11px 13px}
+.dalert.crit{background:#FBE4E2}
+
+/* рабочее место врача — десктопная МИС */
+.mis{--g:#17936f; --gw:#E8F5F0; --bg:#F2F4F5; --ln:#E1E6E8; --tx:#16232B; --tx2:#5A6873;
+  --mut:#8A959D; --wn:#C58A2E; --wnw:#FDF4E3; --al:#C0453C; --alw:#F9E9E7;
+  border:1px solid var(--line-strong); border-radius:8px; overflow:hidden;
+  background:#fff; color:var(--tx); margin:22px 0; box-shadow:var(--shadow)}
+.mis-top{background:var(--g); color:#fff; display:flex; align-items:center; gap:14px;
+  padding:10px 15px; font-size:13.5px}
+.mis-top .b{font-weight:800; letter-spacing:.05em; display:flex; align-items:center; gap:6px}
+.mis-top .sp{flex:1}
+.mis-top .u{opacity:.9; font-size:11.5px}
+.mis-body{display:grid; grid-template-columns:172px 1fr; min-height:392px}
+.mis-side{background:#F7F9F9; border-right:1px solid var(--ln); padding:10px 0; font-size:13px}
+.mis-side div{padding:8px 14px; color:var(--tx2); display:flex; align-items:center; gap:8px}
+.mis-side div.on{background:var(--gw); color:var(--g); font-weight:700;
+  box-shadow:inset 3px 0 0 var(--g)}
+.mis-main{padding:13px 15px; min-width:0; overflow-x:auto}
+.mis-h{display:flex; align-items:baseline; gap:12px; margin-bottom:11px; flex-wrap:wrap}
+.mis-h b{font-size:16px; font-weight:800}
+.mis-h span{font-size:13px; color:var(--mut)}
+.mis-f{display:flex; gap:7px; margin-bottom:11px; flex-wrap:wrap}
+.mis-f span{border:1px solid var(--ln); border-radius:99px; padding:3px 11px;
+  font-size:11px; color:var(--tx2)}
+.mis-f span.on{background:var(--g); border-color:var(--g); color:#fff; font-weight:600}
+.mis table{width:100%; border-collapse:collapse; font-size:13.5px; min-width:600px}
+.mis th{background:#F7F9F9; color:var(--mut); font-size:9.5px; letter-spacing:.07em;
+  text-transform:uppercase; text-align:left; padding:7px 9px; border-bottom:1px solid var(--ln);
+  font-weight:700; white-space:nowrap}
+.mis td{padding:9px; border-bottom:1px solid var(--ln); vertical-align:top; line-height:1.45}
+.mis tr:last-child td{border-bottom:0}
+.mis .nm{font-weight:700}
+.mis .sm{font-size:11.5px; color:var(--mut)}
+.mis .st{display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700;
+  border-radius:99px; padding:2px 9px; white-space:nowrap}
+.mis .st i{width:7px; height:7px; border-radius:50%; display:inline-block}
+.s-red{background:var(--alw); color:var(--al)} .s-red i{background:var(--al)}
+.s-yel{background:var(--wnw); color:var(--wn)} .s-yel i{background:var(--wn)}
+.s-grn{background:var(--gw); color:var(--g)} .s-grn i{background:var(--g)}
+.mis .act{display:inline-block; border:1px solid var(--g); color:var(--g); border-radius:6px;
+  padding:3px 9px; font-size:11px; font-weight:700; margin:0 4px 4px 0}
+.mis .act.fill{background:var(--g); color:#fff}
+.mis-row-red{background:#FEF7F6}
+
+/* файлы */
+.files{display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:12px; margin-top:20px}
+.file{display:flex; gap:14px; align-items:center; text-decoration:none; color:inherit;
+  background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  padding:15px 17px; box-shadow:var(--shadow); transition:border-color .14s, transform .14s;
+  font:inherit; text-align:left; cursor:pointer; width:100%}
+.file:hover{border-color:var(--accent); transform:translateY(-1px)}
+.file:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.fi{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.06em;
+  color:var(--accent); border:1px solid var(--accent); border-radius:8px;
+  padding:5px 7px; flex:none}
+.fb{display:flex; flex-direction:column; gap:3px; min-width:0}
+.fb b{font-size:16px; font-weight:600}
+.fb i{font-style:normal; font-size:13.5px; color:var(--muted); line-height:1.4}
+
+.det{margin-top:20px; background:var(--surface); border:1px solid var(--line);
+  border-radius:14px; box-shadow:var(--shadow)}
+.det summary{cursor:pointer; padding:15px 18px; font-weight:600; font-size:16px;
+  list-style:none; display:flex; align-items:center; gap:9px}
+.det summary::-webkit-details-marker{display:none}
+.det summary::before{content:"+"; font-family:"Spline Sans Mono",monospace; color:var(--accent);
+  border:1px solid var(--line-strong); border-radius:6px; width:19px; height:19px;
+  display:flex; align-items:center; justify-content:center; font-size:13px; flex:none}
+.det[open] summary::before{content:"–"}
+.det summary:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
+.det-b{padding:0 18px 18px; color:var(--ink-2); font-size:15.5px; line-height:1.62;
+  border-top:1px solid var(--line); padding-top:15px; white-space:normal}
+.det-b p{margin:0 0 11px}
+.det-b h4{font-family:"Manrope",system-ui,sans-serif; font-size:15px; color:var(--ink); margin:20px 0 9px}
+.det-b table{font-size:15px}
+
+/* калькулятор */
+.calc{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:16px}
+@media(max-width:640px){.calc{grid-template-columns:1fr}}
+.calc-in{display:flex; flex-direction:column; gap:13px}
+.calc-in label{display:block; font-size:13.5px; color:var(--muted)}
+.calc-in label b{float:right; font-family:"Spline Sans Mono",monospace; color:var(--ink);
+  font-variant-numeric:tabular-nums; font-size:13px}
+.calc-in input[type=range]{width:100%; accent-color:var(--accent); margin-top:5px}
+.calc-out{background:var(--surface-2); border:1px solid var(--line); border-radius:12px;
+  padding:15px 16px; align-self:start}
+.co{display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+  padding:8px 0; border-bottom:1px dashed var(--line); font-size:14.5px}
+.co:last-of-type{border-bottom:0}
+.co b{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums;
+  font-size:16px; color:var(--ink); white-space:nowrap}
+.co.big b{font-family:"Manrope",system-ui,sans-serif; font-size:23px; color:var(--accent)}
+.co.big b.neg{color:var(--alert)}
+
+footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56px;
+  color:var(--muted); font-size:14px}
+@media(max-width:640px){
+  .step{grid-template-columns:1fr; gap:4px}
+  header{padding-top:36px}
+}
+
+/* кнопки скачивания в шапке */
+.dl-row{display:flex; flex-wrap:wrap; gap:14px; margin-top:28px}
+.dl-btn{display:flex; align-items:center; gap:14px; text-decoration:none;
+  background:rgba(255,255,255,.14); color:#fff; border:1.5px solid rgba(255,255,255,.42);
+  border-radius:14px; padding:16px 22px; min-width:264px;
+  transition:background .15s, transform .15s, border-color .15s}
+.dl-btn:hover{background:rgba(255,255,255,.24); border-color:#fff; transform:translateY(-1px)}
+.dl-btn:focus-visible{outline:3px solid #fff; outline-offset:3px}
+.dl-btn.primary{background:#fff; color:var(--accent); border-color:#fff}
+.dl-btn.primary:hover{background:#F2FBF6}
+.dl-btn svg{flex:none}
+.dl-btn span{display:flex; flex-direction:column; gap:3px; line-height:1.25}
+.dl-btn b{font-size:18px; font-weight:700}
+.dl-btn i{font-style:normal; font-size:13.5px; opacity:.85}
+@media(max-width:640px){.dl-btn{min-width:0; flex:1 1 100%}}
+</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>
+.vswitch{display:inline-flex; background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.38); border-radius:99px; padding:4px; gap:4px;
+  margin-bottom:22px}
+.vswitch a{color:#fff; text-decoration:none; font-size:13.5px; font-weight:600;
+  padding:7px 16px; border-radius:99px; opacity:.85; white-space:nowrap}
+.vswitch a.on{background:#fff; color:var(--head); opacity:1}
+.vswitch a:hover{opacity:1}
+@media(max-width:640px){.vswitch a{padding:6px 12px; font-size:12.5px}}
+</style>
+<style>
+.ph{background:var(--surface); border-radius:22px; padding:18px; margin:26px 0}
+.ph img{width:100%; border-radius:14px; display:block; background:#fff}
+.ph .cap{color:var(--muted); font-size:13.5px; margin-top:12px; line-height:1.55}
+.phg{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:26px 0}
+@media(max-width:700px){.phg{grid-template-columns:1fr}}
+.phg .ph{margin:0}
+.three{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin:22px 0}
+.three .c{background:var(--surface); border-radius:18px; padding:18px 20px}
+.three .c h4{font-size:16px; margin:0 0 6px; font-weight:650}
+.three .c p{font-size:14.5px; color:var(--muted); margin:0; line-height:1.6}
+.three .c .tag{font-family:"Spline Sans Mono",monospace; font-size:11px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--muted); display:block; margin-bottom:8px}
+.yes{color:#1a7f4b; font-weight:700} .no{color:#c0392b; font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-in">
+    <header>
+      <div class="wordmark">Damumed</div>
+      <div class="rule"></div>
+      <nav class="vswitch" aria-label="Вариант стратегии">
+        <a href="index.html">Медизделие с РУ</a>
+        <a href="bez-registracii.html">Без регистрации</a>
+        <a class="on" href="huawei.html" aria-current="page">Сотрудничество с Huawei</a>
+      </nav>
+    <h1>Damumed Band</h1>
+      <p class="lede">Третий путь: не производить браслет, а построить программу
+      наблюдения на устройствах Huawei — единственного производителя, который довёл
+      измерение давления на запястье до медицинской сертификации. Разбор показал, что
+      заменой вариантам А и Б это быть не может, но один сценарий из трёх стоит делать
+      в любом случае.</p>
+      <div class="meta">
+        <span>Статус · <b>разведка</b> (06.09.2026)</span>
+        <span>Вложения · <b>3 млн ₸</b> (сценарий BYOD)</span>
+        <span>Источников · <b>37</b></span>
+        <span>Горизонт расчёта · <b>24 месяца</b></span>
+      </div>
+      <div class="dl-row">
+        <a class="dl-btn primary" href="files/damumed-band-huawei.docx" download>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+          <span><b>Отчёт варианта В</b><i>Word · 13 разделов, 37 источников</i></span>
+        </a>
+      </div>
+    </header>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="tiles">
+  <div class="tile hot"><span class="k">Закуп Huawei Band 10</span>
+    <div class="v">16 369<span class="u"> ₸</span></div>
+    <div class="d">опт от 100 шт — дороже нашей розницы</div></div>
+  <div class="tile"><span class="k">Наша себестоимость</span>
+    <div class="v">4 026<span class="u"> ₸</span></div>
+    <div class="d">в четыре раза дешевле</div></div>
+  <div class="tile"><span class="k">Модуль наблюдения</span>
+    <div class="v">64,8<span class="u"> млн ₸</span></div>
+    <div class="d">даёт результат в любом варианте</div></div>
+  <div class="tile"><span class="k">BYOD, 10 тыс. человек</span>
+    <div class="v">+68,5<span class="u"> млн ₸</span></div>
+    <div class="d">без единого тенге в железо</div></div>
+  <div class="tile"><span class="k">Watch D3</span>
+    <div class="v">449<span class="u"> €</span></div>
+    <div class="d">вышел 2 сентября, в РК не заявлен</div></div>
+</div>
+
+<section>
+  <div class="shead"><span class="snum">01</span><h2>Идея варианта</h2></div>
+  <p class="sdek">Варианты А и Б исходят из того, что браслет мы производим сами.
+  Здесь проверяется обратное: взять готовое устройство Huawei и построить программу
+  наблюдения на нём. У Huawei есть ровно то, чего нет у нас, — сертифицированное
+  измерение давления на запястье.</p>
+
+  <p>Проверка дала неожиданный результат. Сотрудничество возможно и переговоров стоит,
+  но не в той форме, в которой кажется на первый взгляд: закупочная цена массового
+  браслета Huawei в Казахстане <strong>выше нашей планируемой розничной цены</strong>,
+  а потребительский интерфейс данных <strong>договором запрещает</strong> применение
+  в медицинских продуктах.</p>
+
+  <p>Зато разбор вскрыл то, что было спрятано в наших же расчётах: основную часть
+  результата даёт не железо, а модуль наблюдения — и он работает с любым источником
+  данных. Отсюда третий сценарий, которого не было в проекте: подключать устройства,
+  которые у пациента уже есть.</p>
+
+  <div class="note warn">
+    <div class="t">Главное в одной строке</div>
+    Заменить вариант А или Б сотрудничеством с Huawei нельзя: мы потеряем маржу,
+    контроль над устройством и продуктовое ядро (вибронапоминание и подтверждение
+    приёма лекарств касанием — DB-402/403 — в потребительских Huawei отсутствуют).
+    Но сценарий «подключаем чужие устройства» стоит 3 млн ₸, ничему не мешает
+    и добавляется к любому из вариантов.
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">02</span><h2>Huawei в здоровье — это три разных контура</h2></div>
+  <p class="sdek">Ключ ко всей теме. Под одним именем скрываются три несвязанных
+  предложения с разными правилами, разной географией и разным юридическим статусом.
+  В китайских кейсах впечатляет второй контур, а доступен нам в Казахстане — первый,
+  самый ограниченный.</p>
+
+  <div class="three">
+    <div class="c"><span class="tag">Контур 1</span>
+      <h4>Потребительский</h4>
+      <p>Huawei Health и Health Kit API. Band, Watch GT, Watch D2/D3. Около 170 стран,
+      включая Казахстан. Доступ открыт — но медицинское применение запрещено договором.</p></div>
+    <div class="c"><span class="tag">Контур 2</span>
+      <h4>Корпоративный 擎云 Qingyun</h4>
+      <p>Коммерческий бренд Huawei для организаций и промышленный SDK. Устройства
+      H9D20 и H3550 с регистрацией медизделия. Только материковый Китай — вне КНР
+      недоступен.</p></div>
+    <div class="c"><span class="tag">Контур 3</span>
+      <h4>Исследовательский</h4>
+      <p>Платформа Terve Research в Европе и прямые проекты с клиниками — Dubai Health,
+      QCRI в Катаре. Вход только через партнёрство.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">03</span><h2>Устройства</h2></div>
+  <p class="sdek">Что именно можно взять и почём. Технология микроманжеты разобрана
+  в исследовании по давлению — здесь только доступность и цена в Казахстане.</p>
+
+  <div class="phg">
+    <div class="ph">
+      <img src="img/huawei/watch-d3.jpg" alt="Huawei Watch D3 — часы с микроманжетой в ремешке">
+      <div class="cap"><b>HUAWEI WATCH D3</b> — вышел 2 сентября 2026 на событии
+      «Chase the Wild» в Мюнхене. 11,3 мм вместо 13,3 у предшественника, 40 г,
+      CE MDR на суточный мониторинг. €449 в Европе.<br>
+      Фото: пресс-материалы Huawei (открытый источник, notebookcheck.net).</div>
+    </div>
+    <div class="ph">
+      <img src="img/huawei/watch-d2.png" alt="Huawei Watch D2 — продаётся в Казахстане">
+      <div class="cap"><b>HUAWEI WATCH D2</b> — продаётся в Казахстане официально,
+      148 700–189 890 ₸. Единственные часы в мире с сертифицированным суточным
+      мониторированием давления.<br>
+      Фото: официальный сайт Huawei Казахстан (consumer.huawei.com/kz).</div>
+    </div>
+  </div>
+
+  <div class="tw"><table>
+    <tr><th>Устройство</th><th>Что даёт</th><th>Цена</th><th>Статус у нас</th></tr>
+    <tr><td><b>Watch D2</b></td>
+      <td>микроманжета в ремешке, АБПМ, ЭКГ; CE MDR + NMPA</td>
+      <td class="n">148 700 – 189 890 ₸</td>
+      <td>продаётся в РК, но <span class="no">без медицинского статуса</span></td></tr>
+    <tr><td><b>Watch D3</b></td>
+      <td>то же тоньше: 11,3 мм, 40 г, режимы до/после нагрузки, ESH-интервалы в алгоритме</td>
+      <td class="n">€449 / £399,99</td>
+      <td>в РК <span class="no">не заявлен</span></td></tr>
+    <tr><td><b>Band 10</b></td>
+      <td>массовый браслет: ЧСС, SpO2, сон; наш прямой конкурент по полке</td>
+      <td class="n">14 490 – 22 386 ₸<br><span style="color:var(--muted);font-size:13.5px">опт от 100 шт — 16 369 ₸</span></td>
+      <td>продаётся, скидка за объём около 5%</td></tr>
+    <tr><td><b>Qingyun H9D20</b></td>
+      <td>всё нужное: РУ медизделия II класса NMPA, ночное автоизмерение каждые 30 мин,
+      кастомизация под наш бренд</td>
+      <td class="n">цена по запросу</td>
+      <td><span class="no">только Китай</span></td></tr>
+  </table></div>
+
+  <p>🔴 Ключевой факт: <strong>на казахстанской странице Huawei сам пишет</strong>, что
+  функция «Показатели здоровья» не предназначена для использования в медицинских целях
+  и не должна быть основой для диагностики или лечения. Европейский CE MDR и китайский
+  NMPA на Казахстан не переносятся — это ровно тот же разрыв, который мы нашли у Hilo
+  в США.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">04</span><h2>Доступ к данным</h2></div>
+  <p class="sdek">Наша техспецификация требует от завода RR-интервалы, статус ношения
+  и работу без чужого облака. Проверяем, что из этого даёт Huawei. Ответ: всё — но
+  через тот интерфейс, который нам недоступен.</p>
+
+  <div class="tw"><table>
+    <tr><th>Что нужно нам</th><th>Health Kit<br><span style="color:var(--muted);font-size:13px">потребительский</span></th><th>Health Industry SDK<br><span style="color:var(--muted);font-size:13px">корпоративный</span></th></tr>
+    <tr><td>ЧСС, шаги, SpO2, сон, стресс</td><td class="yes">есть</td><td class="yes">есть</td></tr>
+    <tr><td><b>RR-интервалы (RRI)</b></td><td class="no">нет</td><td class="yes">есть</td></tr>
+    <tr><td><b>Вариабельность ритма (HRV)</b></td><td class="no">нет</td><td class="yes">есть</td></tr>
+    <tr><td><b>Артериальное давление + отчёт АБПМ</b></td><td class="no">нет</td><td class="yes">есть</td></tr>
+    <tr><td><b>Статус ношения</b> (наш DB-403)</td><td class="no">нет</td><td class="yes">есть</td></tr>
+    <tr><td>Апноэ сна, аритмия по пульсовой волне</td><td class="no">нет</td><td class="yes">есть</td></tr>
+    <tr><td>Падение и SOS</td><td class="no">нет</td><td class="yes">есть</td></tr>
+    <tr><td>География</td><td>включая РК</td><td class="no">только КНР</td></tr>
+  </table></div>
+
+  <div class="note alert">
+    <div class="t">Договорный запрет — главное открытие раздела</div>
+    Пользовательское соглашение HUAWEI Health Kit, раздел 2.1 (6), дословно:
+    «<i>You may not use this Service in connection with any product or service that may
+    qualify as a medical or scientific device</i>». Damumed — медицинская
+    информационная система, и панель врача на данных Health Kit с высокой вероятностью
+    попадает под это определение. Пункт (7) добавляет, что сервис доступен не во всех
+    странах и доступность не гарантируется.<br><br>
+    <b>Следствие:</b> вариант В на потребительском интерфейсе несёт не только тот же
+    регуляторный риск, что вариант Б, но ещё и договорный — с отключением доступа.
+    Это делает его <b>юридически слабее варианта Б</b>, а не сильнее.
+  </div>
+
+  <p>Порог входа в корпоративную программу тоже назван: юрлицо старше года и оплаченный
+  капитал не менее 500 000 юаней для базового доступа (около 32 млн ₸, оценка) либо
+  5 млн юаней для расширенного. В анкете отдельно спрашивают, связано ли применение
+  с медициной.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">05</span><h2>Экономика: три сценария</h2></div>
+  <p class="sdek">Горизонт 24 месяца, допущения те же, что в вариантах А и Б: подписка
+  690 ₸/мес, внутренняя цена модуля 500 ₸/пациент/мес, комиссия Kaspi 13%, операционные
+  расходы 1,5 млн ₸/мес.</p>
+
+  <div class="fig">
+    <h3>В-1. BYOD — подключаем устройства, которые у пациента уже есть</h3>
+    <div class="sub">Железо не продаём вовсе. Вложения — только интеграция и образцы, 3 млн ₸</div>
+    <div class="tw"><table>
+      <tr><th>Подключено пациентов</th><th>Подписки</th><th>Модуль наблюдения</th><th>Результат 24 мес</th></tr>
+      <tr><td>2 000</td><td class="n">7,7 млн ₸</td><td class="n">12,9 млн ₸</td><td class="n"><b>−13,9 млн ₸</b></td></tr>
+      <tr><td>5 000</td><td class="n">19,1 млн ₸</td><td class="n">32,4 млн ₸</td><td class="n"><b>+17,0 млн ₸</b></td></tr>
+      <tr><td>10 000</td><td class="n">38,3 млн ₸</td><td class="n">64,8 млн ₸</td><td class="n"><b>+68,5 млн ₸</b></td></tr>
+    </table></div>
+    <div class="cap">Точка безубыточности — около 4 000 подключённых. При 10 тысячах
+    результат сопоставим с вариантом Б (+76,2 млн ₸) при нулевых вложениях в железо.</div>
+  </div>
+
+  <div class="note warn">
+    <div class="t">Непроверенное допущение № 1</div>
+    Ограничение BYOD не в деньгах, а в людях. Наша целевая группа — гипертоники на
+    диспансерном учёте, 1,78 млн человек, в основном старше 60 лет. Доля владельцев
+    смарт-часов в этой возрастной группе низкая, данных по Казахстану у нас нет.
+    BYOD хорошо работает в рознице и для более молодых, и плохо — ровно там, где
+    сосредоточена наша клиническая ценность.
+  </div>
+
+  <div class="fig">
+    <h3>В-2. Дистрибуция Huawei Band 10</h3>
+    <div class="sub">10 000 шт, 70% поликлиники / 30% розница. Чтобы удержать маржу 2 750 ₸/шт как в варианте А, цену поликлинике пришлось бы поднять с 6 900 до 17 750 ₸</div>
+    <div class="tw"><table>
+      <tr><th>Закупочная цена</th><th>Вложения</th><th>Маржа B2B</th><th>Маржа B2C</th><th>Итог 24 мес</th></tr>
+      <tr><td>15 000 ₸ (оценка опта)</td><td class="n">150,0 млн ₸</td><td class="n">19,2 млн</td><td class="n">4,3 млн</td><td class="n">+65,3 млн ₸</td></tr>
+      <tr><td><b>16 369 ₸</b> (публичный опт)</td><td class="n">163,7 млн ₸</td><td class="n">9,7 млн</td><td class="n"><b>0,2 млн</b></td><td class="n">+51,6 млн ₸</td></tr>
+    </table></div>
+    <div class="cap">Формально выше варианта А (+20,0 млн ₸) — но лишь потому, что
+    продажи идут с 4-го месяца, а не с 16-го: ждать удостоверения не нужно.
+    По существу сценарий проигрывает по всем статьям.</div>
+  </div>
+
+  <p>Четыре причины не брать В-2. <strong>Первая:</strong> вложения в партию вчетверо
+  выше — 150–164 млн ₸ против 40 млн. <strong>Вторая:</strong> розница не работает
+  вообще — при публичном опте маржа с 3 000 устройств составляет 0,2 млн ₸, мы
+  становимся дилером, а не производителем. <strong>Третья:</strong> цена для поликлиники
+  растёт в 2,6 раза, а объём в расчёте оставлен прежним — это второе непроверенное
+  допущение и главная слабость сценария. <strong>Четвёртая:</strong> теряется рекламное
+  утверждение, на котором построена вся розничная стратегия, — «медицинское изделие
+  дешевле обычного фитнес-браслета». Мы начинаем продавать сам фитнес-браслет по его
+  же цене.</p>
+
+  <div class="fig">
+    <h3>В-3. Watch D2/D3 для гипертоников — нишевая программа</h3>
+    <div class="sub">Единственный сценарий, где мы получаем настоящую цифру давления. Закуп 150 000 ₸ (оценка), продажа 175 000 ₸, до операционных расходов</div>
+    <div class="tw"><table>
+      <tr><th>Устройств</th><th>Вложения</th><th>Маржа и подписки за 24 мес</th></tr>
+      <tr><td>300</td><td class="n">45,0 млн ₸</td><td class="n">9,8 млн ₸</td></tr>
+      <tr><td>500</td><td class="n">75,0 млн ₸</td><td class="n">16,3 млн ₸</td></tr>
+      <tr><td>1 000</td><td class="n">150,0 млн ₸</td><td class="n">32,7 млн ₸</td></tr>
+    </table></div>
+    <div class="cap">Массовым каналом это быть не может: одно устройство стоит дороже,
+    чем 21 наш браслет. Осмысленные адресаты — платные пациенты, корпоративные
+    программы работодателей, страховые.</div>
+  </div>
+</section>
+
+<section id="sravnenie">
+  <div class="shead"><span class="snum">06</span><h2>Сравнение трёх стратегий</h2></div>
+  <p class="sdek">Одна таблица, по которой принимается решение.</p>
+
+  <div class="tw"><table>
+    <tr><th>&nbsp;</th><th>А. Медизделие с РУ</th><th>Б. Без регистрации</th><th>В-1. BYOD</th><th>В-2. Дистрибуция Huawei</th></tr>
+    <tr><td>Вложения</td><td class="n">58 млн ₸</td><td class="n">43 млн ₸</td><td class="n"><b>3 млн ₸</b></td><td class="n">150–164 млн ₸</td></tr>
+    <tr><td>Старт продаж</td><td>мес 16</td><td>мес 6</td><td><b>мес 4</b></td><td>мес 4</td></tr>
+    <tr><td>Результат 24 мес</td><td class="n">+20,0 млн ₸</td><td class="n">+76,2 млн ₸</td><td class="n">+68,5 млн ₸</td><td class="n">+51,6…65,3 млн ₸</td></tr>
+    <tr><td>Цена устройства пациенту</td><td class="n">14 990 ₸</td><td class="n">14 990 ₸</td><td class="n"><b>0 ₸</b> (своё)</td><td class="n">18 900 ₸</td></tr>
+    <tr><td>Зачёт наблюдения по ДСМ-39</td><td class="yes">есть</td><td class="no">нет</td><td class="no">нет</td><td class="no">нет</td></tr>
+    <tr><td>Контроль над железом</td><td>полный</td><td>полный</td><td class="no">нет</td><td class="no">нет</td></tr>
+    <tr><td>Договорный риск</td><td>нет</td><td>нет</td><td class="no">запрет Health Kit</td><td class="no">запрет Health Kit</td></tr>
+  </table></div>
+
+  <div class="note">
+    <div class="t">Что показывает эта таблица на самом деле</div>
+    Во всех сценариях основную часть результата даёт <b>модуль наблюдения — 64,8 млн ₸
+    при 10 тысячах пациентов</b>. А он не зависит от того, чей браслет на руке.
+    Железо в нашей модели вообще не источник прибыли — оно источник охвата.
+    Это подтверждает решение продавать устройство почти по себестоимости и заодно
+    объясняет, почему BYOD экономически конкурентоспособен.
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">07</span><h2>Как Huawei работает с чужими медицинскими проектами</h2></div>
+  <p class="sdek">Доказательство, что дверь существует. Ни один из кейсов не является
+  продажей устройств — все построены как партнёрство.</p>
+
+  <p><strong>Китай — зрелая модель, которую мы и хотим повторить.</strong> Народная
+  больница Вэньчжоу открыла центр послебольничного управления в сентябре 2023: сеть
+  охватила 47 отделений двух корпусов, обслужено 30 тысяч пациентов, повторная явка
+  89,99%, удовлетворённость выше 98%. Данные идут с носимого устройства через
+  стандартный интерфейс приложения Huawei Health, с авторизацией пациента, на панель
+  врача. В Народной больнице провинции Цзянсу и больнице Фукан в Тибете то же решение
+  дало снижение нагрузки медсестёр по измерениям на 60% и сокращение времени реакции
+  с 15 минут до 3.</p>
+
+  <p>Масштаб направления по данным самой Huawei: более 100 тысяч корпоративных клиентов,
+  200 с лишним партнёров; в здравоохранении — сотрудничество со 150+ исследовательскими
+  организациями, 50+ больниц, 600+ общественных центров здоровья. Модель называется
+  «платформа плюс экосистема»: Huawei даёт устройство и открытые данные, партнёр пишет
+  алгоритмы и приложение под конкретную нозологию. <strong>Это ровно та роль, на которую
+  претендует Damumed.</strong></p>
+
+  <p><strong>Вне Китая.</strong> 31 августа 2026 на конгрессе ESC в Мюнхене запущена
+  Terve Research — европейская платформа исследований на носимых Huawei: финансируется
+  Huawei, управляется независимо компанией Thryve. Dubai Health в мае 2025 провела
+  совместное исследование функций здоровья Watch 5. Катарский QCRI ещё в 2021 году
+  построил платформу SIHA для управления хроническими заболеваниями на данных Huawei —
+  ближайший к нам по смыслу прецедент. Представитель Huawei прямо говорит, что для
+  развёртывания функций уровня глюкозы и сердечно-сосудистого мониторинга компания
+  намерена «сотрудничать с локальными медицинскими учреждениями и интегрировать
+  технологии локально».</p>
+
+  <div class="note">
+    <div class="t">Казахстан: заходить холодным письмом не нужно</div>
+    Huawei работает в РК с 1998 года, представлены все три бизнес-группы.
+    <b>Меморандум с Министерством здравоохранения подписан ещё в 2019 году</b> на
+    конференции Huawei Day Kazakhstan. Меморандум с Министерством цифрового развития —
+    29 июля 2025 года, с рабочей группой до 2030 года. На корпоративном сайте
+    e.huawei.com/kz есть раздел «Здравоохранение». Есть локальное юрлицо и действующие
+    договорённости — запрос идёт туда, а не в глобальный офис.
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">08</span><h2>Что мы можем предложить и что просить</h2></div>
+  <p class="sdek">Переговоры имеют смысл, только если у нас есть что дать. У нас есть.</p>
+
+  <div class="tw"><table>
+    <tr><th>Что даём мы</th><th>Что просим</th></tr>
+    <tr><td>Канал в первичное звено, которого у Huawei в РК нет: МИС, установленная
+      в поликлиниках страны</td>
+      <td><b>Доступ к промышленному SDK</b>, а не к потребительскому Health Kit — снимает
+      и технический дефицит, и договорный запрет. Возможен ли он вне КНР — главный
+      вопрос всего варианта</td></tr>
+    <tr><td>Клиническую когорту: 1,78 млн человек с гипертонией на диспансерном учёте —
+      группа, ради которой создавалась линейка Watch D</td>
+      <td><b>Размещение данных</b> в Казахстане или локально на устройстве. Без этого
+      разговор бессмыслен по нашей же регуляторике — тот же первый вопрос, что мы
+      задали Hilo</td></tr>
+    <tr><td>Локальную валидацию — по образцу Dubai Health и QCRI</td>
+      <td><b>Регистрационный статус:</b> планирует ли Huawei регистрировать Watch D2/D3
+      в РК и кто будет держателем удостоверения</td></tr>
+    <tr><td>Готовую панель врача и интеграцию с медкартой — в Китае эту часть Huawei
+      отдаёт партнёрам</td>
+      <td><b>Устройства на пилот</b> — по образцу закрытых исследований Terve Research</td></tr>
+    <tr><td>Витрину для региона: первый в Центральной Азии проект «носимое + МИС + врач»
+      на рынке, где у Huawei подписан меморандум с Минздравом</td>
+      <td><b>Цену для программы.</b> Публичный опт со скидкой 5% предложением не
+      является. Отдельно — кастомизация под Damumed, которую Huawei официально
+      предлагает корпоративным клиентам</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">09</span><h2>Риски</h2></div>
+  <p class="sdek">Семь пунктов, из которых три критические.</p>
+
+  <p>🔴 <strong>Договорный запрет медприменения</strong> в Health Kit. Пока не получен
+  доступ к промышленному SDK, любой поликлиничный контур на устройствах Huawei стоит
+  на нарушении условий поставщика.</p>
+
+  <p>🔴 <strong>Облако.</strong> Данные считаются и хранятся у производителя — точно та
+  же проблема, что с Hilo, и тот же конфликт с требованием хранения на территории РК.</p>
+
+  <p>🔴 <strong>Qingyun вне Китая не продаётся.</strong> Всё, что делает эту тему
+  интересной — промышленный SDK, медицинские регистрации, кастомизация, кейсы
+  больниц, — привязано к линейке, которая за пределы КНР не выведена. Данных о планах
+  вывода нет.</p>
+
+  <p><strong>Потеря контроля над продуктом.</strong> Дорожную карту, цены, сроки поставок
+  и решение о регистрации принимает Huawei. Мы теряем ровно то, ради чего затевали
+  собственное производство: возможность требовать вибронапоминание, подтверждение приёма
+  лекарств касанием и статус ношения — наше продуктовое ядро.</p>
+
+  <p><strong>Асимметрия переговоров</strong> — Huawei присутствует в 170 странах;
+  то же наблюдение мы зафиксировали по Hilo с их 119 млн долларов.
+  <strong>Геополитический фон</strong> — привязка медицинской программы к одному вендору
+  из чувствительной отрасли стоит назвать вслух перед Минздравом, а не после.
+  <strong>Каннибализация</strong> — если поликлиники привыкнут к Huawei, выводить потом
+  свой браслет за 6 900 ₸ будет сложнее: сравнивать станут не с тонометром,
+  а с Watch D3.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">10</span><h2>Рекомендация</h2></div>
+  <p class="sdek">Вариант В — не третья альтернатива, а дополнительный слой.
+  Брать из него надо две вещи из трёх.</p>
+
+  <div class="tw"><table>
+    <tr><th>Сценарий</th><th>Решение</th><th>Почему</th></tr>
+    <tr><td><b>В-1. BYOD</b></td><td class="yes">делать — при любом варианте, А или Б</td>
+      <td>стоит 3 млн ₸, добавляет канал, ничему не мешает; при 10 тыс подключённых
+      даёт +68,5 млн ₸ и снимает главное возражение поликлиники: не нужно ничего
+      закупать, чтобы начать</td></tr>
+    <tr><td><b>В-2. Дистрибуция Band 10</b></td><td class="no">не брать</td>
+      <td>вложения вчетверо выше, розничной маржи нет, цена поликлинике растёт
+      в 2,6 раза, рекламный аргумент теряется</td></tr>
+    <tr><td><b>В-3. Watch D2/D3 нишей</b></td><td>держать в поле зрения</td>
+      <td>единственный законный способ дать цифру давления; адресаты — платные пациенты
+      и корпоративные программы, не массовая поликлиника</td></tr>
+    <tr><td><b>Запрос в Huawei</b></td><td class="yes">отправить</td>
+      <td>стоит ноль, дверь открыта, прецеденты есть; идти в Huawei Technologies
+      Kazakhstan со ссылкой на меморандум с МЗ 2019 года</td></tr>
+  </table></div>
+
+  <p><strong>Чего делать не нужно:</strong> отказываться от собственного браслета
+  в пользу Huawei; обещать поликлиникам работу на устройствах Huawei до ответа
+  о промышленном SDK и размещении данных; ссылаться на медицинские сертификаты Huawei
+  в материалах для Казахстана — здесь они не действуют, и Huawei сам это пишет.</p>
+
+  <div class="note warn">
+    <div class="t">Три конкретных действия</div>
+    <b>1.</b> Запрос в Huawei Technologies Kazakhstan, направление Enterprise —
+    пять вопросов из раздела 08.<br>
+    <b>2.</b> Ручная проверка государственного реестра ndda.kz на наличие удостоверения
+    у Huawei — поручить юристу вместе с вопросом о держателе нашего РУ.<br>
+    <b>3.</b> Внести BYOD в дорожную карту приложения Damumed как отдельный источник
+    данных — независимо от выбора между А и Б.
+  </div>
+</section>
+
+<section id="files">
+  <div class="shead"><span class="snum">Приложения</span><h2>Файлы варианта</h2></div>
+  <p class="sdek">Документы этого варианта. Материалы вариантов А и Б —
+  на <a href="index.html">странице с регистрацией</a> и
+  <a href="bez-registracii.html">странице без регистрации</a>.</p>
+
+  <div class="files">
+    <a class="file" href="files/damumed-band-huawei.docx" download>
+      <span class="fi">DOCX</span>
+      <span class="fb"><b>Полный отчёт варианта В</b><i>13 разделов, 37 источников, три сценария экономики</i></span>
+    </a>
+    <a class="file" href="index.html">
+      <span class="fi">→</span>
+      <span class="fb"><b>Вариант А: медизделие с РУ</b><i>страница, отчёт и калькулятор</i></span>
+    </a>
+    <a class="file" href="bez-registracii.html">
+      <span class="fi">→</span>
+      <span class="fb"><b>Вариант Б: без регистрации</b><i>страница, отчёт и калькулятор</i></span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  Исследование от 06.09.2026, 37 источников: официальные страницы Huawei и Huawei
+  Qingyun, документация разработчика и пользовательское соглашение Health Kit, реестр
+  и правила регистрации медизделий ЕАЭС, отраслевые кейсы Китая, Европы и Ближнего
+  Востока, розничные цены Казахстана. Исходный текст — research/10-huawei-partnership.md,
+  расчёты — tools/calc-variant-v.py. Изображения устройств — пресс-материалы
+  производителя из открытых источников.
+</footer>
+
+</div>
+</body>
+</html>
