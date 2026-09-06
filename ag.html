@@ -406,6 +406,13 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 .toc a{background:var(--surface); border-radius:99px; padding:8px 16px;
   text-decoration:none; font-size:14.5px; font-weight:600; color:var(--head)}
 .toc a:hover{background:var(--ln)}
+.partline{margin:52px 0 30px; padding:22px 26px; background:var(--head); color:#fff;
+  border-radius:22px; display:flex; flex-direction:column; gap:4px}
+.partline .pnum{font-family:"Spline Sans Mono",monospace; font-size:11.5px;
+  letter-spacing:.16em; text-transform:uppercase; opacity:.7}
+.partline .ptitle{font-size:25px; font-weight:700; line-height:1.2}
+.partline .pdek{font-size:15px; opacity:.85; line-height:1.5}
+@media(max-width:640px){.partline{padding:18px 20px} .partline .ptitle{font-size:21px}}
 .dl-row{display:flex; flex-wrap:wrap; gap:12px; margin-top:22px}
 .dl-btn{display:inline-flex; align-items:center; gap:12px; background:#fff;
   color:var(--head); border-radius:16px; padding:14px 20px; text-decoration:none;
@@ -496,6 +503,8 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
     <div class="d">валидация → регистрация → производство</div></div>
 </div>
 
+<div class="partline"><span class="pnum">Часть I</span><span class="ptitle">Продукт</span><span class="pdek">Что мы делаем, кому это нужно, сколько стоит и что требуется, чтобы выпустить</span></div>
+
 <section>
   <div class="shead"><span class="snum">01</span><h2>Задача</h2></div>
   <p class="sdek">Артериальная гипертония — самая массовая целевая группа: 1,78 млн
@@ -537,30 +546,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">02</span><h2>Что умеет мир: три технологии</h2></div>
-  <p class="sdek">Полный разбор — в исследовании по безманжетному давлению (32 источника).
-  Здесь — суть в трёх абзацах.</p>
-
-  <div class="three">
-    <div class="c"><span class="tag">Работает</span>
-      <h4>Микроманжета в ремешке</h4>
-      <p>Насос физически пережимает артерию — это миниатюрный тонометр, а не алгоритм.
-      Единственная технология, где цифра настоящая. Так устроены Huawei Watch D2 и D3.</p></div>
-    <div class="c"><span class="tag">Допущено со звёздочкой</span>
-      <h4>Оптика + калибровка манжетой</h4>
-      <p>Допущено FDA у Hilo, но калибровочная манжета входит в комплект и нужна
-      регулярно. То есть допущен не «браслет вместо тонометра», а «браслет плюс
-      тонометр».</p></div>
-    <div class="c"><span class="tag">Не доказано</span>
-      <h4>Без калибровки вообще</h4>
-      <p>Заявляют Vital Signals и Valencell. Ни одной опубликованной рецензируемой
-      валидации, ни одного допуска. Академическая позиция: термин «без калибровки»
-      следует понимать операционально, а не буквально.</p></div>
-  </div>
-</section>
-
-<section>
-  <div class="shead"><span class="snum">03</span><h2>Продукт: браслет с микроманжетой</h2></div>
+  <div class="shead"><span class="snum">02</span><h2>Продукт: браслет с микроманжетой</h2></div>
   <p class="sdek">Второй продукт линейки отличается от общего браслета одной деталью –
   в ремешок встроены микронасос и воздушная камера. Эта деталь меняет всё: класс изделия,
   цену, срок выхода и то, какой показатель поликлиники он закрывает.</p>
@@ -592,10 +578,29 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   26,5 мм воздушной камеры, тот же принцип, подтверждённый регистрацией NMPA и CE MDR.
   Разница в том, что у них это часы с экраном за 148–190 тысяч тенге в казахстанской
   рознице, а у нас – браслет без экрана, встроенный в медкарту и рабочее место врача.</p>
+
+  <h3 class="csub">Почему осциллометрия, а не оптика</h3>
+  <p class="csub-dek">Три технологии, которыми в мире пытаются мерить давление на запястье, — и почему рабочая только одна.</p>
+  <div class="three">
+    <div class="c"><span class="tag">Работает</span>
+      <h4>Микроманжета в ремешке</h4>
+      <p>Насос физически пережимает артерию — это миниатюрный тонометр, а не алгоритм.
+      Единственная технология, где цифра настоящая. Так устроены Huawei Watch D2 и D3.</p></div>
+    <div class="c"><span class="tag">Допущено со звёздочкой</span>
+      <h4>Оптика + калибровка манжетой</h4>
+      <p>Допущено FDA у Hilo, но калибровочная манжета входит в комплект и нужна
+      регулярно. То есть допущен не «браслет вместо тонометра», а «браслет плюс
+      тонометр».</p></div>
+    <div class="c"><span class="tag">Не доказано</span>
+      <h4>Без калибровки вообще</h4>
+      <p>Заявляют Vital Signals и Valencell. Ни одной опубликованной рецензируемой
+      валидации, ни одного допуска. Академическая позиция: термин «без калибровки»
+      следует понимать операционально, а не буквально.</p></div>
+  </div>
 </section>
 
 <section>
-  <div class="shead"><span class="snum">04</span><h2>Кому нужен и почему поликлинике это выгодно</h2></div>
+  <div class="shead"><span class="snum">03</span><h2>Кому нужен и почему поликлинике это выгодно</h2></div>
   <p class="sdek">Самая крупная целевая группа проекта – и единственная, где деньги
   поликлиники завязаны прямо на тот показатель, который закрывает прибор.</p>
 
@@ -632,7 +637,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">05</span><h2>Цена</h2></div>
+  <div class="shead"><span class="snum">04</span><h2>Цена</h2></div>
   <p class="sdek">Логика та же, что у общего браслета: не снимать маржу с железа,
   а брать проникновением. Но себестоимость здесь кратно выше, поэтому и цены другие.</p>
 
@@ -668,7 +673,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">06</span><h2>Экономика</h2></div>
+  <div class="shead"><span class="snum">05</span><h2>Экономика</h2></div>
   <p class="sdek">Расчёт в тех же допущениях, что и у общего браслета: курс 465 ₸/$,
   комиссия розничного канала 13%, подписка 690 ₸/мес при конверсии 30%, внутренняя
   цена модуля 500 ₸ на пациента в месяц, операционные расходы 1,5 млн ₸/мес,
@@ -743,7 +748,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">07</span><h2>Регистрация и производство</h2></div>
+  <div class="shead"><span class="snum">06</span><h2>Регистрация и производство</h2></div>
   <p class="sdek">Класс риска тот же, что у общего браслета, но появляется отдельная
   клиническая задача, которой у него нет.</p>
 
@@ -790,7 +795,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">08</span><h2>Риски и что это даёт</h2></div>
+  <div class="shead"><span class="snum">07</span><h2>Риски и что это даёт</h2></div>
   <p class="sdek">Четыре риска, из которых два снимаются запросами, а два остаются
   предметом решения.</p>
 
@@ -835,15 +840,267 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 </section>
 
-<section>
-  <div class="shead"><span class="snum">Разборы</span><h2>Детально по каждому игроку</h2></div>
-  <p class="sdek">Дальше — восемь разборов подряд, в одном формате: корпоративный контур Huawei, его эталонное устройство и шесть компаний категории. По каждому: технические характеристики из первичных документов, принцип измерения, регистрационные номера, клиническая база вместе с критикой, бизнес-модель, риски и статус переписки. Сравнение всех путей — в конце страницы.</p>
+<div class="partline"><span class="pnum">Часть II</span><span class="ptitle">Решение по партнёрам</span><span class="pdek">Все пути закрыть давление рядом, чем каждый жертвует и что делаем дальше</span></div>
 
-<div class="toc"><a href="#huawei">🇨🇳 Huawei — партнёрство</a><a href="#h9d20">🇨🇳 H9D20 — устройство</a><a href="#sky-labs">🇰🇷 Sky Labs</a><a href="#hilo">🇨🇭 Hilo</a><a href="#valencell">🇺🇸 Valencell</a><a href="#livemetric">🇱🇺 LiveMetric</a><a href="#vital-signals">🇺🇸 Vital Signals</a></div>
+<section id="sravnenie">
+  <div class="shead"><span class="snum">08</span><h2>Восемь путей закрыть давление</h2></div>
+<p class="sdek">Всё, что разобрано выше, сведено в одну матрицу по единым критериям.
+  Это главный раздел страницы: по нему принимается решение.</p>
+
+  <div class="paths">
+    <div class="path">
+      <div class="ph-h"><span class="ph-n">1. Ничего не менять</span><span class="ph-v yes">база</span></div>
+      <dl>
+        <dt>Что это</dt><dd>наш браслет плюс манжетный тонометр дома</dd>
+        <dt>Цифра АД</dt><dd class="no">нет</dd>
+        <dt>Статус в РК</dt><dd class="yes">чисто</dd>
+        <dt>Цена пациенту</dt><dd>14 990 ₸</dd>
+        <dt>Что требуется</dt><dd>ничего</dd>
+      </dl>
+    </div>
+    <div class="path">
+      <div class="ph-h"><span class="ph-n">2. SKU C — своя микроманжета</span><span class="ph-v yes">запросить</span></div>
+      <dl>
+        <dt>Что это</dt><dd>котировка у китайского завода, второй продукт линейки</dd>
+        <dt>Цифра АД</dt><dd class="yes">да, настоящая</dd>
+        <dt>Статус в РК</dt><dd>своё удостоверение, класс 2а</dd>
+        <dt>Цена</dt><dd>выше потолка 11,5 USD FOB (оценка)</dd>
+        <dt>Что требуется</dt><dd>запрос в RFQ и валидация по ISO 81060-2</dd>
+      </dl>
+    </div>
+    <div class="path">
+      <div class="ph-h"><span class="ph-n">3. Huawei — корпоративный контур</span><span class="ph-v">спросить</span></div>
+      <dl>
+        <dt>Что это</dt><dd>H9D20 с открытыми данными под брендом Damumed</dd>
+        <dt>Цифра АД</dt><dd class="yes">да</dd>
+        <dt>Статус в РК</dt><dd class="no">нет, и сам контур закрыт вне КНР</dd>
+        <dt>Цена</dt><dd>не публикуется</dd>
+        <dt>Что требуется</dt><dd>капитал от 5 млн юаней и снятие географического ограничения</dd>
+      </dl>
+    </div>
+    <div class="path">
+      <div class="ph-h"><span class="ph-n">4. Sky Labs — дистрибуция</span><span class="ph-v yes">писали первым</span></div>
+      <dl>
+        <dt>Что это</dt><dd>кольцо CART BP pro в наш канал</dd>
+        <dt>Цифра АД</dt><dd class="yes">да</dd>
+        <dt>Статус в РК</dt><dd>CE-MDR сокращает путь в ЕАЭС</dd>
+        <dt>Цена</dt><dd>$392 розница</dd>
+        <dt>Что требуется</dt><dd>канал в поликлиники и подбор размеров колец</dd>
+      </dl>
+    </div>
+    <div class="path">
+      <div class="ph-h"><span class="ph-n">5. Hilo — лицензия CALFREE</span><span class="ph-v">ждём ответа</span></div>
+      <dl>
+        <dt>Цифра АД</dt><dd>да, но с калибровкой манжетой</dd>
+        <dt>Статус в РК</dt><dd class="no">нет</dd>
+        <dt>Цена</dt><dd>условия лицензии неизвестны</dd>
+        <dt>Что требуется</dt><dd>решить вопрос облачного расчёта</dd>
+      </dl>
+    </div>
+    <div class="path">
+      <div class="ph-h"><span class="ph-n">6. Valencell — лицензия алгоритма</span><span class="ph-v">спросили ради оптики</span></div>
+      <dl>
+        <dt>Цифра АД</dt><dd class="no">без допуска</dd>
+        <dt>Статус в РК</dt><dd class="no">нет</dd>
+        <dt>Цена</dt><dd>условия лицензии неизвестны</dd>
+        <dt>Что требуется</dt><dd>своя клиническая валидация; допуска FDA нет три года</dd>
+      </dl>
+    </div>
+    <div class="path">
+      <div class="ph-h"><span class="ph-n">7. Biobeat — пилот</span><span class="ph-v">не наш сегмент</span></div>
+      <dl>
+        <dt>Что это</dt><dd>нагрудный пластырь, стационар и госпиталь на дому</dd>
+        <dt>Цифра АД</dt><dd class="yes">да</dd>
+        <dt>Статус в РК</dt><dd class="no">нет</dd>
+        <dt>Цена</dt><dd>пластырь одноразовый</dd>
+        <dt>Что требуется</dt><dd>стационарное звено, которого у нас пока нет</dd>
+      </dl>
+    </div>
+    <div class="path">
+      <div class="ph-h"><span class="ph-n">8. LiveMetric — пилот или OEM</span><span class="ph-v">дешёвый эксперимент</span></div>
+      <dl>
+        <dt>Цифра АД</dt><dd class="yes">да, прямая тонометрия</dd>
+        <dt>Статус в РК</dt><dd class="no">нет</dd>
+        <dt>Цена</dt><dd>неизвестна</dd>
+        <dt>Что требуется</dt><dd>принять риск поставщика из десяти человек</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="note warn">
+    <div class="t">Что видно из матрицы сразу</div>
+    <b>Ни один путь не даёт одновременно цифру давления, законный статус в Казахстане
+    и приемлемую цену.</b> Каждый жертвует чем-то одним: путь 2 — сроком и ценой,
+    путь 3 — недоступен по географии, путь 4 — ценой, пути 5–8 — статусом в РК.
+    Это не недоработка анализа, а состояние отрасли: категория легализована меньше
+    двух лет назад и до Казахстана ещё не дошла.
+  </div>
+
+  <h3 style="font-size:19px;margin:34px 0 10px">Ранжирование по стоимости проверки</h3>
+  <p>Правильный критерий сейчас — не «сколько заработаем», а «сколько стоит выяснить».
+  Ни один вариант не готов к решению, зато три из них проверяются бесплатно.</p>
+
+  <div class="trio">
+    <div class="r"><div class="rt"><b>1</b></div><div class="rv">Действие: <b>Письмо в Sky Labs</b> · Стоимость проверки: 0 ₸ · Что даёт даже при отказе: понимание, как они устроены на новых рынках; их модель возмещения — образец для нашего варианта А</div></div>
+    <div class="r"><div class="rt"><b>2</b></div><div class="rv">Действие: <b>SKU C в RFQ заводам</b> · Стоимость проверки: 0 ₸ · Что даёт даже при отказе: настоящая цена второго продукта вместо оценки; вопрос про ISO 81060-2 и NMPA сразу отделит серьёзных поставщиков</div></div>
+    <div class="r"><div class="rt"><b>3</b></div><div class="rv">Действие: <b>Запрос в Huawei Kazakhstan</b> · Стоимость проверки: 0 ₸ · Что даёт даже при отказе: ответ про уровень данных на Watch D2 закрывает направление в любую сторону</div></div>
+    <div class="r"><div class="rt">4</div><div class="rv">Действие: Письмо в Valencell · Стоимость проверки: 0 ₸ · Что даёт даже при отказе: требования к оптическому тракту от поставщика датчиков Samsung и Huawei — ориентир для выбора завода</div></div>
+    <div class="r"><div class="rt">5</div><div class="rv">Действие: Напоминание в Hilo 26.09 · Стоимость проверки: 0 ₸ · Что даёт даже при отказе: то же по оптике; плюс ясность по CALFREE</div></div>
+    <div class="r"><div class="rt">6</div><div class="rv">Действие: Biobeat и LiveMetric · Стоимость проверки: 0 ₸ · Что даёт даже при отказе: ✅ отправлены 06.09 вместе с остальными</div></div>
+  </div>
+
+  <h3 style="font-size:19px;margin:34px 0 10px">Что произойдёт при каждом исходе</h3>
+
+  <p><strong>Если Sky Labs согласится на дистрибуцию</strong> — у нас появляется
+  зарегистрированный прибор с цифрой давления и путь через возмещение, который они уже
+  прошли в Корее. Это самый сильный из возможных исходов, но цена $392 ограничивает
+  его платёжеспособной группой и потребует отдельной ценовой модели.</p>
+
+  <p><strong>Если Huawei откроет данные на Watch D2</strong> — появляется техническая
+  возможность, но остаётся регуляторная: у устройства нет статуса медизделия
+  в Казахстане, и получать его пришлось бы Huawei, а не нам. То есть даже успех здесь
+  не снимает вопрос зачёта наблюдения по приказу.</p>
+
+  <p><strong>Если завод даст приемлемую цену на SKU C</strong> — это единственный путь,
+  где мы остаёмся владельцами продукта и держателями удостоверения. Медленный
+  и дорогой, но свой. Именно поэтому запрос в RFQ стоит отправить независимо от всего
+  остального.</p>
+
+  <p><strong>Если все откажут</strong> — ничего не ломается. Наша клиническая модель
+  изначально построена так, что давление в ней не несущая конструкция: для гипертоника
+  ценность браслета в скрининге фибрилляции предсердий, поведенческом контуре
+  и приверженности. Мы возвращаемся к базовому пути и ждём, во что выльются исключения
+  FDA по оптическому измерению давления в 2027 году.</p>
+
+  <div class="note">
+    <div class="t">Итог одной строкой</div>
+    <b>Решение по первой партии не зависит ни от одного из этих переговоров</b> — оно
+    остаётся за основной стратегией — медизделием с регистрационным удостоверением.
+    Все восемь путей относятся ко второму продукту линейки, и правильная тактика
+    сейчас — собрать ответы на разосланные запросы и вернуться к вопросу через
+    квартал, когда появятся факты вместо оценок.
+  </div>
+
+  <h3 class="csub">Приоритеты и статус переписки</h3>
+<div class="rows">
+    <div class="row hi">
+      <span class="pr">1</span>
+      <span><span class="nm">🇰🇷 Sky Labs</span> <span class="geo">· Корея, кольцо · <a href="#sky-labs">к разбору</a></span></span>
+      <span class="stt yes">✅ отправлено 06.09</span>
+      <span class="want">Просим: дистрибуцию в Казахстане и интеграцию с Damumed. Главный кандидат.</span>
+    </div>
+    <div class="row">
+      <span class="pr">2</span>
+      <span><span class="nm">🇨🇭 Hilo</span> <span class="geo">· Швейцария, браслет · <a href="#hilo">к разбору</a></span></span>
+      <span class="stt yes">✅ отправлено 05.09</span>
+      <span class="want">Просим: лицензию на технологию CALFREE. Ответа нет, напоминание 26.09.</span>
+    </div>
+    <div class="row">
+      <span class="pr">3</span>
+      <span><span class="nm">🇺🇸 Valencell</span> <span class="geo">· США, датчик на палец · <a href="#valencell">к разбору</a></span></span>
+      <span class="stt yes">✅ отправлено 06.09</span>
+      <span class="want">Просим: лицензию алгоритма и требования к оптическому тракту.</span>
+    </div>
+    <div class="row">
+      <span class="pr">4</span>
+      <span><span class="nm">🇮🇱 Biobeat</span> <span class="geo">· Израиль, пластырь · письмо отправлено</span></span>
+      <span class="stt yes">✅ отправлено 06.09</span>
+      <span class="want">Не наш сегмент: одноразовый нагрудный пластырь для стационара, в амбулаторной программе не окупается. Три допуска FDA, но независимое исследование в PLOS One нашло существенную потерю данных. Письмо отправлено 06.09 — если ответят, вернёмся.</span>
+    </div>
+    <div class="row">
+      <span class="pr">5</span>
+      <span><span class="nm">🇱🇺 LiveMetric</span> <span class="geo">· Люксембург, браслет · <a href="#livemetric">к разбору</a></span></span>
+      <span class="stt yes">✅ <b>диалог идёт</b></span>
+      <span class="want">Просим: пилот или OEM. <b>Единственные, кто ответил</b> — в тот же день, с CEO в копии: готовы поставлять вне США и ЕС, обсуждать API и хранение данных, позже OEM вплоть до локального производства.</span>
+    </div>
+    <div class="row">
+      <span class="pr">6</span>
+      <span><span class="nm">🇺🇸 Vital Signals</span> <span class="geo">· США, кольцо $399 · <a href="#vital-signals">к разбору</a></span></span>
+      <span class="stt">🚫 не пишем</span>
+      <span class="want">Нет допуска, валидация не опубликована. Ждём публикации осенью 2026.</span>
+    </div>
+  </div>
+
+<div class="fig" style="margin-bottom:44px">
+  <h3>Адреса и сроки напоминаний</h3>
+  <div class="sub">Куда ушло каждое письмо, что ответили и когда напоминать</div>
+  <div class="trio">
+    <div class="r"><div class="rt"><b>Sky Labs</b></div><div class="rv">Адрес: info@skylabs.io + пресс-служба · Отправлено: 06.09, 14:37 · Что дальше: напоминание 20.09</div></div>
+    <div class="r"><div class="rt"><b>Hilo</b></div><div class="rv">Адрес: info@aktiia.com · Отправлено: 05.09, 15:30 · Что дальше: напоминание 26.09</div></div>
+    <div class="r"><div class="rt"><b>Valencell</b></div><div class="rv">Адрес: info@valencell.com · Отправлено: 06.09, 14:37 · Что дальше: напоминание 20.09</div></div>
+    <div class="r"><div class="rt"><b>Biobeat</b></div><div class="rv">Адрес: info@bio-beat.com · Отправлено: 06.09, 14:37 · Что дальше: напоминание 20.09</div></div>
+    <div class="r"><div class="rt"><b>LiveMetric</b></div><div class="rv">Адрес: info@livemetric.com · Отправлено: 06.09, 14:37 · Что дальше: напоминание 20.09</div></div>
+    <div class="r"><div class="rt"><b>Huawei Kazakhstan</b></div><div class="rv">Адрес: aiman.sakhova@huawei.com · Отправлено: ⏸ черновик · Что дальше: заход через личный контакт владельца</div></div>
+    <div class="r"><div class="rt">Vital Signals</div><div class="rv">Адрес: — · Отправлено: не пишем · Что дальше: ждём публикации исследования, осень 2026</div></div>
+  </div>
+  <div class="cap">Письма в Sky Labs, Valencell и Biobeat отправлены на общие ящики
+  с просьбой переадресовать профильному человеку: Mark Felice (VP of Business
+  Development and Licensing) в Valencell и Lior Ben Shettrit (VP Business Development
+  &amp; Sales) в Biobeat. Адрес info@skylabs.io указан самим CEO Sky Labs в его профиле
+  как адрес для деловых обращений.</div>
+</div>
 </section>
 
+<section>
+  <div class="shead"><span class="snum">09</span><h2>Пять выводов о рынке</h2></div>
+
+  <p><strong>1. Побеждает не технология, а способ входа в систему здравоохранения.</strong>
+  Sky Labs с кольцом на оптическом датчике обошёл технологически более сильных
+  конкурентов, потому что зашёл через возмещение и назначение врача. Это подтверждает
+  нашу ставку в варианте А.</p>
+
+  <p><strong>2. Международная экспансия здесь идёт только через локального
+  партнёра.</strong> Sky Labs: Otsuka в Японии, IEM в Европе, Omron в рознице. Biobeat:
+  Kestra, Inbound Health, RWJBarnabas. Huawei вне Китая: Dubai Health, QCRI,
+  HM Hospitals. Никто не выходит на новый рынок сам. <strong>Это наш главный аргумент
+  в любых переговорах:</strong> мы — именно такой партнёр для Казахстана.</p>
+
+  <p><strong>3. Независимая валидация продолжает бить по лидерам.</strong> После
+  ретракции работы по Aktiia появился второй случай — PLOS One по Biobeat
+  с существенной потерей данных. Чужим маркетинговым цифрам не верить.</p>
+
+  <p><strong>4. Разрыв между допуском и клиническим признанием никуда не делся.</strong>
+  Из шести компаний допуски FDA есть у трёх, но ни одна не переубедила европейское
+  и американское кардиологические общества. Ссылаться на чужие допуски как
+  на доказательство точности нельзя.</p>
+
+  <p><strong>5. Ни один вариант не решает задачу первой партии.</strong> Вариант А
+  остаётся рекомендацией, а эти переговоры — способ добыть недостающее: цифру давления
+  вторым продуктом линейки и требования к оптическому тракту для запроса заводам.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">10</span><h2>Календарь</h2></div>
+
+  <dl class="pairs">
+    <div class="pair"><dt><b>✅ 06.09.2026</b></dt><dd>отправлены письма в <b>Sky Labs</b>, <b>Valencell</b>, <b>Biobeat</b> и <b>LiveMetric</b></dd></div>
+    <div class="pair"><dt>⏸ у владельца</dt><dd>запрос в <b>Huawei Technologies Kazakhstan</b> — заход через личный контакт, черновик готов</dd></div>
+    <div class="pair"><dt><b>26.09.2026</b></dt><dd>если нет ответа от <b>Hilo</b> — напоминание в тот же тред</dd></div>
+    <div class="pair"><dt>20.09.2026</dt><dd>если нет ответов от Sky Labs и остальных — напоминания в те же треды</dd></div>
+    <div class="pair"><dt>осень 2026</dt><dd>проверить публикацию исследования <b>Vital Signals</b></dd></div>
+    <div class="pair"><dt>январь 2027</dt><dd>проверить, во что вылились исключения FDA по оптическому измерению АД</dd></div>
+  </dl>
+
+  <div class="note warn">
+    <div class="t">Правило проекта</div>
+    <b>06.09.2026 четыре письма отправлены</b> — Sky Labs (info@skylabs.io, адрес
+    указан самим CEO как деловой), Valencell (info@valencell.com, с просьбой
+    переадресовать Mark Felice, VP of Business Development and Licensing), Biobeat
+    (info@bio-beat.com, профильно Lior Ben Shettrit) и LiveMetric
+    (info@livemetric.com). Вместе с Hilo от 05.09 в работе пять обращений.<br><br>
+    ⏸ Письмо в Huawei Kazakhstan (aiman.sakhova@huawei.com — контактное лицо
+    бизнес-группы предприятия) <b>сознательно не отправлено</b>: у владельца есть
+    тёплый контакт в компании, заход будет через него. Тексты всех писем —
+    <code>docs/pisma-shest-kompaniy.md</code> и <code>docs/pismo-huawei-kz.md</code>.
+  </div>
+</section>
+
+<div class="partline"><span class="pnum">Часть III</span><span class="ptitle">Справочник по игрокам</span><span class="pdek">Детально по каждому: характеристики, регуляторика, клиническая база, риски и статус переписки. Для тех, кто углубляется — решение принимается по части II</span></div>
+
+  <div class="toc"><a href="#huawei">🇨🇳 Huawei — партнёрство</a><a href="#h9d20">🇨🇳 H9D20 — устройство</a><a href="#sky-labs">🇰🇷 Sky Labs</a><a href="#hilo">🇨🇭 Hilo</a><a href="#valencell">🇺🇸 Valencell</a><a href="#livemetric">🇱🇺 LiveMetric</a><a href="#vital-signals">🇺🇸 Vital Signals</a></div>
+
 <section id="huawei">
-  <div class="shead"><span class="snum">09</span><h2><span class="cflag">🇨🇳</span>Huawei как партнёр: что доступно нам, а что нет</h2></div>
+  <div class="shead"><span class="snum">11</span><h2><span class="cflag">🇨🇳</span>Huawei как партнёр: что доступно нам, а что нет</h2></div>
   <p class="sdek">Речь здесь о компании и о том, можно ли с ней работать: какие у Huawei контуры, что из них доступно в Казахстане, где проходит стена и что мы просим на переговорах. Разбор самого устройства — в следующем разделе.</p>
 
   <div class="phg">
@@ -929,7 +1186,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section id="h9d20">
-  <div class="shead"><span class="snum">10</span><h2><span class="cflag">🇨🇳</span>Устройство H9D20: эталон требований к нашему прибору</h2></div>
+  <div class="shead"><span class="snum">12</span><h2><span class="cflag">🇨🇳</span>Устройство H9D20: эталон требований к нашему прибору</h2></div>
   <p class="sdek">Корпоративная версия Watch D2: та же аппаратная платформа в другой юридической упаковке. Четыре регистрации NMPA, открытые данные партнёру и заводская кастомизация под чужой бренд — всё то, что нам нужно, и всё это недоступно за пределами Китая.</p>
 
   <div class="st hold">⏸ Купить нельзя — разбираем как источник требований для нашей спецификации</div>
@@ -1216,7 +1473,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section id="sky-labs">
-  <div class="shead"><span class="snum">11</span><h2><span class="cflag">🇰🇷</span>Sky Labs — CART BP pro</h2></div>
+  <div class="shead"><span class="snum">13</span><h2><span class="cflag">🇰🇷</span>Sky Labs — CART BP pro</h2></div>
   <p class="sdek">Кольцо, которое зашло в систему здравоохранения там, где не смогли более богатые конкуренты: государственная страховка Кореи платит за него по коду суточного мониторирования. <strong>Главный кандидат в партнёры по нашей оценке.</strong></p>
 
   <div class="st sent">✅ Письмо отправлено 6 сентября 2026, 14:37 · ждём ответа</div>
@@ -1350,7 +1607,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section id="hilo">
-  <div class="shead"><span class="snum">12</span><h2><span class="cflag">🇨🇭</span>Hilo — Hilo Band</h2></div>
+  <div class="shead"><span class="snum">14</span><h2><span class="cflag">🇨🇭</span>Hilo — Hilo Band</h2></div>
   <p class="sdek">Лидер категории по деньгам и допускам: первый в мире безрецептурный допуск FDA на безманжетный монитор давления. Но в США продаёт браслет как оздоровительный продукт, а медизделием там числится манжета.</p>
 
   <div class="st sent">✅ Письмо отправлено 5 сентября 2026, 15:30 · ответа нет, напоминание 26.09</div>
@@ -1497,7 +1754,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section id="valencell">
-  <div class="shead"><span class="snum">13</span><h2><span class="cflag">🇺🇸</span>Valencell — Fingertip Monitor</h2></div>
+  <div class="shead"><span class="snum">15</span><h2><span class="cflag">🇺🇸</span>Valencell — Fingertip Monitor</h2></div>
   <p class="sdek">Единственная компания списка, у которой нечего показать: прибор анонсировали в 2021-м, показали на CES в 2023-м, а допуска FDA нет до сих пор. Но интересна она не прибором — <strong>это лицензиар сенсорных технологий Samsung, Bose, Sony и Huawei</strong>.</p>
 
   <div class="st sent">✅ Письмо отправлено 6 сентября 2026, 14:37 · ждём ответа</div>
@@ -1587,7 +1844,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section id="livemetric">
-  <div class="shead"><span class="snum">14</span><h2><span class="cflag">🇱🇺</span>LiveMetric — LiveOne</h2></div>
+  <div class="shead"><span class="snum">16</span><h2><span class="cflag">🇱🇺</span>LiveMetric — LiveOne</h2></div>
   <p class="sdek">Единственный прибор категории, который измеряет давление механически: массив датчиков прижимается к лучевой артерии. Допуск FDA есть, а компании фактически нет — десять человек в поиске капитала.</p>
 
   <div class="st sent">✅ Отправлено 6 сентября 14:37 · ответ получен 16:33 · <b>наш ответ отправлен 17:19, ждём</b></div>
@@ -1764,7 +2021,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section id="vital-signals">
-  <div class="shead"><span class="snum">15</span><h2><span class="cflag">🇺🇸</span>Vital Signals — Signal Ring</h2></div>
+  <div class="shead"><span class="snum">17</span><h2><span class="cflag">🇺🇸</span>Vital Signals — Signal Ring</h2></div>
   <p class="sdek">Кольцо за $399 без подписки, которое обещает измерять давление вообще без калибровки. Основатель — из ранней команды Android. Допуска нет, валидация не опубликована, отгрузка ещё не началась. <strong>Мы им не пишем — наблюдаем.</strong></p>
 
   <div class="st hold">⏸ Письмо не отправляем — ждём публикации исследования, осень 2026</div>
@@ -1846,264 +2103,6 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   в четырёх центрах, включая Стэнфорд. Сроки её выхода компания не называет —
   и это косвенно подтверждает, что нынешняя версия для диагностики не предназначена.</p>
   <p class="csrc">Профиль составлен 06.09.2026 по материалам signalring.com, публикациям The Seattle Times, Engadget, Notebookcheck и разбору healthcarediscovery.ai. Независимых тестов прибора на момент составления не существует.</p>
-</section>
-
-<section id="sravnenie">
-  <div class="shead"><span class="snum">16</span><h2>Сравнение: кто из них кто</h2></div>
-  <p class="sdek">Все восемь разобранных путей — рядом, по единым признакам. Здесь же приоритеты переписки и её текущий статус.</p>
-
-<div class="rows">
-    <div class="row hi">
-      <span class="pr">1</span>
-      <span><span class="nm">🇰🇷 Sky Labs</span> <span class="geo">· Корея, кольцо · <a href="#sky-labs">к разбору</a></span></span>
-      <span class="stt yes">✅ отправлено 06.09</span>
-      <span class="want">Просим: дистрибуцию в Казахстане и интеграцию с Damumed. Главный кандидат.</span>
-    </div>
-    <div class="row">
-      <span class="pr">2</span>
-      <span><span class="nm">🇨🇭 Hilo</span> <span class="geo">· Швейцария, браслет · <a href="#hilo">к разбору</a></span></span>
-      <span class="stt yes">✅ отправлено 05.09</span>
-      <span class="want">Просим: лицензию на технологию CALFREE. Ответа нет, напоминание 26.09.</span>
-    </div>
-    <div class="row">
-      <span class="pr">3</span>
-      <span><span class="nm">🇺🇸 Valencell</span> <span class="geo">· США, датчик на палец · <a href="#valencell">к разбору</a></span></span>
-      <span class="stt yes">✅ отправлено 06.09</span>
-      <span class="want">Просим: лицензию алгоритма и требования к оптическому тракту.</span>
-    </div>
-    <div class="row">
-      <span class="pr">4</span>
-      <span><span class="nm">🇮🇱 Biobeat</span> <span class="geo">· Израиль, пластырь · письмо отправлено</span></span>
-      <span class="stt yes">✅ отправлено 06.09</span>
-      <span class="want">Не наш сегмент: одноразовый нагрудный пластырь для стационара, в амбулаторной программе не окупается. Три допуска FDA, но независимое исследование в PLOS One нашло существенную потерю данных. Письмо отправлено 06.09 — если ответят, вернёмся.</span>
-    </div>
-    <div class="row">
-      <span class="pr">5</span>
-      <span><span class="nm">🇱🇺 LiveMetric</span> <span class="geo">· Люксембург, браслет · <a href="#livemetric">к разбору</a></span></span>
-      <span class="stt yes">✅ <b>диалог идёт</b></span>
-      <span class="want">Просим: пилот или OEM. <b>Единственные, кто ответил</b> — в тот же день, с CEO в копии: готовы поставлять вне США и ЕС, обсуждать API и хранение данных, позже OEM вплоть до локального производства.</span>
-    </div>
-    <div class="row">
-      <span class="pr">6</span>
-      <span><span class="nm">🇺🇸 Vital Signals</span> <span class="geo">· США, кольцо $399 · <a href="#vital-signals">к разбору</a></span></span>
-      <span class="stt">🚫 не пишем</span>
-      <span class="want">Нет допуска, валидация не опубликована. Ждём публикации осенью 2026.</span>
-    </div>
-  </div>
-
-<div class="fig" style="margin-bottom:44px">
-  <h3>Адреса и сроки напоминаний</h3>
-  <div class="sub">Куда ушло каждое письмо, что ответили и когда напоминать</div>
-  <div class="trio">
-    <div class="r"><div class="rt"><b>Sky Labs</b></div><div class="rv">Адрес: info@skylabs.io + пресс-служба · Отправлено: 06.09, 14:37 · Что дальше: напоминание 20.09</div></div>
-    <div class="r"><div class="rt"><b>Hilo</b></div><div class="rv">Адрес: info@aktiia.com · Отправлено: 05.09, 15:30 · Что дальше: напоминание 26.09</div></div>
-    <div class="r"><div class="rt"><b>Valencell</b></div><div class="rv">Адрес: info@valencell.com · Отправлено: 06.09, 14:37 · Что дальше: напоминание 20.09</div></div>
-    <div class="r"><div class="rt"><b>Biobeat</b></div><div class="rv">Адрес: info@bio-beat.com · Отправлено: 06.09, 14:37 · Что дальше: напоминание 20.09</div></div>
-    <div class="r"><div class="rt"><b>LiveMetric</b></div><div class="rv">Адрес: info@livemetric.com · Отправлено: 06.09, 14:37 · Что дальше: напоминание 20.09</div></div>
-    <div class="r"><div class="rt"><b>Huawei Kazakhstan</b></div><div class="rv">Адрес: aiman.sakhova@huawei.com · Отправлено: ⏸ черновик · Что дальше: заход через личный контакт владельца</div></div>
-    <div class="r"><div class="rt">Vital Signals</div><div class="rv">Адрес: — · Отправлено: не пишем · Что дальше: ждём публикации исследования, осень 2026</div></div>
-  </div>
-  <div class="cap">Письма в Sky Labs, Valencell и Biobeat отправлены на общие ящики
-  с просьбой переадресовать профильному человеку: Mark Felice (VP of Business
-  Development and Licensing) в Valencell и Lior Ben Shettrit (VP Business Development
-  &amp; Sales) в Biobeat. Адрес info@skylabs.io указан самим CEO Sky Labs в его профиле
-  как адрес для деловых обращений.</div>
-</div>
-
-</section>
-
-<section>
-  <div class="shead"><span class="snum">17</span><h2>Итоговая аналитика: восемь путей закрыть давление</h2></div>
-  <p class="sdek">Всё, что разобрано выше, сведено в одну матрицу по единым критериям.
-  Это главный раздел страницы: по нему принимается решение.</p>
-
-  <div class="paths">
-    <div class="path">
-      <div class="ph-h"><span class="ph-n">1. Ничего не менять</span><span class="ph-v yes">база</span></div>
-      <dl>
-        <dt>Что это</dt><dd>наш браслет плюс манжетный тонометр дома</dd>
-        <dt>Цифра АД</dt><dd class="no">нет</dd>
-        <dt>Статус в РК</dt><dd class="yes">чисто</dd>
-        <dt>Цена пациенту</dt><dd>14 990 ₸</dd>
-        <dt>Что требуется</dt><dd>ничего</dd>
-      </dl>
-    </div>
-    <div class="path">
-      <div class="ph-h"><span class="ph-n">2. SKU C — своя микроманжета</span><span class="ph-v yes">запросить</span></div>
-      <dl>
-        <dt>Что это</dt><dd>котировка у китайского завода, второй продукт линейки</dd>
-        <dt>Цифра АД</dt><dd class="yes">да, настоящая</dd>
-        <dt>Статус в РК</dt><dd>своё удостоверение, класс 2а</dd>
-        <dt>Цена</dt><dd>выше потолка 11,5 USD FOB (оценка)</dd>
-        <dt>Что требуется</dt><dd>запрос в RFQ и валидация по ISO 81060-2</dd>
-      </dl>
-    </div>
-    <div class="path">
-      <div class="ph-h"><span class="ph-n">3. Huawei — корпоративный контур</span><span class="ph-v">спросить</span></div>
-      <dl>
-        <dt>Что это</dt><dd>H9D20 с открытыми данными под брендом Damumed</dd>
-        <dt>Цифра АД</dt><dd class="yes">да</dd>
-        <dt>Статус в РК</dt><dd class="no">нет, и сам контур закрыт вне КНР</dd>
-        <dt>Цена</dt><dd>не публикуется</dd>
-        <dt>Что требуется</dt><dd>капитал от 5 млн юаней и снятие географического ограничения</dd>
-      </dl>
-    </div>
-    <div class="path">
-      <div class="ph-h"><span class="ph-n">4. Sky Labs — дистрибуция</span><span class="ph-v yes">писали первым</span></div>
-      <dl>
-        <dt>Что это</dt><dd>кольцо CART BP pro в наш канал</dd>
-        <dt>Цифра АД</dt><dd class="yes">да</dd>
-        <dt>Статус в РК</dt><dd>CE-MDR сокращает путь в ЕАЭС</dd>
-        <dt>Цена</dt><dd>$392 розница</dd>
-        <dt>Что требуется</dt><dd>канал в поликлиники и подбор размеров колец</dd>
-      </dl>
-    </div>
-    <div class="path">
-      <div class="ph-h"><span class="ph-n">5. Hilo — лицензия CALFREE</span><span class="ph-v">ждём ответа</span></div>
-      <dl>
-        <dt>Цифра АД</dt><dd>да, но с калибровкой манжетой</dd>
-        <dt>Статус в РК</dt><dd class="no">нет</dd>
-        <dt>Цена</dt><dd>условия лицензии неизвестны</dd>
-        <dt>Что требуется</dt><dd>решить вопрос облачного расчёта</dd>
-      </dl>
-    </div>
-    <div class="path">
-      <div class="ph-h"><span class="ph-n">6. Valencell — лицензия алгоритма</span><span class="ph-v">спросили ради оптики</span></div>
-      <dl>
-        <dt>Цифра АД</dt><dd class="no">без допуска</dd>
-        <dt>Статус в РК</dt><dd class="no">нет</dd>
-        <dt>Цена</dt><dd>условия лицензии неизвестны</dd>
-        <dt>Что требуется</dt><dd>своя клиническая валидация; допуска FDA нет три года</dd>
-      </dl>
-    </div>
-    <div class="path">
-      <div class="ph-h"><span class="ph-n">7. Biobeat — пилот</span><span class="ph-v">не наш сегмент</span></div>
-      <dl>
-        <dt>Что это</dt><dd>нагрудный пластырь, стационар и госпиталь на дому</dd>
-        <dt>Цифра АД</dt><dd class="yes">да</dd>
-        <dt>Статус в РК</dt><dd class="no">нет</dd>
-        <dt>Цена</dt><dd>пластырь одноразовый</dd>
-        <dt>Что требуется</dt><dd>стационарное звено, которого у нас пока нет</dd>
-      </dl>
-    </div>
-    <div class="path">
-      <div class="ph-h"><span class="ph-n">8. LiveMetric — пилот или OEM</span><span class="ph-v">дешёвый эксперимент</span></div>
-      <dl>
-        <dt>Цифра АД</dt><dd class="yes">да, прямая тонометрия</dd>
-        <dt>Статус в РК</dt><dd class="no">нет</dd>
-        <dt>Цена</dt><dd>неизвестна</dd>
-        <dt>Что требуется</dt><dd>принять риск поставщика из десяти человек</dd>
-      </dl>
-    </div>
-  </div>
-
-  <div class="note warn">
-    <div class="t">Что видно из матрицы сразу</div>
-    <b>Ни один путь не даёт одновременно цифру давления, законный статус в Казахстане
-    и приемлемую цену.</b> Каждый жертвует чем-то одним: путь 2 — сроком и ценой,
-    путь 3 — недоступен по географии, путь 4 — ценой, пути 5–8 — статусом в РК.
-    Это не недоработка анализа, а состояние отрасли: категория легализована меньше
-    двух лет назад и до Казахстана ещё не дошла.
-  </div>
-
-  <h3 style="font-size:19px;margin:34px 0 10px">Ранжирование по стоимости проверки</h3>
-  <p>Правильный критерий сейчас — не «сколько заработаем», а «сколько стоит выяснить».
-  Ни один вариант не готов к решению, зато три из них проверяются бесплатно.</p>
-
-  <div class="trio">
-    <div class="r"><div class="rt"><b>1</b></div><div class="rv">Действие: <b>Письмо в Sky Labs</b> · Стоимость проверки: 0 ₸ · Что даёт даже при отказе: понимание, как они устроены на новых рынках; их модель возмещения — образец для нашего варианта А</div></div>
-    <div class="r"><div class="rt"><b>2</b></div><div class="rv">Действие: <b>SKU C в RFQ заводам</b> · Стоимость проверки: 0 ₸ · Что даёт даже при отказе: настоящая цена второго продукта вместо оценки; вопрос про ISO 81060-2 и NMPA сразу отделит серьёзных поставщиков</div></div>
-    <div class="r"><div class="rt"><b>3</b></div><div class="rv">Действие: <b>Запрос в Huawei Kazakhstan</b> · Стоимость проверки: 0 ₸ · Что даёт даже при отказе: ответ про уровень данных на Watch D2 закрывает направление в любую сторону</div></div>
-    <div class="r"><div class="rt">4</div><div class="rv">Действие: Письмо в Valencell · Стоимость проверки: 0 ₸ · Что даёт даже при отказе: требования к оптическому тракту от поставщика датчиков Samsung и Huawei — ориентир для выбора завода</div></div>
-    <div class="r"><div class="rt">5</div><div class="rv">Действие: Напоминание в Hilo 26.09 · Стоимость проверки: 0 ₸ · Что даёт даже при отказе: то же по оптике; плюс ясность по CALFREE</div></div>
-    <div class="r"><div class="rt">6</div><div class="rv">Действие: Biobeat и LiveMetric · Стоимость проверки: 0 ₸ · Что даёт даже при отказе: ✅ отправлены 06.09 вместе с остальными</div></div>
-  </div>
-
-  <h3 style="font-size:19px;margin:34px 0 10px">Что произойдёт при каждом исходе</h3>
-
-  <p><strong>Если Sky Labs согласится на дистрибуцию</strong> — у нас появляется
-  зарегистрированный прибор с цифрой давления и путь через возмещение, который они уже
-  прошли в Корее. Это самый сильный из возможных исходов, но цена $392 ограничивает
-  его платёжеспособной группой и потребует отдельной ценовой модели.</p>
-
-  <p><strong>Если Huawei откроет данные на Watch D2</strong> — появляется техническая
-  возможность, но остаётся регуляторная: у устройства нет статуса медизделия
-  в Казахстане, и получать его пришлось бы Huawei, а не нам. То есть даже успех здесь
-  не снимает вопрос зачёта наблюдения по приказу.</p>
-
-  <p><strong>Если завод даст приемлемую цену на SKU C</strong> — это единственный путь,
-  где мы остаёмся владельцами продукта и держателями удостоверения. Медленный
-  и дорогой, но свой. Именно поэтому запрос в RFQ стоит отправить независимо от всего
-  остального.</p>
-
-  <p><strong>Если все откажут</strong> — ничего не ломается. Наша клиническая модель
-  изначально построена так, что давление в ней не несущая конструкция: для гипертоника
-  ценность браслета в скрининге фибрилляции предсердий, поведенческом контуре
-  и приверженности. Мы возвращаемся к базовому пути и ждём, во что выльются исключения
-  FDA по оптическому измерению давления в 2027 году.</p>
-
-  <div class="note">
-    <div class="t">Итог одной строкой</div>
-    <b>Решение по первой партии не зависит ни от одного из этих переговоров</b> — оно
-    остаётся за основной стратегией — медизделием с регистрационным удостоверением.
-    Все восемь путей относятся ко второму продукту линейки, и правильная тактика
-    сейчас — собрать ответы на разосланные запросы и вернуться к вопросу через
-    квартал, когда появятся факты вместо оценок.
-  </div>
-</section>
-
-<section>
-  <div class="shead"><span class="snum">18</span><h2>Пять выводов о рынке</h2></div>
-
-  <p><strong>1. Побеждает не технология, а способ входа в систему здравоохранения.</strong>
-  Sky Labs с кольцом на оптическом датчике обошёл технологически более сильных
-  конкурентов, потому что зашёл через возмещение и назначение врача. Это подтверждает
-  нашу ставку в варианте А.</p>
-
-  <p><strong>2. Международная экспансия здесь идёт только через локального
-  партнёра.</strong> Sky Labs: Otsuka в Японии, IEM в Европе, Omron в рознице. Biobeat:
-  Kestra, Inbound Health, RWJBarnabas. Huawei вне Китая: Dubai Health, QCRI,
-  HM Hospitals. Никто не выходит на новый рынок сам. <strong>Это наш главный аргумент
-  в любых переговорах:</strong> мы — именно такой партнёр для Казахстана.</p>
-
-  <p><strong>3. Независимая валидация продолжает бить по лидерам.</strong> После
-  ретракции работы по Aktiia появился второй случай — PLOS One по Biobeat
-  с существенной потерей данных. Чужим маркетинговым цифрам не верить.</p>
-
-  <p><strong>4. Разрыв между допуском и клиническим признанием никуда не делся.</strong>
-  Из шести компаний допуски FDA есть у трёх, но ни одна не переубедила европейское
-  и американское кардиологические общества. Ссылаться на чужие допуски как
-  на доказательство точности нельзя.</p>
-
-  <p><strong>5. Ни один вариант не решает задачу первой партии.</strong> Вариант А
-  остаётся рекомендацией, а эти переговоры — способ добыть недостающее: цифру давления
-  вторым продуктом линейки и требования к оптическому тракту для запроса заводам.</p>
-</section>
-
-<section>
-  <div class="shead"><span class="snum">19</span><h2>Календарь</h2></div>
-
-  <dl class="pairs">
-    <div class="pair"><dt><b>✅ 06.09.2026</b></dt><dd>отправлены письма в <b>Sky Labs</b>, <b>Valencell</b>, <b>Biobeat</b> и <b>LiveMetric</b></dd></div>
-    <div class="pair"><dt>⏸ у владельца</dt><dd>запрос в <b>Huawei Technologies Kazakhstan</b> — заход через личный контакт, черновик готов</dd></div>
-    <div class="pair"><dt><b>26.09.2026</b></dt><dd>если нет ответа от <b>Hilo</b> — напоминание в тот же тред</dd></div>
-    <div class="pair"><dt>20.09.2026</dt><dd>если нет ответов от Sky Labs и остальных — напоминания в те же треды</dd></div>
-    <div class="pair"><dt>осень 2026</dt><dd>проверить публикацию исследования <b>Vital Signals</b></dd></div>
-    <div class="pair"><dt>январь 2027</dt><dd>проверить, во что вылились исключения FDA по оптическому измерению АД</dd></div>
-  </dl>
-
-  <div class="note warn">
-    <div class="t">Правило проекта</div>
-    <b>06.09.2026 четыре письма отправлены</b> — Sky Labs (info@skylabs.io, адрес
-    указан самим CEO как деловой), Valencell (info@valencell.com, с просьбой
-    переадресовать Mark Felice, VP of Business Development and Licensing), Biobeat
-    (info@bio-beat.com, профильно Lior Ben Shettrit) и LiveMetric
-    (info@livemetric.com). Вместе с Hilo от 05.09 в работе пять обращений.<br><br>
-    ⏸ Письмо в Huawei Kazakhstan (aiman.sakhova@huawei.com — контактное лицо
-    бизнес-группы предприятия) <b>сознательно не отправлено</b>: у владельца есть
-    тёплый контакт в компании, заход будет через него. Тексты всех писем —
-    <code>docs/pisma-shest-kompaniy.md</code> и <code>docs/pismo-huawei-kz.md</code>.
-  </div>
 </section>
 
 <footer>
