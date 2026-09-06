@@ -393,6 +393,20 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   .hc-tip b{display:block; color:#fff; margin-bottom:3px}
   .hc-d:hover .hc-tip{opacity:1; visibility:visible}
   @media(max-width:1080px){.hcal{position:static; width:216px; margin:0 0 26px}}
+  .tn-menu{position:relative;flex:0 0 auto;margin-left:auto}
+  .tn-menu>summary{list-style:none;cursor:pointer;padding:11px 12px;font-size:13px;color:#4b5563;
+    white-space:nowrap;user-select:none;border-bottom:2px solid transparent}
+  .tn-menu>summary::-webkit-details-marker{display:none}
+  .tn-menu>summary::after{content:" ▾";font-size:10px;opacity:.65}
+  .tn-menu[open]>summary{color:#111827;border-bottom-color:#cbd5e1}
+  .tn-drop{position:absolute;right:0;top:calc(100% + 1px);z-index:70;min-width:264px;max-width:82vw;
+    max-height:64vh;overflow-y:auto;background:#fff;border:1px solid #e5e7eb;border-radius:0 0 9px 9px;
+    box-shadow:0 12px 30px rgba(15,23,42,.14);padding:6px}
+  .tn-drop a{display:block;padding:8px 11px;font-size:13px;color:#374151;text-decoration:none;
+    border-radius:6px;border-bottom:none;white-space:normal;line-height:1.35}
+  .tn-drop a:hover{background:#f1f5f9;color:#111827}
+  .tn-drop .tn-n{display:inline-block;min-width:24px;color:#9ca3af;font-size:11.5px;font-weight:600}
+  @media(max-width:640px){.tn-drop{min-width:0;width:92vw}}
 </style>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
@@ -555,11 +569,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 <div class="wrap">
 
 <nav class="topnav">
-  <div class="topnav-in">
-    <a class="tn-b" href="#chast-1">I. Продукт</a>
-    <a href="#chast-2">II. Решение по партнёрам</a>
-    <a href="#chast-3">III. Справочник</a>
-  </div>
+  <div class="topnav-in"><a class="tn-b" href="#chast-1">I. Продукт</a><a href="#chast-2">II. Партнёры</a><a href="#chast-3">III. Разбор</a><details class="tn-menu"><summary>Разделы</summary><div class="tn-drop"><a href="#r01"><span class="tn-n">01</span>Задача</a><a href="#r02"><span class="tn-n">02</span>Продукт: браслет с микроманжетой</a><a href="#r03"><span class="tn-n">03</span>Кому нужен и почему поликлинике это выгодно</a><a href="#r04"><span class="tn-n">04</span>Цена и экономика</a><a href="#r05"><span class="tn-n">05</span>Регистрация и производство</a><a href="#r06"><span class="tn-n">06</span>Риски и что это даёт</a><a href="#sravnenie"><span class="tn-n">07</span>Шесть путей закрыть давление</a><a href="#r08"><span class="tn-n">08</span>Пять выводов о рынке</a><a href="#huawei"><span class="tn-n">09</span>🇨🇳Huawei как партнёр: что доступно нам, а что нет</a><a href="#h9d20"><span class="tn-n">10</span>🇨🇳Устройство H9D20: эталон требований к нашему прибору</a><a href="#sky-labs"><span class="tn-n">11</span>🇰🇷Sky Labs – CART BP pro</a><a href="#hilo"><span class="tn-n">12</span>🇨🇭Hilo – Hilo Band</a><a href="#valencell"><span class="tn-n">13</span>🇺🇸Valencell – Fingertip Monitor</a><a href="#livemetric"><span class="tn-n">14</span>🇱🇺LiveMetric – LiveOne</a><a href="#vital-signals"><span class="tn-n">15</span>🇺🇸Vital Signals – Signal Ring</a></div></details></div>
 </nav>
 <div class="tiles">
   <div class="tile hot"><span class="k">Целевая группа</span>
@@ -583,7 +593,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 
 <div class="partline" id="chast-1"><span class="pnum">Часть I</span><span class="ptitle">Продукт</span><span class="pdek">Что мы делаем, кому это нужно, сколько стоит и что требуется, чтобы выпустить</span></div>
 
-<section>
+<section id="r01">
   <div class="shead"><span class="snum">01</span><h2>Задача</h2></div>
   <p class="sdek">Артериальная гипертония – самая массовая целевая группа: 1,78 млн
   человек на диспансерном учёте. Целевой показатель программы управления заболеванием –
@@ -623,7 +633,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 </section>
 
-<section>
+<section id="r02">
   <div class="shead"><span class="snum">02</span><h2>Продукт: браслет с микроманжетой</h2></div>
   <p class="sdek">Второй продукт линейки отличается от общего браслета одной деталью –
   в ремешок встроены микронасос и воздушная камера. Эта деталь меняет всё: класс изделия,
@@ -677,7 +687,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 </section>
 
-<section>
+<section id="r03">
   <div class="shead"><span class="snum">03</span><h2>Кому нужен и почему поликлинике это выгодно</h2></div>
   <p class="sdek">Самая крупная целевая группа проекта – и единственная, где деньги
   поликлиники завязаны прямо на тот показатель, который закрывает прибор.</p>
@@ -714,7 +724,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   на суточное мониторирование в поликлинике.</p>
 </section>
 
-<section>
+<section id="r04">
   <div class="shead"><span class="snum">04</span><h2>Цена и экономика</h2></div>
   <div class="note alert">
     <div class="t">Раздел снят до появления двух цифр</div>
@@ -739,7 +749,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 </section>
 
-<section>
+<section id="r05">
   <div class="shead"><span class="snum">05</span><h2>Регистрация и производство</h2></div>
   <p class="sdek">Класс риска тот же, что у общего браслета, но появляется отдельная
   клиническая задача, которой у него нет.</p>
@@ -786,7 +796,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 </section>
 
-<section>
+<section id="r06">
   <div class="shead"><span class="snum">06</span><h2>Риски и что это даёт</h2></div>
   <p class="sdek">Пять рисков, из которых два снимаются запросами, остальные остаются
   предметом решения и наблюдения.</p>
@@ -941,7 +951,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 
 </section>
 
-<section>
+<section id="r08">
   <div class="shead"><span class="snum">08</span><h2>Пять выводов о рынке</h2></div>
 
   <p><strong>1. Побеждает не технология, а способ входа в систему здравоохранения.</strong>

@@ -346,6 +346,20 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   .ptitle{font-size:25px; font-weight:700; line-height:1.2}
   .pdek{font-size:15px; opacity:.85; line-height:1.5}
   section,.partline{scroll-margin-top:56px}
+  .tn-menu{position:relative;flex:0 0 auto;margin-left:auto}
+  .tn-menu>summary{list-style:none;cursor:pointer;padding:11px 12px;font-size:13px;color:#4b5563;
+    white-space:nowrap;user-select:none;border-bottom:2px solid transparent}
+  .tn-menu>summary::-webkit-details-marker{display:none}
+  .tn-menu>summary::after{content:" ▾";font-size:10px;opacity:.65}
+  .tn-menu[open]>summary{color:#111827;border-bottom-color:#cbd5e1}
+  .tn-drop{position:absolute;right:0;top:calc(100% + 1px);z-index:70;min-width:264px;max-width:82vw;
+    max-height:64vh;overflow-y:auto;background:#fff;border:1px solid #e5e7eb;border-radius:0 0 9px 9px;
+    box-shadow:0 12px 30px rgba(15,23,42,.14);padding:6px}
+  .tn-drop a{display:block;padding:8px 11px;font-size:13px;color:#374151;text-decoration:none;
+    border-radius:6px;border-bottom:none;white-space:normal;line-height:1.35}
+  .tn-drop a:hover{background:#f1f5f9;color:#111827}
+  .tn-drop .tn-n{display:inline-block;min-width:24px;color:#9ca3af;font-size:11.5px;font-weight:600}
+  @media(max-width:640px){.tn-drop{min-width:0;width:92vw}}
 </style>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
@@ -488,11 +502,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 <div class="wrap">
 
 <nav class="topnav">
-  <div class="topnav-in">
-    <a class="tn-b" href="#chast-1">I. Решение</a>
-    <a href="#chast-2">II. Что доступно</a>
-    <a href="#chast-3">III. Игроки и план</a>
-  </div>
+  <div class="topnav-in"><a class="tn-b" href="#chast-1">I. Решение</a><a href="#chast-2">II. Что доступно</a><a href="#chast-3">III. Игроки и план</a><details class="tn-menu"><summary>Разделы</summary><div class="tn-drop"><a href="#r01"><span class="tn-n">01</span>Задача и главное решение</a><a href="#r02"><span class="tn-n">02</span>Почему неинвазивное не работает</a><a href="#r03"><span class="tn-n">03</span>Три решения регуляторов, которые задают рамку</a><a href="#r04"><span class="tn-n">04</span>Фильтр: что вообще подходит проекту</a><a href="#r05"><span class="tn-n">05</span>🔑 Что уже продаётся в Казахстане</a><a href="#r06"><span class="tn-n">06</span>Доступ к данным: главный критерий</a><a href="#r07"><span class="tn-n">07</span>Производители под наш фильтр</a><a href="#r08"><span class="tn-n">08</span>🔴 Патентная война: риск, который надо считать</a><a href="#r09"><span class="tn-n">09</span>Наша роль и что делать</a><a href="#r10"><span class="tn-n">10</span>Оговорки к этому разбору</a></div></details></div>
 </nav>
 <div class="tiles">
   <div class="tile hot"><span class="k">Сенсор в Казахстане</span>
@@ -514,7 +524,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 
 <div class="partline" id="chast-1"><span class="pnum">Часть I</span><span class="ptitle">Решение и почему оно такое</span><span class="pdek">Что мы делаем вместо своего сенсора, почему неинвазивное измерение не работает и какую рамку задали регуляторы</span></div>
 
-<section>
+<section id="r01">
   <div class="shead"><span class="snum">01</span><h2>Задача и главное решение</h2></div>
   <p class="sdek">Диабет 2 типа – одна из четырёх целевых групп общего браслета,
   и в стимулирующем компоненте поликлиники он идёт в одной строке с болезнями системы
@@ -538,7 +548,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 </section>
 
-<section>
+<section id="r02">
   <div class="shead"><span class="snum">02</span><h2>Почему неинвазивное не работает</h2></div>
   <p class="sdek">Коротко – полный разбор в исследованиях проекта на 121 источник.
   Здесь только то, что определяет решение.</p>
@@ -573,7 +583,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 </section>
 
-<section>
+<section id="r03">
   <div class="shead"><span class="snum">03</span><h2>Три решения регуляторов, которые задают рамку</h2></div>
   <p class="sdek">В этой категории регулятор высказывался трижды, и каждый раз это
   меняло правила игры сильнее, чем любой прототип.</p>
@@ -613,7 +623,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 
 <div class="partline" id="chast-2"><span class="pnum">Часть II</span><span class="ptitle">Что подходит и что доступно</span><span class="pdek">Пять условий отбора, реальные цены казахстанского рынка и главный технический критерий – доступ к данным</span></div>
 
-<section>
+<section id="r04">
   <div class="shead"><span class="snum">04</span><h2>Фильтр: что вообще подходит проекту</h2></div>
   <p class="sdek">Прибор рассматривается, только если проходит все пять условий.
   По этому фильтру из категории сразу выпадают неинвазивные приборы, импланты
@@ -628,7 +638,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </dl>
 </section>
 
-<section>
+<section id="r05">
   <div class="shead"><span class="snum">05</span><h2>🔑 Что уже продаётся в Казахстане</h2></div>
   <p class="sdek">Главная находка разведки. Мы опирались на цену FreeStyle Libre –
   около 41 800 ₸ за сенсор. Специализированный магазин продаёт от 24 490 ₸,
@@ -664,7 +674,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 </section>
 
-<section>
+<section id="r06">
   <div class="shead"><span class="snum">06</span><h2>Доступ к данным: главный критерий</h2></div>
   <p class="sdek">Без него всё остальное не имеет значения. Здесь расклад жёсткий:
   официальный публичный интерфейс есть у одного производителя из восьми.</p>
@@ -700,7 +710,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 
 <div class="partline" id="chast-3"><span class="pnum">Часть III</span><span class="ptitle">Игроки, риски и план</span><span class="pdek">Кто прошёл фильтр, чем опасны патентные споры и что делаем дальше</span></div>
 
-<section>
+<section id="r07">
   <div class="shead"><span class="snum">07</span><h2>Производители под наш фильтр</h2></div>
   <p class="sdek">Кто есть кто среди тех, кто прошёл фильтр из пяти условий.</p>
 
@@ -784,7 +794,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 </section>
 
-<section>
+<section id="r08">
   <div class="shead"><span class="snum">08</span><h2>🔴 Патентная война: риск, который надо считать</h2></div>
   <p class="sdek">Единственный фактор, способный обнулить выбор поставщика уже после
   старта. В Европе он уже сработал.</p>
@@ -815,7 +825,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   под сомнение никто не ставил.</p>
 </section>
 
-<section>
+<section id="r09">
   <div class="shead"><span class="snum">09</span><h2>Наша роль и что делать</h2></div>
   <p class="sdek">Мы не продаём и не производим сенсор. Пациент покупает его сам –
   в аптеке или специализированном магазине, которые уже работают в Казахстане.</p>
@@ -854,7 +864,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </dl>
 </section>
 
-<section>
+<section id="r10">
   <div class="shead"><span class="snum">10</span><h2>Оговорки к этому разбору</h2></div>
   <p class="sdek">Что здесь проверено, а что нет.</p>
 

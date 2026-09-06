@@ -346,6 +346,29 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 .dl-btn b{font-size:18px; font-weight:700}
 .dl-btn i{font-style:normal; font-size:13.5px; opacity:.85}
 @media(max-width:640px){.dl-btn{min-width:0; flex:1 1 100%}}
+
+  .topnav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);
+    backdrop-filter:blur(9px);border-bottom:1px solid #e5e7eb;margin:0 -22px 22px;padding:0 22px}
+  .topnav-in{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .topnav a{flex:0 0 auto;padding:11px 12px;font-size:13px;color:#4b5563;text-decoration:none;
+    border-bottom:2px solid transparent;white-space:nowrap;transition:color .12s,border-color .12s}
+  .topnav a:hover{color:#111827;border-bottom-color:#cbd5e1}
+  .topnav a.tn-b{font-weight:600;color:#111827}
+  section,.partline{scroll-margin-top:56px}
+  .tn-menu{position:relative;flex:0 0 auto;margin-left:auto}
+  .tn-menu>summary{list-style:none;cursor:pointer;padding:11px 12px;font-size:13px;color:#4b5563;
+    white-space:nowrap;user-select:none;border-bottom:2px solid transparent}
+  .tn-menu>summary::-webkit-details-marker{display:none}
+  .tn-menu>summary::after{content:" ▾";font-size:10px;opacity:.65}
+  .tn-menu[open]>summary{color:#111827;border-bottom-color:#cbd5e1}
+  .tn-drop{position:absolute;right:0;top:calc(100% + 1px);z-index:70;min-width:264px;max-width:82vw;
+    max-height:64vh;overflow-y:auto;background:#fff;border:1px solid #e5e7eb;border-radius:0 0 9px 9px;
+    box-shadow:0 12px 30px rgba(15,23,42,.14);padding:6px}
+  .tn-drop a{display:block;padding:8px 11px;font-size:13px;color:#374151;text-decoration:none;
+    border-radius:6px;border-bottom:none;white-space:normal;line-height:1.35}
+  .tn-drop a:hover{background:#f1f5f9;color:#111827}
+  .tn-drop .tn-n{display:inline-block;min-width:24px;color:#9ca3af;font-size:11.5px;font-weight:600}
+  @media(max-width:640px){.tn-drop{min-width:0;width:92vw}}
 </style>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
@@ -389,7 +412,10 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
       </div>
       <div class="dl-row">
         <a class="dl-btn primary" href="files/damumed-band-polnyy-otchet.docx" download>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColo<nav class="topnav">
+  <div class="topnav-in"><details class="tn-menu"><summary>Разделы</summary><div class="tn-drop"><a href="#r01"><span class="tn-n">01</span>Идея</a><a href="#r02"><span class="tn-n">02</span>Цена</a><a href="#r03"><span class="tn-n">03</span>Три ценовых уровня</a><a href="#r04"><span class="tn-n">04</span>Экономика</a><a href="#r05"><span class="tn-n">05</span>Целевые группы</a><a href="#r06"><span class="tn-n">06</span>Мобильное приложение</a><a href="#r07"><span class="tn-n">07</span>Производство</a><a href="#r08"><span class="tn-n">08</span>Регистрация</a><a href="#r09"><span class="tn-n">09</span>Риски</a><a href="#r10"><span class="tn-n">10</span>Что даёт</a><a href="#nazvanie"><span class="tn-n">11</span>Название</a></div></details></div>
+</nav>
+r" stroke-width="1.9" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
           <span><b>Полный отчёт</b><i>Word · 12 разделов, все расчёты</i></span>
         </a>
         <a class="dl-btn" href="files/damumed-band-prezentaciya.pdf" download>
@@ -421,7 +447,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
     <div class="d">при партии 20 тыс – +94 млн</div></div>
 </div>
 
-<section>
+<section id="r01">
   <div class="shead"><span class="snum">01</span><h2>Идея</h2></div>
   <p class="sdek">Врач видит пациента 15 минут в месяц, а болезнь работает круглосуточно.
   Мы закрываем этот разрыв: датчик на руке → данные в медкарте → врач замечает
@@ -495,7 +521,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 </section>
 
-<section>
+<section id="r02">
   <div class="shead"><span class="snum">02</span><h2>Цена</h2></div>
   <p class="sdek">Раз ценность – дистанционное наблюдение, а не железо, железо не должно быть барьером.
   Цену давим вниз, насколько позволяет экономика, и получаем довод, который
@@ -556,7 +582,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 </section>
 
-<section>
+<section id="r03">
   <div class="shead"><span class="snum">03</span><h2>Три ценовых уровня</h2></div>
   <p class="sdek">Проверяем «дешевле – лучше» на прочность. Уровень задаёт три цены сразу:
   розницу с подпиской, браслет для поликлиники и внутреннюю цену модуля наблюдения,
@@ -633,7 +659,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 </section>
 
-<section>
+<section id="r04">
   <div class="shead"><span class="snum">04</span><h2>Экономика</h2></div>
   <p class="sdek">Почему такая цена вообще возможна: дорогая половина продукта у Damumed уже
   построена – приложение, серверы, команда разработки. Платим только за то, чего
@@ -685,7 +711,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 </section>
 
-<section>
+<section id="r05">
   <div class="shead"><span class="snum">05</span><h2>Целевые группы</h2></div>
   <p class="sdek">Дистанционное наблюдение нужно не всем – оно спасает там, где болезнь
   меняется незаметно, а каждое упущенное ухудшение заканчивается скорой. Отобрали четыре группы по двум
@@ -757,7 +783,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 </section>
 
-<section>
+<section id="r06">
   <div class="shead"><span class="snum">06</span><h2>Мобильное приложение</h2></div>
   <p class="sdek">Для пациента дистанционное наблюдение выглядит как несколько экранов в привычном приложении
   Damumed.</p>
@@ -1105,7 +1131,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 </section>
 
-<section>
+<section id="r07">
   <div class="shead"><span class="snum">07</span><h2>Производство</h2></div>
   <p class="sdek">Железо – самая простая часть проекта, если помнить, что мы покупаем не браслет,
   а поток данных с руки пациента. Поэтому из двенадцати проверенных заводов решает
@@ -1134,7 +1160,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   через 8–12 недель после утверждения образца.</p>
 </section>
 
-<section>
+<section id="r08">
   <div class="shead"><span class="snum">08</span><h2>Регистрация</h2></div>
   <p class="sdek">Регистрационное удостоверение – граница, отделяющая нас от любого браслета
   на Kaspi: без него дистанционное наблюдение остаётся обещанием, с ним становится медицинской
@@ -1202,7 +1228,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   вопрос китайского облака.</p>
 </section>
 
-<section>
+<section id="r09">
   <div class="shead"><span class="snum">09</span><h2>Риски</h2></div>
   <p class="sdek">Что может сломать модель – и что мы делаем заранее, чтобы не
   проверять это на свои деньги. У каждого риска есть ответ до заказа партии,
@@ -1228,7 +1254,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </table></div>
 </section>
 
-<section>
+<section id="r10">
   <div class="shead"><span class="snum">10</span><h2>Что даёт</h2></div>
   <p>Идея, с которой начиналась страница, к этому месту стала конструкцией:
   дистанционное наблюдение врача между приёмами, собранное из датчика
@@ -1838,5 +1864,15 @@ hbars(document.getElementById('c-cohorts'), [
 
 </script>
 
+<script>
+document.querySelectorAll('.tn-drop a').forEach(function(a){
+  a.addEventListener('click',function(){var d=a.closest('details'); if(d) d.open=false;});
+});
+document.addEventListener('click',function(e){
+  document.querySelectorAll('details.tn-menu[open]').forEach(function(d){
+    if(!d.contains(e.target)) d.open=false;
+  });
+});
+</script>
 </body>
 </html>
