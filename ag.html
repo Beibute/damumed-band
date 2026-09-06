@@ -406,6 +406,15 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 .toc a{background:var(--surface); border-radius:99px; padding:8px 16px;
   text-decoration:none; font-size:14.5px; font-weight:600; color:var(--head)}
 .toc a:hover{background:var(--ln)}
+.dl-row{display:flex; flex-wrap:wrap; gap:12px; margin-top:22px}
+.dl-btn{display:inline-flex; align-items:center; gap:12px; background:#fff;
+  color:var(--head); border-radius:16px; padding:14px 20px; text-decoration:none;
+  min-width:260px; box-shadow:0 2px 14px rgba(0,0,0,.10)}
+.dl-btn:hover{transform:translateY(-1px)}
+.dl-btn span{display:flex; flex-direction:column; line-height:1.3}
+.dl-btn b{font-size:16.5px; font-weight:700}
+.dl-btn i{font-style:normal; font-size:13px; opacity:.7}
+@media(max-width:640px){.dl-btn{min-width:0; flex:1 1 100%}}
 .pairs{margin:18px 0}
 .pair{display:grid; grid-template-columns:minmax(170px,34%) 1fr; gap:4px 20px;
   padding:11px 0; border-bottom:1px solid var(--ln); align-items:baseline}
@@ -457,6 +466,12 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
         <span>Писем в работе · <b>5</b></span>
         <span>Отправлено · <b>5</b></span>
       </div>
+      <div class="dl-row">
+        <a class="dl-btn" href="files/damumed-band-otchet-ag.docx" download>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+          <span><b>Полный отчёт</b><i>Word · 12 разделов, обоснования и источники</i></span>
+        </a>
+      </div>
     </header>
   </div>
 </div>
@@ -479,25 +494,6 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   <div class="tile"><span class="k">Корпоративный Huawei</span>
     <div class="v">КНР<span class="u"> только</span></div>
     <div class="d">данные и бренд — за стеной</div></div>
-</div>
-
-<div class="fig" style="margin-bottom:44px">
-  <h3>Статус переписки на 6 сентября 2026</h3>
-  <div class="sub">Пять обращений в работе, ответов пока нет ни по одному</div>
-  <div class="trio">
-    <div class="r"><div class="rt"><b>Sky Labs</b></div><div class="rv">Адрес: info@skylabs.io + пресс-служба · Отправлено: 06.09, 14:37 · Что дальше: напоминание 20.09</div></div>
-    <div class="r"><div class="rt"><b>Hilo</b></div><div class="rv">Адрес: info@aktiia.com · Отправлено: 05.09, 15:30 · Что дальше: напоминание 26.09</div></div>
-    <div class="r"><div class="rt"><b>Valencell</b></div><div class="rv">Адрес: info@valencell.com · Отправлено: 06.09, 14:37 · Что дальше: напоминание 20.09</div></div>
-    <div class="r"><div class="rt"><b>Biobeat</b></div><div class="rv">Адрес: info@bio-beat.com · Отправлено: 06.09, 14:37 · Что дальше: напоминание 20.09</div></div>
-    <div class="r"><div class="rt"><b>LiveMetric</b></div><div class="rv">Адрес: info@livemetric.com · Отправлено: 06.09, 14:37 · Что дальше: напоминание 20.09</div></div>
-    <div class="r"><div class="rt"><b>Huawei Kazakhstan</b></div><div class="rv">Адрес: aiman.sakhova@huawei.com · Отправлено: ⏸ черновик · Что дальше: заход через личный контакт владельца</div></div>
-    <div class="r"><div class="rt">Vital Signals</div><div class="rv">Адрес: — · Отправлено: не пишем · Что дальше: ждём публикации исследования, осень 2026</div></div>
-  </div>
-  <div class="cap">Письма в Sky Labs, Valencell и Biobeat отправлены на общие ящики
-  с просьбой переадресовать профильному человеку: Mark Felice (VP of Business
-  Development and Licensing) в Valencell и Lior Ben Shettrit (VP Business Development
-  &amp; Sales) в Biobeat. Адрес info@skylabs.io указан самим CEO Sky Labs в его профиле
-  как адрес для деловых обращений.</div>
 </div>
 
 <section>
@@ -1725,7 +1721,46 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   <div class="shead"><span class="snum">15</span><h2><span class="cflag">🇱🇺</span>LiveMetric — LiveOne</h2></div>
   <p class="sdek">Единственный прибор категории, который измеряет давление механически: массив датчиков прижимается к лучевой артерии. Допуск FDA есть, а компании фактически нет — десять человек в поиске капитала.</p>
 
-  <div class="st sent">✅ Письмо отправлено 6 сентября 2026, 14:37 · ждём ответа</div>
+  <div class="st sent">✅ Отправлено 6 сентября 14:37 · <b>получен ответ в тот же день, 16:33</b></div>
+
+  <div class="note">
+    <div class="t">📩 Ответ получен 6 сентября 2026, 16:33 — через два часа после письма</div>
+    Отвечал <b>Elad Halperin</b>, в копии основатель и CEO <b>Tomer Bentzion</b>: письмо
+    с общего ящика он переслал внутрь компании лично. Для компании из десяти человек
+    это показатель интереса, а не формальная отписка.<br><br>
+    <b>Что ответили по существу:</b><br>
+    <b>1. Поставки.</b> Могут поставлять LiveOne партнёрам за пределами США и ЕС —
+    при соблюдении местных регуляторных требований. Открыты к работе <b>через сильного
+    локального партнёра</b>, где это оправдано коммерчески и регуляторно.<br>
+    <b>2. Данные.</b> Понимают требования к локальному хранению медицинских данных
+    и необходимость встроить измерения в существующий клинический процесс. Готовы
+    обсуждать нашу архитектуру, требования к хранению и интеграцию по API
+    <b>со своей технической командой</b>. Прямого «да, расчёт можно вынести к вам»
+    пока нет — вопрос вынесен на обсуждение.<br>
+    <b>3. OEM и лицензия.</b> Начать готовы с поставки готового прибора. OEM или
+    лицензирование технологии — <b>на более позднем этапе</b>, в зависимости от
+    масштаба, <b>вплоть до локального производства</b>. Сначала хотят понять объёмы.<br>
+    <b>4. Регистрация.</b> Могут предоставить техническую и регуляторную документацию
+    для локальной регистрации. Кто будет держателем удостоверения и какой объём
+    поддержки они дадут — <b>определится позже</b>; конкретных обязательств
+    на этом этапе сознательно не берут.
+  </div>
+
+  <div class="note warn">
+    <div class="t">Семь встречных вопросов — на них нужен наш ответ</div>
+    <b>1.</b> Какую адресуемую популяцию пациентов мы видим для LiveOne.<br>
+    <b>2.</b> Размер первого пилота и последующие годовые объёмы.<br>
+    <b>3.</b> С каких хронических заболеваний или групп начинаем.<br>
+    <b>4.</b> Как в Казахстане устроено возмещение за дистанционное наблюдение
+    и медизделия — государство, страховка, поставщики услуг или сам пациент.<br>
+    <b>5.</b> Damumed закупает и разворачивает приборы сам или закупку ведут
+    клиники, больницы, государственные структуры.<br>
+    <b>6.</b> Ожидаемый срок от успешного пилота до широкого развёртывания.<br>
+    <b>7.</b> Есть ли у нас опыт регистрации медизделий в Казахстане и ЕАЭС и кто
+    поведёт регистрацию — мы или локальный партнёр.<br><br>
+    Компания предлагает <b>вводный звонок</b>. Ответы на эти вопросы у нас уже есть
+    в клинической модели и финансовой модели проекта — письмо можно готовить сразу.
+  </div>
   <div class="ph">
     <img src="img/companies/livemetric.png" alt="Браслет LiveOne с массивом датчиков" loading="lazy">
     <div class="cap"><b>LiveOne</b> — снизу виден массив из четырёх датчиков давления, которые ложатся на лучевую артерию. Фото: livemetric.com (открытый источник).</div>
@@ -1955,8 +1990,8 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
     <div class="row">
       <span class="pr">5</span>
       <span><span class="nm">🇱🇺 LiveMetric</span> <span class="geo">· Люксембург, браслет · <a href="#livemetric">к разбору</a></span></span>
-      <span class="stt yes">✅ отправлено 06.09</span>
-      <span class="want">Просим: пилот или OEM. Дешёвый эксперимент, опора ненадёжна.</span>
+      <span class="stt yes">✅ <b>ответили 06.09</b></span>
+      <span class="want">Просим: пилот или OEM. <b>Единственные, кто ответил</b> — в тот же день, с CEO в копии: готовы поставлять вне США и ЕС, обсуждать API и хранение данных, позже OEM вплоть до локального производства.</span>
     </div>
     <div class="row">
       <span class="pr">6</span>
@@ -1965,6 +2000,26 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
       <span class="want">Нет допуска, валидация не опубликована. Ждём публикации осенью 2026.</span>
     </div>
   </div>
+
+<div class="fig" style="margin-bottom:44px">
+  <h3>Адреса и сроки напоминаний</h3>
+  <div class="sub">Куда ушло каждое письмо, что ответили и когда напоминать</div>
+  <div class="trio">
+    <div class="r"><div class="rt"><b>Sky Labs</b></div><div class="rv">Адрес: info@skylabs.io + пресс-служба · Отправлено: 06.09, 14:37 · Что дальше: напоминание 20.09</div></div>
+    <div class="r"><div class="rt"><b>Hilo</b></div><div class="rv">Адрес: info@aktiia.com · Отправлено: 05.09, 15:30 · Что дальше: напоминание 26.09</div></div>
+    <div class="r"><div class="rt"><b>Valencell</b></div><div class="rv">Адрес: info@valencell.com · Отправлено: 06.09, 14:37 · Что дальше: напоминание 20.09</div></div>
+    <div class="r"><div class="rt"><b>Biobeat</b></div><div class="rv">Адрес: info@bio-beat.com · Отправлено: 06.09, 14:37 · Что дальше: напоминание 20.09</div></div>
+    <div class="r"><div class="rt"><b>LiveMetric</b></div><div class="rv">Адрес: info@livemetric.com · Отправлено: 06.09, 14:37 · Что дальше: напоминание 20.09</div></div>
+    <div class="r"><div class="rt"><b>Huawei Kazakhstan</b></div><div class="rv">Адрес: aiman.sakhova@huawei.com · Отправлено: ⏸ черновик · Что дальше: заход через личный контакт владельца</div></div>
+    <div class="r"><div class="rt">Vital Signals</div><div class="rv">Адрес: — · Отправлено: не пишем · Что дальше: ждём публикации исследования, осень 2026</div></div>
+  </div>
+  <div class="cap">Письма в Sky Labs, Valencell и Biobeat отправлены на общие ящики
+  с просьбой переадресовать профильному человеку: Mark Felice (VP of Business
+  Development and Licensing) в Valencell и Lior Ben Shettrit (VP Business Development
+  &amp; Sales) в Biobeat. Адрес info@skylabs.io указан самим CEO Sky Labs в его профиле
+  как адрес для деловых обращений.</div>
+</div>
+
 </section>
 
 <section>
