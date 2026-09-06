@@ -330,6 +330,45 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 .dl-btn b{font-size:18px; font-weight:700}
 .dl-btn i{font-style:normal; font-size:13.5px; opacity:.85}
 @media(max-width:640px){.dl-btn{min-width:0; flex:1 1 100%}}
+  .pwant{font-size:13px;line-height:1.5;color:#4b5563;padding:9px 11px;margin-top:9px;
+    background:#f8fafc;border-left:2px solid #cbd5e1;border-radius:0 4px 4px 0}
+  .pgo{font-size:12px;font-weight:500;color:#2563eb;text-decoration:none;margin-left:7px;white-space:nowrap}
+  .pgo:hover{text-decoration:underline}
+  .cal-lg{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:#6b7280;margin:0 0 14px}
+  .cal-lg span{display:flex;align-items:center;gap:6px}
+  .cal-lg i{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .lg-done{background:#16a34a}.lg-wait{background:#f59e0b}.lg-now{background:#fff;border:2px solid #2563eb}
+  .cal-wrap{display:flex;gap:26px;flex-wrap:wrap}
+  .cal-m{flex:1 1 260px;min-width:250px}
+  .cal-mn{font-size:13px;font-weight:600;color:#374151;margin-bottom:8px;letter-spacing:.02em}
+  .cal-g{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+  .cal-w{font-size:10.5px;color:#9ca3af;text-align:center;padding:3px 0;text-transform:uppercase;letter-spacing:.04em}
+  .cal-d{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;
+    font-size:12.5px;color:#374151;border-radius:5px;background:#f8fafc}
+  .cal-x{background:none}
+  .cal-we{color:#c4c9d1}
+  .cal-done{background:#16a34a;color:#fff;font-weight:600;cursor:help}
+  .cal-wait{background:#f59e0b;color:#fff;font-weight:600;cursor:help}
+  .cal-now{box-shadow:inset 0 0 0 2px #2563eb}
+  .cal-tip{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
+    width:240px;padding:9px 11px;background:#1f2937;color:#f3f4f6;font-size:12px;font-weight:400;
+    line-height:1.5;border-radius:6px;text-align:left;opacity:0;visibility:hidden;
+    transition:opacity .13s;z-index:20;pointer-events:none;box-shadow:0 6px 18px rgba(0,0,0,.22)}
+  .cal-tip b{display:block;color:#fff;margin-bottom:3px;font-size:12.5px}
+  .cal-tip::after{content:"";position:absolute;top:100%;left:50%;margin-left:-5px;
+    border:5px solid transparent;border-top-color:#1f2937}
+  .cal-d:hover .cal-tip{opacity:1;visibility:visible}
+  @media(max-width:520px){.cal-tip{width:180px}}
+  .topnav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);
+    backdrop-filter:blur(9px);border-bottom:1px solid #e5e7eb;margin:0 -22px 22px;padding:0 22px}
+  .topnav-in{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .topnav-in::-webkit-scrollbar{display:none}
+  .topnav a{flex:0 0 auto;padding:11px 12px;font-size:13px;color:#4b5563;text-decoration:none;
+    border-bottom:2px solid transparent;white-space:nowrap;transition:color .12s,border-color .12s}
+  .topnav a:hover{color:#111827;border-bottom-color:#cbd5e1}
+  .topnav a.tn-b{font-weight:600;color:#111827}
+  section,.partline{scroll-margin-top:56px}
+  @media(max-width:640px){.topnav a{padding:10px 9px;font-size:12.5px}}
 </style>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
@@ -485,6 +524,14 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 
 <div class="wrap">
 
+<nav class="topnav">
+  <div class="topnav-in">
+    <a class="tn-b" href="#kalendar">Календарь</a>
+    <a href="#chast-1">I. Продукт</a>
+    <a href="#chast-2">II. Решение по партнёрам</a>
+    <a href="#chast-3">III. Справочник</a>
+  </div>
+</nav>
 <div class="tiles">
   <div class="tile hot"><span class="k">Целевая группа</span>
     <div class="v">1,78<span class="u"> млн</span></div>
@@ -492,21 +539,50 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   <div class="tile"><span class="k">Деньги поликлиники</span>
     <div class="v">50<span class="u"> из 100</span></div>
     <div class="d">баллов — за наблюдение БСК и диабета</div></div>
-  <div class="tile"><span class="k">Цена поликлинике</span>
-    <div class="v">29 900<span class="u"> ₸</span></div>
-    <div class="d">впятеро дешевле Huawei Watch D2</div></div>
-  <div class="tile"><span class="k">Результат 24 мес</span>
-    <div class="v">+21…70<span class="u"> млн ₸</span></div>
-    <div class="d">партия 5 000; закуп $45…$25 — оценка</div></div>
+  <div class="tile"><span class="k">Вложения до старта</span>
+    <div class="v">30<span class="u"> млн ₸</span></div>
+    <div class="d">регистрация, валидация, образцы</div></div>
+  <div class="tile"><span class="k">Класс риска</span>
+    <div class="v">2а<span class="u"> ЕАЭС</span></div>
+    <div class="d">экспертиза до 90 дней по нормативу</div></div>
   <div class="tile"><span class="k">Старт продаж</span>
     <div class="v">13<span class="u"> мес</span></div>
     <div class="d">валидация → регистрация → производство</div></div>
 </div>
 
-<div class="partline"><span class="pnum">Часть I</span><span class="ptitle">Продукт</span><span class="pdek">Что мы делаем, кому это нужно, сколько стоит и что требуется, чтобы выпустить</span></div>
+<section id="kalendar">
+  <div class="shead"><span class="snum">01</span><h2>Календарь</h2></div>
+  <p class="sdek">Что уже сделано и чего ждём. Наведите на отмеченный день – покажет,
+  что в этот день произошло или что запланировано.</p>
+
+  <div class="cal-lg">
+    <span><i class="lg-done"></i>сделано</span>
+    <span><i class="lg-wait"></i>ждём ответа</span>
+    <span><i class="lg-now"></i>сегодня</span>
+  </div>
+
+  <div class="cal-wrap"><div class="cal-m"><div class="cal-mn">Сентябрь 2026</div><div class="cal-g"><div class="cal-w">пн</div><div class="cal-w">вт</div><div class="cal-w">ср</div><div class="cal-w">чт</div><div class="cal-w">пт</div><div class="cal-w">сб</div><div class="cal-w">вс</div><div class="cal-d cal-x"></div><div class="cal-d">1</div><div class="cal-d">2</div><div class="cal-d">3</div><div class="cal-d">4</div><div class="cal-d cal-done">5<span class="cal-tip"><b>5 сентября</b>Письмо в Hilo (Швейцария) — просим лицензию на технологию CALFREE. Отправлено 15:30.</span></div><div class="cal-d cal-done cal-now">6<span class="cal-tip"><b>6 сентября</b>Отправлены письма в Sky Labs, Valencell и LiveMetric. LiveMetric ответил в тот же день, с CEO в копии; ответ на их встречные вопросы подготовлен и отправлен.</span></div><div class="cal-d">7</div><div class="cal-d">8</div><div class="cal-d">9</div><div class="cal-d">10</div><div class="cal-d">11</div><div class="cal-d cal-we">12</div><div class="cal-d cal-we">13</div><div class="cal-d">14</div><div class="cal-d">15</div><div class="cal-d">16</div><div class="cal-d">17</div><div class="cal-d">18</div><div class="cal-d cal-we">19</div><div class="cal-d cal-wait">20<span class="cal-tip"><b>20 сентября</b>Если не ответят Sky Labs и Valencell — напоминание в те же треды.</span></div><div class="cal-d">21</div><div class="cal-d">22</div><div class="cal-d">23</div><div class="cal-d">24</div><div class="cal-d">25</div><div class="cal-d cal-wait">26<span class="cal-tip"><b>26 сентября</b>Если не ответит Hilo — напоминание в тот же тред.</span></div><div class="cal-d cal-we">27</div><div class="cal-d">28</div><div class="cal-d">29</div><div class="cal-d">30</div></div></div><div class="cal-m"><div class="cal-mn">Октябрь 2026</div><div class="cal-g"><div class="cal-w">пн</div><div class="cal-w">вт</div><div class="cal-w">ср</div><div class="cal-w">чт</div><div class="cal-w">пт</div><div class="cal-w">сб</div><div class="cal-w">вс</div><div class="cal-d cal-x"></div><div class="cal-d cal-x"></div><div class="cal-d cal-x"></div><div class="cal-d">1</div><div class="cal-d">2</div><div class="cal-d cal-we">3</div><div class="cal-d cal-we">4</div><div class="cal-d">5</div><div class="cal-d">6</div><div class="cal-d">7</div><div class="cal-d">8</div><div class="cal-d">9</div><div class="cal-d cal-we">10</div><div class="cal-d cal-we">11</div><div class="cal-d">12</div><div class="cal-d">13</div><div class="cal-d">14</div><div class="cal-d">15</div><div class="cal-d">16</div><div class="cal-d cal-we">17</div><div class="cal-d cal-we">18</div><div class="cal-d">19</div><div class="cal-d">20</div><div class="cal-d">21</div><div class="cal-d">22</div><div class="cal-d">23</div><div class="cal-d cal-we">24</div><div class="cal-d cal-we">25</div><div class="cal-d">26</div><div class="cal-d">27</div><div class="cal-d">28</div><div class="cal-d">29</div><div class="cal-d">30</div><div class="cal-d cal-we">31</div></div></div></div>
+
+  <dl class="pairs" style="margin-top:20px">
+    <div class="pair"><dt>⏸ у владельца</dt><dd>запрос в <b>Huawei Technologies Kazakhstan</b> – заход через личный контакт, черновик готов, даты нет</dd></div>
+    <div class="pair"><dt>осень 2026</dt><dd>проверить публикацию исследования <b>Vital Signals</b> на 451 участнике</dd></div>
+    <div class="pair"><dt>январь 2027</dt><dd>проверить, во что вылились исключения FDA по оптическому измерению давления</dd></div>
+  </dl>
+
+  <div class="note">
+    <div class="t">Правило проекта</div>
+    Письма готовит агент, отправляет владелец. Тексты всех обращений –
+    <code>docs/pisma-shest-kompaniy.md</code> и <code>docs/pismo-huawei-kz.md</code>.
+    Письмо в Huawei Kazakhstan (aiman.sakhova@huawei.com – контактное лицо бизнес-группы
+    предприятия) <b>сознательно не отправлено</b>: у владельца есть тёплый контакт
+    в компании, заход будет через него.
+  </div>
+</section>
+
+<div class="partline" id="chast-1"><span class="pnum">Часть I</span><span class="ptitle">Продукт</span><span class="pdek">Что мы делаем, кому это нужно, сколько стоит и что требуется, чтобы выпустить</span></div>
 
 <section>
-  <div class="shead"><span class="snum">01</span><h2>Задача</h2></div>
+  <div class="shead"><span class="snum">02</span><h2>Задача</h2></div>
   <p class="sdek">Артериальная гипертония — самая массовая целевая группа: 1,78 млн
   человек на диспансерном учёте. Целевой показатель программы управления заболеванием —
   удержание давления ниже 140/90. Именно этот показатель общий браслет и не закрывает,
@@ -546,7 +622,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">02</span><h2>Продукт: браслет с микроманжетой</h2></div>
+  <div class="shead"><span class="snum">03</span><h2>Продукт: браслет с микроманжетой</h2></div>
   <p class="sdek">Второй продукт линейки отличается от общего браслета одной деталью –
   в ремешок встроены микронасос и воздушная камера. Эта деталь меняет всё: класс изделия,
   цену, срок выхода и то, какой показатель поликлиники он закрывает.</p>
@@ -600,7 +676,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">03</span><h2>Кому нужен и почему поликлинике это выгодно</h2></div>
+  <div class="shead"><span class="snum">04</span><h2>Кому нужен и почему поликлинике это выгодно</h2></div>
   <p class="sdek">Самая крупная целевая группа проекта – и единственная, где деньги
   поликлиники завязаны прямо на тот показатель, который закрывает прибор.</p>
 
@@ -637,113 +713,27 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section>
-  <div class="shead"><span class="snum">04</span><h2>Цена</h2></div>
-  <p class="sdek">Логика та же, что у общего браслета: не снимать маржу с железа,
-  а брать проникновением. Но себестоимость здесь кратно выше, поэтому и цены другие.</p>
-
-  <div class="trio">
-    <div class="r">
-      <div class="rt">Поликлинике – 29 900 ₸ за прибор</div>
-      <div class="rv">Против 6 900 ₸ за общий браслет. Дороже в 4,3 раза – но
-      в пять раз дешевле Huawei Watch D2 в казахстанской рознице. Модуль наблюдения
-      для поликлиники по-прежнему 0 ₸: он входит в аренду медицинской системы,
-      внутренняя цена 500 ₸ на пациента в месяц.</div>
-    </div>
-    <div class="r">
-      <div class="rt">Розница – 44 990 ₸</div>
-      <div class="rv">Втрое дешевле Watch D2 (148 700–189 890 ₸ по казахстанским
-      магазинам) при том же принципе измерения. Рассрочка на год – около 3 750 ₸
-      в месяц. Подписка на расширенные отчёты – те же 690 ₸ в месяц, что и у общего
-      браслета.</div>
-    </div>
-    <div class="r">
-      <div class="rt">Чем обосновано</div>
-      <div class="rv">Единственный аргумент, который здесь работает: медицинское
-      изделие с регистрационным удостоверением, измеряющее давление осциллометрически,
-      дешевле любых часов с той же функцией – и при этом данные идут туда же, где
-      медкарта, запись к врачу и лекарства.</div>
-    </div>
-  </div>
-
-  <div class="note warn">
-    <div class="t">Обе цены – рабочая гипотеза, а не решение</div>
-    Они посчитаны от оценочной закупочной цены. Настоящая цена появится только
-    после котировки завода по SKU C, и цены продажи придётся пересчитать под неё.
-  </div>
-</section>
-
-<section>
-  <div class="shead"><span class="snum">05</span><h2>Экономика</h2></div>
-  <p class="sdek">Расчёт в тех же допущениях, что и у общего браслета: курс 465 ₸/$,
-  комиссия розничного канала 13%, подписка 690 ₸/мес при конверсии 30%, внутренняя
-  цена модуля 500 ₸ на пациента в месяц, операционные расходы 1,5 млн ₸/мес,
-  горизонт 24 месяца. Воспроизводится скриптом tools/calc-ag-product.py.</p>
-
-  <p>🔴 <strong>Главная неизвестная – закупочная цена.</strong> В исследовании по давлению
-  зафиксировано: модуль с микроманжетой кратно превышает потолок 11,5 USD FOB, которым
-  ограничен общий браслет, а точную цифру даёт только завод. Поэтому весь расчёт ниже
-  построен на диапазоне <b>оценок</b> и на ответе, при какой цене продукт перестаёт
-  сходиться.</p>
-
-  <div class="fig">
-    <h3>Себестоимость на складе в Казахстане</h3>
-    <div class="sub">Формула та же: (закуп + логистика) × курс × (1 + пошлина) + упаковка. Логистика 0,6 $/шт и упаковка 0,8 $/шт – выше, чем у общего браслета: прибор тяжелее, в коробке два размера ремешка. Всё – оценка</div>
-    <dl class="pairs">
-      <div class="pair"><dt>Закуп 25 $</dt><dd>12 514 ₸ на складе, с браком 12 890 ₸</dd></div>
-      <div class="pair"><dt>Закуп 35 $</dt><dd>17 257 ₸ на складе, с браком <b>17 775 ₸</b></dd></div>
-      <div class="pair"><dt>Закуп 45 $</dt><dd>22 000 ₸ на складе, с браком 22 660 ₸</dd></div>
-    </dl>
-    <div class="cap">Для сравнения: общий браслет – 4 026 ₸ на складе при закупе 7,5 $.</div>
-  </div>
-
-  <div class="fig">
-    <h3>Результат за 24 месяца</h3>
-    <div class="sub">Партия 5 000 штук, 70% поликлиники и 30% розница, старт продаж с 13-го месяца: сначала клиническая валидация, затем регистрация класса 2а, затем производство</div>
-    <dl class="pairs">
-      <div class="pair"><dt>При закупе 25 $</dt><dd>вложения в партию 64,4 млн ₸ → результат <b>+69,9 млн ₸</b></dd></div>
-      <div class="pair"><dt>При закупе 35 $</dt><dd>вложения в партию 88,9 млн ₸ → результат <b>+45,5 млн ₸</b></dd></div>
-      <div class="pair"><dt>При закупе 45 $</dt><dd>вложения в партию 113,3 млн ₸ → результат <b>+21,1 млн ₸</b></dd></div>
-    </dl>
-    <div class="cap">Разложение при закупе 35 $: маржа поликлиник 42,4 млн ₸, маржа
-    розницы 32,0 млн ₸, модуль наблюдения 14,9 млн ₸, подписки 2,6 млн ₸; из этого
-    вычитаются вложения 30,0 млн ₸ и операционные расходы 16,5 млн ₸.</div>
-  </div>
-
-  <div class="fig">
-    <h3>До какой закупочной цены продукт сходится</h3>
-    <div class="sub">Предельный закуп, при котором результат за 24 месяца равен нулю</div>
-    <dl class="pairs">
-      <div class="pair"><dt>Партия 2 000 шт</dt><dd>предел <b>25,1 $</b> – на складе 12 549 ₸</dd></div>
-      <div class="pair"><dt>Партия 5 000 шт</dt><dd>предел <b>53,6 $</b> – на складе 26 092 ₸</dd></div>
-      <div class="pair"><dt>Партия 10 000 шт</dt><dd>предел <b>63,1 $</b> – на складе 30 607 ₸</dd></div>
-    </dl>
-    <div class="cap">Это и есть красная черта переговоров с заводом по SKU C – по аналогии
-    с потолком 11,5 $ у общего браслета.</div>
-  </div>
-
-  <div class="fig">
-    <h3>Объём решает больше, чем цена</h3>
-    <div class="sub">Результат за 24 месяца при закупе 35 $ и разном размере партии</div>
-    <dl class="pairs">
-      <div class="pair"><dt>1 000 шт</dt><dd>−28,1 млн ₸</dd></div>
-      <div class="pair"><dt>2 000 шт</dt><dd>−9,7 млн ₸</dd></div>
-      <div class="pair"><dt>3 000 шт</dt><dd><b>+8,7 млн ₸</b> – минимальный жизнеспособный объём</dd></div>
-      <div class="pair"><dt>5 000 шт</dt><dd>+45,5 млн ₸</dd></div>
-      <div class="pair"><dt>10 000 шт</dt><dd>+137,5 млн ₸</dd></div>
-    </dl>
-    <div class="cap">Вложения 30 млн ₸ – регистрация 15, клиническая валидация
-    по ISO 81060-2 около 12 (оценка), образцы и поездка на завод 3 – не раскладываются
-    на партию меньше трёх тысяч.</div>
-  </div>
-
+  <div class="shead"><span class="snum">05</span><h2>Цена и экономика</h2></div>
   <div class="note alert">
-    <div class="t">Чего расчёт не знает</div>
-    Трёх вещей. <b>Первое:</b> реальной закупочной цены – она появится после котировки
-    завода по SKU C. <b>Второе:</b> стоимости клинической валидации по ISO 81060-2 –
-    12 млн ₸ это оценка, точную цифру дадут испытательный центр и клиническая площадка.
-    <b>Третье:</b> готовности поликлиник платить за прибор 29 900 ₸ вместо 6 900 –
-    это проверяется теми же разговорами с главными врачами, что и по общему браслету,
-    и до заказа партии.
+    <div class="t">Раздел снят до появления двух цифр</div>
+    <p>Здесь стояли цена прибора и расчёт на 24 месяца. Оба держались на числах,
+    которых у нас нет: цена была получена привязкой к рознице Huawei Watch D2,
+    а вся экономика считалась от неё. Ставить их обратно можно будет, когда придут
+    два ответа – и ни минутой раньше.</p>
+    <dl class="pairs">
+      <div class="pair"><dt>Снизу</dt><dd><b>котировка завода по SKU C</b> – настоящая
+      закупочная цена модуля с микроманжетой вместо оценки в 25–45 USD</dd></div>
+      <div class="pair"><dt>Сверху</dt><dd><b>ответ главных врачей</b> – сколько
+      поликлиника готова платить за прибор и из какой статьи; стимулирующий компонент
+      идёт прежде всего на выплаты персоналу, а не на оснащение</dd></div>
+    </dl>
+    <p>Что известно и без них: вложения до старта продаж – <b>30 млн ₸</b>
+    (регистрация 15, клиническая валидация по ISO 81060-2 около 12 – оценка,
+    образцы и работа с заводом 3); модуль наблюдения для поликлиники – <b>0 ₸</b>,
+    он входит в аренду медицинской системы по внутренней цене 500 ₸ на пациента
+    в месяц; розничная подписка – <b>690 ₸ в месяц</b>. Эти величины от цены прибора
+    не зависят. Расчётная модель сохранена в <code>tools/calc-ag-product.py</code>
+    и снятый текст – в <code>docs/cena-i-ekonomika-snyato.md</code>.</p>
   </div>
 </section>
 
@@ -801,14 +791,17 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 
   <div class="trio">
     <div class="r">
-      <div class="rt">Закупочная цена может оказаться выше предела</div>
-      <div class="rv">Снимается котировкой по SKU C. Пределы посчитаны: 53,6 $
-      при партии 5 000 и 25,1 $ при партии 2 000. Если завод назовёт больше –
-      поднимаем цены продажи или увеличиваем партию, третьего нет.</div>
+      <div class="rt">Закупочная цена может оказаться неподъёмной</div>
+      <div class="rv">Снимается котировкой по SKU C. Оценочный диапазон 25–45 USD
+      кратно выше потолка 11,5 USD, которым ограничен общий браслет, но насколько –
+      покажет только завод. Если цена окажется высокой, выхода два: поднимать цену
+      продажи или увеличивать партию, третьего нет.</div>
     </div>
     <div class="r">
-      <div class="rt">Поликлиника не купит прибор за 29 900 ₸</div>
-      <div class="rv">Не снимается расчётом – только разговором с главными врачами.
+      <div class="rt">Поликлиника не потянет прибор</div>
+      <div class="rv">Главный незакрытый риск проекта, и он же причина, по которой
+      на странице нет ни цены, ни экономики. Не снимается расчётом – только разговором
+      с главными врачами.
       Аргумент на их стороне есть: половина стимулирующего компонента завязана
       на динамическое наблюдение той же группы, а один участок на 500 пациентов
       даёт 3,0 млн ₸ в год внутренней цены модуля.</div>
@@ -840,188 +833,56 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 </section>
 
-<div class="partline"><span class="pnum">Часть II</span><span class="ptitle">Решение по партнёрам</span><span class="pdek">Все пути закрыть давление рядом, чем каждый жертвует и что делаем дальше</span></div>
+<div class="partline" id="chast-2"><span class="pnum">Часть II</span><span class="ptitle">Решение по партнёрам</span><span class="pdek">Все пути закрыть давление рядом, чем каждый жертвует и что делаем дальше</span></div>
 
 <section id="sravnenie">
-  <div class="shead"><span class="snum">08</span><h2>Семь путей закрыть давление</h2></div>
+  <div class="shead"><span class="snum">08</span><h2>Шесть путей закрыть давление</h2></div>
 <p class="sdek">Всё, что разобрано выше, сведено в одну матрицу по единым критериям.
   Это главный раздел страницы: по нему принимается решение.</p>
 
   <div class="paths">
     <div class="path">
-      <div class="ph-h"><span class="ph-n">1. Ничего не менять</span><span class="ph-v yes">база</span></div>
-      <dl>
-        <dt>Что это</dt><dd>наш браслет плюс манжетный тонометр дома</dd>
-        <dt>Цифра АД</dt><dd class="no">нет</dd>
-        <dt>Статус в РК</dt><dd class="yes">чисто</dd>
-        <dt>Цена пациенту</dt><dd>14 990 ₸</dd>
-        <dt>Что требуется</dt><dd>ничего</dd>
-      </dl>
-    </div>
-    <div class="path">
-      <div class="ph-h"><span class="ph-n">2. SKU C — своя микроманжета</span><span class="ph-v yes">запросить</span></div>
+      <div class="ph-h"><span class="ph-n">1. SKU C — своя микроманжета</span><span class="ph-v yes">запросить</span></div>
       <dl>
         <dt>Что это</dt><dd>котировка у китайского завода, второй продукт линейки</dd>
         <dt>Цифра АД</dt><dd class="yes">да, настоящая</dd>
         <dt>Статус в РК</dt><dd>своё удостоверение, класс 2а</dd>
         <dt>Цена</dt><dd>выше потолка 11,5 USD FOB (оценка)</dd>
         <dt>Что требуется</dt><dd>запрос в RFQ и валидация по ISO 81060-2</dd>
+        <dt>Статус</dt><dd class="">⏳ в работе</dd>
       </dl>
+      <div class="pwant">Просим у заводов: котировку по SKU C с двумя отсеивающими вопросами – валидация по ISO 81060-2 и регистрация NMPA.</div>
     </div>
     <div class="path">
-      <div class="ph-h"><span class="ph-n">3. Huawei — корпоративный контур</span><span class="ph-v">спросить</span></div>
-      <dl>
-        <dt>Что это</dt><dd>H9D20 с открытыми данными под брендом Damumed</dd>
-        <dt>Цифра АД</dt><dd class="yes">да</dd>
-        <dt>Статус в РК</dt><dd class="no">нет, и сам контур закрыт вне КНР</dd>
-        <dt>Цена</dt><dd>не публикуется</dd>
-        <dt>Что требуется</dt><dd>капитал от 5 млн юаней и снятие географического ограничения</dd>
-      </dl>
-    </div>
-    <div class="path">
-      <div class="ph-h"><span class="ph-n">4. Sky Labs — дистрибуция</span><span class="ph-v yes">писали первым</span></div>
-      <dl>
-        <dt>Что это</dt><dd>кольцо CART BP pro в наш канал</dd>
-        <dt>Цифра АД</dt><dd class="yes">да</dd>
-        <dt>Статус в РК</dt><dd>CE-MDR сокращает путь в ЕАЭС</dd>
-        <dt>Цена</dt><dd>$392 розница</dd>
-        <dt>Что требуется</dt><dd>канал в поликлиники и подбор размеров колец</dd>
-      </dl>
-    </div>
-    <div class="path">
-      <div class="ph-h"><span class="ph-n">5. Hilo — лицензия CALFREE</span><span class="ph-v">ждём ответа</span></div>
-      <dl>
-        <dt>Цифра АД</dt><dd>да, но с калибровкой манжетой</dd>
-        <dt>Статус в РК</dt><dd class="no">нет</dd>
-        <dt>Цена</dt><dd>условия лицензии неизвестны</dd>
-        <dt>Что требуется</dt><dd>решить вопрос облачного расчёта</dd>
-      </dl>
-    </div>
-    <div class="path">
-      <div class="ph-h"><span class="ph-n">6. Valencell — лицензия алгоритма</span><span class="ph-v">спросили ради оптики</span></div>
-      <dl>
-        <dt>Цифра АД</dt><dd class="no">без допуска</dd>
-        <dt>Статус в РК</dt><dd class="no">нет</dd>
-        <dt>Цена</dt><dd>условия лицензии неизвестны</dd>
-        <dt>Что требуется</dt><dd>своя клиническая валидация; допуска FDA нет три года</dd>
-      </dl>
-    </div>
-    <div class="path">
-      <div class="ph-h"><span class="ph-n">7. LiveMetric — пилот или OEM</span><span class="ph-v">дешёвый эксперимент</span></div>
+      <div class="ph-h"><span class="ph-n">2. LiveMetric — пилот или OEM <a class="pgo" href="#livemetric">к разбору</a></span><span class="ph-v">единственный живой диалог</span></div>
       <dl>
         <dt>Цифра АД</dt><dd class="yes">да, прямая тонометрия</dd>
         <dt>Статус в РК</dt><dd class="no">нет</dd>
         <dt>Цена</dt><dd>неизвестна</dd>
-        <dt>Что требуется</dt><dd>принять риск поставщика из десяти человек</dd>
+        <dt>Что требуется</dt><dd>ответить на встречные вопросы и принять риск небольшого поставщика</dd>
+        <dt>Статус</dt><dd class="yes">✅ диалог идёт</dd>
       </dl>
+      <div class="pwant">Просим: пилот, затем OEM. <b>Единственный действующий диалог из пяти обращений</b> – ответили в тот же день, с CEO в копии: готовы поставлять вне США и ЕС, обсуждать API и хранение данных, позже OEM вплоть до локального производства.</div>
     </div>
   </div>
 
   <div class="note warn">
     <div class="t">Что видно из матрицы сразу</div>
     <b>Ни один путь не даёт одновременно цифру давления, законный статус в Казахстане
-    и приемлемую цену.</b> Каждый жертвует чем-то одним: путь 2 — сроком и ценой,
-    путь 3 — недоступен по географии, путь 4 — ценой, пути 5–8 — статусом в РК.
+    и приемлемую цену.</b> Каждый жертвует чем-то одним: свой SKU C — сроком и ценой,
+    Huawei недоступен по географии, Sky Labs дорог, остальные не имеют статуса в РК.
     Это не недоработка анализа, а состояние отрасли: категория легализована меньше
     двух лет назад и до Казахстана ещё не дошла.
   </div>
 
-  <h3 style="font-size:19px;margin:34px 0 10px">Ранжирование по стоимости проверки</h3>
-  <p>Правильный критерий сейчас — не «сколько заработаем», а «сколько стоит выяснить».
-  Ни один вариант не готов к решению, зато три из них проверяются бесплатно.</p>
-
-  <div class="trio">
-    <div class="r"><div class="rt"><b>1</b></div><div class="rv">Действие: <b>Письмо в Sky Labs</b> · Стоимость проверки: 0 ₸ · Что даёт даже при отказе: понимание, как они устроены на новых рынках; их модель возмещения — образец для нашего варианта А</div></div>
-    <div class="r"><div class="rt"><b>2</b></div><div class="rv">Действие: <b>SKU C в RFQ заводам</b> · Стоимость проверки: 0 ₸ · Что даёт даже при отказе: настоящая цена второго продукта вместо оценки; вопрос про ISO 81060-2 и NMPA сразу отделит серьёзных поставщиков</div></div>
-    <div class="r"><div class="rt"><b>3</b></div><div class="rv">Действие: <b>Запрос в Huawei Kazakhstan</b> · Стоимость проверки: 0 ₸ · Что даёт даже при отказе: ответ про уровень данных на Watch D2 закрывает направление в любую сторону</div></div>
-    <div class="r"><div class="rt">4</div><div class="rv">Действие: Письмо в Valencell · Стоимость проверки: 0 ₸ · Что даёт даже при отказе: требования к оптическому тракту от поставщика датчиков Samsung и Huawei — ориентир для выбора завода</div></div>
-    <div class="r"><div class="rt">5</div><div class="rv">Действие: Напоминание в Hilo 26.09 · Стоимость проверки: 0 ₸ · Что даёт даже при отказе: то же по оптике; плюс ясность по CALFREE</div></div>
-    <div class="r"><div class="rt">6</div><div class="rv">Действие: LiveMetric · Стоимость проверки: 0 ₸ · Что даёт даже при отказе: ✅ отправлены 06.09 вместе с остальными</div></div>
-  </div>
-
-  <h3 style="font-size:19px;margin:34px 0 10px">Что произойдёт при каждом исходе</h3>
-
-  <p><strong>Если Sky Labs согласится на дистрибуцию</strong> — у нас появляется
-  зарегистрированный прибор с цифрой давления и путь через возмещение, который они уже
-  прошли в Корее. Это самый сильный из возможных исходов, но цена $392 ограничивает
-  его платёжеспособной группой и потребует отдельной ценовой модели.</p>
-
-  <p><strong>Если Huawei откроет данные на Watch D2</strong> — появляется техническая
-  возможность, но остаётся регуляторная: у устройства нет статуса медизделия
-  в Казахстане, и получать его пришлось бы Huawei, а не нам. То есть даже успех здесь
-  не снимает вопрос зачёта наблюдения по приказу.</p>
-
-  <p><strong>Если завод даст приемлемую цену на SKU C</strong> — это единственный путь,
-  где мы остаёмся владельцами продукта и держателями удостоверения. Медленный
-  и дорогой, но свой. Именно поэтому запрос в RFQ стоит отправить независимо от всего
-  остального.</p>
-
-  <p><strong>Если все откажут</strong> — ничего не ломается. Наша клиническая модель
-  изначально построена так, что давление в ней не несущая конструкция: для гипертоника
-  ценность браслета в скрининге фибрилляции предсердий, поведенческом контуре
-  и приверженности. Мы возвращаемся к базовому пути и ждём, во что выльются исключения
-  FDA по оптическому измерению давления в 2027 году.</p>
-
   <div class="note">
-    <div class="t">Итог одной строкой</div>
-    <b>Решение по первой партии не зависит ни от одного из этих переговоров</b> — оно
-    остаётся за основной стратегией — медизделием с регистрационным удостоверением.
-    Все восемь путей относятся ко второму продукту линейки, и правильная тактика
-    сейчас — собрать ответы на разосланные запросы и вернуться к вопросу через
-    квартал, когда появятся факты вместо оценок.
+    <div class="t">Седьмого пути пока нет</div>
+    🇺🇸 <b>Vital Signals</b> (США, кольцо $399) — <a href="#vital-signals">к разбору</a>.
+    Не пишем: серийного изделия не существует, прибор показывали на выставке в 2023 году
+    и в продажу он не вышел. Возвращаемся осенью 2026, когда должна выйти публикация
+    их исследования на 451 участнике.
   </div>
 
-  <h3 class="csub">Приоритеты и статус переписки</h3>
-<div class="rows">
-    <div class="row hi">
-      <span class="pr">1</span>
-      <span><span class="nm">🇰🇷 Sky Labs</span> <span class="geo">· Корея, кольцо · <a href="#sky-labs">к разбору</a></span></span>
-      <span class="stt yes">✅ отправлено 06.09</span>
-      <span class="want">Просим: дистрибуцию в Казахстане и интеграцию с Damumed. Главный кандидат.</span>
-    </div>
-    <div class="row">
-      <span class="pr">2</span>
-      <span><span class="nm">🇨🇭 Hilo</span> <span class="geo">· Швейцария, браслет · <a href="#hilo">к разбору</a></span></span>
-      <span class="stt yes">✅ отправлено 05.09</span>
-      <span class="want">Просим: лицензию на технологию CALFREE. Ответа нет, напоминание 26.09.</span>
-    </div>
-    <div class="row">
-      <span class="pr">3</span>
-      <span><span class="nm">🇺🇸 Valencell</span> <span class="geo">· США, датчик на палец · <a href="#valencell">к разбору</a></span></span>
-      <span class="stt yes">✅ отправлено 06.09</span>
-      <span class="want">Просим: лицензию алгоритма и требования к оптическому тракту.</span>
-    </div>
-        <div class="row">
-      <span class="pr">4</span>
-      <span><span class="nm">🇱🇺 LiveMetric</span> <span class="geo">· Люксембург, браслет · <a href="#livemetric">к разбору</a></span></span>
-      <span class="stt yes">✅ <b>диалог идёт</b></span>
-      <span class="want">Просим: пилот или OEM. <b>Единственные, кто ответил</b> — в тот же день, с CEO в копии: готовы поставлять вне США и ЕС, обсуждать API и хранение данных, позже OEM вплоть до локального производства.</span>
-    </div>
-    <div class="row">
-      <span class="pr">5</span>
-      <span><span class="nm">🇺🇸 Vital Signals</span> <span class="geo">· США, кольцо $399 · <a href="#vital-signals">к разбору</a></span></span>
-      <span class="stt">🚫 не пишем</span>
-      <span class="want">Нет допуска, валидация не опубликована. Ждём публикации осенью 2026.</span>
-    </div>
-  </div>
-
-<div class="fig" style="margin-bottom:44px">
-  <h3>Адреса и сроки напоминаний</h3>
-  <div class="sub">Куда ушло каждое письмо, что ответили и когда напоминать</div>
-  <div class="trio">
-    <div class="r"><div class="rt"><b>Sky Labs</b></div><div class="rv">Адрес: info@skylabs.io + пресс-служба · Отправлено: 06.09, 14:37 · Что дальше: напоминание 20.09</div></div>
-    <div class="r"><div class="rt"><b>Hilo</b></div><div class="rv">Адрес: info@aktiia.com · Отправлено: 05.09, 15:30 · Что дальше: напоминание 26.09</div></div>
-    <div class="r"><div class="rt"><b>Valencell</b></div><div class="rv">Адрес: info@valencell.com · Отправлено: 06.09, 14:37 · Что дальше: напоминание 20.09</div></div>
-    <div class="r"><div class="rt">Biobeat</div><div class="rv">Адрес: info@bio-beat.com · Отправлено: 06.09, 14:37 · Что дальше: направление закрыто — не наш сегмент; напоминание не шлём</div></div>
-    <div class="r"><div class="rt"><b>LiveMetric</b></div><div class="rv">Адрес: info@livemetric.com · Отправлено: 06.09, 14:37 · Что дальше: напоминание 20.09</div></div>
-    <div class="r"><div class="rt"><b>Huawei Kazakhstan</b></div><div class="rv">Адрес: aiman.sakhova@huawei.com · Отправлено: ⏸ черновик · Что дальше: заход через личный контакт владельца</div></div>
-    <div class="r"><div class="rt">Vital Signals</div><div class="rv">Адрес: — · Отправлено: не пишем · Что дальше: ждём публикации исследования, осень 2026</div></div>
-  </div>
-  <div class="cap">Письма в Sky Labs и Valencell отправлены на общие ящики
-  с просьбой переадресовать профильному человеку — в Valencell это Mark Felice,
-  VP of Business Development and Licensing. Адрес info@skylabs.io указан самим CEO Sky Labs в его профиле
-  как адрес для деловых обращений.</div>
-</div>
 </section>
 
 <section>
@@ -1051,37 +912,14 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   вторым продуктом линейки и требования к оптическому тракту для запроса заводам.</p>
 </section>
 
-<section>
-  <div class="shead"><span class="snum">10</span><h2>Календарь</h2></div>
 
-  <dl class="pairs">
-    <div class="pair"><dt><b>✅ 06.09.2026</b></dt><dd>отправлены письма в <b>Sky Labs</b>, <b>Valencell</b> и <b>LiveMetric</b></dd></div>
-    <div class="pair"><dt>⏸ у владельца</dt><dd>запрос в <b>Huawei Technologies Kazakhstan</b> — заход через личный контакт, черновик готов</dd></div>
-    <div class="pair"><dt><b>26.09.2026</b></dt><dd>если нет ответа от <b>Hilo</b> — напоминание в тот же тред</dd></div>
-    <div class="pair"><dt>20.09.2026</dt><dd>если нет ответов от Sky Labs и остальных — напоминания в те же треды</dd></div>
-    <div class="pair"><dt>осень 2026</dt><dd>проверить публикацию исследования <b>Vital Signals</b></dd></div>
-    <div class="pair"><dt>январь 2027</dt><dd>проверить, во что вылились исключения FDA по оптическому измерению АД</dd></div>
-  </dl>
 
-  <div class="note warn">
-    <div class="t">Правило проекта</div>
-    <b>06.09.2026 отправлены письма</b> — Sky Labs (info@skylabs.io, адрес
-    указан самим CEO как деловой), Valencell (info@valencell.com, с просьбой
-    переадресовать Mark Felice, VP of Business Development and Licensing) и
-    LiveMetric (info@livemetric.com). Вместе с Hilo от 05.09 в работе пять обращений.<br><br>
-    ⏸ Письмо в Huawei Kazakhstan (aiman.sakhova@huawei.com — контактное лицо
-    бизнес-группы предприятия) <b>сознательно не отправлено</b>: у владельца есть
-    тёплый контакт в компании, заход будет через него. Тексты всех писем —
-    <code>docs/pisma-shest-kompaniy.md</code> и <code>docs/pismo-huawei-kz.md</code>.
-  </div>
-</section>
-
-<div class="partline"><span class="pnum">Часть III</span><span class="ptitle">Справочник по игрокам</span><span class="pdek">Детально по каждому: характеристики, регуляторика, клиническая база, риски и статус переписки. Разделов пять, а игроков в категории шесть — израильский Biobeat отсеян: одноразовый нагрудный пластырь для стационара, в амбулаторной программе не окупается. Для тех, кто углубляется — решение принимается по части II</span></div>
+<div class="partline" id="chast-3"><span class="pnum">Часть III</span><span class="ptitle">Справочник по игрокам</span><span class="pdek">Детально по каждому: характеристики, регуляторика, клиническая база, риски и статус переписки. Разделов пять, а игроков в категории шесть — израильский Biobeat отсеян: одноразовый нагрудный пластырь для стационара, в амбулаторной программе не окупается. Для тех, кто углубляется — решение принимается по части II</span></div>
 
   <div class="toc"><a href="#huawei">🇨🇳 Huawei — партнёрство</a><a href="#h9d20">🇨🇳 H9D20 — устройство</a><a href="#sky-labs">🇰🇷 Sky Labs</a><a href="#hilo">🇨🇭 Hilo</a><a href="#valencell">🇺🇸 Valencell</a><a href="#livemetric">🇱🇺 LiveMetric</a><a href="#vital-signals">🇺🇸 Vital Signals</a></div>
 
 <section id="huawei">
-  <div class="shead"><span class="snum">11</span><h2><span class="cflag">🇨🇳</span>Huawei как партнёр: что доступно нам, а что нет</h2></div>
+  <div class="shead"><span class="snum">10</span><h2><span class="cflag">🇨🇳</span>Huawei как партнёр: что доступно нам, а что нет</h2></div>
   <p class="sdek">Речь здесь о компании и о том, можно ли с ней работать: какие у Huawei контуры, что из них доступно в Казахстане, где проходит стена и что мы просим на переговорах. Разбор самого устройства — в следующем разделе.</p>
 
   <div class="phg">
@@ -1155,7 +993,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
     подтверждение архитектуры «железо и модули ПО регистрируются отдельно»; честную
     формулировку про глюкозу («оценка риска при ношении от трёх суток», не значение);
     и цену честной цифры давления — <b>один день автономности вместо шести</b>.
-    Подробности — в разделе 04.
+    Подробности — в разделе об устройстве H9D20.
   </div>
 
   <p><strong>Чего в этом направлении нет:</strong> дистрибуция потребительских
@@ -1167,7 +1005,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section id="h9d20">
-  <div class="shead"><span class="snum">12</span><h2><span class="cflag">🇨🇳</span>Устройство H9D20: эталон требований к нашему прибору</h2></div>
+  <div class="shead"><span class="snum">11</span><h2><span class="cflag">🇨🇳</span>Устройство H9D20: эталон требований к нашему прибору</h2></div>
   <p class="sdek">Корпоративная версия Watch D2: та же аппаратная платформа в другой юридической упаковке. Четыре регистрации NMPA, открытые данные партнёру и заводская кастомизация под чужой бренд — всё то, что нам нужно, и всё это недоступно за пределами Китая.</p>
 
   <div class="st hold">⏸ Купить нельзя — разбираем как источник требований для нашей спецификации</div>
@@ -1198,7 +1036,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
     в текущей конфигурации продукт. Ценность разбора в другом: он даёт готовый перечень
     требований для нашей собственной спецификации, готовый список противопоказаний для
     регистрационного досье и один очень конкретный вопрос для переговоров с Huawei
-    Kazakhstan — он в разделе 08.
+    Kazakhstan — он в разделе о шести путях.
   </div>
 
   <h3 class="csub">Характеристики</h3>
@@ -1454,7 +1292,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section id="sky-labs">
-  <div class="shead"><span class="snum">13</span><h2><span class="cflag">🇰🇷</span>Sky Labs — CART BP pro</h2></div>
+  <div class="shead"><span class="snum">12</span><h2><span class="cflag">🇰🇷</span>Sky Labs — CART BP pro</h2></div>
   <p class="sdek">Кольцо, которое зашло в систему здравоохранения там, где не смогли более богатые конкуренты: государственная страховка Кореи платит за него по коду суточного мониторирования. <strong>Главный кандидат в партнёры по нашей оценке.</strong></p>
 
   <div class="st sent">✅ Письмо отправлено 6 сентября 2026, 14:37 · ждём ответа</div>
@@ -1588,7 +1426,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section id="hilo">
-  <div class="shead"><span class="snum">14</span><h2><span class="cflag">🇨🇭</span>Hilo — Hilo Band</h2></div>
+  <div class="shead"><span class="snum">13</span><h2><span class="cflag">🇨🇭</span>Hilo — Hilo Band</h2></div>
   <p class="sdek">Лидер категории по деньгам и допускам: первый в мире безрецептурный допуск FDA на безманжетный монитор давления. Но в США продаёт браслет как оздоровительный продукт, а медизделием там числится манжета.</p>
 
   <div class="st sent">✅ Письмо отправлено 5 сентября 2026, 15:30 · ответа нет, напоминание 26.09</div>
@@ -1735,7 +1573,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section id="valencell">
-  <div class="shead"><span class="snum">15</span><h2><span class="cflag">🇺🇸</span>Valencell — Fingertip Monitor</h2></div>
+  <div class="shead"><span class="snum">14</span><h2><span class="cflag">🇺🇸</span>Valencell — Fingertip Monitor</h2></div>
   <p class="sdek">Единственная компания списка, у которой нечего показать: прибор анонсировали в 2021-м, показали на CES в 2023-м, а допуска FDA нет до сих пор. Но интересна она не прибором — <strong>это лицензиар сенсорных технологий Samsung, Bose, Sony и Huawei</strong>.</p>
 
   <div class="st sent">✅ Письмо отправлено 6 сентября 2026, 14:37 · ждём ответа</div>
@@ -1825,7 +1663,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section id="livemetric">
-  <div class="shead"><span class="snum">16</span><h2><span class="cflag">🇱🇺</span>LiveMetric — LiveOne</h2></div>
+  <div class="shead"><span class="snum">15</span><h2><span class="cflag">🇱🇺</span>LiveMetric — LiveOne</h2></div>
   <p class="sdek">Единственный прибор категории, который измеряет давление механически: массив датчиков прижимается к лучевой артерии. Допуск FDA есть, а компании фактически нет — десять человек в поиске капитала.</p>
 
   <div class="st sent">✅ Отправлено 6 сентября 14:37 · ответ получен 16:33 · <b>наш ответ отправлен 17:19, ждём</b></div>
@@ -2002,7 +1840,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 </section>
 
 <section id="vital-signals">
-  <div class="shead"><span class="snum">17</span><h2><span class="cflag">🇺🇸</span>Vital Signals — Signal Ring</h2></div>
+  <div class="shead"><span class="snum">16</span><h2><span class="cflag">🇺🇸</span>Vital Signals — Signal Ring</h2></div>
   <p class="sdek">Кольцо за $399 без подписки, которое обещает измерять давление вообще без калибровки. Основатель — из ранней команды Android. Допуска нет, валидация не опубликована, отгрузка ещё не началась. <strong>Мы им не пишем — наблюдаем.</strong></p>
 
   <div class="st hold">⏸ Письмо не отправляем — ждём публикации исследования, осень 2026</div>
