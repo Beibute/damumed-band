@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Damumed Band — вариант запуска без регистрации медизделия: отчёт и расчёты">
+<title>Damumed Band — без регистрации</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#f4faf7; --surface:#FFFFFF; --surface-2:#e7f5ee;
+  --ink:#103126; --ink-2:#4d6c60; --muted:#7a948a;
+  --line:#dce9e2; --line-strong:#c6ddd2;
+  --accent:#17936f; --accent-bright:#2bb488;
+  --warn:#8a6416; --alert:#d1453f; --info:#2F6D9E;
+  --accent-wash:#e7f5ee; --warn-wash:#fff6e6; --alert-wash:#fdecec;
+  --head:#082f24; --head-ink:#f4faf7; --head-ink-2:#9fd4c0;
+  --seq1:#082f24; --seq2:#17936f; --seq3:#2bb488; --seq4:#9fd4c0;
+  --shadow:0 2px 12px rgba(8,47,36,.06);
+}
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink);
+  font-family:"Manrope",-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:17.5px; line-height:1.62; margin:0;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px; margin:0 auto; padding:0 24px 80px}
+h1,h2,h3{font-family:"Manrope",system-ui,sans-serif; text-wrap:balance; margin:0}
+.num{font-family:"Spline Sans Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
+
+/* шапка */
+.hero{color:var(--head-ink); margin:0 0 38px; padding:0; position:relative; overflow:hidden;
+  background-image:linear-gradient(100deg,rgba(8,47,36,.97) 0%,rgba(8,47,36,.92) 42%,rgba(8,47,36,.55) 72%,rgba(8,47,36,.4) 100%),url('img/device-wrist.jpg');
+  background-size:cover; background-position:center right}
+.hero .rule{width:88px; height:8px; background:var(--accent-bright); margin:0 0 26px}
+.hero .wordmark{font-weight:800; font-size:15px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--head-ink); margin-bottom:26px}
+.hero-in{max-width:1080px; margin:0 auto; padding:0 24px; position:relative; z-index:1}
+.hero-in header{padding:64px 0 56px; max-width:62ch}
+@media(max-width:760px){.hero-in header{padding:44px 0 40px}}
+.hero-orn{position:absolute; right:-70px; top:-80px; opacity:.15; pointer-events:none}
+header{padding:0}
+.eyebrow{font-size:13px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--accent-bright); margin-bottom:20px}
+.hero .lede{color:var(--head-ink); opacity:.92}
+.hero .meta{color:var(--head-ink); opacity:.82; border-top:1px solid rgba(255,255,255,.24);
+  padding-top:22px}
+.hero .meta b{color:var(--head-ink)}
+@media(max-width:700px){.hero-orn{display:none}}
+h1{font-size:clamp(36px,5vw,58px); font-weight:800; line-height:1.12; letter-spacing:-.015em}
+.lede{color:var(--ink-2); font-size:19.5px; max-width:62ch; margin:14px 0 0}
+.meta{display:flex; flex-wrap:wrap; gap:9px 24px; margin-top:24px;
+  font-family:"Spline Sans Mono",monospace; font-size:13.5px; color:var(--muted)}
+.meta b{color:var(--ink-2); font-weight:500}
+
+/* плитки */
+.tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(178px,1fr)); gap:14px; margin-bottom:44px}
+.tile{background:var(--surface); border-radius:22px;
+  padding:22px 24px 20px; box-shadow:var(--shadow)}
+.tile .k{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted); display:block; margin-bottom:9px}
+.tile .v{font-family:'Spline Sans Mono',monospace; font-size:34px; font-weight:500; line-height:1;
+  font-variant-numeric:tabular-nums; letter-spacing:-.01em}
+.tile .u{font-size:14.5px; color:var(--ink-2); font-family:"Manrope",sans-serif; font-weight:400}
+.tile .d{font-size:13.5px; color:var(--muted); margin-top:7px; line-height:1.4}
+.tile.hot{background:var(--head)}
+.tile.hot .v{color:#fff}
+.tile.hot .k{color:var(--head-ink-2)}
+.tile.hot .d{color:#d7efe5}
+.tile.hot .u{color:#d7efe5}
+
+/* секции */
+section{margin-bottom:52px; scroll-margin-top:20px}
+.shead{display:flex; align-items:center; gap:13px; margin-bottom:6px;
+  padding-bottom:13px; border-bottom:1px solid var(--line-strong)}
+.snum{font-size:13px; color:var(--accent); font-weight:800; letter-spacing:.14em;
+  text-transform:uppercase; white-space:nowrap}
+h2{font-size:30px; font-weight:800; letter-spacing:-.01em}
+.sdek{color:var(--ink-2); margin:14px 0 22px; max-width:66ch}
+p{margin:0 0 15px} p:last-child{margin-bottom:0}
+strong{font-weight:600}
+a{color:var(--accent)} a:hover{color:var(--accent-bright)}
+
+/* карточка графика */
+.fig{background:var(--surface); border-radius:22px;
+  padding:26px 28px 20px; margin:24px 0; box-shadow:var(--shadow)}
+.fig h3{font-size:18px; font-weight:600; margin-bottom:3px}
+.fig .sub{color:var(--muted); font-size:14.5px; margin-bottom:18px}
+.fig .cap{color:var(--muted); font-size:14px; margin-top:14px; padding-top:12px;
+  border-top:1px solid var(--line); line-height:1.5}
+.chart{width:100%; overflow-x:auto}
+svg{display:block; max-width:100%; height:auto}
+.grid-line{stroke:var(--line); stroke-width:1}
+.axis-text{font-family:"Spline Sans Mono",monospace; font-size:12px; fill:var(--muted)}
+.lbl{font-family:"Spline Sans Mono",monospace; font-size:12.5px; fill:var(--ink-2)}
+.lbl-strong{font-family:"Spline Sans Mono",monospace; font-size:13px; fill:var(--ink); font-weight:500}
+.name{font-family:"Manrope",sans-serif; font-size:13.5px; fill:var(--ink-2)}
+.mark{transition:opacity .12s} .mark:hover{opacity:.78; cursor:default}
+
+/* легенда */
+.legend{display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:15px;
+  font-size:13.5px; color:var(--ink-2)}
+.legend i{width:11px; height:11px; border-radius:2px; display:inline-block;
+  margin-right:6px; vertical-align:-1px}
+
+/* таблицы */
+.tw{overflow-x:auto; margin:20px 0}
+table{border-collapse:collapse; width:100%; font-size:15.5px; min-width:520px}
+table{border-radius:22px; overflow:hidden}
+th{text-align:left; font-family:"Manrope",sans-serif; font-size:12.5px;
+  letter-spacing:.09em; text-transform:uppercase; color:var(--head-ink-2); font-weight:700;
+  background:var(--head); padding:13px 14px; white-space:nowrap}
+th:first-child{border-radius:0} 
+td{padding:13px 14px; border-bottom:1px solid rgba(16,49,38,.08); vertical-align:top}
+td.n{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums; white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.pick td{background:var(--accent-wash)}
+.pick td:first-child{padding-left:18px}
+
+/* врезки */
+.note{border-left:3px solid var(--warn); background:var(--surface);
+  padding:15px 18px; margin:22px 0; border-radius:0 14px 14px 0; box-shadow:var(--shadow)}
+.note.warn{border-left-color:var(--warn); background:var(--warn-wash)}
+.note.alert{border-left-color:var(--alert); background:var(--alert-wash)}
+.note .t{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--warn); margin-bottom:7px}
+.note.warn .t{color:var(--warn)} .note.alert .t{color:var(--alert)}
+
+/* списки */
+ol,ul{margin:0 0 15px; padding-left:22px} li{margin-bottom:7px}
+ol{counter-reset:i; list-style:none; padding-left:0}
+ol li{counter-increment:i; padding-left:30px; position:relative}
+ol li::before{content:counter(i); position:absolute; left:0; top:2px;
+  font-family:"Spline Sans Mono",monospace; font-size:12.5px; color:var(--accent);
+  border:1px solid var(--line-strong); border-radius:6px; width:19px; height:19px;
+  display:flex; align-items:center; justify-content:center}
+
+/* этапы */
+.steps{display:grid; gap:1px; background:var(--line); border:1px solid var(--line);
+  border-radius:14px; overflow:hidden; margin:22px 0}
+.step{background:var(--surface); padding:14px 18px; display:grid;
+  grid-template-columns:86px 1fr; gap:16px; align-items:start}
+.step .w{font-family:"Spline Sans Mono",monospace; font-size:13px; color:var(--accent)}
+.step .b{font-weight:600; font-size:16px; margin-bottom:3px}
+.step .c{color:var(--ink-2); font-size:15px}
+
+/* фотографии устройства */
+.shots{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin:4px 0}
+.shots figure{margin:0}
+.shots img{width:100%; height:auto; display:block; border-radius:12px;
+  border:1px solid var(--line); background:var(--surface-2)}
+.shots figcaption{font-size:14px; color:var(--muted); line-height:1.5; margin-top:10px}
+
+/* мокапы приложения — светлая тема действующего Damumed */
+.screens{display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr));
+  gap:22px; margin:24px 0}
+.ph{background:#000; border:1px solid #2C2C2E; border-radius:26px; padding:7px;
+  box-shadow:var(--shadow)}
+.ph-cap{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--muted); text-align:center; padding:0 0 9px}
+.dscr{--g:#17936f; --gd:#106b51; --bg:#F4F6F5; --cd:#FFFFFF; --cd2:#EFF2F0;
+  --tx:#16232B; --tx2:#42504A; --mut:#7B8C82; --ln:#E3E9E5; --blue:#2F6D9E;
+  --wn:#A87718; --al:#C0453C;
+  --accent:#17936f; --line:#E3E9E5; --ink:#16232B; --ink-2:#42504A; --muted:#7B8C82;
+  --surface:#FFFFFF; --surface-2:#F4F6F5; --info:#2F6D9E; --warn:#A87718; --alert:#C0453C;
+  background:#F4F6F5; border-radius:20px; overflow:hidden; min-height:540px;
+  display:flex; flex-direction:column; color:#16232B}
+.dst{display:flex; justify-content:space-between; padding:8px 14px 2px;
+  font-size:10px; color:#16232B; font-weight:600}
+.dhd{padding:8px 12px 11px; display:flex; align-items:center; justify-content:space-between}
+.dhd .ava{width:24px; height:24px; border-radius:50%; background:#DDE5E0; flex:none}
+.dhd .lg{display:flex; align-items:center; gap:6px; font-weight:700; font-size:15px;
+  letter-spacing:.03em; color:#16232B}
+.dhd .ic{display:flex; gap:9px; color:#5A6873}
+.dback{display:flex; align-items:center; gap:10px; padding:6px 12px 12px; color:#16232B}
+.dback b{font-size:15.5px; font-weight:700; flex:1; text-align:center; margin-right:22px}
+.dbody{padding:0 11px 8px; display:flex; flex-direction:column; gap:9px; flex:1;
+  overflow:hidden}
+.dpills{display:flex; gap:7px}
+.dpill{flex:1; border-radius:12px; padding:9px 10px; font-size:10px; font-weight:600;
+  line-height:1.25; min-height:46px}
+.dpill.a{background:#E8E8EA; color:#1C1C1E} .dpill.b{background:var(--blue); color:#fff}
+.dpill.c{background:#E8E8EA; color:#1C1C1E}
+.dcard{background:var(--cd); border:1px solid var(--ln); border-radius:16px; padding:12px 13px}
+.dcard h4{font-size:11px; font-weight:700; color:var(--mut); text-transform:uppercase;
+  letter-spacing:.05em; margin:0 0 9px}
+.dring{display:flex; flex-direction:column; align-items:center; gap:2px; padding:2px 0}
+.dstat{font-size:15.5px; font-weight:700; margin-top:6px}
+.dsub{font-size:12.5px; color:var(--mut); text-align:center; line-height:1.4}
+.dmetric{display:flex; align-items:center; gap:11px}
+.dmi{width:34px; height:34px; border-radius:10px; background:#E4F3EC; flex:none;
+  display:flex; align-items:center; justify-content:center; color:var(--g)}
+.dmv{font-size:14.5px; font-weight:700}
+.dmk{font-size:11.5px; color:var(--mut)}
+.drow{display:flex; justify-content:space-between; align-items:center; padding:7px 0;
+  font-size:13.5px; border-bottom:1px solid var(--ln); color:var(--tx2)}
+.drow:last-child{border-bottom:0}
+.drow b{font-weight:700; font-size:14px; color:#16232B}
+.dtag{display:inline-block; font-size:10px; padding:2px 9px; border-radius:99px; font-weight:700}
+.t-ok{background:#E4F3EC; color:var(--g)} .t-wn{background:#FBF0D9; color:var(--wn)}
+.t-al{background:#FBE4E2; color:var(--al)}
+.dnote{font-size:12px; color:var(--mut); line-height:1.45}
+.dbtn{text-align:center; background:var(--g); color:#fff; border-radius:99px;
+  padding:11px; font-size:13.5px; font-weight:700}
+.dbtn.gh{background:transparent; color:var(--g); border:1px solid var(--g)}
+.dnav{background:#fff; border-top:1px solid var(--ln); display:flex; padding:8px 2px 9px;
+  margin-top:auto}
+.dnav span{flex:1; text-align:center; font-size:9.5px; color:#8E8E93; line-height:1.5;
+  position:relative}
+.dnav span.on{color:var(--g); font-weight:700}
+.dnav svg{display:block; margin:0 auto 2px}
+.dbadge{position:absolute; top:-3px; right:14px; background:var(--g); color:#fff;
+  border-radius:99px; font-size:8px; font-weight:700; padding:1px 5px}
+.dalert{background:#FBF0D9; border-radius:16px; padding:11px 13px}
+.dalert.crit{background:#FBE4E2}
+
+/* рабочее место врача — десктопная МИС */
+.mis{--g:#17936f; --gw:#E8F5F0; --bg:#F2F4F5; --ln:#E1E6E8; --tx:#16232B; --tx2:#5A6873;
+  --mut:#8A959D; --wn:#C58A2E; --wnw:#FDF4E3; --al:#C0453C; --alw:#F9E9E7;
+  border:1px solid var(--line-strong); border-radius:8px; overflow:hidden;
+  background:#fff; color:var(--tx); margin:22px 0; box-shadow:var(--shadow)}
+.mis-top{background:var(--g); color:#fff; display:flex; align-items:center; gap:14px;
+  padding:10px 15px; font-size:13.5px}
+.mis-top .b{font-weight:800; letter-spacing:.05em; display:flex; align-items:center; gap:6px}
+.mis-top .sp{flex:1}
+.mis-top .u{opacity:.9; font-size:11.5px}
+.mis-body{display:grid; grid-template-columns:172px 1fr; min-height:392px}
+.mis-side{background:#F7F9F9; border-right:1px solid var(--ln); padding:10px 0; font-size:13px}
+.mis-side div{padding:8px 14px; color:var(--tx2); display:flex; align-items:center; gap:8px}
+.mis-side div.on{background:var(--gw); color:var(--g); font-weight:700;
+  box-shadow:inset 3px 0 0 var(--g)}
+.mis-main{padding:13px 15px; min-width:0; overflow-x:auto}
+.mis-h{display:flex; align-items:baseline; gap:12px; margin-bottom:11px; flex-wrap:wrap}
+.mis-h b{font-size:16px; font-weight:800}
+.mis-h span{font-size:13px; color:var(--mut)}
+.mis-f{display:flex; gap:7px; margin-bottom:11px; flex-wrap:wrap}
+.mis-f span{border:1px solid var(--ln); border-radius:99px; padding:3px 11px;
+  font-size:11px; color:var(--tx2)}
+.mis-f span.on{background:var(--g); border-color:var(--g); color:#fff; font-weight:600}
+.mis table{width:100%; border-collapse:collapse; font-size:13.5px; min-width:600px}
+.mis th{background:#F7F9F9; color:var(--mut); font-size:9.5px; letter-spacing:.07em;
+  text-transform:uppercase; text-align:left; padding:7px 9px; border-bottom:1px solid var(--ln);
+  font-weight:700; white-space:nowrap}
+.mis td{padding:9px; border-bottom:1px solid var(--ln); vertical-align:top; line-height:1.45}
+.mis tr:last-child td{border-bottom:0}
+.mis .nm{font-weight:700}
+.mis .sm{font-size:11.5px; color:var(--mut)}
+.mis .st{display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700;
+  border-radius:99px; padding:2px 9px; white-space:nowrap}
+.mis .st i{width:7px; height:7px; border-radius:50%; display:inline-block}
+.s-red{background:var(--alw); color:var(--al)} .s-red i{background:var(--al)}
+.s-yel{background:var(--wnw); color:var(--wn)} .s-yel i{background:var(--wn)}
+.s-grn{background:var(--gw); color:var(--g)} .s-grn i{background:var(--g)}
+.mis .act{display:inline-block; border:1px solid var(--g); color:var(--g); border-radius:6px;
+  padding:3px 9px; font-size:11px; font-weight:700; margin:0 4px 4px 0}
+.mis .act.fill{background:var(--g); color:#fff}
+.mis-row-red{background:#FEF7F6}
+
+/* файлы */
+.files{display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:12px; margin-top:20px}
+.file{display:flex; gap:14px; align-items:center; text-decoration:none; color:inherit;
+  background:var(--surface); border:1px solid var(--line); border-radius:14px;
+  padding:15px 17px; box-shadow:var(--shadow); transition:border-color .14s, transform .14s;
+  font:inherit; text-align:left; cursor:pointer; width:100%}
+.file:hover{border-color:var(--accent); transform:translateY(-1px)}
+.file:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+.fi{font-family:"Spline Sans Mono",monospace; font-size:10.5px; letter-spacing:.06em;
+  color:var(--accent); border:1px solid var(--accent); border-radius:8px;
+  padding:5px 7px; flex:none}
+.fb{display:flex; flex-direction:column; gap:3px; min-width:0}
+.fb b{font-size:16px; font-weight:600}
+.fb i{font-style:normal; font-size:13.5px; color:var(--muted); line-height:1.4}
+
+.det{margin-top:20px; background:var(--surface); border:1px solid var(--line);
+  border-radius:14px; box-shadow:var(--shadow)}
+.det summary{cursor:pointer; padding:15px 18px; font-weight:600; font-size:16px;
+  list-style:none; display:flex; align-items:center; gap:9px}
+.det summary::-webkit-details-marker{display:none}
+.det summary::before{content:"+"; font-family:"Spline Sans Mono",monospace; color:var(--accent);
+  border:1px solid var(--line-strong); border-radius:6px; width:19px; height:19px;
+  display:flex; align-items:center; justify-content:center; font-size:13px; flex:none}
+.det[open] summary::before{content:"–"}
+.det summary:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
+.det-b{padding:0 18px 18px; color:var(--ink-2); font-size:15.5px; line-height:1.62;
+  border-top:1px solid var(--line); padding-top:15px; white-space:normal}
+.det-b p{margin:0 0 11px}
+.det-b h4{font-family:"Manrope",system-ui,sans-serif; font-size:15px; color:var(--ink); margin:20px 0 9px}
+.det-b table{font-size:15px}
+
+/* калькулятор */
+.calc{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:16px}
+@media(max-width:640px){.calc{grid-template-columns:1fr}}
+.calc-in{display:flex; flex-direction:column; gap:13px}
+.calc-in label{display:block; font-size:13.5px; color:var(--muted)}
+.calc-in label b{float:right; font-family:"Spline Sans Mono",monospace; color:var(--ink);
+  font-variant-numeric:tabular-nums; font-size:13px}
+.calc-in input[type=range]{width:100%; accent-color:var(--accent); margin-top:5px}
+.calc-out{background:var(--surface-2); border:1px solid var(--line); border-radius:12px;
+  padding:15px 16px; align-self:start}
+.co{display:flex; justify-content:space-between; align-items:baseline; gap:12px;
+  padding:8px 0; border-bottom:1px dashed var(--line); font-size:14.5px}
+.co:last-of-type{border-bottom:0}
+.co b{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums;
+  font-size:16px; color:var(--ink); white-space:nowrap}
+.co.big b{font-family:"Manrope",system-ui,sans-serif; font-size:23px; color:var(--accent)}
+.co.big b.neg{color:var(--alert)}
+
+footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56px;
+  color:var(--muted); font-size:14px}
+@media(max-width:640px){
+  .step{grid-template-columns:1fr; gap:4px}
+  header{padding-top:36px}
+}
+
+/* кнопки скачивания в шапке */
+.dl-row{display:flex; flex-wrap:wrap; gap:14px; margin-top:28px}
+.dl-btn{display:flex; align-items:center; gap:14px; text-decoration:none;
+  background:rgba(255,255,255,.14); color:#fff; border:1.5px solid rgba(255,255,255,.42);
+  border-radius:14px; padding:16px 22px; min-width:264px;
+  transition:background .15s, transform .15s, border-color .15s}
+.dl-btn:hover{background:rgba(255,255,255,.24); border-color:#fff; transform:translateY(-1px)}
+.dl-btn:focus-visible{outline:3px solid #fff; outline-offset:3px}
+.dl-btn.primary{background:#fff; color:var(--accent); border-color:#fff}
+.dl-btn.primary:hover{background:#F2FBF6}
+.dl-btn svg{flex:none}
+.dl-btn span{display:flex; flex-direction:column; gap:3px; line-height:1.25}
+.dl-btn b{font-size:18px; font-weight:700}
+.dl-btn i{font-style:normal; font-size:13.5px; opacity:.85}
+@media(max-width:640px){.dl-btn{min-width:0; flex:1 1 100%}}
+</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>
+.vswitch{display:inline-flex; background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.38); border-radius:99px; padding:4px; gap:4px;
+  margin-bottom:22px}
+.vswitch a{color:#fff; text-decoration:none; font-size:13.5px; font-weight:600;
+  padding:7px 16px; border-radius:99px; opacity:.85; white-space:nowrap}
+.vswitch a.on{background:#fff; color:var(--head); opacity:1}
+.vswitch a:hover{opacity:1}
+@media(max-width:640px){.vswitch a{padding:6px 12px; font-size:12.5px}}
+.vswitch span.soon{color:#fff; font-size:13.5px; font-weight:600; padding:7px 16px;
+  border-radius:99px; opacity:.5; white-space:nowrap; cursor:default}
+.vswitch span.soon i{font-style:normal; font-size:11.5px; opacity:.85}
+
+</style>
+<style>
+.ph{background:var(--surface); border-radius:22px; padding:18px; margin:26px 0}
+.ph img{width:100%; border-radius:14px; display:block; background:#fff}
+.ph .cap{color:var(--muted); font-size:13.5px; margin-top:12px; line-height:1.55}
+.phg{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:26px 0}
+@media(max-width:700px){.phg{grid-template-columns:1fr}}
+.phg .ph{margin:0}
+.crumb{display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.38); border-radius:99px; padding:7px 16px;
+  margin-bottom:22px; color:#fff; text-decoration:none; font-size:13.5px; font-weight:600}
+.crumb:hover{background:rgba(255,255,255,.22)}
+.yes{color:#1a7f4b; font-weight:700} .no{color:#c0392b; font-weight:700}
+.co{background:var(--surface); border-radius:22px; padding:24px 26px; margin:22px 0}
+.co h3{font-size:20px; margin:0 0 4px; font-weight:680}
+.co .sub{color:var(--muted); font-size:14.5px; margin-bottom:16px}
+.co .rank{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--muted); display:block; margin-bottom:10px}
+.ask{border-left:3px solid var(--head); padding-left:16px; margin:16px 0}
+.ask b{display:block; margin-bottom:6px; font-size:14px}
+.st{display:inline-flex; align-items:center; gap:8px; border-radius:99px; padding:6px 14px;
+  font-size:13.5px; font-weight:650; margin-bottom:14px}
+.st.sent{background:rgba(26,127,75,.12); color:#1a7f4b}
+.st.wait{background:rgba(192,57,43,.10); color:#c0392b}
+.st.hold{background:var(--warn-wash); color:var(--warn)}
+.rows{display:flex; flex-direction:column; gap:10px; margin:22px 0}
+.row{background:var(--surface); border-radius:16px; padding:16px 20px;
+  display:grid; grid-template-columns:auto 1fr auto; gap:6px 16px; align-items:baseline}
+.row .nm{font-weight:700; font-size:16.5px}
+.row .geo{color:var(--muted); font-size:13.5px; font-weight:400}
+.row .want{grid-column:2/4; color:var(--muted); font-size:14.5px; line-height:1.55}
+.row .pr{font-family:"Spline Sans Mono",monospace; font-size:12px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted); align-self:center}
+.row .stt{font-size:13.5px; font-weight:650; white-space:nowrap}
+.row.hi{box-shadow:inset 3px 0 0 var(--head)}
+@media(max-width:640px){
+  .row{grid-template-columns:1fr; gap:4px}
+  .row .want{grid-column:1}
+  .row .stt{white-space:normal}
+}
+.path{background:var(--surface); border-radius:18px; padding:18px 20px; margin:12px 0}
+.path .ph-h{display:flex; justify-content:space-between; align-items:baseline; gap:14px;
+  flex-wrap:wrap; margin-bottom:10px}
+.path .ph-n{font-weight:700; font-size:16.5px}
+.path .ph-v{font-size:13.5px; font-weight:700; white-space:nowrap}
+.path dl{display:grid; grid-template-columns:auto 1fr; gap:4px 14px; margin:0; font-size:14.5px}
+.path dt{color:var(--muted)} .path dd{margin:0}
+.cflag{font-size:26px; margin-right:10px; vertical-align:-2px}
+.cmeta{display:flex; flex-wrap:wrap; gap:8px 22px; margin:0 0 22px;
+  color:var(--muted); font-size:14px}
+.cmeta b{color:var(--head); font-weight:650}
+.ctiles{margin-bottom:26px!important}
+.csub{font-size:19px; font-weight:660; margin:34px 0 8px; padding-top:14px;
+  border-top:1px solid var(--ln)}
+.csub-dek{color:var(--muted); font-size:15.5px; line-height:1.6; margin:0 0 14px}
+.csrc{color:var(--muted); font-size:13px; line-height:1.55; margin-top:26px;
+  padding-top:14px; border-top:1px solid var(--ln)}
+.toc{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 4px}
+.toc a{background:var(--surface); border-radius:99px; padding:8px 16px;
+  text-decoration:none; font-size:14.5px; font-weight:600; color:var(--head)}
+.toc a:hover{background:var(--ln)}
+.dl-row{display:flex; flex-wrap:wrap; gap:12px; margin-top:22px}
+.dl-btn{display:inline-flex; align-items:center; gap:12px; background:#fff;
+  color:var(--head); border-radius:16px; padding:14px 20px; text-decoration:none;
+  min-width:260px; box-shadow:0 2px 14px rgba(0,0,0,.10)}
+.dl-btn:hover{transform:translateY(-1px)}
+.dl-btn span{display:flex; flex-direction:column; line-height:1.3}
+.dl-btn b{font-size:16.5px; font-weight:700}
+.dl-btn i{font-style:normal; font-size:13px; opacity:.7}
+@media(max-width:640px){.dl-btn{min-width:0; flex:1 1 100%}}
+.pairs{margin:18px 0}
+.pair{display:grid; grid-template-columns:minmax(170px,34%) 1fr; gap:4px 20px;
+  padding:11px 0; border-bottom:1px solid var(--ln); align-items:baseline}
+.pair:first-child{border-top:1px solid var(--ln)}
+.pair dt{color:var(--muted); font-size:14.5px}
+.pair dd{margin:0; font-size:15.5px; line-height:1.55}
+@media(max-width:600px){
+  .pair{grid-template-columns:1fr; gap:2px; padding:10px 0}
+  .pair dt{font-size:13.5px}
+}
+.trio{margin:18px 0}
+.trio .r{padding:12px 0; border-bottom:1px solid var(--ln)}
+.trio .r:first-child{border-top:1px solid var(--ln)}
+.trio .rt{font-weight:650; font-size:15.5px; margin-bottom:4px}
+.trio .rv{color:var(--muted); font-size:14.5px; line-height:1.55}
+.trio .rv b{color:var(--head)}
+@media(max-width:560px){.path dl{grid-template-columns:1fr} .path dt{margin-top:6px}}
+.three{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin:22px 0}
+.three .c{background:var(--surface); border-radius:18px; padding:18px 20px}
+.three .c h4{font-size:16px; margin:0 0 6px; font-weight:650}
+.three .c p{font-size:14.5px; color:var(--muted); margin:0; line-height:1.6}
+.three .c .tag{font-family:"Spline Sans Mono",monospace; font-size:11px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--muted); display:block; margin-bottom:8px}
+@media(max-width:640px){.co{padding:20px 18px}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-in">
+    <header>
+      <div class="wordmark">Damumed</div>
+      <div class="rule"></div>
+      <nav class="vswitch" aria-label="Линейка продуктов">
+        <a href="index.html">Браслет</a>
+        <a href="ag.html">Гипертония</a>
+        <a class="on" href="glukoza.html" aria-current="page">Глюкоза</a>
+      </nav>
+    <h1>Глюкоза</h1>
+      <p class="lede"><strong>Третий продукт линейки.</strong> Здесь мы не делаем
+      устройство — и это главное решение. Неинвазивное измерение сахара не работает
+      ни у кого в мире, зато нужные приборы уже продаются в Казахстане и стоят вдвое
+      дешевле, чем считалось. Наша роль — не сенсор, а контекст: связать чужие цифры
+      с медкартой, лекарствами и врачом.</p>
+      <div class="meta">
+        <span>Статус · <b>разведка завершена</b></span>
+        <span>Своё устройство · <b>не делаем</b></span>
+        <span>Сенсор в РК · <b>от 24 490 ₸</b></span>
+        <span>Источников · <b>103</b></span>
+      </div>
+    </header>
+  </div>
+</div>
+
+<div class="wrap">
+
+<div class="tiles">
+  <div class="tile hot"><span class="k">Сенсор в Казахстане</span>
+    <div class="v">24 490<span class="u"> ₸</span></div>
+    <div class="d">Yuwell — вдвое дешевле Libre</div></div>
+  <div class="tile"><span class="k">Лучшая неинвазивная точность</span>
+    <div class="v">19,6<span class="u">% MARD</span></div>
+    <div class="d">против 9–11% у обычного CGM</div></div>
+  <div class="tile"><span class="k">Допусков за 24 года</span>
+    <div class="v">4<span class="u"> прибора</span></div>
+    <div class="d">и ни одного коммерческого успеха</div></div>
+  <div class="tile"><span class="k">Публичный API</span>
+    <div class="v">1<span class="u"> из 8</span></div>
+    <div class="d">только у Dexcom</div></div>
+  <div class="tile"><span class="k">Наши вложения в железо</span>
+    <div class="v">0<span class="u"> ₸</span></div>
+    <div class="d">сенсор покупает пациент</div></div>
+</div>
+
+<section>
+  <div class="shead"><span class="snum">01</span><h2>Задача и главное решение</h2></div>
+  <p class="sdek">Диабет 2 типа — одна из четырёх целевых групп общего браслета,
+  и в стимулирующем компоненте поликлиники он идёт в одной строке с болезнями системы
+  кровообращения. Но показатель здесь другой, и закрыть его браслетом нельзя.</p>
+
+  <p>Гипертонию мы закрываем микроманжетой — своим железом. С глюкозой этот путь
+  закрыт: <strong>неинвазивного измерения сахара, работающего с приемлемой точностью,
+  в мире не существует</strong>. Поэтому решение по третьему продукту принято
+  обратное: мы не делаем устройство и не закупаем его.</p>
+
+  <div class="note warn">
+    <div class="t">Что мы делаем и чего не делаем</div>
+    <b>Не делаем:</b> собственный сенсор глюкозы, закупку неинвазивных приборов,
+    любые заявления об измерении сахара браслетом. Требование DB-411 отключает
+    глюкозу в серийной прошивке.<br><br>
+    <b>Делаем:</b> принимаем данные от чужого зарегистрированного сенсора, который
+    пациент уже купил, и превращаем их в клинический контекст — связка с медкартой,
+    лекарствами, активностью и весом, панель врача, поведенческий контур.
+    Вложений в железо — ноль, регистрация медизделия не требуется: измеряет чужой
+    допущенный прибор.
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">02</span><h2>Почему неинвазивное не работает</h2></div>
+  <p class="sdek">Коротко — полный разбор в двух исследованиях проекта на 103 источника.
+  Здесь только то, что определяет решение.</p>
+
+  <p><strong>Лучшая рецензируемая точность в мире — 19,6% MARD.</strong> Это результат
+  немецкой DiaMonTech, опубликованный в ноябре 2025 года в Communications Medicine
+  (Nature Portfolio): 36 участников, Институт диабет-технологий в Ульме, квантово-каскадный
+  лазер в диапазоне 8–12 мкм. Для сравнения: современные Dexcom и Abbott дают
+  <strong>9–11%</strong>, а обычный глюкометр по крови — около 5%. Столько же, сколько
+  DiaMonTech сейчас, давали первые допущенные FDA сенсоры начала 2000-х.</p>
+
+  <p><strong>Закономерность, видная только в сводке:</strong> чем строже источник, тем
+  хуже цифра. Рецензируемые публикации дают 12,8–20,7%; пресс-релизы и конференционные
+  тезисы — 6,7–11,5%. Единственная работа уровня Nature дала худший результат в списке.</p>
+
+  <p><strong>Отток из категории.</strong> За два года три компании из десяти вышли
+  из направления: Know Labs свернула программу и стала биткоин-казначейством, Movano
+  ушла в ИИ-инфраструктуру, Nemaura прошла делистинг с Nasdaq. Ещё одна, GlucoTrack,
+  ушла в инвазивность — от клипсы на ухе к импланту в сосуд.</p>
+
+  <div class="note alert">
+    <div class="t">🔴 И главное — о том, что предложат заводы</div>
+    У китайских ODM, которые предлагают «неинвазивную глюкозу» в браслете,
+    <b>глюкозного сенсора в раскрытых спецификациях нет</b> — только PPG-фотодиоды.
+    Число рисует прошивка. Немецкий регулятор изымал такие часы из обращения
+    за симулированное измерение, а Институт диабет-технологий в Ульме намерил
+    у банана нормальный сахар.<br><br>
+    Отдельно про метрику: сетка Кларка даёт свыше 90% попаданий в зоны A+B даже
+    у модели, которая просто предсказывает среднее значение. «Валидация» завода
+    в таком виде не значит ничего — спрашивать надо разбиение выборки
+    и leave-one-subject-out.
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">03</span><h2>Три решения регуляторов, которые задают рамку</h2></div>
+  <p class="sdek">В этой категории регулятор высказывался трижды, и каждый раз это
+  меняло правила игры сильнее, чем любой прототип.</p>
+
+  <div class="three">
+    <div class="c"><span class="tag">21.02.2024 · запрет</span>
+      <h4>Предупреждение FDA</h4>
+      <p>Регулятор прямо заявил, что <b>не авторизовал ни одних часов и ни одного
+      кольца</b>, претендующих на неинвазивное измерение глюкозы — независимо
+      от бренда. Действует до сих пор.</p></div>
+    <div class="c"><span class="tag">23.09.2025 · новая категория</span>
+      <h4>De Novo для Biolinq</h4>
+      <p>FDA создало класс «система мониторинга диапазона глюкозы» (21 CFR 862.1359,
+      код SFU). Прибор показывает <b>не число, а цветной диапазон</b>, и только
+      для пациентов без инсулина — поэтому и прошёл.</p></div>
+    <div class="c"><span class="tag">06.2026 · первое носимое</span>
+      <h4>NMPA для кольца Lepu</h4>
+      <p>Первое в мире зарегистрированное носимое с непрерывным измерением.
+      Ограничения вписаны в само удостоверение: только СД2 без инсулина, не для
+      диагностики, <b>дополнение к проколу</b>.</p></div>
+  </div>
+
+  <p>🔑 <strong>Общий знаменатель всех трёх решений:</strong> регуляторы пускают
+  глюкозу в носимые устройства только как <strong>поведенческий инструмент для
+  пациентов без инсулина</strong> и только как дополнение к проколу. Ни один регулятор
+  в мире не разрешил заменить глюкометр.</p>
+
+  <div class="note">
+    <div class="t">Почему решение по Biolinq важно именно нам</div>
+    Появилась легальная формулировка, при которой глюкозу можно показывать,
+    не претендуя на точность непрерывного мониторинга: <b>диапазон вместо числа,
+    поведение вместо терапии, пациенты без инсулина вместо всех</b>. Это ровно
+    та рамка, в которой может жить функция в приложении Damumed, если данные
+    приходят от допущенного прибора.
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">04</span><h2>Фильтр: что вообще подходит проекту</h2></div>
+  <p class="sdek">Прибор рассматривается, только если проходит все пять условий.
+  По этому фильтру из категории сразу выпадают неинвазивные приборы, импланты
+  и всё, у чего нет канала поставки в Казахстан.</p>
+
+  <dl class="pairs">
+    <div class="pair"><dt>1. Доступ к данным</dt><dd>API, SDK или иной легальный способ забрать показания в наше приложение — иначе пациент носит прибор, а врач в Damumed ничего не видит</dd></div>
+    <div class="pair"><dt>2. Присутствие в Казахстане</dt><dd>продаётся здесь или поставляется — иначе пациенту нечего покупать</dd></div>
+    <div class="pair"><dt>3. Цена</dt><dd>при 40 тысячах тенге за сенсор годовой расход больше миллиона, это вне массовой группы</dd></div>
+    <div class="pair"><dt>4. Регуляторная чистота</dt><dd>зарегистрирован или ввозится законно — мы медицинская информационная система, серые схемы исключены</dd></div>
+    <div class="pair"><dt>5. Отсутствие патентных споров</dt><dd>см. раздел 08 — в Европе это уже сработало против китайских производителей</dd></div>
+  </dl>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">05</span><h2>🔑 Что уже продаётся в Казахстане</h2></div>
+  <p class="sdek">Главная находка разведки. Мы опирались на цену FreeStyle Libre —
+  около 41 800 ₸ за сенсор. Специализированный магазин продаёт вдвое дешевле,
+  причём с оптовым разделом.</p>
+
+  <div class="trio">
+    <div class="r"><div class="rt">Yuwell Anytime CGM CT-302 🇨🇳</div>
+      <div class="rv"><b>24 490 ₸</b> за сенсор · трансмиттер CT-3 / CT-300D — 19 990 ₸ · самый дешёвый на рынке</div></div>
+    <div class="r"><div class="rt">Medtronic Guardian 3 🇺🇸</div>
+      <div class="rv"><b>24 400 ₸</b> за сенсор · упаковка 5 шт — 122 000 ₸</div></div>
+    <div class="r"><div class="rt">Medtronic Guardian 4 🇺🇸</div>
+      <div class="rv"><b>25 000–25 800 ₸</b> в зависимости от системы · упаковка 5 шт — 125 000–129 000 ₸</div></div>
+    <div class="r"><div class="rt">Yuwell Anytime 5Pro 🇨🇳</div>
+      <div class="rv"><b>31 990 ₸</b> за сенсор</div></div>
+    <div class="r"><div class="rt">Medtrum TouchCare S9, модель MD3660 🇨🇳</div>
+      <div class="rv"><b>60 000 ₸</b> · диапазон 2,2–22,2 ммоль/л · сенсор на 10–14 дней · трансмиттер работает год без подзарядки</div></div>
+    <div class="r"><div class="rt">Ottai 🇨🇳</div>
+      <div class="rv">ведёт локализованную страницу для Казахстана — целенаправленно заходит на рынок</div></div>
+  </div>
+
+  <p><strong>Что это меняет в расчётах.</strong> Сенсор служит 10–14 дней, то есть
+  при непрерывном ношении в год нужно около 26 штук. При цене Yuwell это примерно
+  <strong>637 тысяч тенге в год</strong> против 1,09 млн у Libre — оценка при
+  розничных ценах.</p>
+
+  <div class="note">
+    <div class="t">🔑 Но реалистичный сценарий другой — и он дешевле</div>
+    Для нашей аудитории — пациенты с диабетом 2 типа без инсулина — непрерывное
+    ношение круглый год не нужно. Работает <b>диагностический курс</b>: один-два
+    сенсора в квартал по 24–25 тысяч тенге. Это <b>100–200 тысяч тенге в год</b>,
+    сопоставимо с одним визитом к эндокринологу в частной клинике — и в разы дешевле,
+    чем мы считали, планируя это направление.
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">06</span><h2>Доступ к данным: главный критерий</h2></div>
+  <p class="sdek">Без него всё остальное не имеет значения. Здесь расклад жёсткий:
+  официальный публичный интерфейс есть у одного производителя из восьми.</p>
+
+  <div class="trio">
+    <div class="r"><div class="rt">🇺🇸 Dexcom — единственный с настоящим публичным API</div>
+      <div class="rv">Портал разработчика, OAuth 2.0, документированные точки доступа.
+      Три уровня: песочница → ограниченный доступ (до 5 реальных пользователей) → полный.
+      Пациент авторизуется на стороне Dexcom, приложение не получает его пароль, отозвать
+      доступ можно в любой момент. Токены хранятся на серверах партнёра.
+      ⚠️ <b>API доступен не во всех странах</b> — при заявке указывается список стран,
+      и Dexcom подтверждает доступность. Казахстан нужно уточнять отдельно.</div></div>
+    <div class="r"><div class="rt">🇺🇸 Abbott — публичного API нет</div>
+      <div class="rv">Открытой документации для сторонних разработчиков не существует.
+      Практический путь — через агрегаторов данных с договорной интеграцией.
+      В пользовательском соглашении прямо сказано: сторонние устройства могут быть
+      совместимы, но Abbott не отвечает за подключение к ним.</div></div>
+    <div class="r"><div class="rt">🇨🇳 Китайские — два обходных механизма</div>
+      <div class="rv"><b>Функция наблюдателя:</b> пациент делится показаниями с другим
+      аккаунтом — для родственника или врача. Технически это и есть канал данных;
+      существуют открытые проекты, выгружающие данные этим способом. ⚠️ Юридически
+      не оформлено, для медицинской системы без договора не подходит.<br>
+      <b>Bluetooth-SDK по запросу:</b> у Sinocare есть собственный комплект разработчика,
+      ключ к которому выдаёт сама компания. Официальный путь существует — через прямой
+      договор.</div></div>
+  </div>
+
+  <p>🔑 <strong>Вывод.</strong> Технически данные доступны у всех. Юридически чисто —
+  только у Dexcom через публичный API и у любого производителя, с которым заключён
+  прямой договор на SDK. Для медицинской информационной системы второй путь
+  предпочтительнее: договор снимает вопрос легитимности доступа.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">07</span><h2>Производители под наш фильтр</h2></div>
+  <p class="sdek">Кто есть кто среди тех, кто прошёл фильтр раздела 04.</p>
+
+  <div class="co">
+    <span class="rank">Приоритет 1 · Китай · уже в Казахстане</span>
+    <h3>🇨🇳 Medtrum</h3>
+    <div class="sub">Выручка 2025 — 661 млн юаней (+91,2%), первый прибыльный год.
+    Зарубежная выручка 343 млн (+227,2%) впервые превысила внутреннюю. CGM даёт 68,3%
+    выручки компании.</div>
+
+    <p>CE-марка на инсулиновую помпу с 2017 года, на CGM — с 2020-го. В Казахстане
+    продаётся: сенсор MD3660 за 60 000 ₸, трансмиттер работает год. Данные идут через
+    портал EasyView и приложения EasyTouch, EasySense, EasyFollow.</p>
+
+    <div class="note">
+      <div class="t">🔑 Их стратегия выхода на рынки — прямо наш случай</div>
+      Сначала Восточная Европа — Италия, Польша, Румыния — с локальными
+      исследовательскими организациями для сбора дополнительных клинических данных
+      и работой с врачами известных больниц ради доступа к возмещению. Только потом
+      Западная Европа. И <b>мультибрендовый подход</b>: в госпитальном и страховом
+      канале — совместный бренд с крупным локальным дистрибьютором, в рознице —
+      собственный.<br><br>
+      То есть их модель выхода <b>изначально построена на локальном партнёре
+      с ко-брендингом</b>. Это ровно та роль, на которую претендует Damumed.
+    </div>
+  </div>
+
+  <div class="co">
+    <span class="rank">Приоритет 2 · Китай · самый дешёвый</span>
+    <h3>🇨🇳 Yuwell</h3>
+    <div class="sub">CGM одобрен в Китае в марте 2023 года. Крупная компания:
+    зарубежная выручка за первое полугодие 2023 — 368 млн юаней.</div>
+    <p>В Казахстане продаётся линейка Anytime: сенсор CT-302 — <strong>24 490 ₸</strong>,
+    5Pro — 31 990 ₸, трансмиттер — 19 990 ₸. Самая низкая цена сенсора из доступных
+    в стране. Данных о публичном API нет — нужен прямой запрос.</p>
+  </div>
+
+  <div class="co">
+    <span class="rank">Приоритет 3 · США · единственный API</span>
+    <h3>🇺🇸 Dexcom</h3>
+    <div class="sub">Выручка FY2024 — 4,03 млрд долларов. Вместе с Abbott и Medtronic
+    держит около 97% мировых поставок; в США на Dexcom приходится 22 допуска из 37
+    в категории.</div>
+    <p>Открыл безрецептурное направление: Stelo в марте 2024 года — первый в истории
+    безрецептурный CGM. Для нас ценен единственным в отрасли публичным API. Вопрос
+    решается одной заявкой: доступен ли он для Казахстана.</p>
+  </div>
+
+  <div class="co">
+    <span class="rank">Приоритет 4 · Китай · крупнейший экспортёр</span>
+    <h3>🇨🇳 Sinocare</h3>
+    <div class="sub">Основана в 2002 году, первая китайская компания-производитель
+    глюкометров на бирже. Крупнейший производитель приборов измерения глюкозы в Азии,
+    четвёртый в мире. Выручка FY2024 — 4,443 млрд юаней, 42% за рубежом.</div>
+    <p>CE-MDR с октября 2023 года — первый китайский CGM с сертификатом TÜV Rheinland.
+    Бизнес в 200+ странах, склады в 17, открытая программа для дистрибьюторов
+    с обучением, официальный Bluetooth-SDK по запросу. В Европе продаётся под
+    совместным брендом GlucoMen iCan по эксклюзивному соглашению с A. Menarini
+    Diagnostics на 20+ юрисдикций.</p>
+    <p>🔴 Но именно против Sinocare и Menarini Abbott выиграл патентный запрет
+    в октябре 2025 года — см. следующий раздел.</p>
+  </div>
+
+  <div class="co">
+    <span class="rank">Наблюдаем</span>
+    <h3>🇨🇳 SiBionics · 🇺🇸 Biolinq · 🇨🇳 Lepu</h3>
+    <div class="sub">Интересны, но не для первого разговора.</div>
+    <p><strong>SiBionics</strong> — привлечено около 165 млн долларов, CE-марка
+    на 14-дневный сенсор GS1, заявленная точность <strong>8,83% MARD</strong> — лучше,
+    чем у Libre 2 и Dexcom G6, 288 замеров в сутки. 🔴 Но в феврале 2025 года Единый
+    патентный суд по иску Abbott вынес запрет примерно в 14 странах ЕС.</p>
+    <p><strong>Biolinq</strong> — 100 млн долларов Series C, допуск De Novo, массив
+    из семи микроэлектродов в сосочковом слое дермы, автокалибровка без проколов,
+    5 дней ношения, цветовая индикация прямо на устройстве. Только США, вывод на рынок
+    осторожный.</p>
+    <p><strong>Lepu</strong> — кольцо с непрерывным измерением, единственное в мире
+    зарегистрированное носимое, MARD 9,2%, вес 15 г, измерение каждые 5 минут,
+    калибровка проколом раз в месяц. 🔴 Цена не объявлена, за пределы Китая
+    не выходили. И в Китае он не первый: до него удостоверения III класса получили
+    ещё две компании — приборы по 3–4 тысячи юаней с мизерными продажами.</p>
+  </div>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">08</span><h2>🔴 Патентная война: риск, который надо считать</h2></div>
+  <p class="sdek">Единственный фактор, способный обнулить выбор поставщика уже после
+  старта. В Европе он уже сработал.</p>
+
+  <p>Abbott и Dexcom закончили десятилетний спор между собой <strong>перемирием
+  на 10 лет</strong> в декабре 2024 года — и развернулись против китайских
+  производителей.</p>
+
+  <div class="trio">
+    <div class="r"><div class="rt">Против SiBionics</div>
+      <div class="rv">Иски о предварительном запрете с марта 2024 · компания урегулировала
+      и вышла с нескольких национальных рынков к июлю 2024 · <b>14 февраля 2025</b> —
+      апелляционный суд вынес запрет примерно по <b>14 странам ЕС</b></div></div>
+    <div class="r"><div class="rt">Против Sinocare и Menarini</div>
+      <div class="rv"><b>17 октября 2025</b> — гаагское отделение Единого патентного суда
+      вынесло запрет по унитарному патенту EP 4 344 633 с действием на всей территории
+      суда · апелляция запрет подтвердила</div></div>
+  </div>
+
+  <p>🔑 <strong>Что из этого следует для Казахстана.</strong> Единый патентный суд —
+  европейский институт, его решения на Казахстан напрямую не распространяются.
+  Но патентные семьи регистрируются широко, и Abbott уже показал готовность судиться.
+  Перед долгосрочным контрактом с китайским поставщиком стоит проверить патентную
+  чистоту в РК — это вопрос к юристу, а не к нам.</p>
+
+  <p>Китайские сенсоры с действующей европейской маркировкой были выдавлены с рынка
+  <strong>патентами, а не регулятором</strong>. Это важное различие: качество приборов
+  под сомнение никто не ставил.</p>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">09</span><h2>Наша роль и что делать</h2></div>
+  <p class="sdek">Мы не продаём и не производим сенсор. Пациент покупает его сам —
+  в аптеке или специализированном магазине, которые уже работают в Казахстане.</p>
+
+  <p><strong>Наша часть работы:</strong> принять поток данных в приложение Damumed;
+  связать его с медкартой, лекарствами, активностью и весом; показать врачу в той же
+  панели, где остальные показатели; удержать поведение — напоминания, отметки о приёме
+  лекарств, отчёты.</p>
+
+  <p>Вложений в железо — <strong>ноль</strong>. Регистрация медизделия не требуется:
+  измеряет чужой допущенный прибор. Это тот же принцип, что во втором продукте линейки,
+  только там мы даём железо, а здесь — только контекст.</p>
+
+  <h3 class="csub">Приоритет переговоров</h3>
+  <div class="trio">
+    <div class="r"><div class="rt">1. Medtrum</div>
+      <div class="rv">ко-брендинг и интеграция данных, условия для казахстанского партнёра · <b>уже продаётся в РК</b>, их модель выхода построена на локальном партнёре</div></div>
+    <div class="r"><div class="rt">2. Yuwell</div>
+      <div class="rv">цена при объёме и доступ к данным · <b>самый дешёвый сенсор в РК</b> — 24 490 ₸</div></div>
+    <div class="r"><div class="rt">3. Dexcom</div>
+      <div class="rv">подтверждение доступности API для Казахстана · единственный публичный API, вопрос решается одной заявкой</div></div>
+    <div class="r"><div class="rt">4. Sinocare</div>
+      <div class="rv">Bluetooth-SDK и условия дистрибуции · крупнейший экспортёр с официальным комплектом разработчика</div></div>
+    <div class="r"><div class="rt">5. Ottai</div>
+      <div class="rv">условия работы в РК · уже сделали локализованную страницу для Казахстана — значит, ищут вход</div></div>
+    <div class="r"><div class="rt">Не пишем</div>
+      <div class="rv">Abbott и Medtronic — публичного API нет, Medtronic ориентирован на диабет 1 типа и интеграцию с помпами</div></div>
+  </div>
+
+  <h3 class="csub">Четыре шага до переговоров</h3>
+  <dl class="pairs">
+    <div class="pair"><dt>Регистрация у Dexcom</dt><dd>зарегистрироваться разработчиком и запросить статус доступности API для Казахстана — стоит ноль, отвечает на главный технический вопрос</dd></div>
+    <div class="pair"><dt>Оптовые цены</dt><dd>уточнить закрытый оптовый раздел казахстанского магазина — это даёт реальную нижнюю границу стоимости для пациента</dd></div>
+    <div class="pair"><dt>Регистрация в РК</dt><dd>проверить, кто держатель удостоверения на Yuwell, Medtrum и Guardian — задача юриста, того же, кто ведёт вопрос по нашему удостоверению</dd></div>
+    <div class="pair"><dt>Спецификация приложения</dt><dd>заложить приём внешних данных о глюкозе как отдельный источник, не привязанный к конкретному вендору</dd></div>
+  </dl>
+</section>
+
+<section>
+  <div class="shead"><span class="snum">10</span><h2>Оговорки к этому разбору</h2></div>
+  <p class="sdek">Что здесь проверено, а что нет.</p>
+
+  <dl class="pairs">
+    <div class="pair"><dt>Цены</dt><dd>собраны с витрины одного специализированного магазина и объявления на площадке; оптовые цены закрыты авторизацией. Годовые суммы — оценка при непрерывном ношении</dd></div>
+    <div class="pair"><dt>Регистрация в РК</dt><dd><b>не проверялась</b> — факт продажи не равен наличию удостоверения</dd></div>
+    <div class="pair"><dt>Доступ через функцию наблюдателя</dt><dd>юридически не оформлен; описан как факт, а не как рекомендация — в медицинской системе без договора использовать нельзя</dd></div>
+    <div class="pair"><dt>Патентная ситуация в РК</dt><dd>не проверялась; европейские запреты приведены как индикатор поведения Abbott, а не как прямой риск для Казахстана</dd></div>
+    <div class="pair"><dt>Что не рассматривалось</dt><dd>импланты и приборы без канала поставки в РК — они не проходят фильтр раздела 04</dd></div>
+  </dl>
+</section>
+
+<footer>
+  Сведено 6 сентября 2026 года из трёх исследований проекта: ландшафт неинвазивных
+  технологий (83 источника), профили игроков и партнёрские треки (20 источников)
+  и разбор инвазивных под фильтр проекта (19 источников). Исходные тексты —
+  research/09, research/14 и research/15. Первичные документы: база FDA, реестр NMPA,
+  публикация в Communications Medicine, документация разработчиков, витрины
+  казахстанских магазинов.
+  Смежное: <a href="index.html">общий браслет</a> · <a href="ag.html">гипертония</a>.
+</footer>
+
+</div>
+</body>
+</html>
