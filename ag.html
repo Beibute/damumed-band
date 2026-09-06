@@ -361,6 +361,34 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   text-transform:uppercase; color:var(--muted); display:block; margin-bottom:10px}
 .ask{border-left:3px solid var(--head); padding-left:16px; margin:16px 0}
 .ask b{display:block; margin-bottom:6px; font-size:14px}
+.st{display:inline-flex; align-items:center; gap:8px; border-radius:99px; padding:6px 14px;
+  font-size:13.5px; font-weight:650; margin-bottom:14px}
+.st.sent{background:rgba(26,127,75,.12); color:#1a7f4b}
+.st.wait{background:rgba(192,57,43,.10); color:#c0392b}
+.st.hold{background:var(--warn-wash); color:var(--warn)}
+.rows{display:flex; flex-direction:column; gap:10px; margin:22px 0}
+.row{background:var(--surface); border-radius:16px; padding:16px 20px;
+  display:grid; grid-template-columns:auto 1fr auto; gap:6px 16px; align-items:baseline}
+.row .nm{font-weight:700; font-size:16.5px}
+.row .geo{color:var(--muted); font-size:13.5px; font-weight:400}
+.row .want{grid-column:2/4; color:var(--muted); font-size:14.5px; line-height:1.55}
+.row .pr{font-family:"Spline Sans Mono",monospace; font-size:12px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted); align-self:center}
+.row .stt{font-size:13.5px; font-weight:650; white-space:nowrap}
+.row.hi{box-shadow:inset 3px 0 0 var(--head)}
+@media(max-width:640px){
+  .row{grid-template-columns:1fr; gap:4px}
+  .row .want{grid-column:1}
+  .row .stt{white-space:normal}
+}
+.path{background:var(--surface); border-radius:18px; padding:18px 20px; margin:12px 0}
+.path .ph-h{display:flex; justify-content:space-between; align-items:baseline; gap:14px;
+  flex-wrap:wrap; margin-bottom:10px}
+.path .ph-n{font-weight:700; font-size:16.5px}
+.path .ph-v{font-size:13.5px; font-weight:700; white-space:nowrap}
+.path dl{display:grid; grid-template-columns:auto 1fr; gap:4px 14px; margin:0; font-size:14.5px}
+.path dt{color:var(--muted)} .path dd{margin:0}
+@media(max-width:560px){.path dl{grid-template-columns:1fr} .path dt{margin-top:6px}}
 .three{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin:22px 0}
 .three .c{background:var(--surface); border-radius:18px; padding:18px 20px}
 .three .c h4{font-size:16px; margin:0 0 6px; font-weight:650}
@@ -411,6 +439,33 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   <div class="tile"><span class="k">Корпоративный Huawei</span>
     <div class="v">КНР<span class="u"> только</span></div>
     <div class="d">данные и бренд — за стеной</div></div>
+</div>
+
+<div class="fig" style="margin-bottom:44px">
+  <h3>Статус переписки на 6 сентября 2026</h3>
+  <div class="sub">Пять обращений в работе, ответов пока нет ни по одному</div>
+  <div class="tw"><table>
+    <tr><th>Кому</th><th>Адрес</th><th>Отправлено</th><th>Что дальше</th></tr>
+    <tr><td><b>Sky Labs</b></td><td class="n">info@skylabs.io + пресс-служба</td>
+      <td class="yes">06.09, 14:37</td><td>напоминание 20.09</td></tr>
+    <tr><td><b>Hilo</b></td><td class="n">info@aktiia.com</td>
+      <td class="yes">05.09, 15:30</td><td>напоминание 26.09</td></tr>
+    <tr><td><b>Valencell</b></td><td class="n">info@valencell.com</td>
+      <td class="yes">06.09, 14:37</td><td>напоминание 20.09</td></tr>
+    <tr><td><b>Biobeat</b></td><td class="n">info@bio-beat.com</td>
+      <td class="yes">06.09, 14:37</td><td>напоминание 20.09</td></tr>
+    <tr><td><b>LiveMetric</b></td><td class="n">info@livemetric.com</td>
+      <td class="yes">06.09, 14:37</td><td>напоминание 20.09</td></tr>
+    <tr><td><b>Huawei Kazakhstan</b></td><td class="n">aiman.sakhova@huawei.com</td>
+      <td>⏸ черновик</td><td>заход через личный контакт владельца</td></tr>
+    <tr><td>Vital Signals</td><td class="n">—</td><td>не пишем</td>
+      <td>ждём публикации исследования, осень 2026</td></tr>
+  </table></div>
+  <div class="cap">Письма в Sky Labs, Valencell и Biobeat отправлены на общие ящики
+  с просьбой переадресовать профильному человеку: Mark Felice (VP of Business
+  Development and Licensing) в Valencell и Lior Ben Shettrit (VP Business Development
+  &amp; Sales) в Biobeat. Адрес info@skylabs.io указан самим CEO Sky Labs в его профиле
+  как адрес для деловых обращений.</div>
 </div>
 
 <section>
@@ -525,6 +580,8 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   на которую претендует Damumed</strong>. Вне Китая так уже работают Dubai Health,
   катарский QCRI и испанская HM Hospitals.</p>
 
+  <div class="st hold">⏸ Письмо подготовлено и лежит черновиком — заход через личный контакт владельца</div>
+
   <div class="ask">
     <b>Главный вопрос переговоров</b>
     «Watch D2 уже продаётся в Казахстане и имеет CE MDR. Что мешает открыть на нём тот
@@ -555,25 +612,49 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   <p class="sdek">Все, кто в мире делает носимое измерение давления. Проработка показала,
   что практический лидер для нас — не тот, кто впереди по деньгам и допускам.</p>
 
-  <div class="tw"><table>
-    <tr><th>#</th><th>Компания</th><th>Что просим</th><th>Приоритет</th><th>Статус</th></tr>
-    <tr><td>1</td><td><b>Sky Labs</b> (Корея)</td><td>дистрибуция в РК + интеграция с Damumed</td>
-      <td class="n">🔥 высокий</td><td class="yes">отправлено 06.09</td></tr>
-    <tr><td>2</td><td><b>Hilo</b> (Швейцария)</td><td>лицензия CALFREE</td>
-      <td class="n">высокий</td><td class="yes">отправлено 05.09</td></tr>
-    <tr><td>3</td><td><b>Valencell</b> (США)</td><td>лицензия алгоритма</td>
-      <td class="n">средний</td><td class="yes">отправлено 06.09</td></tr>
-    <tr><td>4</td><td><b>Biobeat</b> (Израиль)</td><td>пилот в стационаре</td>
-      <td class="n">средний</td><td class="yes">отправлено 06.09</td></tr>
-    <tr><td>5</td><td><b>LiveMetric</b> (Израиль/США)</td><td>пилот или лицензия</td>
-      <td class="n">низкий</td><td class="yes">отправлено 06.09</td></tr>
-    <tr><td>6</td><td><b>Vital Signals</b> (США)</td><td>ничего</td>
-      <td class="n">🚫 не пишем</td><td>наблюдаем</td></tr>
-  </table></div>
+  <div class="rows">
+    <div class="row hi">
+      <span class="pr">1</span>
+      <span><span class="nm">Sky Labs</span> <span class="geo">· Корея, кольцо</span></span>
+      <span class="stt yes">✅ отправлено 06.09</span>
+      <span class="want">Просим: дистрибуцию в Казахстане и интеграцию с Damumed. Главный кандидат.</span>
+    </div>
+    <div class="row">
+      <span class="pr">2</span>
+      <span><span class="nm">Hilo</span> <span class="geo">· Швейцария, браслет</span></span>
+      <span class="stt yes">✅ отправлено 05.09</span>
+      <span class="want">Просим: лицензию на технологию CALFREE. Ответа нет, напоминание 26.09.</span>
+    </div>
+    <div class="row">
+      <span class="pr">3</span>
+      <span><span class="nm">Valencell</span> <span class="geo">· США, датчик на палец</span></span>
+      <span class="stt yes">✅ отправлено 06.09</span>
+      <span class="want">Просим: лицензию алгоритма и требования к оптическому тракту.</span>
+    </div>
+    <div class="row">
+      <span class="pr">4</span>
+      <span><span class="nm">Biobeat</span> <span class="geo">· Израиль, пластырь</span></span>
+      <span class="stt yes">✅ отправлено 06.09</span>
+      <span class="want">Просим: пилот в стационарном звене. Не наш сегмент, но допуск FDA есть.</span>
+    </div>
+    <div class="row">
+      <span class="pr">5</span>
+      <span><span class="nm">LiveMetric</span> <span class="geo">· Люксембург, браслет</span></span>
+      <span class="stt yes">✅ отправлено 06.09</span>
+      <span class="want">Просим: пилот или OEM. Дешёвый эксперимент, опора ненадёжна.</span>
+    </div>
+    <div class="row">
+      <span class="pr">6</span>
+      <span><span class="nm">Vital Signals</span> <span class="geo">· США, кольцо $399</span></span>
+      <span class="stt">🚫 не пишем</span>
+      <span class="want">Нет допуска, валидация не опубликована. Ждём публикации осенью 2026.</span>
+    </div>
+  </div>
 
   <div class="co">
     <span class="rank">Приоритет 1 · Корея · кольцо CART BP</span>
     <h3>Sky Labs — главный кандидат</h3>
+    <div class="st sent">✅ Письмо отправлено 6 сентября 2026, 14:37 · ждём ответа</div>
     <div class="sub">Основана в сентябре 2015. CEO — Jack Byunghwan Lee. Медицинская
     версия CART BP pro по назначению врача и потребительская CART BP с 25.09.2025
     по 550 тыс. вон ($392).</div>
@@ -617,6 +698,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   <div class="co">
     <span class="rank">Приоритет 2 · Швейцария · браслет</span>
     <h3>Hilo (ex-Aktiia) — переписка идёт</h3>
+    <div class="st sent">✅ Письмо отправлено 5 сентября 2026, 15:30 · ответа нет, напоминание 26.09</div>
     <div class="sub">Спин-офф швейцарского центра CSEM, $119 млн за шесть раундов,
     200 тысяч пользователей, первый в мире безрецептурный допуск FDA на безманжетный
     монитор давления.</div>
@@ -636,6 +718,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   <div class="co">
     <span class="rank">Приоритет 3 · США · устройство на палец</span>
     <h3>Valencell — кандидат не на прибор, а на лицензию</h3>
+    <div class="st sent">✅ Письмо отправлено 6 сентября 2026, 14:37 · ждём ответа</div>
     <div class="sub">Основана в 2006 году, Роли, Северная Каролина. CEO — Kent Novak
     (с ноября 2018). Более 150 патентов. Со-основатель Steven LeBoeuf, возглавлявший
     компанию как президент 18 лет, ушёл в октябре 2024 года.</div>
@@ -661,6 +744,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   <div class="co">
     <span class="rank">Приоритет 4 · Израиль и Флорида · нагрудный пластырь</span>
     <h3>Biobeat — сильный игрок не нашего сегмента</h3>
+    <div class="st sent">✅ Письмо отправлено 6 сентября 2026, 14:37 · ждём ответа</div>
     <div class="sub">CEO — Arik Ben Ishay. Допуск FDA 510(k) 2019 года на давление,
     оксигенацию и пульс — для больниц, клиник и дома. CE-марка с 2019 года.</div>
 
@@ -688,6 +772,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   <div class="co">
     <span class="rank">Приоритет 5 · Люксембург и Нью-Йорк · браслет</span>
     <h3>LiveMetric — слабый партнёр с сильным допуском</h3>
+    <div class="st sent">✅ Письмо отправлено 6 сентября 2026, 14:37 · ждём ответа</div>
     <div class="sub">Основана в 2016 году. CEO — Tomer Bentzion. ⚠️ Всего 10 сотрудников.</div>
 
     <p>Технология отличается от всех: не оптика и не манжета, а <strong>прямая
@@ -706,6 +791,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   <div class="co">
     <span class="rank">Не пишем · США · кольцо $399</span>
     <h3>Vital Signals — наблюдаем</h3>
+    <div class="st hold">⏸ Не пишем — ждём публикации исследования, осень 2026</div>
     <div class="sub">Сан-Франциско, основана в 2023 году. CEO — Tom Moss, один из ранних
     участников команды Android. Кольцо $399 без подписки, отгрузка с октября 2026,
     только США.</div>
@@ -732,33 +818,85 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   <p class="sdek">Всё, что разобрано выше, сведено в одну матрицу по единым критериям.
   Это главный раздел страницы: по нему принимается решение.</p>
 
-  <div class="tw"><table>
-    <tr><th>Путь</th><th>Цифра АД</th><th>Статус в РК</th><th>Цена пациенту</th><th>Срок</th><th>Что требуется от нас</th><th>Вердикт</th></tr>
-    <tr><td><b>1. Ничего не менять</b><br><span style="color:var(--muted);font-size:13px">браслет + манжетный тонометр дома</span></td>
-      <td class="no">нет</td><td class="yes">чисто</td><td class="n">14 990 ₸</td><td class="n">по плану А/Б</td>
-      <td>ничего</td><td class="yes"><b>база</b></td></tr>
-    <tr><td><b>2. SKU C — своя микроманжета</b><br><span style="color:var(--muted);font-size:13px">котировка у китайского завода</span></td>
-      <td class="yes">да</td><td>своё РУ, класс 2а</td><td class="n">выше 11,5 USD FOB<br><span style="color:var(--muted);font-size:13px">оценка</span></td>
-      <td class="n">2-й продукт</td><td>запрос в RFQ + валидация по ISO 81060-2</td><td class="yes"><b>запросить</b></td></tr>
-    <tr><td><b>3. Huawei — корпоративный контур</b><br><span style="color:var(--muted);font-size:13px">H9D20 под брендом Damumed</span></td>
-      <td class="yes">да</td><td class="no">нет, и контур закрыт вне КНР</td><td class="n">не публикуется</td>
-      <td class="n">неизвестен</td><td>капитал от 5 млн ¥ + снятие географии</td><td><b>спросить</b></td></tr>
-    <tr><td><b>4. Sky Labs — дистрибуция</b><br><span style="color:var(--muted);font-size:13px">кольцо CART BP pro</span></td>
-      <td class="yes">да</td><td>CE-MDR → короче путь в ЕАЭС</td><td class="n">$392 розница</td>
-      <td class="n">от их решения</td><td>канал в поликлиники + подбор размеров</td><td class="yes"><b>писать первым</b></td></tr>
-    <tr><td><b>5. Hilo — лицензия CALFREE</b></td>
-      <td>с калибровкой манжетой</td><td class="no">нет</td><td class="n">лицензия неизвестна</td>
-      <td class="n">неизвестен</td><td>решить вопрос облака</td><td>ждём ответа</td></tr>
-    <tr><td><b>6. Valencell — лицензия алгоритма</b></td>
-      <td class="no">без допуска</td><td class="no">нет</td><td class="n">лицензия неизвестна</td>
-      <td class="n">FDA не получен 3 года</td><td>своя валидация</td><td>спросить ради оптики</td></tr>
-    <tr><td><b>7. Biobeat — пилот</b><br><span style="color:var(--muted);font-size:13px">нагрудный пластырь</span></td>
-      <td class="yes">да</td><td class="no">нет</td><td class="n">одноразовый</td>
-      <td class="n">после А/Б</td><td>стационарное звено</td><td>не наш сегмент</td></tr>
-    <tr><td><b>8. LiveMetric — пилот или OEM</b></td>
-      <td class="yes">да, тонометрия</td><td class="no">нет</td><td class="n">неизвестна</td>
-      <td class="n">неизвестен</td><td>принять риск поставщика</td><td>дешёвый эксперимент</td></tr>
-  </table></div>
+  <div class="paths">
+    <div class="path">
+      <div class="ph-h"><span class="ph-n">1. Ничего не менять</span><span class="ph-v yes">база</span></div>
+      <dl>
+        <dt>Что это</dt><dd>наш браслет плюс манжетный тонометр дома</dd>
+        <dt>Цифра АД</dt><dd class="no">нет</dd>
+        <dt>Статус в РК</dt><dd class="yes">чисто</dd>
+        <dt>Цена пациенту</dt><dd>14 990 ₸</dd>
+        <dt>Что требуется</dt><dd>ничего</dd>
+      </dl>
+    </div>
+    <div class="path">
+      <div class="ph-h"><span class="ph-n">2. SKU C — своя микроманжета</span><span class="ph-v yes">запросить</span></div>
+      <dl>
+        <dt>Что это</dt><dd>котировка у китайского завода, второй продукт линейки</dd>
+        <dt>Цифра АД</dt><dd class="yes">да, настоящая</dd>
+        <dt>Статус в РК</dt><dd>своё удостоверение, класс 2а</dd>
+        <dt>Цена</dt><dd>выше потолка 11,5 USD FOB (оценка)</dd>
+        <dt>Что требуется</dt><dd>запрос в RFQ и валидация по ISO 81060-2</dd>
+      </dl>
+    </div>
+    <div class="path">
+      <div class="ph-h"><span class="ph-n">3. Huawei — корпоративный контур</span><span class="ph-v">спросить</span></div>
+      <dl>
+        <dt>Что это</dt><dd>H9D20 с открытыми данными под брендом Damumed</dd>
+        <dt>Цифра АД</dt><dd class="yes">да</dd>
+        <dt>Статус в РК</dt><dd class="no">нет, и сам контур закрыт вне КНР</dd>
+        <dt>Цена</dt><dd>не публикуется</dd>
+        <dt>Что требуется</dt><dd>капитал от 5 млн юаней и снятие географического ограничения</dd>
+      </dl>
+    </div>
+    <div class="path">
+      <div class="ph-h"><span class="ph-n">4. Sky Labs — дистрибуция</span><span class="ph-v yes">писали первым</span></div>
+      <dl>
+        <dt>Что это</dt><dd>кольцо CART BP pro в наш канал</dd>
+        <dt>Цифра АД</dt><dd class="yes">да</dd>
+        <dt>Статус в РК</dt><dd>CE-MDR сокращает путь в ЕАЭС</dd>
+        <dt>Цена</dt><dd>$392 розница</dd>
+        <dt>Что требуется</dt><dd>канал в поликлиники и подбор размеров колец</dd>
+      </dl>
+    </div>
+    <div class="path">
+      <div class="ph-h"><span class="ph-n">5. Hilo — лицензия CALFREE</span><span class="ph-v">ждём ответа</span></div>
+      <dl>
+        <dt>Цифра АД</dt><dd>да, но с калибровкой манжетой</dd>
+        <dt>Статус в РК</dt><dd class="no">нет</dd>
+        <dt>Цена</dt><dd>условия лицензии неизвестны</dd>
+        <dt>Что требуется</dt><dd>решить вопрос облачного расчёта</dd>
+      </dl>
+    </div>
+    <div class="path">
+      <div class="ph-h"><span class="ph-n">6. Valencell — лицензия алгоритма</span><span class="ph-v">спросили ради оптики</span></div>
+      <dl>
+        <dt>Цифра АД</dt><dd class="no">без допуска</dd>
+        <dt>Статус в РК</dt><dd class="no">нет</dd>
+        <dt>Цена</dt><dd>условия лицензии неизвестны</dd>
+        <dt>Что требуется</dt><dd>своя клиническая валидация; допуска FDA нет три года</dd>
+      </dl>
+    </div>
+    <div class="path">
+      <div class="ph-h"><span class="ph-n">7. Biobeat — пилот</span><span class="ph-v">не наш сегмент</span></div>
+      <dl>
+        <dt>Что это</dt><dd>нагрудный пластырь, стационар и госпиталь на дому</dd>
+        <dt>Цифра АД</dt><dd class="yes">да</dd>
+        <dt>Статус в РК</dt><dd class="no">нет</dd>
+        <dt>Цена</dt><dd>пластырь одноразовый</dd>
+        <dt>Что требуется</dt><dd>стационарное звено, которого у нас пока нет</dd>
+      </dl>
+    </div>
+    <div class="path">
+      <div class="ph-h"><span class="ph-n">8. LiveMetric — пилот или OEM</span><span class="ph-v">дешёвый эксперимент</span></div>
+      <dl>
+        <dt>Цифра АД</dt><dd class="yes">да, прямая тонометрия</dd>
+        <dt>Статус в РК</dt><dd class="no">нет</dd>
+        <dt>Цена</dt><dd>неизвестна</dd>
+        <dt>Что требуется</dt><dd>принять риск поставщика из десяти человек</dd>
+      </dl>
+    </div>
+  </div>
 
   <div class="note warn">
     <div class="t">Что видно из матрицы сразу</div>
