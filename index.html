@@ -356,6 +356,30 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   .topnav a.tn-b{font-weight:600;color:#111827}
   section,.partline{scroll-margin-top:56px}
   .topnav .tn-n{display:inline-block;min-width:19px;color:#9ca3af;font-size:11.5px;font-weight:600}
+  .hcal{position:absolute; right:24px; top:56px; width:216px; z-index:3;
+    background:rgba(255,255,255,.10); backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.20); border-radius:10px; padding:12px 13px 10px}
+  .hc-h{font-size:11.5px; font-weight:600; letter-spacing:.05em; text-transform:uppercase;
+    color:rgba(255,255,255,.80); margin-bottom:9px}
+  .hc-g{display:grid; grid-template-columns:repeat(7,1fr); gap:2px}
+  .hc-w{font-size:9px; color:rgba(255,255,255,.42); text-align:center; font-style:normal; padding-bottom:2px}
+  .hc-d,.hc-x{position:relative; aspect-ratio:1; display:flex; align-items:center; justify-content:center;
+    font-size:10.5px; font-style:normal; color:rgba(255,255,255,.62); border-radius:4px}
+  .hc-done{background:#16a34a; color:#fff; font-weight:700; cursor:help}
+  .hc-wait{background:#f59e0b; color:#fff; font-weight:700; cursor:help}
+  .hc-now{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.85)}
+  .hc-l{display:flex; gap:11px; margin-top:9px; padding-top:8px;
+    border-top:1px solid rgba(255,255,255,.16); font-size:10px; color:rgba(255,255,255,.66)}
+  .hc-l span{display:flex; align-items:center; gap:4px}
+  .hc-l b{width:8px; height:8px; border-radius:2px; display:inline-block}
+  .hc-bd{background:#16a34a}.hc-bw{background:#f59e0b}
+  .hc-tip{position:absolute; top:calc(100% + 7px); right:0; width:214px; padding:9px 11px;
+    background:#111827; color:#e5e7eb; font-size:11.5px; font-weight:400; line-height:1.5;
+    border-radius:6px; text-align:left; opacity:0; visibility:hidden; transition:opacity .13s;
+    z-index:30; pointer-events:none; box-shadow:0 8px 22px rgba(0,0,0,.4)}
+  .hc-tip b{display:block; color:#fff; margin-bottom:3px}
+  .hc-d:hover .hc-tip{opacity:1; visibility:visible}
+  @media(max-width:1080px){.hcal{position:static; width:216px; margin:0 0 26px}}
 </style>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
@@ -377,6 +401,11 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 
 <div class="hero">
   <div class="hero-in">
+    <div class="hcal" aria-label="Календарь переписки, сентябрь 2026">
+      <div class="hc-h">Сентябрь 2026</div>
+      <div class="hc-g"><i class="hc-w">п</i><i class="hc-w">в</i><i class="hc-w">с</i><i class="hc-w">ч</i><i class="hc-w">п</i><i class="hc-w">с</i><i class="hc-w">в</i><i class="hc-x"></i><i class="hc-d">1</i><i class="hc-d">2</i><i class="hc-d">3</i><i class="hc-d">4</i><i class="hc-d">5</i><i class="hc-d">6</i><i class="hc-d">7</i><i class="hc-d hc-done">8<span class="hc-tip"><b>8 сентября</b>Проверка почты показала, что запросы на китайские заводы не отправлялись ни разу. Обезличенная версия запроса подготовлена заново.</span></i><i class="hc-d hc-done hc-now">9<span class="hc-tip"><b>9 сентября</b>Запрос с полной спецификацией отправлен четырём заводам. Eternity ответил ценой 18,5 доллара за штуку, но сертификат системы качества у него просрочен. J-Style готов взять пробную партию в тысячу штук и просит коммерческую рамку. Rocfly оказался не заводом.</span></i><i class="hc-d">10</i><i class="hc-d">11</i><i class="hc-d">12</i><i class="hc-d">13</i><i class="hc-d">14</i><i class="hc-d">15</i><i class="hc-d">16</i><i class="hc-d">17</i><i class="hc-d">18</i><i class="hc-d">19</i><i class="hc-d">20</i><i class="hc-d">21</i><i class="hc-d">22</i><i class="hc-d hc-wait">23<span class="hc-tip"><b>23 сентября</b>Нет ответа от Wonlex, Rocfly или продолжения от Eternity и J-Style – напоминание в те же треды.</span></i><i class="hc-d">24</i><i class="hc-d">25</i><i class="hc-d">26</i><i class="hc-d">27</i><i class="hc-d">28</i><i class="hc-d">29</i><i class="hc-d">30</i></div>
+      <div class="hc-l"><span><b class="hc-bd"></b>сделано</span><span><b class="hc-bw"></b>ждём</span></div>
+    </div>
     <header>
       <div class="wordmark">Damumed</div>
       <div class="rule"></div>
@@ -393,6 +422,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
       а гипертония и глюкоза выделены в отдельные продукты.</p>
       <div class="meta">
         <span>Держатель РУ · <b>Damumed</b></span>
+        <span>Запрос цен · <b>4 завода, ответили 3</b></span>
         <span>Партия · <b>10 000 шт</b></span>
         <span>Курс · <b>465 ₸/$</b> (НБ РК)</span>
         <span>Горизонт расчёта · <b>24 месяца</b></span>
