@@ -119,6 +119,8 @@ td.n{font-family:"Spline Sans Mono",monospace; font-variant-numeric:tabular-nums
 tr:last-child td{border-bottom:0}
 .pick td{background:var(--accent-wash)}
 .pick td:first-child{padding-left:18px}
+.out td{opacity:.55}
+.out td:first-child{box-shadow:inset 3px 0 0 #c0392b}
 
 /* врезки */
 .note{border-left:3px solid var(--warn); background:var(--surface);
@@ -410,7 +412,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   <div class="hero-in">
     <div class="hcal" aria-label="Календарь переписки, сентябрь 2026">
       <div class="hc-h">Сентябрь 2026</div>
-      <div class="hc-g"><i class="hc-w">п</i><i class="hc-w">в</i><i class="hc-w">с</i><i class="hc-w">ч</i><i class="hc-w">п</i><i class="hc-w">с</i><i class="hc-w">в</i><i class="hc-x"></i><i class="hc-d">1</i><i class="hc-d">2</i><i class="hc-d">3</i><i class="hc-d">4</i><i class="hc-d">5</i><i class="hc-d">6</i><i class="hc-d">7</i><i class="hc-d hc-done">8<span class="hc-tip"><b>8 сентября</b>Проверка почты показала, что запросы на китайские заводы не отправлялись ни разу. Обезличенная версия запроса подготовлена заново.</span></i><i class="hc-d hc-done hc-now">9<span class="hc-tip"><b>9 сентября</b>Запрос с полной спецификацией отправлен четырём заводам. Eternity ответил ценой 18,5 доллара за штуку за модель ETQ15, но сертификат системы качества у него просрочен. J-Style предложил платформу JCVital V8, берёт пробную партию в тысячу штук и просит коммерческую рамку – встречный ответ отправлен в тот же день. Rocfly оказался не заводом. Wonlex молчит.</span></i><i class="hc-d">10</i><i class="hc-d">11</i><i class="hc-d">12</i><i class="hc-d">13</i><i class="hc-d">14</i><i class="hc-d">15</i><i class="hc-d">16</i><i class="hc-d">17</i><i class="hc-d">18</i><i class="hc-d">19</i><i class="hc-d">20</i><i class="hc-d">21</i><i class="hc-d">22</i><i class="hc-d hc-wait">23<span class="hc-tip"><b>23 сентября</b>Нет ответа от Wonlex, Rocfly или продолжения от Eternity и J-Style – напоминание в те же треды.</span></i><i class="hc-d">24</i><i class="hc-d">25</i><i class="hc-d">26</i><i class="hc-d">27</i><i class="hc-d">28</i><i class="hc-d">29</i><i class="hc-d">30</i></div>
+      <div class="hc-g"><i class="hc-w">п</i><i class="hc-w">в</i><i class="hc-w">с</i><i class="hc-w">ч</i><i class="hc-w">п</i><i class="hc-w">с</i><i class="hc-w">в</i><i class="hc-x"></i><i class="hc-d">1</i><i class="hc-d">2</i><i class="hc-d">3</i><i class="hc-d">4</i><i class="hc-d">5</i><i class="hc-d">6</i><i class="hc-d">7</i><i class="hc-d hc-done">8<span class="hc-tip"><b>8 сентября</b>Проверка почты показала, что запросы на китайские заводы не отправлялись ни разу. Обезличенная версия запроса подготовлена заново.</span></i><i class="hc-d hc-done">9<span class="hc-tip"><b>9 сентября</b>Запрос с полной спецификацией отправлен четырём заводам. Eternity ответил ценой 18,5 доллара за штуку за модель ETQ15, но сертификат системы качества у него просрочен. J-Style предложил платформу JCVital V8, берёт пробную партию в тысячу штук и просит коммерческую рамку – встречный ответ отправлен в тот же день. Rocfly оказался не заводом. Wonlex молчит.</span></i><i class="hc-d hc-done hc-now">10<span class="hc-tip"><b>10 сентября</b>Eternity выбывает: сертификат системы качества просрочен и продлевать его не планируют, а версия без кардиограммы вышла дороже версии с ней. Остаётся один кандидат – J-Style. Транстек прислал соглашение о неразглашении на подпись.</span></i><i class="hc-d">11</i><i class="hc-d">12</i><i class="hc-d">13</i><i class="hc-d">14</i><i class="hc-d">15</i><i class="hc-d">16</i><i class="hc-d">17</i><i class="hc-d">18</i><i class="hc-d">19</i><i class="hc-d">20</i><i class="hc-d">21</i><i class="hc-d">22</i><i class="hc-d hc-wait">23<span class="hc-tip"><b>23 сентября</b>Нет ответа от Wonlex, Rocfly или продолжения от Eternity и J-Style – напоминание в те же треды.</span></i><i class="hc-d">24</i><i class="hc-d">25</i><i class="hc-d">26</i><i class="hc-d">27</i><i class="hc-d">28</i><i class="hc-d">29</i><i class="hc-d">30</i></div>
       <div class="hc-l"><span><b class="hc-bd"></b>сделано</span><span><b class="hc-bw"></b>ждём</span></div>
     </div>
     <header>
@@ -1168,10 +1170,10 @@ r" stroke-width="1.9" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 
       <td class="n">1 000<br><span style="color:var(--muted);font-size:13px">пилот подтверждён</span></td>
       <td>документы обещаны, срок не назван</td><td>прямая связь с приложением без своего облака</td>
       <td>платформа JCVital V8, готов подписать соглашение о неразглашении</td></tr>
-    <tr><td><strong>Eternity</strong><br><span style="color:var(--muted);font-size:13px">Guangdong</span></td>
+    <tr class="out"><td><strong>Eternity</strong><br><span style="color:var(--muted);font-size:13px">Guangdong</span></td>
       <td class="n">3 000<br><span style="color:var(--muted);font-size:13px">под нашу прошивку</span></td>
-      <td>ISO 13485 просрочен</td><td>SDK для своего приложения дают</td>
-      <td>назвал цену: ETQ15 – 18,5 USD за штуку при 1 000</td></tr>
+      <td>ISO 13485 просрочен, <b>продлевать не планируют</b></td><td>SDK для своего приложения дают</td>
+      <td>выбывает 10.09: без системы качества досье не подать</td></tr>
     <tr><td><strong>Wonlex</strong></td>
       <td class="n">1 000</td><td>нет</td><td>комплект проверяем до контракта</td>
       <td>лучшая начинка, честно признают отсутствие сертификатов</td></tr>
@@ -1249,6 +1251,34 @@ r" stroke-width="1.9" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 
     <p>Общая картина после первого дня: цену назвал один завод, пилотную партию подтвердили
     двое, а действующий сертификат системы качества не подтвердил пока ни один. Именно он,
     а не цена, определяет, с кем мы сможем пройти регистрацию.</p>
+  </div>
+
+  <div class="note warn">
+    <div class="t">🔴 10 сентября: Eternity выбывает</div>
+    <p>Завод ответил на три прямых вопроса, и ответ закрывает его как кандидата.
+    <strong>Сертификат системы качества просрочен, и продлевать его не собираются</strong> –
+    дословно: «у нас есть CE, FCC и RoHS, так что нам это не нужно». Для розничного
+    фитнес-браслета такой позиции хватает, для медизделия – нет: площадку без действующего
+    сертификата нельзя указать в регистрационном досье. Это было заявлено в запросе как
+    условие, не подлежащее обсуждению.</p>
+
+    <p><strong>Второй ответ снимает и ценовой аргумент.</strong> Под нашу версию без
+    кардиограммы завод предложил модель ETQ10P: 22,5 доллара за штуку при тысяче, 21,5 при
+    двух тысячах, 20,9 при пяти. То есть версия без кардиограммы вышла <b>дороже</b> версии
+    с ней – те самые 18,5 доллара за ETQ15, на которых построен расчёт трёх сценариев партии.
+    И тактильного напоминания, ради которого браслет вообще без экрана, эта модель не имеет:
+    завод спросил, как эта функция должна работать.</p>
+
+    <p>Что это меняет в цифрах: <strong>18,5 доллара больше не опорная цена проекта</strong>.
+    Расчёт трёх сценариев первой партии опирался на неё как на единственную фактическую
+    котировку – теперь она принадлежит выбывшему кандидату. Пересчёт – после лесенки цен
+    от J-Style.</p>
+
+    <p>Расстановка после этого простая: <strong>кандидат остался один – J-Style</strong>,
+    и от него нужны две вещи, сертификат конкретной площадки и цены по объёмам. Wonlex
+    молчит второй день, Rocfly не завод. Если J-Style по системе качества ответит так же
+    обтекаемо, придётся расширять поиск – в запасе восемь проверенных заводов из двенадцати,
+    к которым мы ещё не обращались.</p>
   </div>
 </section>
 
