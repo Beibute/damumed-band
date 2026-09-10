@@ -146,6 +146,32 @@ tr:last-child td{border-bottom:0}
 .pr-card dt{color:var(--muted)} .pr-card dd{margin:0}
 @media(max-width:560px){.pr-card dl{grid-template-columns:1fr} .pr-card dt{margin-top:6px}}
 .pr-h3{font-size:19px; font-weight:660; margin:34px 0 8px; padding-top:14px; border-top:1px solid var(--line)}
+/* разделы партнёров по производству (приставка pr-) */
+.pr-flag{font-size:26px; margin-right:10px; vertical-align:-2px}
+.pr-st{display:inline-block; background:var(--surface-2); color:var(--ink); border-radius:12px;
+  padding:9px 14px; font-size:14.5px; line-height:1.5; margin:0 0 18px}
+.pr-st.w{background:var(--warn-wash); color:var(--warn)} .pr-st.x{background:var(--alert-wash); color:var(--alert)}
+.pr-ph{background:var(--surface); border-radius:22px; padding:18px; margin:22px 0; box-shadow:var(--shadow)}
+.pr-ph img{width:100%; max-width:560px; display:block; margin:0 auto; border-radius:14px; background:#fff}
+.pr-ph .c{color:var(--muted); font-size:13.5px; margin-top:12px; line-height:1.55}
+.pr-pairs{margin:16px 0}
+.pr-pair{display:grid; grid-template-columns:minmax(170px,34%) 1fr; gap:4px 20px; padding:11px 0;
+  border-bottom:1px solid var(--line)}
+.pr-pair:first-child{border-top:1px solid var(--line)}
+.pr-pair dt{color:var(--muted); font-size:14.5px}
+.pr-pair dd{margin:0; font-size:15.5px; line-height:1.55}
+@media(max-width:600px){.pr-pair{grid-template-columns:1fr; gap:2px} .pr-pair dt{font-size:13.5px}}
+.pr-src{color:var(--muted); font-size:13px; line-height:1.55; margin-top:24px; padding-top:14px;
+  border-top:1px solid var(--line)}
+.pr-toc{display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 6px}
+.pr-toc a{background:var(--surface); border-radius:99px; padding:8px 16px; font-size:14.5px;
+  color:var(--ink); text-decoration:none; box-shadow:var(--shadow)}
+.pr-toc a:hover{background:var(--surface-2)}
+.pr-intro{margin:52px 0 26px; padding:22px 26px; background:var(--head); color:var(--head-ink); border-radius:22px}
+.pr-intro .k{font-family:"Spline Sans Mono",monospace; font-size:11.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--head-ink-2)}
+.pr-intro .t{font-size:25px; font-weight:700; line-height:1.2; margin:6px 0 8px}
+.pr-intro .d{font-size:15px; opacity:.88; line-height:1.55}
 .pr-dek{color:var(--muted); font-size:15.5px; line-height:1.6; margin:0 0 14px}
 
 /* списки */
@@ -471,7 +497,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 <div class="wrap">
 
 <nav class="topnav">
-  <div class="topnav-in"><a href="#r01"><span class="tn-n">01</span>Идея</a><a href="#r02"><span class="tn-n">02</span>Цена</a><a href="#r03"><span class="tn-n">03</span>Три ценовых уровня</a><a href="#r04"><span class="tn-n">04</span>Экономика</a><a href="#r05"><span class="tn-n">05</span>Целевые группы</a><a href="#r06"><span class="tn-n">06</span>Мобильное приложение</a><a href="#r07"><span class="tn-n">07</span>Производство</a><a href="#r08"><span class="tn-n">08</span>Статус: wellness</a><a href="#r09"><span class="tn-n">09</span>Риски</a><a href="#r10"><span class="tn-n">10</span>Что даёт</a><a href="#nazvanie"><span class="tn-n">11</span>Название</a></div>
+  <div class="topnav-in"><a href="#r01"><span class="tn-n">01</span>Идея</a><a href="#r02"><span class="tn-n">02</span>Цена</a><a href="#r03"><span class="tn-n">03</span>Три ценовых уровня</a><a href="#r04"><span class="tn-n">04</span>Экономика</a><a href="#r05"><span class="tn-n">05</span>Целевые группы</a><a href="#r06"><span class="tn-n">06</span>Мобильное приложение</a><a href="#r07"><span class="tn-n">07</span>Производство</a><a href="#r08"><span class="tn-n">08</span>Статус: wellness</a><a href="#r09"><span class="tn-n">09</span>Риски</a><a href="#r10"><span class="tn-n">10</span>Что даёт</a><a href="#nazvanie"><span class="tn-n">11</span>Название</a><a href="#partnery"><span class="tn-n">12</span>Партнёры</a></div>
 </nav>
 
 <div class="tiles">
@@ -1302,45 +1328,9 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   iWOWN – браслетов без экрана нет; Minew – метки-браслеты без пульсового датчика; Veepoo –
   не завод, а платформа, работает через Wonlex.</p>
 
-  <h3 class="pr-h3">Чем отличаются два реальных кандидата и двое догоняющих</h3>
-
-  <div class="pr-card">
-    <div class="h"><span class="n">J-Style – JCVital V8</span><span class="v">основной</span></div>
-    <dl>
-      <dt>Условия</dt><dd>пилот 1 000 шт подтверждён; первая партия 10 000, дальше 10–20 тыс. в год, запуск в середине 2027 – рамку принял целиком; оплату разработки мы подтвердили</dd>
-      <dt>Сильнее всех</dt><dd>системный подход: 98 требований разбирают по пунктам в матрице, делят функции на «стандарт / прошивка / железо / нет»; работа напрямую с приложением без облака принята; сертификат ISO 13485 прислан</dd>
-      <dt>Чего не хватает</dt><dd>цены пока нет; RR-интервалы и сырой пульсовой сигнал – доработка прошивки за отдельную плату; какая из двух площадок соберёт заказ – не сказано</dd>
-      <dt>Ждём</dt><dd>матрицу ответов и лесенку цен до 15.09; комплект разработчика – после NDA, который упирается в выбор нашего юрлица</dd>
-    </dl>
-  </div>
-
-  <div class="pr-card">
-    <div class="h"><span class="n">Eternity – ETQ10P / ETQ15</span><span class="v w">вернулся, по цене и скорости</span></div>
-    <dl>
-      <dt>Условия</dt><dd>ступени кастомизации названы прямо: 1 000 шт – логотип и упаковка, 3 000 – своя прошивка, 10 000 – своё железо, 20 000 – право ссылаться на их сертификат; предоплата 30%</dd>
-      <dt>Сильнее всех</dt><dd>быстрый и конкретный – две котировки за сутки; профиль – только браслеты без экрана, есть образец в стиле Whoop (ETQ59); SDK для своего приложения дают сразу</dd>
-      <dt>Чего не хватает</dt><dd>версия без ЭКГ (ETQ10P, 22,5 $) дороже версии с ней (ETQ15, 18,5 $); вибронапоминания в ETQ10P нет – завод спросил, как оно должно работать; своя прошивка – только от 3 000 шт, то есть пилот на 1 000 пойдёт на их стандартной</dd>
-      <dt>Ждём</dt><dd>ответа, как реализовать напоминание с подтверждением, и цены на 10 000 шт</dd>
-    </dl>
-  </div>
-
-  <div class="pr-card">
-    <div class="h"><span class="n">Wonlex – VB10 / MF91Pro</span><span class="v w">молчит</span></div>
-    <dl>
-      <dt>Сильнее всех</dt><dd>лучшее железо в выборке (Nordic + TI, четырёхканальный пульсовой датчик); комплект разработчика открыт на GitHub – проверяем без переговоров</dd>
-      <dt>Чего не хватает</dt><dd>ответа: письмо 9 сентября без реакции; минимальная партия и цена не известны</dd>
-      <dt>Шаг</dt><dd>напомнить и параллельно самим проверить по открытому SDK, отдаются ли RR-интервалы</dd>
-    </dl>
-  </div>
-
-  <div class="pr-card">
-    <div class="h"><span class="n">Transtek – MIO Health Tracker</span><span class="v w">к октябрю</span></div>
-    <dl>
-      <dt>Сильнее всех</dt><dd>публичная компания с биржевой отчётностью; по железу ближе всех к спецификации – 23 г, 5 ATM, 7 дней батареи и памяти, датчик ношения, линейный вибромотор; по тонометру уже ведём с ними переговоры</dd>
-      <dt>Чего не хватает</dt><dd>браслет ещё в испытаниях – пробное производство в октябре; RR-интервалов нет; облако в схеме, отключаемость не заявлена</dd>
-      <dt>Шаг</dt><dd>запросить образец после пробной серии и два вопроса – RR и работа без облака</dd>
-    </dl>
-  </div>
+  <h3 class="pr-h3">Подробно о каждом</h3>
+  <p class="pr-dek">Условия сотрудничества, фото изделия, переписка и следующий шаг – в отдельных разделах 12–19.</p>
+  <div class="pr-toc"><a href="#p-jstyle">🇨🇳 J-Style</a><a href="#p-eternity">🇨🇳 Eternity</a><a href="#p-wonlex">🇨🇳 Wonlex</a><a href="#p-transtek">🇨🇳 Transtek</a><a href="#p-rocfly">🇨🇳 Rocfly Blue</a><a href="#p-blackrhino">🇭🇰 BlackRhino</a><a href="#p-vositone">🇨🇳 Vositone</a><a href="#p-yawell">🇨🇳 Yawell</a></div>
 
   <h3 class="pr-h3">Зарядка: как у Whoop</h3>
   <p class="pr-dek">Решение владельца – заряжать браслет, не снимая его с руки.</p>
@@ -1380,61 +1370,16 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 
   <h3 class="pr-h3">Что делаем с каждым партнёром</h3>
-  <p class="pr-dek">Пересмотрено 10 сентября вечером, с учётом того, что регистрации медизделием
-  в первой версии нет. Вместо сертификата ISO 13485 от каждого завода теперь нужен пакет
-  документов для ЕАЭС – он разобран в <a href="#r08">разделе 08</a>.</p>
-
-  <div class="pr-card">
-    <div class="h"><span class="n">1. J-Style – ведём к образцам</span><span class="v">приоритет</span></div>
-    <dl>
-      <dt>NDA</dt><dd>подписать сейчас юрлицом, которое будет покупать у завода и ввозить (раздел ниже); перед подписью – быстрый разбор их текста, как у Transtek. ⚠️ Их NDA пришёл вложением – нужен файл</dd>
-      <dt>После NDA</dt><dd>получить SDK и сразу проверить на стенде два пункта: RR-интервалы и работу без их облака, включая обновление прошивки</dd>
-      <dt>До 15.09</dt><dd>матрица 98 требований и цены 1 / 2 / 5 / 10 тыс.; отдельной строкой – разовая плата за прошивку под RR и напоминания</dd>
-      <dt>Дополнительно просим</dt><dd>пакет для ЕАЭС и зарядку на руке (DB-312); вопрос о площадке больше не срочный – ISO 13485 держим как задел на регистрацию</dd>
-    </dl>
-  </div>
-
-  <div class="pr-card">
-    <div class="h"><span class="n">2. Eternity – второй поставщик, торгуемся</span><span class="v">приоритет</span></div>
-    <dl>
-      <dt>NDA</dt><dd>не нужен – SDK отдают без него</dd>
-      <dt>Сейчас</dt><dd>описать механику вибронапоминания с подтверждением касанием – завод прямо спросил, как она должна работать; без неё ETQ10P нам не подходит</dd>
-      <dt>Спросить</dt><dd>цену ETQ10P на 10 000 шт; образец в стиле Whoop ETQ59 и сменный аккумулятор «на руку»; пакет для ЕАЭС – CE, FCC и RoHS у них уже есть, нужны сами протоколы испытаний</dd>
-      <dt>Развилка</dt><dd>своя прошивка у них – от 3 000 шт. Пилот на 1 000 пойдёт на стандартной прошивке без наших напоминаний; решить, берём ли пилот 3 000 или пилот без механики приверженности</dd>
-    </dl>
-  </div>
-
-  <div class="pr-card">
-    <div class="h"><span class="n">3. Wonlex – проверяем сами, не дожидаясь ответа</span><span class="v w">параллельно</span></div>
-    <dl>
-      <dt>Сейчас</dt><dd>напомнить письмом; параллельно скачать открытый комплект разработчика (HBandSDK) и проверить, отдаёт ли он RR-интервалы и работает ли без облака</dd>
-      <dt>Если ответят</dt><dd>минимальная партия, цена, пакет для ЕАЭС, зарядка. Их модели изначально wellness – под наш статус подходят без оговорок</dd>
-    </dl>
-  </div>
-
-  <div class="pr-card">
-    <div class="h"><span class="n">4. Transtek – браслет к октябрю, тонометр позже</span><span class="v w">ждём</span></div>
-    <dl>
-      <dt>NDA</dt><dd>🔄 две блокирующие правки из разбора 9 сентября касались регистрации – цель соглашения и передача документов регулятору. Без регистрации они отпадают: подписать тем же юрлицом, что и с J-Style, правки второго порядка – по возможности</dd>
-      <dt>Браслет</dt><dd>образец после пробной серии в октябре; два вопроса – RR-интервалы и отключение облака</dd>
-      <dt>Тонометр</dt><dd>трек давления идёт позже, но NDA заодно открывает отчёт клинической валидации – он понадобится</dd>
-    </dl>
-  </div>
-
-  <div class="pr-card">
-    <div class="h"><span class="n">5. Rocfly Blue – один прямой вопрос</span><span class="v x">скорее закрыть</span></div>
-    <dl>
-      <dt>Сейчас</dt><dd>спросить, какая площадка собирает браслет, и прислать её документы. Нет ответа – направление закрываем</dd>
-    </dl>
-  </div>
-
-  <div class="pr-card">
-    <div class="h"><span class="n">6. Резерв – BlackRhino, Vositone, Yawell</span><span class="v w">написать</span></div>
-    <dl>
-      <dt>Почему теперь</dt><dd>при медизделии их отсекало отсутствие ISO 13485; для wellness это не мешает, а цены с витрин – 9,8–14,5 $ – вдвое ниже котировок Eternity</dd>
-      <dt>Сейчас</dt><dd>отправить короткий запрос цен с дополнением по wellness: BlackRhino – через сообщение на витрине, Vositone – письмом. Даже без контракта их цены – рычаг на переговорах с J-Style и Eternity</dd>
-    </dl>
-  </div>
+  <p class="pr-dek">Пересмотрено 10 сентября вечером, с учётом того, что регистрации медизделием в первой версии нет.</p>
+  <div class="tw"><table>
+    <tr><th>Партнёр</th><th>Приоритет</th><th>Следующий шаг</th></tr>
+    <tr class="pick"><td><a href="#p-jstyle"><strong>J-Style</strong></a></td><td>основной</td><td>NDA → SDK → проверка RR и работы без облака; цены до 15.09</td></tr>
+    <tr class="pick"><td><a href="#p-eternity"><strong>Eternity</strong></a></td><td>второй</td><td>описать вибронапоминание; цена на 10 000; решить пилот 1 000 или 3 000</td></tr>
+    <tr><td><a href="#p-wonlex"><strong>Wonlex</strong></a></td><td>параллельно</td><td>напомнить; самим проверить HBandSDK на RR</td></tr>
+    <tr><td><a href="#p-transtek"><strong>Transtek</strong></a></td><td>к октябрю</td><td>NDA; образец браслета после пробной серии</td></tr>
+    <tr><td><a href="#p-rocfly"><strong>Rocfly Blue</strong></a></td><td>скорее закрыть</td><td>один вопрос о площадке</td></tr>
+    <tr><td><a href="#p-blackrhino"><strong>BlackRhino</strong></a>, <a href="#p-vositone"><strong>Vositone</strong></a>, <a href="#p-yawell"><strong>Yawell</strong></a></td><td>резерв</td><td>короткий запрос цен с дополнением по wellness</td></tr>
+  </table></div>
 
   <div class="note warn">
     <div class="t">Кто подписывает NDA – больше не держатель удостоверения</div>
@@ -1801,6 +1746,370 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
     знак рисует дизайнер после выбора названия. До решения проверить два условия –
     свободность товарного знака и произношение на фокус-группе пациентов 65+.
   </div>
+</section>
+
+<div class="pr-intro" id="partnery">
+  <div class="k">Разделы 12–19</div>
+  <div class="t">Партнёры по производству – разбор</div>
+  <div class="d">Каждый завод отдельно: кто это, изделие, условия сотрудничества, переписка и что делать дальше.
+  Сводная таблица – в <a href="#r07" style="color:var(--head-ink-2)">разделе 07</a>.</div>
+</div>
+  <div class="pr-toc"><a href="#p-jstyle">🇨🇳 J-Style</a><a href="#p-eternity">🇨🇳 Eternity</a><a href="#p-wonlex">🇨🇳 Wonlex</a><a href="#p-transtek">🇨🇳 Transtek</a><a href="#p-rocfly">🇨🇳 Rocfly Blue</a><a href="#p-blackrhino">🇭🇰 BlackRhino</a><a href="#p-vositone">🇨🇳 Vositone</a><a href="#p-yawell">🇨🇳 Yawell</a></div>
+
+<section id="p-jstyle">
+  <div class="shead"><span class="snum">12</span><h2><span class="pr-flag">🇨🇳</span>J-Style – JCVital V8</h2></div>
+  <p class="sdek">Основной кандидат: единственный, кто разбирает все 98 требований по пунктам и принял нашу коммерческую рамку целиком.</p>
+  <div class="pr-st">✅ В переписке с 9 сентября · 6 писем с их стороны · ждём цены до 15.09</div>
+  <div class="pr-ph">
+    <img src="img/devices/jstyle-jcvital-v8.jpg" alt="Браслет JCVital V8 на запястье" loading="lazy">
+    <div class="c"><b>JCVital V8</b> – платформа, которую завод предложил под наш заказ: корпус без экрана, тканевый ремешок. Фото: jcvital.com, официальный сайт производителя.</div>
+  </div>
+  <h3 class="pr-h3">Кто это</h3>
+  <p class="pr-dek">Не мастерская: группа с двумя заводами, отдельным центром разработки и медицинской сертификацией.</p>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Юрлицо</dt><dd><b>Guangdong Youhong Medical Technology Co., Ltd</b>, группа Joint Chinese Group; бренды J-Style, JCRing, JCVital</dd></div>
+    <div class="pr-pair"><dt>Площадки</dt><dd>центр разработки и завод в Дунгуане (провинция Гуандун); второй завод в Ияне (провинция Хунань)</dd></div>
+    <div class="pr-pair"><dt>Опыт</dt><dd>около 20 лет в носимых устройствах; работа с клиниками и страховыми; кольцо JCRing X3 ведут на регистрацию медизделием класса II в Китае</dd></div>
+    <div class="pr-pair"><dt>Сертификаты</dt><dd>ISO 13485, ISO 9001, BSCI; на продукцию – CE, FCC, RoHS. Скан ISO 13485 прислан 10.09, файл выписан на Joint Chinese Ltd.</dd></div>
+    <div class="pr-pair"><dt>Контакт</dt><dd>Эдвард Чжэн, менеджер по работе с клиентами</dd></div>
+  </dl>
+  <h3 class="pr-h3">Изделие – JCVital V8</h3>
+  <p class="pr-dek">Готовая платформа, на которой завод предлагает собрать наш браслет с минимальной доработкой.</p>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Форм-фактор</dt><dd>браслет без экрана, сменный тканевый ремешок</dd></div>
+    <div class="pr-pair"><dt>Датчики</dt><dd>пульсовой датчик (пульс, вариабельность, кислород), температура кожи, акселерометр и гироскоп; в линейке V8 есть версия с ЭКГ</dd></div>
+    <div class="pr-pair"><dt>Частота пульсового датчика</dt><dd>25–50 Гц в стандартной прошивке</dd></div>
+    <div class="pr-pair"><dt>RR-интервалы</dt><dd>⚠️ стандартная прошивка их не отдаёт – только доработкой</dd></div>
+    <div class="pr-pair"><dt>Сырой сигнал</dt><dd>⚠️ не отдаётся – только доработкой</dd></div>
+    <div class="pr-pair"><dt>Данные</dt><dd>комплект разработчика для iOS, Android, Windows и macOS; работа напрямую с нашим приложением без их облака принята как требование</dd></div>
+    <div class="pr-pair"><dt>Зарядка</dt><dd>для V8 не подтверждена; в линейке заявлена беспроводная – вопрос задан дополнением к запросу цен</dd></div>
+  </dl>
+  <h3 class="pr-h3">Условия сотрудничества</h3>
+  <p class="pr-dek">Что завод уже подтвердил письменно и что обещал назвать.</p>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Пробная партия</dt><dd><b>1 000 шт – подтверждена</b>, хотя в открытых материалах минимум 2 000</dd></div>
+    <div class="pr-pair"><dt>Объёмы</dt><dd>рамку приняли целиком: первая партия 10 000, дальше 10–20 тыс. в год, запуск в середине 2027</dd></div>
+    <div class="pr-pair"><dt>Цена</dt><dd>не названа; лесенка 1 / 2 / 5 / 10 тыс. – в коммерческом ответе, ждём до 15.09</dd></div>
+    <div class="pr-pair"><dt>Разработка</dt><dd>разовая плата за прошивку под RR-интервалы и напоминания плюс минимальная партия под неё – в коммерческом ответе; мы подтвердили, что платить готовы</dd></div>
+    <div class="pr-pair"><dt>Матрица требований</dt><dd>разбирают все 98 пунктов по категориям: стандарт V8 / доработка прошивки / доработка железа / документы есть / не поддерживается</dd></div>
+    <div class="pr-pair"><dt>NDA</dt><dd>их стандартный текст прислан 10.09; можно и наш. После подписи – описание интерфейса V8</dd></div>
+    <div class="pr-pair"><dt>Сроки</dt><dd>образцы 4–6 недель после заказа, серия 8–12 недель после утверждения образца – их стандарт, закреплён в нашей рамке</dd></div>
+    <div class="pr-pair"><dt>Оплата</dt><dd>условия не обсуждались</dd></div>
+    <div class="pr-pair"><dt>Документы для ЕАЭС</dt><dd>запрошены дополнением к запросу цен – протоколы ЭМС, радио, RoHS, батарея, шифрование</dd></div>
+  </dl>
+  <h3 class="pr-h3">Переписка</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>9 сентября</dt><dd>запрос цен и 98 требований; ответ через три часа – платформа V8, пилот 1 000 принят; наше уточнение по RR, работе без облака и ISO; коммерческая рамка; отдельное письмо только про сертификат</dd></div>
+    <div class="pr-pair"><dt>10 сентября</dt><dd>два ответа: RR и сырой сигнал – доработка прошивки; сертификат прислан без указания площадки; рамка принята; NDA на подпись</dd></div>
+  </dl>
+  <div class="note">
+    <div class="t">Чем J-Style сильнее остальных – и чего пока нет</div>
+    <p><b>Сильнее:</b> системный подход – считает ресурс, а не рассылает прайс; единственный с ISO 13485,
+    поэтому ту же модель потом можно зарегистрировать медизделием, не меняя завод.</p>
+    <p style="margin-top:10px"><b>Нет пока:</b> цены; RR-интервалы без доработки; ответа, какая из двух площадок соберёт заказ.</p>
+  </div>
+  <h3 class="pr-h3">Что дальше</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Сейчас</dt><dd>подписать NDA юрлицом, которое будет покупать и ввозить; перед подписью – разбор их текста</dd></div>
+    <div class="pr-pair"><dt>После NDA</dt><dd>получить SDK и проверить на стенде RR-интервалы и работу без облака, включая обновление прошивки</dd></div>
+    <div class="pr-pair"><dt>До 15.09</dt><dd>матрица, лесенка цен, стоимость прошивки, зарядка V8, документы для ЕАЭС</dd></div>
+  </dl>
+  <p class="pr-src">Источники: переписка с J-Style 09–10.09.2026; jointcorp.com, jcvital.com; research/01, раздел 4.</p>
+</section>
+
+<section id="p-eternity">
+  <div class="shead"><span class="snum">13</span><h2><span class="pr-flag">🇨🇳</span>Eternity – ETQ10-P и ETQ15</h2></div>
+  <p class="sdek">Второй поставщик: выбыл 10 сентября из-за просроченного сертификата и вернулся после решения запускать браслет как wellness.</p>
+  <div class="pr-st">✅ В переписке с 9 сентября · две котировки · вернулся в список 10.09</div>
+  <div class="pr-ph">
+    <img src="img/devices/eternity-etq10p.jpg" alt="Eternity ETQ10-P – браслет без экрана на тёмном тканевом ремешке" loading="lazy">
+    <div class="c"><b>ETQ10-P</b> – модель, которую завод предложил под версию без ЭКГ: чип Nordic, шестиосевой датчик движения, магнитная зарядка. Фото: screenlessfit.com, официальный сайт завода.</div>
+  </div>
+  <div class="pr-ph">
+    <img src="img/devices/eternity-etq15.jpg" alt="Eternity ETQ15 – браслет с ЭКГ" loading="lazy">
+    <div class="c"><b>ETQ15</b> – версия с ЭКГ, на неё завод назвал первую цену 18,5 $. Фото: screenlessfit.com.</div>
+  </div>
+  <h3 class="pr-h3">Кто это</h3>
+  <p class="pr-dek">Специализированный завод: делает только браслеты без экрана.</p>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Юрлицо</dt><dd><b>Guangdong Eternity Electronics Co., Ltd</b>, промышленный парк Цзиньлунхуэй, район Лунхуа, провинция Гуандун</dd></div>
+    <div class="pr-pair"><dt>Профиль</dt><dd>только браслеты без экрана: ETQ01–ETQ16, E900, ETQ59 – образец в стиле Whoop; 50+ брендов под своей маркой</dd></div>
+    <div class="pr-pair"><dt>Сертификаты</dt><dd>CE, FCC, RoHS, BSCI. ISO 13485 <b>просрочен, продлевать не будут</b> – для wellness это не препятствие</dd></div>
+    <div class="pr-pair"><dt>Контакт</dt><dd>Джейсон Линь; отвечает быстро и прямо</dd></div>
+  </dl>
+  <h3 class="pr-h3">Изделие – ETQ10-P</h3>
+  <p class="pr-dek">Верхняя модель линейки без ЭКГ.</p>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Платформа</dt><dd>чип Nordic, шестиосевой датчик движения, обновлённые алгоритмы</dd></div>
+    <div class="pr-pair"><dt>Функции</dt><dd>круглосуточный пульс, кислород, вариабельность ритма, стресс, сон и восстановление, отчёты</dd></div>
+    <div class="pr-pair"><dt>Батарея и зарядка</dt><dd>180 мА·ч, магнитная зарядка; на линейке заявлено до 20–35 дней</dd></div>
+    <div class="pr-pair"><dt>Управление</dt><dd>без кнопок, всё из приложения; стандартное приложение завода – QWatch Pro, нам оно не нужно</dd></div>
+    <div class="pr-pair"><dt>Вибронапоминание</dt><dd>⚠️ <b>в ETQ10-P нет</b> – завод спросил, как оно должно работать</dd></div>
+    <div class="pr-pair"><dt>Данные</dt><dd>SDK для своего приложения дают без NDA</dd></div>
+  </dl>
+  <h3 class="pr-h3">Условия сотрудничества</h3>
+  <p class="pr-dek">Самый прозрачный из всех: цены и ступени названы за сутки.</p>
+  <div class="tw"><table>
+    <tr><th>Модель</th><th>1 000 шт</th><th>2 000 шт</th><th>5 000 шт</th></tr>
+    <tr class="pick"><td>ETQ10-P, без ЭКГ</td><td class="n">22,5 $ ≈ 10 460 ₸</td><td class="n">21,5 $</td><td class="n">20,9 $ ≈ 9 720 ₸</td></tr>
+    <tr><td>ETQ15, с ЭКГ</td><td class="n">18,5 $ ≈ 8 600 ₸</td><td class="n">н/д</td><td class="n">н/д</td></tr>
+  </table></div>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Что входит в цену</dt><dd>наш логотип и упаковка</dd></div>
+    <div class="pr-pair"><dt>Ступени кастомизации</dt><dd>1 000 шт – логотип и упаковка · <b>3 000 – своя прошивка</b> · 10 000 – своё железо · 20 000 – право ссылаться на их сертификат</dd></div>
+    <div class="pr-pair"><dt>Оплата</dt><dd>30% вперёд – названо для ступени 20 000; по меньшим партиям не обсуждалось</dd></div>
+    <div class="pr-pair"><dt>Сроки</dt><dd>образцы 4–6 недель, серия 8–12 недель после утверждения образца</dd></div>
+    <div class="pr-pair"><dt>Минимум на витрине</dt><dd>500 шт – для стандартных моделей без доработки</dd></div>
+    <div class="pr-pair"><dt>Зарядка на руке</dt><dd>в блоге завода упомянуты сменные аккумуляторы для корпоративных моделей – это заявление, не предложение; вопрос задан</dd></div>
+  </dl>
+  <h3 class="pr-h3">Переписка</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>9 сентября</dt><dd>ответ через 2,5 часа: SDK дают, своя прошивка от 3 000, ISO просрочен, ETQ15 – 18,5 $; наши три уточнения</dd></div>
+    <div class="pr-pair"><dt>10 сентября</dt><dd>ETQ10-P – 22,5 / 21,5 / 20,9 $; ISO продлевать не будут; ступени кастомизации; вопрос о вибронапоминании</dd></div>
+  </dl>
+  <div class="note warn">
+    <div class="t">Главная развилка у Eternity</div>
+    Вся механика приверженности – напоминание с подтверждением, статус ношения, отключённые давление и
+    глюкоза – живёт в прошивке, а своя прошивка у завода начинается с 3 000 шт. Значит пилот на 1 000
+    пойдёт на их стандартной прошивке. Либо берём пилот 3 000, либо пилот проверяет только носимость,
+    без механики. И версия без ЭКГ у них дороже версии с ней.
+  </div>
+  <h3 class="pr-h3">Что дальше</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Сейчас</dt><dd>описать механику вибронапоминания с подтверждением касанием – это условие, без которого ETQ10-P не подходит</dd></div>
+    <div class="pr-pair"><dt>Спросить</dt><dd>цену на 10 000; ETQ59 и сменный аккумулятор на руку; протоколы CE, FCC и RoHS для деклараций ЕАЭС</dd></div>
+    <div class="pr-pair"><dt>Решить</dt><dd>пилот 1 000 на стандартной прошивке или 3 000 на своей</dd></div>
+  </dl>
+  <p class="pr-src">Источники: переписка с Eternity 09–10.09.2026; screenlessfit.com, fitnesstrackerchina.com; research/01, раздел 4.</p>
+</section>
+
+<section id="p-wonlex">
+  <div class="shead"><span class="snum">14</span><h2><span class="pr-flag">🇨🇳</span>Wonlex – VB10</h2></div>
+  <p class="sdek">Лучшее железо и открытый комплект разработчика – но не отвечает.</p>
+  <div class="pr-st w">⏳ Письмо 9 сентября · ответа нет</div>
+  <div class="pr-ph">
+    <img src="img/devices/wonlex-vb10.jpg" alt="Wonlex VB10 – браслет без экрана на тканевом ремешке" loading="lazy">
+    <div class="c"><b>Wonlex VB10</b> – модель мая 2026 года. Фото: iwonlex.net, официальный сайт производителя.</div>
+  </div>
+  <h3 class="pr-h3">Кто это</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Юрлицо</dt><dd><b>Shenzhen Wonlex</b>, район Баоань, Шэньчжэнь</dd></div>
+    <div class="pr-pair"><dt>Профиль</dt><dd>носимые устройства здоровья: браслеты без экрана, кольца, часы с ЭКГ; своя марка заказчика и своя прошивка «от прототипа до серии»</dd></div>
+    <div class="pr-pair"><dt>Сертификаты</dt><dd>CE; сами пишут, что у международных моделей нет FDA, MDR и китайской медрегистрации – это wellness</dd></div>
+    <div class="pr-pair"><dt>Платформа</dt><dd>на Veepoo: открытый комплект разработчика HBandSDK на GitHub</dd></div>
+  </dl>
+  <h3 class="pr-h3">Изделие – VB10</h3>
+  <p class="pr-dek">Технически самое сильное железо из всего, что мы видели.</p>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Чипы</dt><dd>Nordic nRF54L15 + TI AFE4950; BLE 6.0</dd></div>
+    <div class="pr-pair"><dt>Датчики</dt><dd>четырёхканальный пульсовой массив 50 Гц, ЭКГ 500 Гц, шестиосевой датчик движения, температура кожи</dd></div>
+    <div class="pr-pair"><dt>Батарея</dt><dd>265 мА·ч; до 10 дней работы, 30+ в ожидании</dd></div>
+    <div class="pr-pair"><dt>Зарядка</dt><dd>магнитная подставка</dd></div>
+    <div class="pr-pair"><dt>Корпус</dt><dd>39 × 29 × 10 мм, около 25 г; задняя крышка – закалённое стекло; IP68</dd></div>
+    <div class="pr-pair"><dt>Ремешок</dt><dd>тканевый, быстросъёмный, пять цветов</dd></div>
+    <div class="pr-pair"><dt>Вибромотор</dt><dd>есть</dd></div>
+    <div class="pr-pair"><dt>⚠️ Лишнее для нас</dt><dd>заявлены «неинвазивные» оценки глюкозы, липидов, мочевой кислоты и детекция аритмии по ЭКГ – в нашей прошивке их отключаем: для wellness это медицинские заявления</dd></div>
+  </dl>
+  <h3 class="pr-h3">Условия сотрудничества</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Минимальная партия</dt><dd>не раскрыта</dd></div>
+    <div class="pr-pair"><dt>Цена</dt><dd>не раскрыта</dd></div>
+    <div class="pr-pair"><dt>SDK</dt><dd>бесплатный, открытый, проверяется до контракта</dd></div>
+    <div class="pr-pair"><dt>Кастомизация</dt><dd>своя марка и своя прошивка – заявлены</dd></div>
+  </dl>
+  <h3 class="pr-h3">Что дальше</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Сейчас</dt><dd>напомнить письмом; письмо 9 сентября без ответа</dd></div>
+    <div class="pr-pair"><dt>Параллельно</dt><dd>скачать HBandSDK и проверить сами: отдаются ли RR-интервалы и работает ли без облака</dd></div>
+    <div class="pr-pair"><dt>Если ответят</dt><dd>минимальная партия, цена, документы для ЕАЭС, зарядка</dd></div>
+  </dl>
+  <p class="pr-src">Источники: iwonlex.net (страница VB10); research/01, разделы 2–4; письмо 09.09.2026.</p>
+</section>
+
+<section id="p-transtek">
+  <div class="shead"><span class="snum">15</span><h2><span class="pr-flag">🇨🇳</span>Transtek – MIO Health Tracker</h2></div>
+  <p class="sdek">Сильнейшая компания и железо ближе всех к спецификации – но браслет будет готов не раньше октября.</p>
+  <div class="pr-st w">⏳ Браслет в испытаниях · пробное производство в октябре</div>
+  <h3 class="pr-h3">Кто это</h3>
+  <p class="pr-dek">Самый крупный и прозрачный контрагент в списке – публичная компания.</p>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Юрлицо</dt><dd><b>Guangdong Transtek Medical Electronics Co., Ltd</b>, Чжуншань; публичная компания, биржевой код 300562.SZ</dd></div>
+    <div class="pr-pair"><dt>Профиль</dt><dd>тонометры, весы и устройства для дистанционного наблюдения; с 2002 года производство под чужой маркой</dd></div>
+    <div class="pr-pair"><dt>Сертификаты</dt><dd>ISO 9001, ISO 13485, FDA, CE 0123</dd></div>
+    <div class="pr-pair"><dt>Контакт</dt><dd>Джейн Ван, менеджер по дистанционному наблюдению; с ней же идёт трек тонометра</dd></div>
+  </dl>
+  <h3 class="pr-h3">Изделие – MIO Health Tracker</h3>
+  <p class="pr-dek">Каталог прислан 9 сентября; публичных фото модели нет – она ещё в испытаниях.</p>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Корпус</dt><dd>23 г, нейлоновый ремешок, 5 ATM</dd></div>
+    <div class="pr-pair"><dt>Батарея</dt><dd>200 мА·ч, до 7 дней; <b>память на 7 суток</b> показаний</dd></div>
+    <div class="pr-pair"><dt>Датчики</dt><dd>пульсовой датчик с четырёхканальным фотодиодом, акселерометр, гироскоп, температура кожи, <b>датчик ношения</b></dd></div>
+    <div class="pr-pair"><dt>Вибромотор</dt><dd>линейный – половина нашей механики напоминаний</dd></div>
+    <div class="pr-pair"><dt>Индикация</dt><dd>мини-светодиод и шесть цветовых зон пульса – не экран, но и не «глухой» корпус</dd></div>
+    <div class="pr-pair"><dt>Зарядка</dt><dd>магнитная, USB-C</dd></div>
+    <div class="pr-pair"><dt>⚠️ Данные</dt><dd>RR-интервалов нет, только пульс; в схеме каталога данные идут через облако</dd></div>
+    <div class="pr-pair"><dt>Статус</dt><dd>пометка «только для wellness» – ровно наш статус; патент на дизайн DM/256924</dd></div>
+  </dl>
+  <h3 class="pr-h3">Условия сотрудничества</h3>
+  <p class="pr-dek">По браслету цен нет; по тонометру условия уже названы – ориентир.</p>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Браслет</dt><dd>цена и минимальная партия не названы; пробное производство – в октябре</dd></div>
+    <div class="pr-pair"><dt>По тонометру (ориентир)</dt><dd>своё имя и упаковка – от 2 000 шт, коробка своей конструкции и корпус – от 5 000; оплата 30% вперёд, 70% до отгрузки; производство 35–45 дней</dd></div>
+    <div class="pr-pair"><dt>NDA</dt><dd>взаимный, прислан 9 сентября. Две блокирующие правки касались регистрации и при wellness отпали; остаются правки второго порядка – сторона договора, право и арбитраж</dd></div>
+    <div class="pr-pair"><dt>Данные</dt><dd>по тонометру подтвердили передачу по Bluetooth в наше приложение без их облака; SDK – после NDA</dd></div>
+  </dl>
+  <h3 class="pr-h3">Что дальше</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Сейчас</dt><dd>подписать NDA тем же юрлицом, что и с J-Style</dd></div>
+    <div class="pr-pair"><dt>Октябрь</dt><dd>образец браслета после пробной серии; вопросы – RR-интервалы и отключение облака</dd></div>
+    <div class="pr-pair"><dt>Тонометр</dt><dd>трек давления идёт позже; NDA заодно открывает отчёт клинической валидации</dd></div>
+  </dl>
+  <p class="pr-src">Источники: переписка с Transtek 08–10.09.2026 и каталог «screenless smart band»; transtekcorp.com; docs/sravnenie-zavodov-2026-09-09.md.</p>
+</section>
+
+<section id="p-rocfly">
+  <div class="shead"><span class="snum">16</span><h2><span class="pr-flag">🇨🇳</span>Rocfly Blue – посредник</h2></div>
+  <p class="sdek">Не завод, а сборщик решений у чужих площадок. Для wellness это допустимо, но гарантия и качество – через третье лицо.</p>
+  <div class="pr-st x">⚠️ Ответили один раз · повтор без ответа</div>
+  <h3 class="pr-h3">Кто это</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Юрлицо</dt><dd><b>Shenzhen Rocfly Blue Electronic Co., Ltd</b>, Фуюн, район Баоань, Шэньчжэнь</dd></div>
+    <div class="pr-pair"><dt>Профиль</dt><dd>по их словам – не завод и не торговец, а «партнёр по продукту»: собирают решение у разных производителей</dd></div>
+    <div class="pr-pair"><dt>Контакт</dt><dd>Дейзи Ли</dd></div>
+  </dl>
+  <h3 class="pr-h3">Решение, которое предлагают</h3>
+  <p class="pr-dek">Концепт мультипараметрического монитора; фото изделия нет.</p>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Функции</dt><dd>ЭКГ в одном отведении, безманжетное давление, кислород, пульс, температура, частота дыхания, вариабельность</dd></div>
+    <div class="pr-pair"><dt>Платформа</dt><dd>Nordic nRF5340; 200–400 мА·ч, 3–7 дней; беспроводная зарядка</dd></div>
+    <div class="pr-pair"><dt>Данные</dt><dd>облако с API и передача исходников прошивки и схем</dd></div>
+    <div class="pr-pair"><dt>⚠️ Для нас</dt><dd>безманжетное давление и ЭКГ с детекцией аритмий – медицинские заявления, для wellness отключаются; сертификаты ISO 13485 и медицинские CE заявлены на витрине, не подтверждены</dd></div>
+  </dl>
+  <h3 class="pr-h3">Условия сотрудничества</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Цена и минимум</dt><dd>не названы</dd></div>
+    <div class="pr-pair"><dt>Мощность</dt><dd>до 20 тыс. в месяц – по витрине</dd></div>
+    <div class="pr-pair"><dt>Переписка</dt><dd>вложение с запросом не открыли; повтор 9 сентября – без ответа</dd></div>
+  </dl>
+  <h3 class="pr-h3">Что дальше</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Один вопрос</dt><dd>какая площадка собирает браслет – и её документы. Нет ответа – направление закрываем</dd></div>
+  </dl>
+  <p class="pr-src">Источники: переписка с Rocfly Blue 09.09.2026; research/01, раздел 2.</p>
+</section>
+
+<section id="p-blackrhino">
+  <div class="shead"><span class="snum">17</span><h2><span class="pr-flag">🇭🇰</span>BlackRhino – TG29</h2></div>
+  <p class="sdek">Резерв: самый дешёвый браслет с самой длинной батареей – по витрине.</p>
+  <div class="pr-st w">🆕 Не писали · при медизделии отсекало отсутствие ISO 13485</div>
+  <div class="pr-ph">
+    <img src="img/devices/blackrhino-tg29.jpg" alt="BlackRhino TG29 – браслет без экрана на синем тканевом ремешке" loading="lazy">
+    <div class="c"><b>BlackRhino TG29</b>. Фото: витрина завода на Made-in-China.</div>
+  </div>
+  <h3 class="pr-h3">Кто это</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Юрлицо</dt><dd><b>BlackRhino Technology Limited</b>, Гонконг и Шэньчжэнь</dd></div>
+    <div class="pr-pair"><dt>Профиль</dt><dd>портативные мониторы и носимые устройства – браслеты и кольца; 26 лет в B2B</dd></div>
+    <div class="pr-pair"><dt>Сертификаты</dt><dd>«ISO, CE, FCC, RoHS» – без номеров</dd></div>
+    <div class="pr-pair"><dt>Контакт</dt><dd>только сообщение через витрину Made-in-China</dd></div>
+  </dl>
+  <h3 class="pr-h3">Изделие – TG29</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Платформа</dt><dd>чип GR5515, пульсовой датчик HX3918, датчик температуры NST112C, акселерометр MSA310; BLE 5.0; память 16 МБ</dd></div>
+    <div class="pr-pair"><dt>Батарея</dt><dd>180 мА·ч; до 47 дней в ожидании, около 30 дней работы по заголовку витрины</dd></div>
+    <div class="pr-pair"><dt>Зарядка</dt><dd>магнитный кабель</dd></div>
+    <div class="pr-pair"><dt>Корпус</dt><dd>алюминиевый сплав, IP68 и 3 ATM; четыре цвета</dd></div>
+    <div class="pr-pair"><dt>Данные</dt><dd>в заголовке – «открытый SDK», в карточке SDK назван опциональным: что отдаёт – проверять</dd></div>
+    <div class="pr-pair"><dt>Код ТН ВЭД</dt><dd>8517 62 999 0 – он же в перечне товаров с шифрованием: нотификация обязательна</dd></div>
+  </dl>
+  <h3 class="pr-h3">Условия сотрудничества</h3>
+  <p class="pr-dek">Цены с витрины, без торга.</p>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Цена</dt><dd><b>15,5 $</b> (100–999 шт) · <b>11,5 $</b> (1 000–2 999) · <b>10,5 $</b> (от 3 000)</dd></div>
+    <div class="pr-pair"><dt>Мощность</dt><dd>100 000 шт в месяц</dd></div>
+    <div class="pr-pair"><dt>Сроки</dt><dd>15 рабочих дней вне сезона, около месяца в сезон</dd></div>
+    <div class="pr-pair"><dt>Оплата</dt><dd>аккредитив, банковский перевод, Western Union, PayPal</dd></div>
+    <div class="pr-pair"><dt>Условия поставки</dt><dd>FOB, EXW, DDP, DAP, CIF, FCA; порты Шэньчжэнь и Гонконг</dd></div>
+  </dl>
+  <h3 class="pr-h3">Что дальше</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Сейчас</dt><dd>короткий запрос цен через витрину с дополнением по wellness: RR-интервалы, вибронапоминание, работа без облака, документы для ЕАЭС</dd></div>
+    <div class="pr-pair"><dt>Зачем</dt><dd>самая длинная батарея и самая низкая цена в списке – даже без контракта это рычаг на переговорах</dd></div>
+  </dl>
+  <p class="pr-src">Источники: витрина BlackRhino Technology на made-in-china.com, обращение 10.09.2026; research/01, раздел 2.</p>
+</section>
+
+<section id="p-vositone">
+  <div class="shead"><span class="snum">18</span><h2><span class="pr-flag">🇨🇳</span>Vositone – VN107ECG</h2></div>
+  <p class="sdek">Резерв: честный по регуляторике завод с понятными ступенями партии.</p>
+  <div class="pr-st w">🆕 Не писали</div>
+  <div class="pr-ph">
+    <img src="img/devices/vositone-vn107ecg.jpg" alt="Vositone VN107ECG – браслет без экрана на чёрном тканевом ремешке" loading="lazy">
+    <div class="c"><b>Vositone VN107ECG</b>. Фото: vositone.com, официальный сайт производителя.</div>
+  </div>
+  <h3 class="pr-h3">Кто это</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Юрлицо</dt><dd><b>Vositone</b>, Шэньчжэнь; с 2010 года</dd></div>
+    <div class="pr-pair"><dt>Мощности</dt><dd>цех 10 000 м², от 50 000 устройств в месяц; прототип за 15 дней</dd></div>
+    <div class="pr-pair"><dt>Сертификаты</dt><dd>CE, FCC, RoHS, ISO 9001, BQB. Прямо пишут: FDA, MDR и ISO 13485 у завода <b>нет</b>, только помощь клиенту</dd></div>
+    <div class="pr-pair"><dt>Контакт</dt><dd>+852 6579 3974, форма на сайте</dd></div>
+  </dl>
+  <h3 class="pr-h3">Изделие – VN107ECG</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Функции</dt><dd>ЭКГ, пульс, кислород, сон, шаги, напоминания</dd></div>
+    <div class="pr-pair"><dt>Память</dt><dd>64 МБ</dd></div>
+    <div class="pr-pair"><dt>Батарея</dt><dd>10–25 дней</dd></div>
+    <div class="pr-pair"><dt>Защита</dt><dd>IPX7</dd></div>
+    <div class="pr-pair"><dt>Связь</dt><dd>Bluetooth 5.4</dd></div>
+    <div class="pr-pair"><dt>⚠️ Для нас</dt><dd>ЭКГ как функция – медицинское заявление; для wellness отключаем или берём модель без неё</dd></div>
+  </dl>
+  <h3 class="pr-h3">Условия сотрудничества</h3>
+  <p class="pr-dek">С сайта производителя.</p>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Цена</dt><dd>браслет без экрана – от <b>14,5 $</b> FOB Шэньчжэнь</dd></div>
+    <div class="pr-pair"><dt>Минимальная партия</dt><dd>своя марка – 300–500 шт, OEM – 1 000, ODM – 3 000</dd></div>
+    <div class="pr-pair"><dt>Оснастка</dt><dd>5–30 тыс. $ при доработке корпуса</dd></div>
+    <div class="pr-pair"><dt>Права</dt><dd>полная передача прав на кастомные разработки</dd></div>
+    <div class="pr-pair"><dt>SDK</dt><dd>публично не описан – первый вопрос</dd></div>
+  </dl>
+  <h3 class="pr-h3">Что дальше</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Сейчас</dt><dd>письмо с запросом цен и дополнением по wellness; первый вопрос – есть ли SDK и RR-интервалы</dd></div>
+  </dl>
+  <p class="pr-src">Источники: vositone.com, обращение 10.09.2026; research/01, раздел 2.</p>
+</section>
+
+<section id="p-yawell">
+  <div class="shead"><span class="snum">19</span><h2><span class="pr-flag">🇨🇳</span>Yawell – Y25</h2></div>
+  <p class="sdek">Резерв по цене: самый дешёвый по витрине, но о самом изделии известно меньше всех.</p>
+  <div class="pr-st w">🆕 Не писали</div>
+  <div class="pr-ph">
+    <img src="img/devices/yawell-y25.jpg" alt="Yawell Y25 – браслет без экрана на чёрном тканевом ремешке" loading="lazy">
+    <div class="c"><b>Yawell Y25</b>. Фото: yawellfit.com, официальный сайт производителя.</div>
+  </div>
+  <h3 class="pr-h3">Кто это</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Юрлицо</dt><dd><b>Shenzhen Yawell Intelligent Technology Co., Ltd</b>, район Наньшань, Шэньчжэнь</dd></div>
+    <div class="pr-pair"><dt>Сертификаты</dt><dd>CE, RoHS; <b>FCC ID 2AOM3-Y25</b> выдан 4 сентября 2025 года по испытаниям лаборатории BCTC – протоколы радио и ЭМС существуют</dd></div>
+  </dl>
+  <h3 class="pr-h3">Изделие – Y25</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Форм-фактор</dt><dd>браслет без экрана, тканевый ремешок</dd></div>
+    <div class="pr-pair"><dt>Выпуск</dt><dd>модель конца 2025 года</dd></div>
+    <div class="pr-pair"><dt>Связь</dt><dd>Bluetooth 2,4 ГГц</dd></div>
+    <div class="pr-pair"><dt>Характеристики</dt><dd>датчики, батарея и SDK публично не раскрыты</dd></div>
+  </dl>
+  <h3 class="pr-h3">Условия сотрудничества</h3>
+  <p class="pr-dek">Только витрины, разброс между ними большой.</p>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Цена</dt><dd>13 $ (2–100 шт) → <b>9,8 $</b> от 3 001; на другой витрине 11,25 $ → 10,93 $ от 1 000</dd></div>
+    <div class="pr-pair"><dt>Что понятно</dt><dd>самая низкая цена в списке; готовые протоколы FCC упростят декларации ЕАЭС</dd></div>
+  </dl>
+  <h3 class="pr-h3">Что дальше</h3>
+  <dl class="pr-pairs">
+    <div class="pr-pair"><dt>Сейчас</dt><dd>запрос характеристик и SDK; писать имеет смысл, если BlackRhino и Vositone не дадут нужного</dd></div>
+  </dl>
+  <p class="pr-src">Источники: yawellfit.com, fccid.io (2AOM3-Y25), витрина Alibaba, обращение 10.09.2026; research/01, раздел 2.</p>
 </section>
 
 <section id="files">
