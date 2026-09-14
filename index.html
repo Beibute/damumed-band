@@ -505,7 +505,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
 <div class="wrap">
 
 <nav class="topnav">
-  <div class="topnav-in"><a href="#r01"><span class="tn-n">01</span>Идея</a><a href="#r02"><span class="tn-n">02</span>Цена</a><a href="#r03"><span class="tn-n">03</span>Три ценовых уровня</a><a href="#r04"><span class="tn-n">04</span>Экономика</a><a href="#r07"><span class="tn-n">05</span>Производство</a><a href="#partnery"><span class="tn-n">06</span>Партнёры</a><a href="#trip"><span class="tn-n">14</span>Поездка на завод</a><a href="#r05"><span class="tn-n">15</span>Целевые группы</a><a href="#r08"><span class="tn-n">16</span>Статус: wellness</a><a href="#r09"><span class="tn-n">17</span>Риски</a><a href="#r06"><span class="tn-n">18</span>Мобильное приложение</a><a href="#nazvanie"><span class="tn-n">19</span>Название</a></div>
+  <div class="topnav-in"><a href="#r01"><span class="tn-n">01</span>Идея</a><a href="#r02"><span class="tn-n">02</span>Цена</a><a href="#r03"><span class="tn-n">03</span>Три ценовых уровня</a><a href="#r04"><span class="tn-n">04</span>Экономика</a><a href="#r07"><span class="tn-n">05</span>Производство</a><a href="#partnery"><span class="tn-n">06</span>Партнёры</a><a href="#trip"><span class="tn-n">14</span>Поездка на завод</a><a href="#r05"><span class="tn-n">15</span>Целевые группы</a><a href="#r08"><span class="tn-n">16</span>Статус: wellness</a><a href="#r09"><span class="tn-n">17</span>Риски</a><a href="#r06"><span class="tn-n">18</span>Мобильное приложение</a><a href="#konkurenty"><span class="tn-n">19</span>Конкуренты</a><a href="#nazvanie"><span class="tn-n">20</span>Название</a></div>
 </nav>
 
 <div class="tiles">
@@ -2165,8 +2165,96 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   </div>
 </section>
 
+<section id="konkurenty">
+  <div class="shead"><span class="snum">19</span><h2>Сравнение с конкурентами</h2></div>
+  <p class="sdek">Разобрали Whoop 5.0 / MG и Oura Ring 4 не по интерфейсу, а по сути: какие датчики,
+  что измеряется, из каких данных считается каждый показатель и что отдаётся наружу. Вывод:
+  по датчикам мы на уровне Whoop, по данным – шире обоих, по доказательной базе у лидеров
+  есть слабые места, которые мы можем закрыть.</p>
+
+  <div class="pr-sum">
+    <div class="c"><div class="k">Формулы оценок</div><div class="v">закрыты</div>
+      <div class="d">веса Recovery, Readiness и Strain не публикует никто; с исходами болезней оценки не сверялись</div></div>
+    <div class="c"><div class="k">RR-интервалы наружу</div><div class="v">0 из 2</div>
+      <div class="d">ни Whoop, ни Oura не отдают удар-к-удару и сырой сигнал через API; у нас это обязательное требование к заводу</div></div>
+    <div class="c"><div class="k">Разрешения FDA</div><div class="v">1</div>
+      <div class="d">только ЭКГ на Whoop MG; у Oura ни одной функции с разрешением – всё wellness</div></div>
+  </div>
+
+  <h3 class="pr-h3">Железо</h3>
+  <div class="tw"><table>
+    <tr><th>Параметр</th><th>Whoop 5.0 / MG</th><th>Oura Ring 4</th><th>Damumed Band (требования к заводу)</th></tr>
+    <tr><td><strong>PPG</strong></td><td>5 светодиодов (3 зелёных, красный, ИК), 4 фотодиода</td>
+      <td>18 оптических путей, зелёный + красный + ИК, подбор под кожу</td>
+      <td>зелёный + красный + ИК обязательно</td></tr>
+    <tr><td><strong>Частота PPG</strong></td><td>26–52 Гц</td><td>125–250 Гц</td><td>не ниже 25 Гц днём и 50 Гц ночью</td></tr>
+    <tr><td><strong>Движение</strong></td><td>акселерометр + гироскоп</td><td>акселерометр</td><td>акселерометр; гироскоп желательно</td></tr>
+    <tr><td><strong>Температура кожи</strong></td><td>есть</td><td>раз в минуту, 0,1 °C</td><td>раз в минуту во сне, 0,1 °C</td></tr>
+    <tr><td><strong>ЭКГ</strong></td><td>только MG, 30 с по касанию</td><td>нет</td><td>опция в модели SKU-B</td></tr>
+    <tr><td><strong>Батарея</strong></td><td>14+ дней</td><td>5–8 дней</td><td>от 7 дней, цель 14</td></tr>
+    <tr><td><strong>Где считаются показатели</strong></td><td>облако Whoop</td><td>приложение и облако Oura</td><td>наше облако в РК, без облака завода</td></tr>
+  </table></div>
+
+  <h3 class="pr-h3">Показатели</h3>
+  <div class="tw"><table>
+    <tr><th>Показатель</th><th>Whoop</th><th>Oura</th><th>Apple</th><th>Garmin</th><th>Damumed Band</th></tr>
+    <tr><td>Сводная оценка готовности</td><td>Recovery</td><td>Readiness</td><td>нет</td><td>Training Readiness</td><td>первая партия, с разбивкой по вкладам</td></tr>
+    <tr><td>Ночной пульс покоя</td><td>есть</td><td>есть</td><td>есть</td><td>есть</td><td>первая партия</td></tr>
+    <tr><td>Ночная ВСР</td><td>RMSSD</td><td>RMSSD</td><td>SDNN</td><td>HRV Status</td><td>первая партия, по RR-интервалам</td></tr>
+    <tr><td>Сон: длительность, регулярность</td><td>есть</td><td>есть</td><td>есть</td><td>есть</td><td>первая партия</td></tr>
+    <tr><td>Стадии сна</td><td>есть</td><td>есть, лучшая точность</td><td>есть</td><td>есть</td><td>вторая волна, информационно</td></tr>
+    <tr><td>Частота дыхания, SpO2 ночью</td><td>есть</td><td>есть</td><td>частично</td><td>есть</td><td>первая партия, SpO2 как тренд</td></tr>
+    <tr><td>Отклонение температуры</td><td>есть</td><td>есть</td><td>есть</td><td>частично</td><td>первая партия</td></tr>
+    <tr><td>Нагрузка</td><td>Strain 0–21</td><td>Activity Score</td><td>Training Load</td><td>Training Load</td><td>вторая волна</td></tr>
+    <tr><td>Стресс днём</td><td>есть</td><td>есть</td><td>нет</td><td>есть</td><td>вторая волна</td></tr>
+    <tr><td>VO2max</td><td>есть</td><td>есть</td><td>есть</td><td>есть</td><td>вторая волна</td></tr>
+    <tr><td>Нерегулярный ритм</td><td>ЭКГ на MG</td><td>нет</td><td>уведомления, FDA</td><td>ЭКГ на части моделей</td><td>нет в wellness-версии</td></tr>
+    <tr><td>Давление, апноэ</td><td>давление wellness</td><td>wellness</td><td>уведомления, FDA</td><td>нет</td><td>нет, давление – тонометром</td></tr>
+    <tr><td>«Биологический возраст»</td><td>WHOOP Age</td><td>Cardiovascular Age</td><td>нет</td><td>Fitness Age</td><td>не делаем: доказательств мало</td></tr>
+    <tr><td>Связь с медкартой и врачом</td><td>нет</td><td>нет</td><td>импорт записей</td><td>нет</td><td><strong>да – Damumed</strong></td></tr>
+  </table></div>
+
+  <h3 class="pr-h3">Насколько точны лидеры</h3>
+  <div class="tw"><table>
+    <tr><th>Что сверяли</th><th>Эталон</th><th>Whoop</th><th>Oura</th></tr>
+    <tr><td>Ночной пульс покоя</td><td>нагрудный ЭКГ</td><td class="n">ошибка 3,0 %</td><td class="n">ошибка 1,9 %</td></tr>
+    <tr><td>Ночная ВСР</td><td>нагрудный ЭКГ</td><td class="n">ошибка 8,2 %</td><td class="n">ошибка 6,0 %</td></tr>
+    <tr><td>Сон / бодрствование</td><td>полисомнография</td><td class="n">89 %, бодрствование узнаёт в 51 %</td><td class="n">96 %</td></tr>
+    <tr><td>4 стадии сна</td><td>полисомнография</td><td class="n">64 %</td><td class="n">79 %</td></tr>
+  </table></div>
+  <p class="cap">Все проверки – на молодых и здоровых: у Whoop средний возраст участников 23 года.
+  На пожилых с аритмией и бета-блокаторами точность никто не публиковал.</p>
+
+  <div class="note">
+    <div class="t">Где мы сильнее</div>
+    <ol>
+      <li><strong>Полные данные у себя.</strong> RR-интервалы всю ночь и сырой сигнал по команде – требование
+      к заводу. У Whoop и Oura наружу выходят только агрегаты, у Oura – ещё и только при оплаченной подписке.</li>
+      <li><strong>Проверка на наших людях.</strong> Точность проверяем на пожилых, с аритмией
+      и бета-блокаторами, а не на студентах.</li>
+      <li><strong>Личная норма, а не красивое число.</strong> Каждый показатель – против собственного
+      базового уровня; сводная оценка раскладывается на вклады, видно, что именно просело.</li>
+      <li><strong>Медкарта рядом.</strong> Смена препарата, диагноз, визиты – данные, которых
+      нет ни у одного фитнес-бренда.</li>
+    </ol>
+  </div>
+
+  <div class="note">
+    <div class="t">Где уступаем честно</div>
+    <ol>
+      <li><strong>Оптика.</strong> На запястье с простым PPG качества кольца Oura с 18 оптическими путями не будет.</li>
+      <li><strong>Первая партия – wellness.</strong> Без ЭКГ, скрининга ритма, апноэ и давления – у Apple на это есть разрешения FDA.</li>
+      <li><strong>Стадии сна</strong> – вторая волна и только информационно: на запястье их точность ограничена у всех.</li>
+    </ol>
+  </div>
+
+  <p class="pr-src">Источники: официальные страницы и документация API Whoop и Oura; Dial et al., Physiol Rep 2025;
+  Miller et al. 2020; Altini &amp; Kinnunen 2021; базы FDA. Полный разбор со 101 источником –
+  research/22-whoop-oura-funkcional.md. Проверено 14.09.2026.</p>
+</section>
+
 <section id="nazvanie">
-  <div class="shead"><span class="snum">19</span><h2>Название</h2></div>
+  <div class="shead"><span class="snum">20</span><h2>Название</h2></div>
   <p class="sdek">Рабочее название – Damumed Band. По-английски «band» это просто браслет:
   точно, но безлико. Восемь казахских вариантов ниже показаны со знаками, собранными в
   языке логотипа Damumed – тот же зелёный диск и белая форма внутри. Решение за
