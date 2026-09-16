@@ -859,7 +859,7 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   <div id="r06"></div>
   <h3 class="csub">🇺🇸 Dexcom – единственный публичный API · 🔚 закрыт 10.09</h3>
   <dl class="pairs">
-    <div class="pair"><dt>Уровни доступа</dt><dd>Registered Developer (только песочница) → <b>Limited Access</b> (до 5 реальных пользователей) → Full Access</dd></div>
+    <div class="pair"><dt>Уровни доступа</dt><dd>Registered Developer (только тестовая среда) → <b>Limited Access</b> (до 5 реальных пользователей) → Full Access</dd></div>
     <div class="pair"><dt>🔴 География</dt><dd>API работает «в отдельных странах вне США… расширяется после согласования с властями каждой страны». <b>Публичного списка стран нет</b>: страны называются в заявке, Dexcom подтверждает каждую отдельно. 10 сентября проверено по документации: <b>Казахстана в списке стран нет</b> – путь закрыт; данные вне США приходят с задержкой 3 часа; письмо 06.09 без ответа</dd></div>
     <div class="pair"><dt>Авторизация</dt><dd>OAuth 2.0; пациент авторизуется на стороне Dexcom, приложение не получает его пароль; refresh_token до 1 года; обязательное <b>серверное</b> хранение токенов</dd></div>
     <div class="pair"><dt>Данные</dt><dd>/egvs (значение и тренд), /calibrations, /events, /devices, /dataRange. Интервал показаний G6/G7 – раз в 5 минут</dd></div>
@@ -1907,12 +1907,12 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   <h3 class="csub">API – как он устроен</h3>
   <p class="csub-dek">Официальный портал разработчика, OAuth 2.0, документированные точки доступа.</p>
   <dl class="pairs">
-    <div class="pair"><dt>Уровни доступа</dt><dd>Registered Developer (только песочница) → <b>Limited Access</b> (до 5 реальных пользователей) → Full Access после проверки</dd></div>
+    <div class="pair"><dt>Уровни доступа</dt><dd>Registered Developer (только тестовая среда) → <b>Limited Access</b> (до 5 реальных пользователей) → Full Access после проверки</dd></div>
     <div class="pair"><dt>Авторизация</dt><dd>пациент авторизуется <b>на стороне Dexcom</b>, приложение не получает его логин и пароль</dd></div>
     <div class="pair"><dt>Согласие</dt><dd>оформляется как HIPAA-авторизация, отзывается в личном кабинете в любой момент</dd></div>
     <div class="pair"><dt>Токены</dt><dd>хранятся <b>на серверах партнёра</b>: access_token короткоживущий, refresh_token одноразовый, до года</dd></div>
     <div class="pair"><dt>Данные</dt><dd>/egvs – значение и тренд, /calibrations, /events, /devices, /dataRange; показания G6/G7 раз в 5 минут</dd></div>
-    <div class="pair"><dt>Песочница</dt><dd>не годится для формального тестирования, валидации и обучения алгоритмов – реальные данные только с Limited Access</dd></div>
+    <div class="pair"><dt>Тестовая среда</dt><dd>не годится для формального тестирования, валидации и обучения алгоритмов – реальные данные только с Limited Access</dd></div>
     <div class="pair"><dt>Интеграция с МИС</dt><dd>только клиники на Epic с FHIR R4; отдаёт AGP и GMI в карту – тот же формат, что мы закладываем в панель</dd></div>
     <div class="pair"><dt>Стоимость</dt><dd>🔴 в документации не указана</dd></div>
     <div class="pair"><dt>Хосты</dt><dd>api.dexcom.com, api.dexcom.eu, api.dexcom.jp – ⚠️ по комьюнити-спецификации, официально не подтверждено</dd></div>
