@@ -154,6 +154,10 @@ tr:last-child td{border-bottom:0}
 .pr-ph{background:var(--surface); border-radius:22px; padding:18px; margin:22px 0; box-shadow:var(--shadow)}
 .pr-ph img{width:100%; max-width:560px; display:block; margin:0 auto; border-radius:14px; background:#fff}
 .pr-ph .c{color:var(--muted); font-size:13.5px; margin-top:12px; line-height:1.55}
+.pr-gal{display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
+.pr-gal a{display:block; border-radius:12px; overflow:hidden; background:#fff; aspect-ratio:1/1}
+.pr-gal img{width:100%; height:100%; object-fit:cover; display:block; max-width:none; border-radius:0}
+@media (max-width:560px){.pr-gal{grid-template-columns:repeat(2,1fr)}}
 .pr-pairs{margin:16px 0}
 .pr-pair{display:grid; grid-template-columns:minmax(170px,34%) 1fr; gap:4px 20px; padding:11px 0;
   border-bottom:1px solid var(--line)}
@@ -1175,8 +1179,15 @@ footer{border-top:1px solid var(--line-strong); padding-top:24px; margin-top:56p
   <p class="sdek">Основной кандидат на пилот. Единственный, кто письменно подтвердил все технические условия: RR с точностью 1 мс, работа без облака в договоре, напоминание с касанием, документы для ЕАЭС. Минусы – цена выше порога, лицензия SDK до документации. Встреча 21.09 проведена (началась в 11:00 Астаны, Teams); наша редакция NDA с 8 правками подписана Талгатом и отправлена 21.09, ждём контрподпись, котировку на бланке и письменное подтверждение 4 функций.</p>
   <div class="pr-st w">⚠️ 12.09, 18:20 – ответ адресован чужому клиенту (BSS), три вопроса не закрыты · наш ответ 12.09, 20:13 – официальная котировка и NDA повторно · 14.09 повторный запрос на support@ и Executive Director, срок 16.09 · 15.09, 18:02 – письмо о визите: приглашаем в понедельник 28.09 после обеда, повтор срока 16.09 · 16.09, 17:50 – Jack Ho ответил: онлайн-встреча до визита, котировка к ней, сертификаты только после заказа · наш ответ 16.09, 18:19 – встреча перенесена на пн 21.09 (запасное вт 22.09), котировку просим к 18.09 · 17.09, 10:35 – встреча пн 21.09 14:00 Китая подтверждена, просят имена делегатов и NDA · наш ответ 14:28 – сначала NDA файлом и подпись, потом встреча · 17.09, 17:25 – NDA файлом получен: 200 000 $ за нарушение, право КНР, 3 арбитра – отправлены 8 правок · 19.09 – Талгат подписал NDA в исходной редакции завода (не отправлен) · 20.09 вечер – Vositone прислали «новую» редакцию, оказавшуюся тем же файлом без изменений · 21.09, 00:30 – отправлена наша редакция с 8 правками, подписанная Талгатом · 21.09, 11:00 – встреча проведена: образцы на складе 20 $, SDK после NDA и коммерческих условий, завод не медицинский, визит после 7.10, цена 1 000 шт. голосом ~17,5 $ против 16,15 $ в письме – ждём письменно; следом отправлены резюме встречи и перечень документов для регистрации в РК, срок ответа 23.09</div>
   <div class="pr-ph">
-    <img src="img/devices/vositone-vn107ecg.jpg" alt="Vositone VN107ECG – браслет без экрана на чёрном тканевом ремешке" loading="lazy">
-    <div class="c"><b>Vositone VN107ECG</b>. Фото: vositone.com, официальный сайт производителя.</div>
+    <div class="pr-gal">
+      <a href="img/devices/vositone-vn107-black.jpg" target="_blank" rel="noopener"><img src="img/devices/vositone-vn107-black.jpg" alt="Vositone VN107 – чёрный тканевый ремешок" loading="lazy"></a>
+      <a href="img/devices/vositone-vn107-orange.jpg" target="_blank" rel="noopener"><img src="img/devices/vositone-vn107-orange.jpg" alt="Vositone VN107 – оранжевый ремешок" loading="lazy"></a>
+      <a href="img/devices/vositone-vn107-pink.jpg" target="_blank" rel="noopener"><img src="img/devices/vositone-vn107-pink.jpg" alt="Vositone VN107 – светло-розовый ремешок" loading="lazy"></a>
+      <a href="img/devices/vositone-vn107-sleep.jpg" target="_blank" rel="noopener"><img src="img/devices/vositone-vn107-sleep.jpg" alt="Vositone VN107 – на руке во время сна" loading="lazy"></a>
+      <a href="img/devices/vositone-vn107-wrist.jpg" target="_blank" rel="noopener"><img src="img/devices/vositone-vn107-wrist.jpg" alt="Vositone VN107 – на руке во время тренировки" loading="lazy"></a>
+      <a href="img/devices/vositone-vn107-ip68.jpg" target="_blank" rel="noopener"><img src="img/devices/vositone-vn107-ip68.jpg" alt="Vositone VN107 – защита IP68 от пыли и воды" loading="lazy"></a>
+    </div>
+    <div class="c"><b>Vositone VN107ECG</b> – три цвета ремешка, на руке днём и ночью, влагозащита. Фото производителя: Jack Ho прислал 24.09 ссылку на <a href="https://vositone.com/products/vositone-vn107ecg-screenless-fitness-wristband.html" target="_blank" rel="noopener">страницу модели</a> вместо снимков образцов. Мы берём VN107 без ЭКГ – корпус тот же, ЭКГ и давление отключаются программно. Реальные фото – когда придут 5 образцов.</div>
   </div>
   <h3 class="pr-h3">Кто это</h3>
   <dl class="pr-pairs">
